@@ -370,6 +370,9 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Domain\Entities\RsData.cs" />
+    <Compile Include="Domain\Entities\RsDataConfig.cs" />
+    <Compile Include="Domain\Entity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -380,6 +383,10 @@
     <Compile Include="Migrations\202004051308526_v1.cs" />
     <Compile Include="Migrations\202004051308526_v1.Designer.cs">
       <DependentUpon>202004051308526_v1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004051332401_v2.cs" />
+    <Compile Include="Migrations\202004051332401_v2.Designer.cs">
+      <DependentUpon>202004051332401_v2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -428,6 +435,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004051308526_v1.resx">
       <DependentUpon>202004051308526_v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004051332401_v2.resx">
+      <DependentUpon>202004051332401_v2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
