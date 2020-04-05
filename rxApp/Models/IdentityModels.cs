@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -32,12 +34,69 @@ namespace rxApp.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
         }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
+            modelBuilder.Properties<string>()
+                .Configure(p => p.HasColumnType("varchar"));
+
+            modelBuilder.Properties<string>()
+                .Configure(p => p.HasMaxLength(250));
+
+            //modelBuilder.Configurations.Add(new CondoConfig());
+            //modelBuilder.Configurations.Add(new CondoCodeConfig());
+            //modelBuilder.Configurations.Add(new AppImageConfig());
+            //modelBuilder.Configurations.Add(new DeviceConfig());
+            //modelBuilder.Configurations.Add(new EmailNotificationConfig());
+            //modelBuilder.Configurations.Add(new PersonConfig());
+            //modelBuilder.Configurations.Add(new PersonVehicleConfig());
+            //modelBuilder.Configurations.Add(new TokenConfig());
+            //modelBuilder.Configurations.Add(new VersionConfig());
+            //modelBuilder.Configurations.Add(new PersonVisitorConfig());
+            //modelBuilder.Configurations.Add(new PersonVisitorAccessConfig());
+            //modelBuilder.Configurations.Add(new CondoPersonServiceProviderConfig());
+            //modelBuilder.Configurations.Add(new CondoPersonServiceProviderTypeConfig());
+            //modelBuilder.Configurations.Add(new CondoPersonServiceProviderAccessConfig());
+            //modelBuilder.Configurations.Add(new CondoPersonDeliveryConfig());
+            //modelBuilder.Configurations.Add(new CondoPersonDeliveryTypeConfig());
+            //modelBuilder.Configurations.Add(new CondoRecommendationConfig());
+            //modelBuilder.Configurations.Add(new SurveyConfig());
+            //modelBuilder.Configurations.Add(new SurveyChoiceConfig());
+            //modelBuilder.Configurations.Add(new NotificationConfig());
+
+            //modelBuilder.ComplexType<AppImageType>()
+            //    .Ignore(r => r.Name);
+
+            //modelBuilder.ComplexType<DeviceStatus>()
+            //    .Ignore(r => r.Name);
+
+            //modelBuilder.ComplexType<DeviceOs>()
+            //    .Ignore(r => r.Name);
+
+            //modelBuilder.ComplexType<PersonUserStatus>()
+            //    .Ignore(r => r.Name);
+
+            //modelBuilder.ComplexType<PersonRelationType>()
+            //    .Ignore(r => r.Name);
+
+            //modelBuilder.ComplexType<PersonVisitorStatus>()
+            //    .Ignore(r => r.Name);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
     }
 }
 
