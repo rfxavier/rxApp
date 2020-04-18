@@ -223,6 +223,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Login.Master" />
+    <Content Include="Main.master" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -259,6 +260,7 @@
     </Content>
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
+    <Content Include="web.sitemap" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\AddPhoneNumber.aspx.cs">
@@ -413,6 +415,13 @@
     <Compile Include="LoginAux.aspx.designer.cs">
       <DependentUpon>LoginAux.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Main.master.cs">
+      <DependentUpon>Main.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.master.designer.cs">
+      <DependentUpon>Main.master</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202004051244386_InitialCreate.cs" />
     <Compile Include="Migrations\202004051244386_InitialCreate.Designer.cs">
       <DependentUpon>202004051244386_InitialCreate.cs</DependentUpon>
@@ -461,6 +470,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
+    <Folder Include="frmRx\Agyliti\Cliente001\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
