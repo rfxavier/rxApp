@@ -5,8 +5,6 @@
     <siteMapNode url="" title="Admin Master" description="Admin Master" roles="AdmMaster">
       <siteMapNode url="~/frmAdmMasterCadastro/frmAdmMaster/RoleAdmin.aspx" title="Permissões" description="Permissões" roles="AdmMaster" />
       <siteMapNode url="~/frmAdmMasterCadastro/frmAdmMaster/WebSiteMapAdmin.aspx" title="Site Map" description="Site Map" roles="AdmMaster" />
-      <siteMapNode url="~/frmAdmMasterCadastro/frmAdmMaster/RelatoriosMobileAdmin.aspx" title="Relatórios Mobile" description="Relatórios Mobile" roles="AdmMaster" />
-      <siteMapNode url="~/frmAdmMasterCadastro/frmAdmMaster/LogAdmin.aspx" title="Log Admin" description="Log Admin" roles="AdmMaster" />
     </siteMapNode>
     <siteMapNode url="" title="Admin" description="Admin" roles="AdmMaster,Admin BI4T">
       <siteMapNode url="~/frmAdmMasterCadastro/Usuarios.aspx" title="Usuários" description="AdminUsuarios" roles="AdmMaster,Admin BI4T" />

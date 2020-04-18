@@ -216,6 +216,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
     <Content Include="LoginAux.aspx" />
+    <Content Include="LoginRedirect.aspx" />
     <Content Include="Root.Master" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
@@ -414,6 +415,13 @@
     </Compile>
     <Compile Include="LoginAux.aspx.designer.cs">
       <DependentUpon>LoginAux.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginRedirect.aspx.cs">
+      <DependentUpon>LoginRedirect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginRedirect.aspx.designer.cs">
+      <DependentUpon>LoginRedirect.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main.master.cs">
       <DependentUpon>Main.master</DependentUpon>
