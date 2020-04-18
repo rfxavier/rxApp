@@ -478,7 +478,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="frmRx\Agyliti\Cliente001\" />
+    <Folder Include="frmRx\Agyliti\Cliente001\Dashboard\" />
+    <Folder Include="frmRx\Agyliti\Cliente001\DevExtreme\" />
+    <Folder Include="frmRx\Agyliti\Cliente001\Report\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
