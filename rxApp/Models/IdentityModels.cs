@@ -28,6 +28,9 @@ namespace rxApp.Models
         {
             return Task.FromResult(GenerateUserIdentity(manager));
         }
+
+        public Guid? CompanyId { get; set; }
+        public Company Company { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
