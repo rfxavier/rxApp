@@ -68,7 +68,6 @@
                         <div class="col-xs-10 text-right">
                             <dx:ASPxHyperLink runat="server" ID="hlLogo" NavigateUrl="~/Default.aspx" ImageUrl="~/Content/Images/LogoAux.png">
                             </dx:ASPxHyperLink>
-                            <img src="<%= Page.ResolveUrl("~/Content/Images/LogoAuxLetters.png")%>" />
                             <asp:LoginView runat="server" ViewStateMode="Disabled" ID="LoginView1">
                                 <LoggedInTemplate>
                                     <div class="logged-in-template">
