@@ -12,10 +12,17 @@ namespace rxApp
     using System;
     using System.Collections.Generic;
     
-    public partial class message_cofre
+    public partial class message_view
     {
         public string id_cofre { get; set; }
-        public string nome_ponto_venda { get; set; }
+        public string cofre_nome { get; set; }
+        public string cofre_serie { get; set; }
+        public string cofre_tipo { get; set; }
+        public string cofre_marca { get; set; }
+        public string cofre_modelo { get; set; }
+        public string cofre_tamanho_malote { get; set; }
+        public string cofre_cliente { get; set; }
+        public string cofre_loja { get; set; }
         public long id { get; set; }
         public string info_id { get; set; }
         public string info_ip { get; set; }
@@ -25,7 +32,10 @@ namespace rxApp
         public string data_tmst_begin { get; set; }
         public string data_tmst_end { get; set; }
         public string data_user { get; set; }
+        public string user_nome { get; set; }
         public string data_type { get; set; }
+        public string movimento_nome { get; set; }
+        public string movimento_tipo { get; set; }
         public Nullable<decimal> data_currency_total { get; set; }
         public Nullable<long> data_currency_bill_2 { get; set; }
         public Nullable<long> data_currency_bill_5 { get; set; }

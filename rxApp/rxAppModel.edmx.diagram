@@ -7,7 +7,9 @@
       <Diagram DiagramId="98f9f32261524a22ba8f739d644b582d" Name="Diagram1">
         <EntityTypeShape EntityType="getlockModel.message" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="getlockModel.cofre" Width="1.5" PointX="3.375" PointY="0.75" />
-        <EntityTypeShape EntityType="getlockModel.message_cofre" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="getlockModel.cofre_user" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="getlockModel.movimento" Width="1.5" PointX="7.5" PointY="0.75" />
+        <EntityTypeShape EntityType="getlockModel.message_view" Width="1.5" PointX="3.25" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

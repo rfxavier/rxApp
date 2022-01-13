@@ -12,18 +12,12 @@ namespace rxApp
     using System;
     using System.Collections.Generic;
     
-    public partial class cofre
+    public partial class movimento
     {
         public long id { get; set; }
-        public string id_cofre { get; set; }
+        public string data_type { get; set; }
         public string nome { get; set; }
-        public string serie { get; set; }
         public string tipo { get; set; }
-        public string marca { get; set; }
-        public string modelo { get; set; }
-        public string tamanho_malote { get; set; }
-        public string cliente { get; set; }
-        public string loja { get; set; }
         public Nullable<System.DateTime> trackLastWriteTime { get; set; }
         public Nullable<System.DateTime> trackCreationTime { get; set; }
     }

@@ -10,10 +10,36 @@ warning 6002: The table/view 'getlock.dbo.cofre' does not have a primary key def
         <EntityType Name="cofre">
           <Key>
             <PropertyRef Name="id" />
+            
+            <PropertyRef Name="nome" />
           </Key>
           <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="id_cofre" Type="nvarchar" MaxLength="50" />
-          <Property Name="nome_ponto_venda" Type="nvarchar" MaxLength="50" />
+          <Property Name="id_cofre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="serie" Type="nvarchar" MaxLength="50" />
+          <Property Name="tipo" Type="nvarchar" MaxLength="50" />
+          <Property Name="marca" Type="nvarchar" MaxLength="50" />
+          <Property Name="modelo" Type="nvarchar" MaxLength="50" />
+          <Property Name="tamanho_malote" Type="nvarchar" MaxLength="50" />
+          <Property Name="cliente" Type="nvarchar" MaxLength="50" />
+          <Property Name="loja" Type="nvarchar" MaxLength="50" />
+          <Property Name="trackLastWriteTime" Type="datetime" />
+          <Property Name="trackCreationTime" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'getlock.dbo.cofre_user' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="cofre_user">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="id_cofre" />
+            <PropertyRef Name="data_user" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_cofre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="data_user" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nome" Type="nvarchar" MaxLength="50" />
+          <Property Name="trackLastWriteTime" Type="datetime" />
+          <Property Name="trackCreationTime" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'getlock.dbo.message' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -47,13 +73,35 @@ warning 6002: The table/view 'getlock.dbo.message' does not have a primary key d
           <Property Name="trackCreationTime" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'getlock.dbo.message_cofre' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="message_cofre">
+warning 6002: The table/view 'getlock.dbo.movimento' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="movimento">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="data_type" />
+            <PropertyRef Name="nome" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="data_type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipo" Type="nvarchar" MaxLength="50" />
+          <Property Name="trackLastWriteTime" Type="datetime" />
+          <Property Name="trackCreationTime" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'getlock.dbo.message_view' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="message_view">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id_cofre" Type="nvarchar" MaxLength="50" />
-          <Property Name="nome_ponto_venda" Type="nvarchar" MaxLength="50" />
+          <Property Name="cofre_nome" Type="nvarchar" MaxLength="50" />
+          <Property Name="cofre_serie" Type="nvarchar" MaxLength="50" />
+          <Property Name="cofre_tipo" Type="nvarchar" MaxLength="50" />
+          <Property Name="cofre_marca" Type="nvarchar" MaxLength="50" />
+          <Property Name="cofre_modelo" Type="nvarchar" MaxLength="50" />
+          <Property Name="cofre_tamanho_malote" Type="nvarchar" MaxLength="50" />
+          <Property Name="cofre_cliente" Type="nvarchar" MaxLength="50" />
+          <Property Name="cofre_loja" Type="nvarchar" MaxLength="50" />
           <Property Name="id" Type="bigint" Nullable="false" />
           <Property Name="info_id" Type="nvarchar" MaxLength="50" />
           <Property Name="info_ip" Type="nvarchar" MaxLength="50" />
@@ -63,7 +111,10 @@ warning 6002: The table/view 'getlock.dbo.message_cofre' does not have a primary
           <Property Name="data_tmst_begin" Type="nvarchar" MaxLength="50" />
           <Property Name="data_tmst_end" Type="nvarchar" MaxLength="50" />
           <Property Name="data_user" Type="nvarchar" MaxLength="50" />
+          <Property Name="user_nome" Type="nvarchar" MaxLength="50" />
           <Property Name="data_type" Type="nvarchar" MaxLength="50" />
+          <Property Name="movimento_nome" Type="nvarchar" MaxLength="50" />
+          <Property Name="movimento_tipo" Type="nvarchar" MaxLength="50" />
           <Property Name="data_currency_total" Type="numeric" Precision="18" Scale="2" />
           <Property Name="data_currency_bill_2" Type="bigint" />
           <Property Name="data_currency_bill_5" Type="bigint" />
@@ -83,8 +134,27 @@ warning 6002: The table/view 'getlock.dbo.message_cofre' does not have a primary
             <DefiningQuery>SELECT 
     [cofre].[id] AS [id], 
     [cofre].[id_cofre] AS [id_cofre], 
-    [cofre].[nome_ponto_venda] AS [nome_ponto_venda]
+    [cofre].[nome] AS [nome], 
+    [cofre].[serie] AS [serie], 
+    [cofre].[tipo] AS [tipo], 
+    [cofre].[marca] AS [marca], 
+    [cofre].[modelo] AS [modelo], 
+    [cofre].[tamanho_malote] AS [tamanho_malote], 
+    [cofre].[cliente] AS [cliente], 
+    [cofre].[loja] AS [loja], 
+    [cofre].[trackLastWriteTime] AS [trackLastWriteTime], 
+    [cofre].[trackCreationTime] AS [trackCreationTime]
     FROM [dbo].[cofre] AS [cofre]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="cofre_user" EntityType="Self.cofre_user" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [cofre_user].[id] AS [id], 
+    [cofre_user].[id_cofre] AS [id_cofre], 
+    [cofre_user].[data_user] AS [data_user], 
+    [cofre_user].[nome] AS [nome], 
+    [cofre_user].[trackLastWriteTime] AS [trackLastWriteTime], 
+    [cofre_user].[trackCreationTime] AS [trackCreationTime]
+    FROM [dbo].[cofre_user] AS [cofre_user]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="message" EntityType="Self.message" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -114,34 +184,54 @@ warning 6002: The table/view 'getlock.dbo.message_cofre' does not have a primary
     [message].[trackCreationTime] AS [trackCreationTime]
     FROM [dbo].[message] AS [message]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="message_cofre" EntityType="Self.message_cofre" store:Type="Views" store:Schema="dbo">
+          <EntitySet Name="movimento" EntityType="Self.movimento" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [message_cofre].[id_cofre] AS [id_cofre], 
-    [message_cofre].[nome_ponto_venda] AS [nome_ponto_venda], 
-    [message_cofre].[id] AS [id], 
-    [message_cofre].[info_id] AS [info_id], 
-    [message_cofre].[info_ip] AS [info_ip], 
-    [message_cofre].[info_mac] AS [info_mac], 
-    [message_cofre].[info_json] AS [info_json], 
-    [message_cofre].[data_hash] AS [data_hash], 
-    [message_cofre].[data_tmst_begin] AS [data_tmst_begin], 
-    [message_cofre].[data_tmst_end] AS [data_tmst_end], 
-    [message_cofre].[data_user] AS [data_user], 
-    [message_cofre].[data_type] AS [data_type], 
-    [message_cofre].[data_currency_total] AS [data_currency_total], 
-    [message_cofre].[data_currency_bill_2] AS [data_currency_bill_2], 
-    [message_cofre].[data_currency_bill_5] AS [data_currency_bill_5], 
-    [message_cofre].[data_currency_bill_10] AS [data_currency_bill_10], 
-    [message_cofre].[data_currency_bill_20] AS [data_currency_bill_20], 
-    [message_cofre].[data_currency_bill_50] AS [data_currency_bill_50], 
-    [message_cofre].[data_currency_bill_100] AS [data_currency_bill_100], 
-    [message_cofre].[data_currency_bill_200] AS [data_currency_bill_200], 
-    [message_cofre].[data_currency_bill_rejected] AS [data_currency_bill_rejected], 
-    [message_cofre].[data_currency_envelope] AS [data_currency_envelope], 
-    [message_cofre].[data_currency_envelope_total] AS [data_currency_envelope_total], 
-    [message_cofre].[trackLastWriteTime] AS [trackLastWriteTime], 
-    [message_cofre].[trackCreationTime] AS [trackCreationTime]
-    FROM [dbo].[message_cofre] AS [message_cofre]</DefiningQuery>
+    [movimento].[id] AS [id], 
+    [movimento].[data_type] AS [data_type], 
+    [movimento].[nome] AS [nome], 
+    [movimento].[tipo] AS [tipo], 
+    [movimento].[trackLastWriteTime] AS [trackLastWriteTime], 
+    [movimento].[trackCreationTime] AS [trackCreationTime]
+    FROM [dbo].[movimento] AS [movimento]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="message_view" EntityType="Self.message_view" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [message_view].[id_cofre] AS [id_cofre], 
+    [message_view].[cofre_nome] AS [cofre_nome], 
+    [message_view].[cofre_serie] AS [cofre_serie], 
+    [message_view].[cofre_tipo] AS [cofre_tipo], 
+    [message_view].[cofre_marca] AS [cofre_marca], 
+    [message_view].[cofre_modelo] AS [cofre_modelo], 
+    [message_view].[cofre_tamanho_malote] AS [cofre_tamanho_malote], 
+    [message_view].[cofre_cliente] AS [cofre_cliente], 
+    [message_view].[cofre_loja] AS [cofre_loja], 
+    [message_view].[id] AS [id], 
+    [message_view].[info_id] AS [info_id], 
+    [message_view].[info_ip] AS [info_ip], 
+    [message_view].[info_mac] AS [info_mac], 
+    [message_view].[info_json] AS [info_json], 
+    [message_view].[data_hash] AS [data_hash], 
+    [message_view].[data_tmst_begin] AS [data_tmst_begin], 
+    [message_view].[data_tmst_end] AS [data_tmst_end], 
+    [message_view].[data_user] AS [data_user], 
+    [message_view].[user_nome] AS [user_nome], 
+    [message_view].[data_type] AS [data_type], 
+    [message_view].[movimento_nome] AS [movimento_nome], 
+    [message_view].[movimento_tipo] AS [movimento_tipo], 
+    [message_view].[data_currency_total] AS [data_currency_total], 
+    [message_view].[data_currency_bill_2] AS [data_currency_bill_2], 
+    [message_view].[data_currency_bill_5] AS [data_currency_bill_5], 
+    [message_view].[data_currency_bill_10] AS [data_currency_bill_10], 
+    [message_view].[data_currency_bill_20] AS [data_currency_bill_20], 
+    [message_view].[data_currency_bill_50] AS [data_currency_bill_50], 
+    [message_view].[data_currency_bill_100] AS [data_currency_bill_100], 
+    [message_view].[data_currency_bill_200] AS [data_currency_bill_200], 
+    [message_view].[data_currency_bill_rejected] AS [data_currency_bill_rejected], 
+    [message_view].[data_currency_envelope] AS [data_currency_envelope], 
+    [message_view].[data_currency_envelope_total] AS [data_currency_envelope_total], 
+    [message_view].[trackLastWriteTime] AS [trackLastWriteTime], 
+    [message_view].[trackCreationTime] AS [trackCreationTime]
+    FROM [dbo].[message_view] AS [message_view]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -180,22 +270,67 @@ warning 6002: The table/view 'getlock.dbo.message_cofre' does not have a primary
         <EntityContainer Name="getlockEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="message" EntityType="Self.message" />
           <EntitySet Name="cofre" EntityType="getlockModel.cofre" />
-          <EntitySet Name="message_cofre" EntityType="getlockModel.message_cofre" />
+          <EntitySet Name="cofre_user" EntityType="getlockModel.cofre_user" />
+          <EntitySet Name="movimento" EntityType="getlockModel.movimento" />
+          <EntitySet Name="message_view" EntityType="getlockModel.message_view" />
         </EntityContainer>
         <EntityType Name="cofre">
           <Key>
             <PropertyRef Name="id" />
+            <PropertyRef Name="nome" />
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_cofre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="nome_ponto_venda" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id_cofre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="serie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="marca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tamanho_malote" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="loja" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="trackLastWriteTime" Type="DateTime" Precision="3" />
+          <Property Name="trackCreationTime" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="message_cofre">
+        <EntityType Name="cofre_user">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="id_cofre" />
+            <PropertyRef Name="data_user" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_cofre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="data_user" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="trackLastWriteTime" Type="DateTime" Precision="3" />
+          <Property Name="trackCreationTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="movimento">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="data_type" />
+            <PropertyRef Name="nome" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="data_type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="trackLastWriteTime" Type="DateTime" Precision="3" />
+          <Property Name="trackCreationTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="message_view">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id_cofre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="nome_ponto_venda" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cofre_nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cofre_serie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cofre_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cofre_marca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cofre_modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cofre_tamanho_malote" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cofre_cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cofre_loja" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="id" Type="Int64" Nullable="false" />
           <Property Name="info_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="info_ip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -205,7 +340,10 @@ warning 6002: The table/view 'getlock.dbo.message_cofre' does not have a primary
           <Property Name="data_tmst_begin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="data_tmst_end" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="data_user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="user_nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="data_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="movimento_nome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="movimento_tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="data_currency_total" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="data_currency_bill_2" Type="Int64" />
           <Property Name="data_currency_bill_5" Type="Int64" />
@@ -259,15 +397,48 @@ warning 6002: The table/view 'getlock.dbo.message_cofre' does not have a primary
           <EntitySetMapping Name="cofre">
             <EntityTypeMapping TypeName="getlockModel.cofre">
               <MappingFragment StoreEntitySet="cofre">
-                <ScalarProperty Name="nome_ponto_venda" ColumnName="nome_ponto_venda" />
+                <ScalarProperty Name="trackCreationTime" ColumnName="trackCreationTime" />
+                <ScalarProperty Name="trackLastWriteTime" ColumnName="trackLastWriteTime" />
+                <ScalarProperty Name="loja" ColumnName="loja" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="tamanho_malote" ColumnName="tamanho_malote" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="serie" ColumnName="serie" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
                 <ScalarProperty Name="id_cofre" ColumnName="id_cofre" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="message_cofre">
-            <EntityTypeMapping TypeName="getlockModel.message_cofre">
-              <MappingFragment StoreEntitySet="message_cofre">
+          <EntitySetMapping Name="cofre_user">
+            <EntityTypeMapping TypeName="getlockModel.cofre_user">
+              <MappingFragment StoreEntitySet="cofre_user">
+                <ScalarProperty Name="trackCreationTime" ColumnName="trackCreationTime" />
+                <ScalarProperty Name="trackLastWriteTime" ColumnName="trackLastWriteTime" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="data_user" ColumnName="data_user" />
+                <ScalarProperty Name="id_cofre" ColumnName="id_cofre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="movimento">
+            <EntityTypeMapping TypeName="getlockModel.movimento">
+              <MappingFragment StoreEntitySet="movimento">
+                <ScalarProperty Name="trackCreationTime" ColumnName="trackCreationTime" />
+                <ScalarProperty Name="trackLastWriteTime" ColumnName="trackLastWriteTime" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="data_type" ColumnName="data_type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="message_view">
+            <EntityTypeMapping TypeName="getlockModel.message_view">
+              <MappingFragment StoreEntitySet="message_view">
                 <ScalarProperty Name="trackCreationTime" ColumnName="trackCreationTime" />
                 <ScalarProperty Name="trackLastWriteTime" ColumnName="trackLastWriteTime" />
                 <ScalarProperty Name="data_currency_envelope_total" ColumnName="data_currency_envelope_total" />
@@ -281,7 +452,10 @@ warning 6002: The table/view 'getlock.dbo.message_cofre' does not have a primary
                 <ScalarProperty Name="data_currency_bill_5" ColumnName="data_currency_bill_5" />
                 <ScalarProperty Name="data_currency_bill_2" ColumnName="data_currency_bill_2" />
                 <ScalarProperty Name="data_currency_total" ColumnName="data_currency_total" />
+                <ScalarProperty Name="movimento_tipo" ColumnName="movimento_tipo" />
+                <ScalarProperty Name="movimento_nome" ColumnName="movimento_nome" />
                 <ScalarProperty Name="data_type" ColumnName="data_type" />
+                <ScalarProperty Name="user_nome" ColumnName="user_nome" />
                 <ScalarProperty Name="data_user" ColumnName="data_user" />
                 <ScalarProperty Name="data_tmst_end" ColumnName="data_tmst_end" />
                 <ScalarProperty Name="data_tmst_begin" ColumnName="data_tmst_begin" />
@@ -291,7 +465,14 @@ warning 6002: The table/view 'getlock.dbo.message_cofre' does not have a primary
                 <ScalarProperty Name="info_ip" ColumnName="info_ip" />
                 <ScalarProperty Name="info_id" ColumnName="info_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="nome_ponto_venda" ColumnName="nome_ponto_venda" />
+                <ScalarProperty Name="cofre_loja" ColumnName="cofre_loja" />
+                <ScalarProperty Name="cofre_cliente" ColumnName="cofre_cliente" />
+                <ScalarProperty Name="cofre_tamanho_malote" ColumnName="cofre_tamanho_malote" />
+                <ScalarProperty Name="cofre_modelo" ColumnName="cofre_modelo" />
+                <ScalarProperty Name="cofre_marca" ColumnName="cofre_marca" />
+                <ScalarProperty Name="cofre_tipo" ColumnName="cofre_tipo" />
+                <ScalarProperty Name="cofre_serie" ColumnName="cofre_serie" />
+                <ScalarProperty Name="cofre_nome" ColumnName="cofre_nome" />
                 <ScalarProperty Name="id_cofre" ColumnName="id_cofre" />
               </MappingFragment>
             </EntityTypeMapping>
