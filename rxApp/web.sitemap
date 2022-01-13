@@ -14,6 +14,7 @@
     </siteMapNode>
     <siteMapNode url="" title="Indústria" description="Indústria" roles="AdmMaster,Admin BI4T,Indústria">
       <siteMapNode url="~/frmAviacao/cnIndustria/RelEnvaseOverview/RelEnvaseOverview.aspx" title="Relatório Envase Overview" description="Indústria Envase Overview" roles="AdmMaster,Admin BI4T,Indústria Envase Overview" />
+      <siteMapNode url="~/frmRx/Agyliti/GetLock/cnGridMain/cnGridMain.aspx" title="Grid Principal" description="Grid Principal" roles="AdmMaster,Admin BI4T,Indústria Envase Overview" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>
