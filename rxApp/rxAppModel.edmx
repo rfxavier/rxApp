@@ -5,13 +5,9 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="getlockModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'getlock.dbo.cofre' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="cofre">
           <Key>
             <PropertyRef Name="id" />
-            
-            <PropertyRef Name="nome" />
           </Key>
           <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_cofre" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -26,13 +22,9 @@ warning 6002: The table/view 'getlock.dbo.cofre' does not have a primary key def
           <Property Name="trackLastWriteTime" Type="datetime" />
           <Property Name="trackCreationTime" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'getlock.dbo.cofre_user' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="cofre_user">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="id_cofre" />
-            <PropertyRef Name="data_user" />
           </Key>
           <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_cofre" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -41,8 +33,6 @@ warning 6002: The table/view 'getlock.dbo.cofre_user' does not have a primary ke
           <Property Name="trackLastWriteTime" Type="datetime" />
           <Property Name="trackCreationTime" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'getlock.dbo.message' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="message">
           <Key>
             <PropertyRef Name="id" />
@@ -72,13 +62,9 @@ warning 6002: The table/view 'getlock.dbo.message' does not have a primary key d
           <Property Name="trackLastWriteTime" Type="datetime" />
           <Property Name="trackCreationTime" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'getlock.dbo.movimento' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="movimento">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="data_type" />
-            <PropertyRef Name="nome" />
           </Key>
           <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="data_type" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -130,70 +116,10 @@ warning 6002: The table/view 'getlock.dbo.message_view' does not have a primary 
           <Property Name="trackCreationTime" Type="datetime" />
         </EntityType>
         <EntityContainer Name="getlockModelStoreContainer">
-          <EntitySet Name="cofre" EntityType="Self.cofre" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [cofre].[id] AS [id], 
-    [cofre].[id_cofre] AS [id_cofre], 
-    [cofre].[nome] AS [nome], 
-    [cofre].[serie] AS [serie], 
-    [cofre].[tipo] AS [tipo], 
-    [cofre].[marca] AS [marca], 
-    [cofre].[modelo] AS [modelo], 
-    [cofre].[tamanho_malote] AS [tamanho_malote], 
-    [cofre].[cliente] AS [cliente], 
-    [cofre].[loja] AS [loja], 
-    [cofre].[trackLastWriteTime] AS [trackLastWriteTime], 
-    [cofre].[trackCreationTime] AS [trackCreationTime]
-    FROM [dbo].[cofre] AS [cofre]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="cofre_user" EntityType="Self.cofre_user" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [cofre_user].[id] AS [id], 
-    [cofre_user].[id_cofre] AS [id_cofre], 
-    [cofre_user].[data_user] AS [data_user], 
-    [cofre_user].[nome] AS [nome], 
-    [cofre_user].[trackLastWriteTime] AS [trackLastWriteTime], 
-    [cofre_user].[trackCreationTime] AS [trackCreationTime]
-    FROM [dbo].[cofre_user] AS [cofre_user]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="message" EntityType="Self.message" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [message].[id] AS [id], 
-    [message].[info_id] AS [info_id], 
-    [message].[info_ip] AS [info_ip], 
-    [message].[info_mac] AS [info_mac], 
-    [message].[info_json] AS [info_json], 
-    [message].[data_hash] AS [data_hash], 
-    [message].[data_tmst_begin] AS [data_tmst_begin], 
-    [message].[data_tmst_end] AS [data_tmst_end], 
-    [message].[data_user] AS [data_user], 
-    [message].[data_type] AS [data_type], 
-    [message].[data_currency_total] AS [data_currency_total], 
-    [message].[data_currency_bill_2] AS [data_currency_bill_2], 
-    [message].[data_currency_bill_5] AS [data_currency_bill_5], 
-    [message].[data_currency_bill_10] AS [data_currency_bill_10], 
-    [message].[data_currency_bill_20] AS [data_currency_bill_20], 
-    [message].[data_currency_bill_50] AS [data_currency_bill_50], 
-    [message].[data_currency_bill_100] AS [data_currency_bill_100], 
-    [message].[data_currency_bill_200] AS [data_currency_bill_200], 
-    [message].[data_currency_bill_rejected] AS [data_currency_bill_rejected], 
-    [message].[data_currency_envelope] AS [data_currency_envelope], 
-    [message].[data_currency_envelope_total] AS [data_currency_envelope_total], 
-    [message].[id_cofre] AS [id_cofre], 
-    [message].[trackLastWriteTime] AS [trackLastWriteTime], 
-    [message].[trackCreationTime] AS [trackCreationTime]
-    FROM [dbo].[message] AS [message]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="movimento" EntityType="Self.movimento" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [movimento].[id] AS [id], 
-    [movimento].[data_type] AS [data_type], 
-    [movimento].[nome] AS [nome], 
-    [movimento].[tipo] AS [tipo], 
-    [movimento].[trackLastWriteTime] AS [trackLastWriteTime], 
-    [movimento].[trackCreationTime] AS [trackCreationTime]
-    FROM [dbo].[movimento] AS [movimento]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="cofre" EntityType="Self.cofre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cofre_user" EntityType="Self.cofre_user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="message" EntityType="Self.message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="movimento" EntityType="Self.movimento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="message_view" EntityType="Self.message_view" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [message_view].[id_cofre] AS [id_cofre], 
@@ -277,7 +203,6 @@ warning 6002: The table/view 'getlock.dbo.message_view' does not have a primary 
         <EntityType Name="cofre">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="nome" />
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_cofre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -295,8 +220,6 @@ warning 6002: The table/view 'getlock.dbo.message_view' does not have a primary 
         <EntityType Name="cofre_user">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="id_cofre" />
-            <PropertyRef Name="data_user" />
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_cofre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -308,8 +231,6 @@ warning 6002: The table/view 'getlock.dbo.message_view' does not have a primary 
         <EntityType Name="movimento">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="data_type" />
-            <PropertyRef Name="nome" />
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="data_type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />

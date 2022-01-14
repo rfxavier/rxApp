@@ -13,8 +13,9 @@
       <siteMapNode url="~/frmAviacao/cnAcesso/LogAcessoBI/LogAcessos.aspx" title="Log de Acesso ao BI" description="Log de Acesso ao BI" roles="AdmMaster,Admin BI4T,Log de Acesso ao BI" />
     </siteMapNode>
     <siteMapNode url="" title="Indústria" description="Indústria" roles="AdmMaster,Admin BI4T,Indústria">
-      <siteMapNode url="~/frmAviacao/cnIndustria/RelEnvaseOverview/RelEnvaseOverview.aspx" title="Relatório Envase Overview" description="Indústria Envase Overview" roles="AdmMaster,Admin BI4T,Indústria Envase Overview" />
+      <siteMapNode url="~/Account/Manage.aspx" title="Manage Account" description="Manage Account" roles="AdmMaster,Admin BI4T,Indústria Envase Overview" />
       <siteMapNode url="~/frmRx/Agyliti/GetLock/cnGridMain/cnGridMain.aspx" title="Grid Principal" description="Grid Principal" roles="AdmMaster,Admin BI4T,Indústria Envase Overview" />
+      <siteMapNode url="~/frmRx/Agyliti/GetLock/cnCadastros/cnGridCofre.aspx" title="Cofre" description="Cadastro Cofre" roles="AdmMaster,Admin BI4T,Indústria Envase Overview" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>
