@@ -6,16 +6,17 @@
       <siteMapNode url="~/frmAdmMasterCadastro/frmAdmMaster/RoleAdmin.aspx" title="Permissões" description="Permissões" roles="AdmMaster" />
       <siteMapNode url="~/frmAdmMasterCadastro/frmAdmMaster/WebSiteMapAdmin.aspx" title="Site Map" description="Site Map" roles="AdmMaster" />
     </siteMapNode>
-    <siteMapNode url="" title="Admin" description="Admin" roles="AdmMaster,Admin BI4T">
+    <siteMapNode url="" title="Admin" description="Admin" roles="AdmMaster">
       <siteMapNode url="~/frmAdmMasterCadastro/Usuarios.aspx" title="Usuários" description="AdminUsuarios" roles="AdmMaster,Admin BI4T" />
     </siteMapNode>
-    <siteMapNode url="" title="Acesso" description="Acesso" roles="AdmMaster,Admin BI4T,Log de Acesso ao BI">
-      <siteMapNode url="~/frmAviacao/cnAcesso/LogAcessoBI/LogAcessos.aspx" title="Log de Acesso ao BI" description="Log de Acesso ao BI" roles="AdmMaster,Admin BI4T,Log de Acesso ao BI" />
+    <siteMapNode url="" title="Acesso" description="Acesso" roles="AdmMaster">
+      <siteMapNode url="~/frmAviacao/cnAcesso/LogAcessoBI/LogAcessos.aspx" title="Log de Acesso ao BI" description="Log de Acesso ao BI" roles="AdmMaster" />
     </siteMapNode>
-    <siteMapNode url="" title="Indústria" description="Indústria" roles="AdmMaster,Admin BI4T,Indústria">
-      <siteMapNode url="~/Account/Manage.aspx" title="Manage Account" description="Manage Account" roles="AdmMaster,Admin BI4T,Indústria Envase Overview" />
-      <siteMapNode url="~/frmRx/Agyliti/GetLock/cnGridMain/cnGridMain.aspx" title="Grid Principal" description="Grid Principal" roles="AdmMaster,Admin BI4T,Indústria Envase Overview" />
-      <siteMapNode url="~/frmRx/Agyliti/GetLock/cnCadastros/cnGridCofre.aspx" title="Cofre" description="Cadastro Cofre" roles="AdmMaster,Admin BI4T,Indústria Envase Overview" />
+    <siteMapNode url="" title="Operações" description="Operações" roles="AdmMaster,AdmPortal,User">
+      <siteMapNode url="~/frmAgyliti/GetLock/cnGridMain/cnGridMain.aspx" title="Ocorrências" description="Ocorrências" roles="AdmMaster,AdmPortal,User" />
+    </siteMapNode>
+    <siteMapNode url="" title="Cadastros" description="Cadastros" roles="AdmMaster,AdmPortal">
+      <siteMapNode url="~/frmAgyliti/GetLock/cnCadastros/cnGridCofre.aspx" title="Cofre" description="Cadastro Cofre" roles="AdmMaster,AdmPortal" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>

@@ -253,9 +253,9 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="frmRx\Agyliti\Cliente001\DevExtreme\cnRxApp\app01JS\cnRxAppApp01JS.aspx" />
-    <Content Include="frmRx\Agyliti\GetLock\cnCadastros\cnGridCofre.aspx" />
-    <Content Include="frmRx\Agyliti\GetLock\cnGridMain\cnGridMain.aspx" />
+    <Content Include="frmAgyliti\Cliente001\DevExtreme\cnRxApp\app01JS\cnRxAppApp01JS.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridCofre.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -320,6 +320,8 @@
     <Content Include="Content\fonts\Roboto-300.ttf" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
+    <Content Include="frmAgyliti\GetLock\cnCadastros\Web.config" />
+    <Content Include="frmAgyliti\GetLock\cnGridMain\Web.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <EntityDeploy Include="rxAppModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -548,25 +550,25 @@
     <Compile Include="Domain\Entities\RsData.cs" />
     <Compile Include="Domain\Entities\RsDataConfig.cs" />
     <Compile Include="Domain\Entity.cs" />
-    <Compile Include="frmRx\Agyliti\Cliente001\DevExtreme\cnRxApp\app01JS\cnRxAppApp01JS.aspx.cs">
+    <Compile Include="frmAgyliti\Cliente001\DevExtreme\cnRxApp\app01JS\cnRxAppApp01JS.aspx.cs">
       <DependentUpon>cnRxAppApp01JS.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmRx\Agyliti\Cliente001\DevExtreme\cnRxApp\app01JS\cnRxAppApp01JS.aspx.designer.cs">
+    <Compile Include="frmAgyliti\Cliente001\DevExtreme\cnRxApp\app01JS\cnRxAppApp01JS.aspx.designer.cs">
       <DependentUpon>cnRxAppApp01JS.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmRx\Agyliti\GetLock\cnCadastros\cnGridCofre.aspx.cs">
+    <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridCofre.aspx.cs">
       <DependentUpon>cnGridCofre.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmRx\Agyliti\GetLock\cnCadastros\cnGridCofre.aspx.designer.cs">
+    <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridCofre.aspx.designer.cs">
       <DependentUpon>cnGridCofre.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmRx\Agyliti\GetLock\cnGridMain\cnGridMain.aspx.cs">
+    <Compile Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx.cs">
       <DependentUpon>cnGridMain.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmRx\Agyliti\GetLock\cnGridMain\cnGridMain.aspx.designer.cs">
+    <Compile Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx.designer.cs">
       <DependentUpon>cnGridMain.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -681,12 +683,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
-    <Folder Include="frmRx\Agyliti\Cliente001\Dashboard\" />
-    <Folder Include="frmRx\Agyliti\Cliente001\DevExtreme\cnRxApp\app01JS\angularAppServices\" />
-    <Folder Include="frmRx\Agyliti\Cliente001\DevExtreme\cnRxApp\app01JS\css\" />
-    <Folder Include="frmRx\Agyliti\Cliente001\DevExtreme\cnRxApp\app01JS\js\" />
-    <Folder Include="frmRx\Agyliti\Cliente001\DevExtreme\cnRxApp\app01JS\webapiControllers\" />
-    <Folder Include="frmRx\Agyliti\Cliente001\Report\" />
+    <Folder Include="frmAgyliti\Cliente001\Dashboard\" />
+    <Folder Include="frmAgyliti\Cliente001\DevExtreme\cnRxApp\app01JS\angularAppServices\" />
+    <Folder Include="frmAgyliti\Cliente001\DevExtreme\cnRxApp\app01JS\css\" />
+    <Folder Include="frmAgyliti\Cliente001\DevExtreme\cnRxApp\app01JS\js\" />
+    <Folder Include="frmAgyliti\Cliente001\DevExtreme\cnRxApp\app01JS\webapiControllers\" />
+    <Folder Include="frmAgyliti\Cliente001\Report\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
