@@ -17,6 +17,8 @@
     </siteMapNode>
     <siteMapNode url="" title="Cadastros" description="Cadastros" roles="AdmMaster,AdmPortal">
       <siteMapNode url="~/frmAgyliti/GetLock/cnCadastros/cnGridCofre.aspx" title="Cofre" description="Cadastro Cofre" roles="AdmMaster,AdmPortal" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnCadastros/cnGridCofreUser.aspx" title="Cofre Usuário" description="Cadastro Cofre Usuário" roles="AdmMaster,AdmPortal" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnCadastros/cnGridMovimento.aspx" title="Movimento" description="Cadastro Movimento" roles="AdmMaster,AdmPortal" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>

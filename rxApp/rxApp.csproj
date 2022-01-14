@@ -255,6 +255,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="frmAgyliti\Cliente001\DevExtreme\cnRxApp\app01JS\cnRxAppApp01JS.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridCofre.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridCofreUser.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridMovimento.aspx" />
     <Content Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -563,6 +565,20 @@
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridCofre.aspx.designer.cs">
       <DependentUpon>cnGridCofre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridCofreUser.aspx.cs">
+      <DependentUpon>cnGridCofreUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridCofreUser.aspx.designer.cs">
+      <DependentUpon>cnGridCofreUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridMovimento.aspx.cs">
+      <DependentUpon>cnGridMovimento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridMovimento.aspx.designer.cs">
+      <DependentUpon>cnGridMovimento.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx.cs">
       <DependentUpon>cnGridMain.aspx</DependentUpon>
