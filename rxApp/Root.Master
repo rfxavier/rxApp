@@ -66,6 +66,7 @@
                             <img src="<%= Page.ResolveUrl("~/Content/Images/LogoMain.png")%>" />
                         </div>
                         <div class="col-xs-10 text-right">
+                            <div class="col-xs-6" style="padding-top: 14px;"><h5><strong>VERSÃO EM DESENVOLVIMENTO</strong></h5></div>
                             <dx:ASPxHyperLink runat="server" ID="hlLogo" NavigateUrl="~/Default.aspx" ImageUrl="~/Content/Images/LogoAux.png">
                             </dx:ASPxHyperLink>
                             <asp:LoginView runat="server" ViewStateMode="Disabled" ID="LoginView1">
