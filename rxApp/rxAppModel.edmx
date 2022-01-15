@@ -61,6 +61,8 @@
           <Property Name="id_cofre" Type="nvarchar" MaxLength="50" />
           <Property Name="trackLastWriteTime" Type="datetime" />
           <Property Name="trackCreationTime" Type="datetime" />
+          <Property Name="data_tmst_begin_datetime" Type="datetime" />
+          <Property Name="data_tmst_end_datetime" Type="datetime" />
         </EntityType>
         <EntityType Name="movimento">
           <Key>
@@ -114,6 +116,8 @@ warning 6002: The table/view 'getlock.dbo.message_view' does not have a primary 
           <Property Name="data_currency_envelope_total" Type="numeric" Precision="18" Scale="2" />
           <Property Name="trackLastWriteTime" Type="datetime" />
           <Property Name="trackCreationTime" Type="datetime" />
+          <Property Name="data_tmst_begin_datetime" Type="datetime" />
+          <Property Name="data_tmst_end_datetime" Type="datetime" />
         </EntityType>
         <EntityContainer Name="getlockModelStoreContainer">
           <EntitySet Name="cofre" EntityType="Self.cofre" Schema="dbo" store:Type="Tables" />
@@ -156,7 +160,9 @@ warning 6002: The table/view 'getlock.dbo.message_view' does not have a primary 
     [message_view].[data_currency_envelope] AS [data_currency_envelope], 
     [message_view].[data_currency_envelope_total] AS [data_currency_envelope_total], 
     [message_view].[trackLastWriteTime] AS [trackLastWriteTime], 
-    [message_view].[trackCreationTime] AS [trackCreationTime]
+    [message_view].[trackCreationTime] AS [trackCreationTime], 
+    [message_view].[data_tmst_begin_datetime] AS [data_tmst_begin_datetime], 
+    [message_view].[data_tmst_end_datetime] AS [data_tmst_end_datetime]
     FROM [dbo].[message_view] AS [message_view]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
@@ -192,6 +198,8 @@ warning 6002: The table/view 'getlock.dbo.message_view' does not have a primary 
           <Property Name="id_cofre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="trackLastWriteTime" Type="DateTime" Precision="3" />
           <Property Name="trackCreationTime" Type="DateTime" Precision="3" />
+          <Property Name="data_tmst_begin_datetime" Type="DateTime" Precision="3" />
+          <Property Name="data_tmst_end_datetime" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityContainer Name="getlockEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="message" EntityType="Self.message" />
@@ -278,6 +286,8 @@ warning 6002: The table/view 'getlock.dbo.message_view' does not have a primary 
           <Property Name="data_currency_envelope_total" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="trackLastWriteTime" Type="DateTime" Precision="3" />
           <Property Name="trackCreationTime" Type="DateTime" Precision="3" />
+          <Property Name="data_tmst_begin_datetime" Type="DateTime" Precision="3" />
+          <Property Name="data_tmst_end_datetime" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -288,6 +298,8 @@ warning 6002: The table/view 'getlock.dbo.message_view' does not have a primary 
           <EntitySetMapping Name="message">
             <EntityTypeMapping TypeName="getlockModel.message">
               <MappingFragment StoreEntitySet="message">
+                <ScalarProperty Name="data_tmst_end_datetime" ColumnName="data_tmst_end_datetime" />
+                <ScalarProperty Name="data_tmst_begin_datetime" ColumnName="data_tmst_begin_datetime" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="info_id" ColumnName="info_id" />
                 <ScalarProperty Name="info_ip" ColumnName="info_ip" />
@@ -360,6 +372,8 @@ warning 6002: The table/view 'getlock.dbo.message_view' does not have a primary 
           <EntitySetMapping Name="message_view">
             <EntityTypeMapping TypeName="getlockModel.message_view">
               <MappingFragment StoreEntitySet="message_view">
+                <ScalarProperty Name="data_tmst_end_datetime" ColumnName="data_tmst_end_datetime" />
+                <ScalarProperty Name="data_tmst_begin_datetime" ColumnName="data_tmst_begin_datetime" />
                 <ScalarProperty Name="trackCreationTime" ColumnName="trackCreationTime" />
                 <ScalarProperty Name="trackLastWriteTime" ColumnName="trackLastWriteTime" />
                 <ScalarProperty Name="data_currency_envelope_total" ColumnName="data_currency_envelope_total" />

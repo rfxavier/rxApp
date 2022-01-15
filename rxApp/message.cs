@@ -38,5 +38,7 @@ namespace rxApp
         public string id_cofre { get; set; }
         public Nullable<System.DateTime> trackLastWriteTime { get; set; }
         public Nullable<System.DateTime> trackCreationTime { get; set; }
+        public Nullable<System.DateTime> data_tmst_begin_datetime { get; set; }
+        public Nullable<System.DateTime> data_tmst_end_datetime { get; set; }
     }
 }

@@ -29,8 +29,8 @@
             <dx:GridViewDataTextColumn FieldName="info_mac" Caption="Mac" VisibleIndex="11"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="info_json" Caption="Json" VisibleIndex="12"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="data_hash" Caption="Hash" VisibleIndex="13"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="data_tmst_begin" Caption="Timestamp Inicial" VisibleIndex="14"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="data_tmst_end" Caption="Timestamp Final" VisibleIndex="15"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_tmst_begin_datetime" Caption="Timestamp Inicial" VisibleIndex="14"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_tmst_end_datetime" Caption="Timestamp Final" VisibleIndex="15"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="data_user" Caption="Usu&#225;rio" VisibleIndex="16"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="user_nome" Caption="Usu&#225;rio Nome" VisibleIndex="17"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="data_type" Caption="Movimento" VisibleIndex="18"></dx:GridViewDataTextColumn>
