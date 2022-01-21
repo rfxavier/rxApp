@@ -21,8 +21,6 @@ namespace rxApp
         public string cofre_marca { get; set; }
         public string cofre_modelo { get; set; }
         public string cofre_tamanho_malote { get; set; }
-        public string cofre_cliente { get; set; }
-        public string cofre_loja { get; set; }
         public long id { get; set; }
         public string info_id { get; set; }
         public string info_ip { get; set; }
@@ -47,6 +45,12 @@ namespace rxApp
         public Nullable<long> data_currency_bill_rejected { get; set; }
         public Nullable<long> data_currency_envelope { get; set; }
         public Nullable<decimal> data_currency_envelope_total { get; set; }
+        public string cod_loja { get; set; }
+        public string nome_loja { get; set; }
+        public string cod_cliente { get; set; }
+        public string nome_cliente { get; set; }
+        public string cod_rede { get; set; }
+        public string nome_rede { get; set; }
         public Nullable<System.DateTime> trackLastWriteTime { get; set; }
         public Nullable<System.DateTime> trackCreationTime { get; set; }
         public Nullable<System.DateTime> data_tmst_begin_datetime { get; set; }

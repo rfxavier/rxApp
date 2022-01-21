@@ -254,9 +254,12 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="frmAgyliti\Cliente001\DevExtreme\cnRxApp\app01JS\cnRxAppApp01JS.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridCliente.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridCofre.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridCofreUser.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridLoja.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridMovimento.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridRede.aspx" />
     <Content Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -527,6 +530,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="cliente.cs">
+      <DependentUpon>rxAppModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="cofre.cs">
       <DependentUpon>rxAppModel.tt</DependentUpon>
     </Compile>
@@ -559,6 +565,13 @@
     <Compile Include="frmAgyliti\Cliente001\DevExtreme\cnRxApp\app01JS\cnRxAppApp01JS.aspx.designer.cs">
       <DependentUpon>cnRxAppApp01JS.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridCliente.aspx.cs">
+      <DependentUpon>cnGridCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridCliente.aspx.designer.cs">
+      <DependentUpon>cnGridCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridCofre.aspx.cs">
       <DependentUpon>cnGridCofre.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -573,12 +586,26 @@
     <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridCofreUser.aspx.designer.cs">
       <DependentUpon>cnGridCofreUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridLoja.aspx.cs">
+      <DependentUpon>cnGridLoja.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridLoja.aspx.designer.cs">
+      <DependentUpon>cnGridLoja.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridMovimento.aspx.cs">
       <DependentUpon>cnGridMovimento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridMovimento.aspx.designer.cs">
       <DependentUpon>cnGridMovimento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridRede.aspx.cs">
+      <DependentUpon>cnGridRede.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCadastros\cnGridRede.aspx.designer.cs">
+      <DependentUpon>cnGridRede.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx.cs">
       <DependentUpon>cnGridMain.aspx</DependentUpon>
@@ -610,6 +637,9 @@
     </Compile>
     <Compile Include="LoginRedirect.aspx.designer.cs">
       <DependentUpon>LoginRedirect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loja.cs">
+      <DependentUpon>rxAppModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Main.master.cs">
       <DependentUpon>Main.master</DependentUpon>
@@ -650,6 +680,9 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="rede.cs">
+      <DependentUpon>rxAppModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Root.Master.cs">
       <DependentUpon>Root.Master</DependentUpon>
