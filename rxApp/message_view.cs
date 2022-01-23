@@ -55,5 +55,31 @@ namespace rxApp
         public Nullable<System.DateTime> trackCreationTime { get; set; }
         public Nullable<System.DateTime> data_tmst_begin_datetime { get; set; }
         public Nullable<System.DateTime> data_tmst_end_datetime { get; set; }
+        public string razao_social_loja { get; set; }
+        public string cnpj_loja { get; set; }
+        public string endereco_loja { get; set; }
+        public string complemento_loja { get; set; }
+        public string bairro_loja { get; set; }
+        public string cidade_loja { get; set; }
+        public string uf_loja { get; set; }
+        public string cep_loja { get; set; }
+        public Nullable<decimal> latitude_loja { get; set; }
+        public Nullable<decimal> longitude_loja { get; set; }
+        public string pessoa_contato_loja { get; set; }
+        public string email_loja { get; set; }
+        public string telefone_loja { get; set; }
+        public string razao_social_cliente { get; set; }
+        public string cnpj_cliente { get; set; }
+        public string endereco_cliente { get; set; }
+        public string complemento_cliente { get; set; }
+        public string bairro_cliente { get; set; }
+        public string cidade_cliente { get; set; }
+        public string uf_cliente { get; set; }
+        public string cep_cliente { get; set; }
+        public Nullable<decimal> latitude_cliente { get; set; }
+        public Nullable<decimal> longitude_cliente { get; set; }
+        public string pessoa_contato_cliente { get; set; }
+        public string email_cliente { get; set; }
+        public string telefone_cliente { get; set; }
     }
 }

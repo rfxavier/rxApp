@@ -16,8 +16,20 @@
         <Columns>
             <dx:GridViewCommandColumn ShowEditButton="True" ShowInCustomizationForm="True" VisibleIndex="0" ShowNewButtonInHeader="True" ShowDeleteButton="True"></dx:GridViewCommandColumn>
             <dx:GridViewDataColumn FieldName="cod_loja" Caption="Código Loja" />
-            <dx:GridViewDataColumn FieldName="nome" Caption="Nome" />
+            <dx:GridViewDataColumn FieldName="nome" Caption="Nome Fantasia" />
             <dx:GridViewDataColumn FieldName="cod_cliente" Caption="Código Cliente" />
+            <dx:GridViewDataColumn FieldName="razao_social" Caption="Razão Social" />
+            <dx:GridViewDataColumn FieldName="cnpj" Caption="CNPJ" />
+            <dx:GridViewDataColumn FieldName="endereco" Caption="Endereço" />
+            <dx:GridViewDataColumn FieldName="complemento" Caption="Complemento" />
+            <dx:GridViewDataColumn FieldName="bairro" Caption="Bairro" />
+            <dx:GridViewDataColumn FieldName="cidade" Caption="Cidade" />
+            <dx:GridViewDataColumn FieldName="uf" Caption="UF" />
+            <dx:GridViewDataColumn FieldName="CEP" Caption="CEP" />
+            <dx:GridViewDataColumn FieldName="latitude" Caption="Latitude" />
+            <dx:GridViewDataColumn FieldName="longitude" Caption="Longitude" />
+            <dx:GridViewDataColumn FieldName="pessoa_contato" Caption="Pessoa Contato" />
+            <dx:GridViewDataColumn FieldName="email" Caption="Email" />
         </Columns>
         <SettingsPopup>
             <EditForm Width="600">
