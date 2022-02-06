@@ -261,6 +261,7 @@
     <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridMovimento.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridRede.aspx" />
     <Content Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnUsuarios\cnUsuarios.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -555,6 +556,8 @@
     </Compile>
     <Compile Include="Domain\Entities\ApplicationUserConfig.cs" />
     <Compile Include="Domain\Entities\Company.cs" />
+    <Compile Include="Domain\Entities\GetLockMessage.cs" />
+    <Compile Include="Domain\Entities\GetLockMessageConfig.cs" />
     <Compile Include="Domain\Entities\RsData.cs" />
     <Compile Include="Domain\Entities\RsDataConfig.cs" />
     <Compile Include="Domain\Entity.cs" />
@@ -614,6 +617,13 @@
     <Compile Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx.designer.cs">
       <DependentUpon>cnGridMain.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnUsuarios\cnUsuarios.aspx.cs">
+      <DependentUpon>cnUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnUsuarios\cnUsuarios.aspx.designer.cs">
+      <DependentUpon>cnUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -669,6 +679,10 @@
     <Compile Include="Migrations\202101261158575_v3.cs" />
     <Compile Include="Migrations\202101261158575_v3.Designer.cs">
       <DependentUpon>202101261158575_v3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202202062229512_v4.cs" />
+    <Compile Include="Migrations\202202062229512_v4.Designer.cs">
+      <DependentUpon>202202062229512_v4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -762,6 +776,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101261158575_v3.resx">
       <DependentUpon>202101261158575_v3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202062229512_v4.resx">
+      <DependentUpon>202202062229512_v4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

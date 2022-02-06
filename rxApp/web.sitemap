@@ -7,10 +7,7 @@
       <siteMapNode url="~/frmAdmMasterCadastro/frmAdmMaster/WebSiteMapAdmin.aspx" title="Site Map" description="Site Map" roles="AdmMaster" />
     </siteMapNode>
     <siteMapNode url="" title="Admin" description="Admin" roles="AdmMaster">
-      <siteMapNode url="~/frmAdmMasterCadastro/Usuarios.aspx" title="Usuários" description="AdminUsuarios" roles="AdmMaster,Admin BI4T" />
-    </siteMapNode>
-    <siteMapNode url="" title="Acesso" description="Acesso" roles="AdmMaster">
-      <siteMapNode url="~/frmAviacao/cnAcesso/LogAcessoBI/LogAcessos.aspx" title="Log de Acesso ao BI" description="Log de Acesso ao BI" roles="AdmMaster" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnUsuarios/cnUsuarios.aspx" title="Usuários" description="AdminUsuarios" roles="AdmMaster,AdmPortal" />
     </siteMapNode>
     <siteMapNode url="" title="Operações" description="Operações" roles="AdmMaster,AdmPortal,User">
       <siteMapNode url="~/frmAgyliti/GetLock/cnGridMain/cnGridMain.aspx" title="Ocorrências" description="Ocorrências" roles="AdmMaster,AdmPortal,User" />

@@ -1,15 +1,12 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using rxApp.Domain.Entities;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using rxApp.Domain.Entities;
-using rxApp.Models;
 
 namespace rxApp.Models
 {
@@ -36,6 +33,8 @@ namespace rxApp.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<RsData> RsDatas { get; set; }
+
+        public DbSet<GetLockMessage> GetLockMessages { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -65,6 +64,8 @@ namespace rxApp.Models
 
             //modelBuilder.ComplexType<AppImageType>()
             //    .Ignore(r => r.Name);
+
+            modelBuilder.Configurations.Add(new GetLockMessageConfig());
 
             base.OnModelCreating(modelBuilder);
         }
