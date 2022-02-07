@@ -274,6 +274,7 @@
     <Content Include="Account\Web.config" />
     <Content Include="LoginAux.aspx" />
     <Content Include="LoginRedirect.aspx" />
+    <Content Include="Models\GetLockDatabaseDDLs.sql" />
     <Content Include="Root.Master" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\fontawesome-webfont.woff2" />

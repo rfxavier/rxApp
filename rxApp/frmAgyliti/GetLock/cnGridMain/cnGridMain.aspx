@@ -107,5 +107,5 @@
         <SettingsBehavior EnableCustomizationWindow="true" />
     </dx:ASPxGridView>
 
-    <dx:EntityServerModeDataSource ID="EntityServerModeDataSource1" runat="server" ContextTypeName="rxApp.getlockEntities" TableName="message_view" />
+    <dx:EntityServerModeDataSource ID="EntityServerModeDataSource1" runat="server" ContextTypeName="rxApp.Models.ApplicationDbContext" TableName="GetLockMessageViews" />
 </asp:Content>
