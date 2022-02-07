@@ -35,6 +35,7 @@ namespace rxApp.Models
         public DbSet<RsData> RsDatas { get; set; }
 
         public DbSet<GetLockMessage> GetLockMessages { get; set; }
+        public DbSet<GetLockCofre> GetLockCofres { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -66,6 +67,7 @@ namespace rxApp.Models
             //    .Ignore(r => r.Name);
 
             modelBuilder.Configurations.Add(new GetLockMessageConfig());
+            modelBuilder.Configurations.Add(new GetLockCofreConfig());
 
             base.OnModelCreating(modelBuilder);
         }
