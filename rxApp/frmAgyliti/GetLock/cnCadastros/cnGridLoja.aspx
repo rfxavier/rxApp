@@ -37,5 +37,5 @@
             </EditForm>
         </SettingsPopup>
     </dx:ASPxGridView>
-    <ef:EntityDataSource ID="EntityDataSource1" runat="server" ContextTypeName="rxApp.getlockEntities" EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntitySetName="loja"></ef:EntityDataSource>
+    <ef:EntityDataSource ID="EntityDataSource1" runat="server" ContextTypeName="rxApp.Models.ApplicationDbContext" EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntitySetName="GetLockLojas"></ef:EntityDataSource>
 </asp:Content>

@@ -26,5 +26,5 @@
         </SettingsPopup>
     </dx:ASPxGridView>
 
-    <ef:EntityDataSource ID="EntityDataSource1" runat="server" ContextTypeName="rxApp.getlockEntities" EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntitySetName="movimento"></ef:EntityDataSource>
+    <ef:EntityDataSource ID="EntityDataSource1" runat="server" ContextTypeName="rxApp.Models.ApplicationDbContext" EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntitySetName="GetLockMovimentos"></ef:EntityDataSource>
 </asp:Content>

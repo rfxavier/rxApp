@@ -26,5 +26,5 @@
         </SettingsPopup>
     </dx:ASPxGridView>
 
-    <ef:EntityDataSource ID="EntityDataSource1" runat="server" ContextTypeName="rxApp.getlockEntities" EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntitySetName="cofre_user"></ef:EntityDataSource>
+    <ef:EntityDataSource ID="EntityDataSource1" runat="server" ContextTypeName="rxApp.Models.ApplicationDbContext" EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntitySetName="GetLockCofreUsers"></ef:EntityDataSource>
 </asp:Content>
