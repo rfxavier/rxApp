@@ -707,6 +707,10 @@
     <Compile Include="Migrations\202202070051203_v6.Designer.cs">
       <DependentUpon>202202070051203_v6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202202100140430_v7.cs" />
+    <Compile Include="Migrations\202202100140430_v7.Designer.cs">
+      <DependentUpon>202202100140430_v7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="movimento.cs">
@@ -808,6 +812,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202202070051203_v6.resx">
       <DependentUpon>202202070051203_v6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202202100140430_v7.resx">
+      <DependentUpon>202202100140430_v7.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

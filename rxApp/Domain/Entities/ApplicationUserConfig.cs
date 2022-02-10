@@ -10,6 +10,10 @@ namespace rxApp.Domain.Entities
             HasOptional(u => u.Company)
                 .WithMany(c => c.ApplicationUsers)
                 .HasForeignKey(u => u.CompanyId);
+
+            HasOptional(u => u.GetLockLoja)
+                .WithMany(l => l.ApplicationUsers)
+                .HasForeignKey(u => u.GetLockLojaId);
         }        
     }
 }

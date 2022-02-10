@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rxApp", "rxApp\rxApp.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rxDashAndReportDesigner", "rxDashAndReportDesigner\rxDashAndReportDesigner.csproj", "{CCE72BED-D9BB-4757-BCE2-12332F3F5964}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rxDraft", "rxDraft\rxDraft.csproj", "{18A1669A-7C8F-44CE-AF41-AB618F7B8C65}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{CCE72BED-D9BB-4757-BCE2-12332F3F5964}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCE72BED-D9BB-4757-BCE2-12332F3F5964}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCE72BED-D9BB-4757-BCE2-12332F3F5964}.Release|Any CPU.Build.0 = Release|Any CPU
-		{18A1669A-7C8F-44CE-AF41-AB618F7B8C65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18A1669A-7C8F-44CE-AF41-AB618F7B8C65}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18A1669A-7C8F-44CE-AF41-AB618F7B8C65}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18A1669A-7C8F-44CE-AF41-AB618F7B8C65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

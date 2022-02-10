@@ -28,6 +28,9 @@ namespace rxApp.Models
 
         public Guid? CompanyId { get; set; }
         public Company Company { get; set; }
+
+        public long? GetLockLojaId { get; set; }
+        public GetLockLoja GetLockLoja { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -72,6 +75,7 @@ namespace rxApp.Models
             //modelBuilder.ComplexType<AppImageType>()
             //    .Ignore(r => r.Name);
 
+            modelBuilder.Configurations.Add(new ApplicationUserConfig());
             modelBuilder.Configurations.Add(new GetLockMessageConfig());
             modelBuilder.Configurations.Add(new GetLockCofreConfig());
             modelBuilder.Configurations.Add(new GetLockCofreUserConfig());
