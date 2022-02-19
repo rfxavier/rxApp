@@ -1,5 +1,9 @@
-﻿using Microsoft.AspNet.Identity.Owin;
+﻿using DevExpress.Web;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using rxApp.Models;
 using System;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -15,9 +19,7 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuarios
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
             GridUsers.DataBind();
-
         }
 
         protected void GridUsers_DataBinding(object sender, EventArgs e)
@@ -29,7 +31,114 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuarios
             //    var b = user.
             //}
 
+            //DataTable dt = new DataTable();
+            //if (Session["data"] == null)
+            //{
+            //    dt.Columns.Add("Id", typeof(int));
+            //    dt.Columns.Add("Username", typeof(string));
+            //    dt.Columns.Add("Password", typeof(string));
+            //    Session["data"] = dt;
+            //}
+            //else
+            //{
+            //    dt = Session["data"] as DataTable;
+            //}
+
+
             GridUsers.DataSource = userManager.Users.ToList();
+        }
+
+        protected void confirmButton_Click(object sender, EventArgs e)
+        {
+            UpdatePasswordField(cpsw.Text, npsw.Text);
+            ASPxPopupControl1.ShowOnPageLoad = false;
+        }
+
+        protected void UpdatePasswordField(string oldPassword, string newPassword)
+        {
+            int index = GridUsers.EditingRowVisibleIndex;
+            DataTable dt = Session["data"] as DataTable;
+            dt.Rows[0]["CurrPwd"] = oldPassword;
+            dt.Rows[0]["NewPwd"] = newPassword;
+            Session["data"] = dt;
+
+        }
+
+        protected void GridUsers_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
+        {
+            ASPxGridView gridView = (ASPxGridView)sender;
+
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+            var user = new ApplicationUser() { UserName = e.NewValues["UserName"].ToString(), Email = e.NewValues["UserName"].ToString() };
+            IdentityResult result = manager.Create(user, e.NewValues["PasswordHash"].ToString());
+            if (result.Succeeded)
+            {
+                e.Cancel = true;
+                gridView.CancelEdit();
+            }
+            else
+            {
+                //ErrorMessage.Text = result.Errors.FirstOrDefault();
+            }
+        }
+
+        protected void GridUsers_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
+        {
+            ASPxGridView gridView = (ASPxGridView)sender;
+
+            DataTable dt = new DataTable();
+
+            dt = Session["data"] as DataTable;
+
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            
+            IdentityResult result = manager.ChangePassword(e.Keys[0].ToString(), dt.Rows[0]["CurrPwd"].ToString(), dt.Rows[0]["NewPwd"].ToString());
+            if (result.Succeeded)
+            {
+                e.Cancel = true;
+                gridView.CancelEdit();
+            }
+            else
+            {
+                //AddErrors(result);
+            }
+        }
+
+        protected void GridUsers_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
+        {
+            ASPxGridView gridView = (ASPxGridView)sender;
+
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+            IdentityResult result = manager.Delete(manager.FindById(e.Keys[0].ToString()));
+            if (result.Succeeded)
+            {
+                e.Cancel = true;
+                gridView.CancelEdit();
+            }
+            else
+            {
+                //AddErrors(result);
+            }
+        }
+
+        protected void GridUsers_StartRowEditing(object sender, DevExpress.Web.Data.ASPxStartRowEditingEventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+            if (Session["data"] == null)
+            {
+                dt.Columns.Add("CurrPwd", typeof(string));
+                dt.Columns.Add("NewPwd", typeof(string));
+
+                dt.Rows.Add(new object[] { "", "" });
+                Session["data"] = dt;
+            }
+            else
+            {
+                dt = Session["data"] as DataTable;
+            }
         }
     }
 }
