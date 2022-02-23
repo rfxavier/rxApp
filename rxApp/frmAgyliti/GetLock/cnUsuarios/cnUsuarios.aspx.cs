@@ -66,6 +66,9 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuarios
             IdentityResult result = manager.Create(user, e.NewValues["PasswordHash"].ToString());
             if (result.Succeeded)
             {
+
+                manager.AddToRole(user.Id, "User");
+
                 e.Cancel = true;
                 gridView.CancelEdit();
             }

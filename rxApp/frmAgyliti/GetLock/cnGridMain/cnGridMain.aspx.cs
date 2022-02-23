@@ -1,5 +1,8 @@
 ﻿using DevExpress.Data.Filtering;
 using DevExpress.Web;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using rxApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -12,6 +15,11 @@ namespace rxApp.frmRx.Agyliti.GetLock.cnGridMain
 {
     public partial class cnGridMain : System.Web.UI.Page
     {
+        private ApplicationUserManager userManager;
+        public cnGridMain()
+        {
+            userManager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -44,6 +52,28 @@ namespace rxApp.frmRx.Agyliti.GetLock.cnGridMain
             ASPxDateEdit ed = e.Editor as ASPxDateEdit;
             ed.TimeSectionProperties.Visible = true;
             ed.TimeSectionProperties.TimeEditProperties.EditFormatString = "hh:mm";
+        }
+
+        protected void EntityServerModeDataSource1_Selecting(object sender, DevExpress.Data.Linq.LinqServerModeDataSourceSelectEventArgs e)
+        {
+            var db = new ApplicationDbContext();
+
+            e.KeyExpression = "id";
+
+            if (User.IsInRole("User"))
+            {
+                var user = userManager.FindById(User.Identity.GetUserId());
+                var loja = db.GetLockLojas.FirstOrDefault(l => l.id == user.GetLockLojaId);
+
+                var codLoja = loja == null ? null : loja.cod_loja;
+
+                e.QueryableSource = db.GetLockMessageViews.Where(g => g.cod_loja == codLoja);
+            } else
+            {
+                e.QueryableSource = db.GetLockMessageViews;
+            }
+
+            //User.Identity.
         }
     }
 }
