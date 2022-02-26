@@ -2,7 +2,6 @@
 using rxApp.Domain.Entities;
 using rxApp.Models;
 using System;
-using System.Data.Entity;
 using System.Linq;
 
 namespace rxApp.frmAgyliti.GetLock.cnCadastros
@@ -17,16 +16,14 @@ namespace rxApp.frmAgyliti.GetLock.cnCadastros
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //db = new ApplicationDbContext();
+            var comboColumn = ((GridViewDataComboBoxColumn)ASPxGridView1.Columns["cod_cliente"]);
 
-            //var comboColumn = ((GridViewDataComboBoxColumn)ASPxGridView1.Columns["cod_cliente"]);
+            var dsCombo = db.GetLockClientes.ToList();
 
-            //var dsCombo = db.GetLockClientes.ToList();
-
-            //comboColumn.PropertiesComboBox.DataSource = dsCombo;
-            //comboColumn.PropertiesComboBox.TextField = "nome";
-            //comboColumn.PropertiesComboBox.ValueField = "id";
-            //comboColumn.PropertiesComboBox.ValueType = typeof(string);
+            comboColumn.PropertiesComboBox.DataSource = dsCombo;
+            comboColumn.PropertiesComboBox.TextField = "nome";
+            comboColumn.PropertiesComboBox.ValueField = "id";
+            comboColumn.PropertiesComboBox.ValueType = typeof(string);
 
             ASPxGridView1.DataBind();
         }

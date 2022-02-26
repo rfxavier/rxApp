@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentPlaceHolderMain" runat="server">
     <div><h4>Cadastro Cliente</h4></div>
-    <dx:ASPxGridView ID="ASPxGridView1" runat="server" DataSourceID="EntityDataSource1" KeyFieldName="id" Width="100%" EnableRowsCache="False" AutoGenerateColumns="False">
+    <dx:ASPxGridView ID="ASPxGridView1" runat="server" KeyFieldName="id" Width="100%" EnableRowsCache="False" AutoGenerateColumns="False" OnDataBinding="ASPxGridView1_DataBinding" OnRowDeleting="ASPxGridView1_RowDeleting" OnRowInserting="ASPxGridView1_RowInserting" OnRowUpdating="ASPxGridView1_RowUpdating">
         <SettingsDataSecurity AllowInsert="true" />
         <EditFormLayoutProperties>
             <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="700" />
@@ -17,7 +17,9 @@
             <dx:GridViewCommandColumn ShowEditButton="True" ShowInCustomizationForm="True" VisibleIndex="0" ShowNewButtonInHeader="True" ShowDeleteButton="True"></dx:GridViewCommandColumn>
             <dx:GridViewDataColumn FieldName="cod_cliente" Caption="Código Cliente" />
             <dx:GridViewDataColumn FieldName="nome" Caption="Nome Fantasia" />
-            <dx:GridViewDataColumn FieldName="cod_rede" Caption="Código Rede" />
+            <dx:GridViewDataComboBoxColumn FieldName="cod_rede" Caption="Rede">
+                <PropertiesComboBox TextField="nome" IncrementalFilteringMode="Contains" ValueField="cod_rede"></PropertiesComboBox>
+            </dx:GridViewDataComboBoxColumn>
             <dx:GridViewDataColumn FieldName="razao_social" Caption="Razão Social" />
             <dx:GridViewDataColumn FieldName="cnpj" Caption="CNPJ" />
             <dx:GridViewDataColumn FieldName="endereco" Caption="Endereço" />
@@ -37,6 +39,4 @@
             </EditForm>
         </SettingsPopup>
     </dx:ASPxGridView>
-    <ef:EntityDataSource ID="EntityDataSource1" runat="server" ContextTypeName="rxApp.Models.ApplicationDbContext" EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntitySetName="GetLockClientes"></ef:EntityDataSource>
-
 </asp:Content>

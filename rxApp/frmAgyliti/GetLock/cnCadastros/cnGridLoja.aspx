@@ -17,7 +17,9 @@
             <dx:GridViewCommandColumn ShowEditButton="True" ShowInCustomizationForm="True" VisibleIndex="0" ShowNewButtonInHeader="True" ShowDeleteButton="True"></dx:GridViewCommandColumn>
             <dx:GridViewDataColumn FieldName="cod_loja" Caption="Código Loja" />
             <dx:GridViewDataColumn FieldName="nome" Caption="Nome Fantasia" />
-            <dx:GridViewDataColumn FieldName="cod_cliente" Caption="Código Cliente" />
+            <dx:GridViewDataComboBoxColumn FieldName="cod_cliente" Caption="Cliente">
+                <PropertiesComboBox TextField="nome" IncrementalFilteringMode="Contains" ValueField="cod_cliente"></PropertiesComboBox>
+            </dx:GridViewDataComboBoxColumn>
             <dx:GridViewDataColumn FieldName="razao_social" Caption="Razão Social" />
             <dx:GridViewDataColumn FieldName="cnpj" Caption="CNPJ" />
             <dx:GridViewDataColumn FieldName="endereco" Caption="Endereço" />
