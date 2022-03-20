@@ -261,6 +261,8 @@
     <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridMovimento.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridRede.aspx" />
     <Content Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridDepositos.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridExtracoes.aspx" />
     <Content Include="frmAgyliti\GetLock\cnUsuarios\cnUsuarios.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -631,6 +633,20 @@
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx.designer.cs">
       <DependentUpon>cnGridMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnMovimentos\cnGridDepositos.aspx.cs">
+      <DependentUpon>cnGridDepositos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnMovimentos\cnGridDepositos.aspx.designer.cs">
+      <DependentUpon>cnGridDepositos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnMovimentos\cnGridExtracoes.aspx.cs">
+      <DependentUpon>cnGridExtracoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnMovimentos\cnGridExtracoes.aspx.designer.cs">
+      <DependentUpon>cnGridExtracoes.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnUsuarios\cnUsuarios.aspx.cs">
       <DependentUpon>cnUsuarios.aspx</DependentUpon>
