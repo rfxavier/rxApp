@@ -4,7 +4,8 @@
 <asp:Content ID="HeaderContent" ContentPlaceHolderID="HeadContentPlaceHolderMain" runat="server">
 </asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentPlaceHolderMain" runat="server">
-    <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" ColCount="3" ColumnCount="3">
+    <strong>Depósitos</strong>
+    <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" ColCount="7" ColumnCount="7">
         <Items>
             <dx:LayoutItem Caption="Data Inicial" ShowCaption="True" ColSpan="1">
                 <LayoutItemNestedControlCollection>
@@ -38,13 +39,17 @@
             <dx:LayoutItem ShowCaption="False" ColSpan="1">
                 <LayoutItemNestedControlCollection>
                     <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxButton runat="server" ID="btnOK"></dx:ASPxButton>
+                        <dx:ASPxButton runat="server" ID="btnOK" Text="Aplicar filtro"></dx:ASPxButton>
 
                     </dx:LayoutItemNestedControlContainer>
                 </LayoutItemNestedControlCollection>
             </dx:LayoutItem>
 
-            <dx:LayoutItem ShowCaption="False" ColSpan="3" ColumnSpan="3">
+            <dx:EmptyLayoutItem ColSpan="1"></dx:EmptyLayoutItem>
+            <dx:EmptyLayoutItem ColSpan="1"></dx:EmptyLayoutItem>
+            <dx:EmptyLayoutItem ColSpan="1"></dx:EmptyLayoutItem>
+            <dx:EmptyLayoutItem ColSpan="1"></dx:EmptyLayoutItem>
+            <dx:LayoutItem ShowCaption="False" ColSpan="7" ColumnSpan="7">
                 <LayoutItemNestedControlCollection>
                     <dx:LayoutItemNestedControlContainer runat="server">
                         <dx:ASPxGridView runat="server" AutoGenerateColumns="False" KeyFieldName="id" ID="ASPxGridView1" OnDataBinding="ASPxGridView1_DataBinding" OnCustomUnboundColumnData="ASPxGridView1_CustomUnboundColumnData">
