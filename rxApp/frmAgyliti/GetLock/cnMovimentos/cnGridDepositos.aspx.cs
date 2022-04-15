@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using DevExpress.Web;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using rxApp.Models;
 using System;
@@ -11,6 +12,7 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
     {
         private ApplicationDbContext db;
         private ApplicationUserManager userManager;
+        object ds;
 
         public cnGridDepositos()
         {
@@ -31,7 +33,6 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
 
         protected void ASPxGridView1_DataBinding(object sender, EventArgs e)
         {
-            object ds;
             var dateIni = new DateTime(deStart.Date.Year, deStart.Date.Month, deStart.Date.Day, 0, 0, 0);
             var dateEnd = new DateTime(deEnd.Date.Year, deEnd.Date.Month, deEnd.Date.Day, 23, 59, 59);
 
@@ -72,5 +73,14 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
                 e.Value = b2 * 2 + b5 * 5 + b10 * 20 + b20 * 20 + b50 * 50 + b100 * 100 + b200 * 200;
             }
         }
+
+        protected void ASPxGridView2_BeforePerformDataSelect(object sender, EventArgs e)
+        {
+            ASPxGridView detailGridView = (ASPxGridView)sender;
+
+            var mainGridId = Convert.ToInt64((sender as ASPxGridView).GetMasterRowKeyValue());
+            detailGridView.DataSource = db.GetLockMessageViews.AsNoTracking().Where(x => x.id == mainGridId).ToList();
+        }
+
     }
 }

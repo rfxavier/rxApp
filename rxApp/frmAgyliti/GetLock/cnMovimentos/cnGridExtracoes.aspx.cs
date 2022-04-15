@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using DevExpress.Web;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using rxApp.Models;
 using System;
@@ -71,6 +72,14 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
             {
                 e.Value = b2 * 2 + b5 * 5 + b10 * 20 + b20 * 20 + b50 * 50 + b100 * 100 + b200 * 200;
             }
+        }
+
+        protected void ASPxGridView2_BeforePerformDataSelect(object sender, EventArgs e)
+        {
+            ASPxGridView detailGridView = (ASPxGridView)sender;
+
+            var mainGridId = Convert.ToInt64((sender as ASPxGridView).GetMasterRowKeyValue());
+            detailGridView.DataSource = db.GetLockMessageViews.AsNoTracking().Where(x => x.id == mainGridId).ToList();
         }
     }
 }
