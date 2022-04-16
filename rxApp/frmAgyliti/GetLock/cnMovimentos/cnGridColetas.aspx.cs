@@ -8,17 +8,17 @@ using System.Web;
 
 namespace rxApp.frmAgyliti.GetLock.cnMovimentos
 {
-    public partial class cnGridExtracoes : System.Web.UI.Page
+    public partial class cnGridColetas : System.Web.UI.Page
     {
         private ApplicationDbContext db;
         private ApplicationUserManager userManager;
 
-        public cnGridExtracoes()
+        public cnGridColetas()
         {
             db = new ApplicationDbContext();
             userManager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!(Page.IsPostBack))
@@ -43,11 +43,11 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
 
                 var codLoja = loja == null ? null : loja.cod_loja;
 
-                ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "3") && m.cod_loja == codLoja && m.trackCreationTime >= dateIni && m.trackCreationTime <= dateEnd).ToList();
+                ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "5") && m.cod_loja == codLoja && m.trackCreationTime >= dateIni && m.trackCreationTime <= dateEnd).ToList();
             }
             else
             {
-                ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "3") && m.trackCreationTime >= dateIni && m.trackCreationTime <= dateEnd).ToList();
+                ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "5") && m.trackCreationTime >= dateIni && m.trackCreationTime <= dateEnd).ToList();
             }
 
             ASPxGridView1.DataSource = ds;

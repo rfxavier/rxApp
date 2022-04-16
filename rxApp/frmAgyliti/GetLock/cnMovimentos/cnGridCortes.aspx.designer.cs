@@ -10,7 +10,7 @@
 namespace rxApp.frmAgyliti.GetLock.cnMovimentos {
     
     
-    public partial class cnGridExtracoes {
+    public partial class cnGridCortes {
         
         /// <summary>
         /// ASPxFormLayout1 control.

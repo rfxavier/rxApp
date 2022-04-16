@@ -14,7 +14,8 @@
     </siteMapNode>
     <siteMapNode url="" title="Movimentos" description="Operações" roles="AdmMaster,AdmPortal,User">
       <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridDepositos.aspx" title="Depósitos" description="Depósitos" roles="AdmMaster,AdmPortal,User" />
-      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridExtracoes.aspx" title="Extrações" description="Extrações" roles="AdmMaster,AdmPortal,User" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridColetas.aspx" title="Coletas" description="Coletas" roles="AdmMaster,AdmPortal,User" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridCortes.aspx" title="Corte do dia" description="Corte do dia" roles="AdmMaster,AdmPortal,User" />
     </siteMapNode>
     <siteMapNode url="" title="Cadastros" description="Cadastros" roles="AdmMaster,AdmPortal">
       <siteMapNode url="~/frmAgyliti/GetLock/cnCadastros/cnGridCofre.aspx" title="Cofre" description="Cadastro Cofre" roles="AdmMaster,AdmPortal" />

@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeBehind="cnGridExtracoes.aspx.cs" Inherits="rxApp.frmAgyliti.GetLock.cnMovimentos.cnGridExtracoes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeBehind="cnGridColetas.aspx.cs" Inherits="rxApp.frmAgyliti.GetLock.cnMovimentos.cnGridColetas" %>
 <%@ Register Assembly="DevExpress.Web.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <asp:Content ID="HeaderContent" ContentPlaceHolderID="HeadContentPlaceHolderMain" runat="server">
 </asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentPlaceHolderMain" runat="server">
-    <strong>Extrações</strong>
+    <strong>Coletas</strong>
     <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" ColCount="7" ColumnCount="7">
         <Items>
             <dx:LayoutItem Caption="Data Inicial" ShowCaption="True" ColSpan="1">

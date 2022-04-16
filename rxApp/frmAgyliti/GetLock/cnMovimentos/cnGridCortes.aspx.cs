@@ -8,13 +8,12 @@ using System.Web;
 
 namespace rxApp.frmAgyliti.GetLock.cnMovimentos
 {
-    public partial class cnGridDepositos : System.Web.UI.Page
+    public partial class cnGridCortes : System.Web.UI.Page
     {
         private ApplicationDbContext db;
         private ApplicationUserManager userManager;
-        object ds;
 
-        public cnGridDepositos()
+        public cnGridCortes()
         {
             db = new ApplicationDbContext();
             userManager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -33,6 +32,7 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
 
         protected void ASPxGridView1_DataBinding(object sender, EventArgs e)
         {
+            object ds;
             var dateIni = new DateTime(deStart.Date.Year, deStart.Date.Month, deStart.Date.Day, 0, 0, 0);
             var dateEnd = new DateTime(deEnd.Date.Year, deEnd.Date.Month, deEnd.Date.Day, 23, 59, 59);
 
@@ -43,11 +43,11 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
 
                 var codLoja = loja == null ? null : loja.cod_loja;
 
-                ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4") &&  m.cod_loja == codLoja && m.trackCreationTime >= dateIni && m.trackCreationTime <= dateEnd).ToList();
+                ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && m.cod_loja == codLoja && m.trackCreationTime >= dateIni && m.trackCreationTime <= dateEnd).ToList();
             }
             else
             {
-                ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4") && m.trackCreationTime >= dateIni && m.trackCreationTime <= dateEnd).ToList();
+                ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && m.trackCreationTime >= dateIni && m.trackCreationTime <= dateEnd).ToList();
             }
 
             ASPxGridView1.DataSource = ds;
@@ -81,6 +81,5 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
             var mainGridId = Convert.ToInt64((sender as ASPxGridView).GetMasterRowKeyValue());
             detailGridView.DataSource = db.GetLockMessageViews.AsNoTracking().Where(x => x.id == mainGridId).ToList();
         }
-
     }
 }

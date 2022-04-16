@@ -7,63 +7,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace rxApp {
+namespace rxApp.frmAgyliti.GetLock.cnMovimentos {
     
     
-    public partial class Main {
+    public partial class cnGridColetas {
         
         /// <summary>
-        /// HeadContentPlaceHolderMain control.
+        /// ASPxFormLayout1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContentPlaceHolderMain;
+        protected global::DevExpress.Web.ASPxFormLayout ASPxFormLayout1;
         
         /// <summary>
-        /// LeftPane control.
+        /// deStart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxPanel LeftPane;
+        protected global::DevExpress.Web.ASPxDateEdit deStart;
         
         /// <summary>
-        /// ASPxNavBar1 control.
+        /// deEnd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxNavBar ASPxNavBar1;
+        protected global::DevExpress.Web.ASPxDateEdit deEnd;
         
         /// <summary>
-        /// ASPxSiteMapDataSource1 control.
+        /// btnOK control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxSiteMapDataSource ASPxSiteMapDataSource1;
+        protected global::DevExpress.Web.ASPxButton btnOK;
         
         /// <summary>
-        /// ASPxTreeList1 control.
+        /// ASPxGridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList1;
-        
-        /// <summary>
-        /// MainContentPlaceHolderMain control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContentPlaceHolderMain;
+        protected global::DevExpress.Web.ASPxGridView ASPxGridView1;
     }
 }
