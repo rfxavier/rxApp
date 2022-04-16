@@ -10,16 +10,10 @@ namespace rxApp.Migrations
             AddColumn("dbo.message", "data_currency_bill", c => c.Long());
             AddColumn("dbo.message", "data_currency_bill_total", c => c.Long());
             AddColumn("dbo.message", "data_sensor", c => c.Decimal(precision: 18, scale: 2));
-            AddColumn("dbo.message_view", "data_currency_bill", c => c.Long());
-            AddColumn("dbo.message_view", "data_currency_bill_total", c => c.Long());
-            AddColumn("dbo.message_view", "data_sensor", c => c.Decimal(precision: 18, scale: 2));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.message_view", "data_sensor");
-            DropColumn("dbo.message_view", "data_currency_bill_total");
-            DropColumn("dbo.message_view", "data_currency_bill");
             DropColumn("dbo.message", "data_sensor");
             DropColumn("dbo.message", "data_currency_bill_total");
             DropColumn("dbo.message", "data_currency_bill");

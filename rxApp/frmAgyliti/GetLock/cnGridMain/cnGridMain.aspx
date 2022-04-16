@@ -92,6 +92,9 @@
             <dx:GridViewDataTextColumn FieldName="data_currency_bill_rejected" Caption="C&#233;dula Rejeitada" VisibleIndex="60"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="data_currency_envelope" Caption="Envelope" VisibleIndex="61"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="data_currency_envelope_total" Caption="Envelope Valor Total" VisibleIndex="62"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill" Caption="Quantidade de C&#233;dulas" VisibleIndex="63"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_total" Caption="Valor total de C&#233;dulas" VisibleIndex="64"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_sensor" Caption="Sensor" VisibleIndex="65"></dx:GridViewDataTextColumn>
         </Columns>
         <Toolbars>
             <dx:GridViewToolbar>
