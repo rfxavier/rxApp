@@ -573,7 +573,9 @@
     <Compile Include="Domain\Entities\GetLockMessageConfig.cs" />
     <Compile Include="Domain\Entities\GetLockLoja.cs" />
     <Compile Include="Domain\Entities\GetLockLojaConfig.cs" />
+    <Compile Include="Domain\Entities\GetLockLojaClienteRedeView.cs" />
     <Compile Include="Domain\Entities\GetLockMessageView.cs" />
+    <Compile Include="Domain\Entities\GetLockLojaClienteRedeViewConfig.cs" />
     <Compile Include="Domain\Entities\GetLockMessageViewConfig.cs" />
     <Compile Include="Domain\Entities\GetLockMovimento.cs" />
     <Compile Include="Domain\Entities\GetLockMovimentoConfig.cs" />
@@ -742,6 +744,10 @@
     <Compile Include="Migrations\202204161301255_v8.Designer.cs">
       <DependentUpon>202204161301255_v8.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204161436598_v9.cs" />
+    <Compile Include="Migrations\202204161436598_v9.Designer.cs">
+      <DependentUpon>202204161436598_v9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="movimento.cs">
@@ -849,6 +855,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204161301255_v8.resx">
       <DependentUpon>202204161301255_v8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204161436598_v9.resx">
+      <DependentUpon>202204161436598_v9.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

@@ -45,6 +45,7 @@ namespace rxApp.Models
         public DbSet<GetLockRede> GetLockRedes { get; set; }
         public DbSet<GetLockMovimento> GetLockMovimentos { get; set; }
         public DbSet<GetLockMessageView> GetLockMessageViews { get; set; }
+        public DbSet<GetLockLojaClienteRedeView> GetLockLojaClienteRedeViews { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -84,6 +85,7 @@ namespace rxApp.Models
             modelBuilder.Configurations.Add(new GetLockRedeConfig());
             modelBuilder.Configurations.Add(new GetLockMovimentoConfig());
             modelBuilder.Configurations.Add(new GetLockMessageViewConfig());
+            modelBuilder.Configurations.Add(new GetLockLojaClienteRedeViewConfig());
 
             base.OnModelCreating(modelBuilder);
         }

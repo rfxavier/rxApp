@@ -25,7 +25,7 @@ namespace rxApp
 
         protected void ASPxTreeList1_DataBinding(object sender, EventArgs e)
         {
-            ds = db.GetLockRedes.AsNoTracking().ToList();
+            ds = db.GetLockLojaClienteRedeViews.AsNoTracking().ToList();
             ASPxTreeList1.DataSource = ds;
         }
     }

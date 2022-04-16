@@ -27,9 +27,9 @@
                     </dx:ASPxNavBar>
                     <dx:ASPxSiteMapDataSource ID="ASPxSiteMapDataSource1" runat="server" SiteMapFileName="~/web.sitemap" EnableRoles="True" />
                 </div>
-                <dx:ASPxTreeList ID="ASPxTreeList1" runat="server" Visible="false" AutoGenerateColumns="false" KeyFieldName="ID" OnDataBinding="ASPxTreeList1_DataBinding">
+                <dx:ASPxTreeList ID="ASPxTreeList1" runat="server" Visible="true" AutoGenerateColumns="false" KeyFieldName="ID" OnDataBinding="ASPxTreeList1_DataBinding">
                     <Columns>
-                        <dx:TreeListDataColumn FieldName="nome" Caption="Department" VisibleIndex="0" />
+                        <dx:TreeListDataColumn FieldName="nome_loja" Caption="Loja" VisibleIndex="0" />
                     </Columns>
                     <SettingsBehavior ExpandCollapseAction="NodeDblClick" />
                     <SettingsSelection Enabled="True" />
