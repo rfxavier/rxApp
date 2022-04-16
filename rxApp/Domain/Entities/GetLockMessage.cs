@@ -33,5 +33,8 @@ namespace rxApp.Domain.Entities
         public string cod_loja { get; set; }
         public string cod_cliente { get; set; }
         public string cod_rede { get; set; }
+        public Nullable<long> data_currency_bill { get; set; }
+        public Nullable<long> data_currency_bill_total { get; set; }
+        public Nullable<decimal> data_sensor { get; set; }
     }
 }

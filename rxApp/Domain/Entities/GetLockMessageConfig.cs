@@ -80,6 +80,9 @@ namespace rxApp.Domain.Entities
             this.Property(t => t.cod_loja).HasColumnName("cod_loja");
             this.Property(t => t.cod_cliente).HasColumnName("cod_cliente");
             this.Property(t => t.cod_rede).HasColumnName("cod_rede");
+            this.Property(t => t.data_currency_bill).HasColumnName("data_currency_bill");
+            this.Property(t => t.data_currency_bill_total).HasColumnName("data_currency_bill_total");
+            this.Property(t => t.data_sensor).HasColumnName("data_sensor");
         }
     }
 }

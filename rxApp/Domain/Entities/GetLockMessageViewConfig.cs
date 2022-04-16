@@ -224,6 +224,9 @@ namespace rxApp.Domain.Entities
             this.Property(t => t.trackCreationTime).HasColumnName("trackCreationTime");
             this.Property(t => t.data_tmst_begin_datetime).HasColumnName("data_tmst_begin_datetime");
             this.Property(t => t.data_tmst_end_datetime).HasColumnName("data_tmst_end_datetime");
+            this.Property(t => t.data_currency_bill).HasColumnName("data_currency_bill");
+            this.Property(t => t.data_currency_bill_total).HasColumnName("data_currency_bill_total");
+            this.Property(t => t.data_sensor).HasColumnName("data_sensor");
         }
     }
 }

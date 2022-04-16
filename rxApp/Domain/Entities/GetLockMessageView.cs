@@ -71,5 +71,8 @@ namespace rxApp.Domain.Entities
         public Nullable<System.DateTime> trackCreationTime { get; set; }
         public Nullable<System.DateTime> data_tmst_begin_datetime { get; set; }
         public Nullable<System.DateTime> data_tmst_end_datetime { get; set; }
+        public Nullable<long> data_currency_bill { get; set; }
+        public Nullable<long> data_currency_bill_total { get; set; }
+        public Nullable<decimal> data_sensor { get; set; }
     }
 }
