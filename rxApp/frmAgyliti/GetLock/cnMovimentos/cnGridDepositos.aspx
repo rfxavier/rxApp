@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeBehind="cnGridDepositos.aspx.cs" Inherits="rxApp.frmAgyliti.GetLock.cnMovimentos.cnGridDepositos" %>
-
+<%@ MasterType VirtualPath="~/Main.master" %>
 <%@ Register Assembly="DevExpress.Web.v19.1, Version=19.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 <asp:Content ID="HeaderContent" ContentPlaceHolderID="HeadContentPlaceHolderMain" runat="server">
 </asp:Content>
@@ -7,44 +7,6 @@
     <strong>Depósitos</strong>
     <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" ColCount="7" ColumnCount="7">
         <Items>
-            <dx:LayoutItem Caption="Data Inicial" ShowCaption="True" ColSpan="1">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxDateEdit ID="deStart" ClientInstanceName="deStart" runat="server">
-                            <CalendarProperties>
-                                <FastNavProperties DisplayMode="Inline" />
-                            </CalendarProperties>
-                            <ValidationSettings Display="Dynamic" SetFocusOnError="True" CausesValidation="True" ErrorDisplayMode="ImageWithTooltip">
-                                <RequiredField IsRequired="True" ErrorText="Data inicial é requerida"></RequiredField>
-                            </ValidationSettings>
-                        </dx:ASPxDateEdit>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem Caption="Data Final" ShowCaption="True" ColSpan="1">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxDateEdit ID="deEnd" ClientInstanceName="deEnd" runat="server">
-                            <CalendarProperties>
-                                <FastNavProperties DisplayMode="Inline" />
-                            </CalendarProperties>
-                            <DateRangeSettings StartDateEditID="deStart"></DateRangeSettings>
-                            <ValidationSettings Display="Dynamic" SetFocusOnError="True" CausesValidation="True" ErrorDisplayMode="ImageWithTooltip">
-                                <RequiredField IsRequired="True" ErrorText="Data final é requerida"></RequiredField>
-                            </ValidationSettings>
-                        </dx:ASPxDateEdit>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ShowCaption="False" ColSpan="1">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxButton runat="server" ID="btnOK" Text="Aplicar filtro"></dx:ASPxButton>
-
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-
             <dx:EmptyLayoutItem ColSpan="1"></dx:EmptyLayoutItem>
             <dx:EmptyLayoutItem ColSpan="1"></dx:EmptyLayoutItem>
             <dx:EmptyLayoutItem ColSpan="1"></dx:EmptyLayoutItem>

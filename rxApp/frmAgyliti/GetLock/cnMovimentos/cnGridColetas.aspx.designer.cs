@@ -22,33 +22,6 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos {
         protected global::DevExpress.Web.ASPxFormLayout ASPxFormLayout1;
         
         /// <summary>
-        /// deStart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxDateEdit deStart;
-        
-        /// <summary>
-        /// deEnd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxDateEdit deEnd;
-        
-        /// <summary>
-        /// btnOK control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnOK;
-        
-        /// <summary>
         /// ASPxGridView1 control.
         /// </summary>
         /// <remarks>
@@ -56,5 +29,17 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridView ASPxGridView1;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new rxApp.Main Master {
+            get {
+                return ((rxApp.Main)(base.Master));
+            }
+        }
     }
 }

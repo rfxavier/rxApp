@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using rxApp.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
@@ -12,29 +13,46 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
     {
         private ApplicationDbContext db;
         private ApplicationUserManager userManager;
+        object ds;
 
         public cnGridColetas()
         {
             db = new ApplicationDbContext();
             userManager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
         }
+        protected void Page_PreInit(object sender, EventArgs e)
+        {
+            // Create an event handler for the master page's contentCallEvent event
+            Master.contentCallEvent += new EventHandler(Page_Load);
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!(Page.IsPostBack))
-            {
-                deStart.Date = DateTime.Now;
-                deEnd.Date = DateTime.Now;
-            }
-
             ASPxGridView1.DataBind();
         }
 
         protected void ASPxGridView1_DataBinding(object sender, EventArgs e)
         {
-            object ds;
-            var dateIni = new DateTime(deStart.Date.Year, deStart.Date.Month, deStart.Date.Day, 0, 0, 0);
-            var dateEnd = new DateTime(deEnd.Date.Year, deEnd.Date.Month, deEnd.Date.Day, 23, 59, 59);
+            DateTime dateStart;
+            DateTime dateEnd;
+
+            if (Session["dateStart"] != null)
+            {
+                dateStart = (DateTime)Session["dateStart"];
+            }
+            else
+            {
+                dateStart = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0);
+            }
+
+            if (Session["dateEnd"] != null)
+            {
+                dateEnd = (DateTime)Session["dateEnd"];
+            }
+            else
+            {
+                dateEnd = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0);
+            }
 
             if (User.IsInRole("User"))
             {
@@ -43,11 +61,45 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
 
                 var codLoja = loja == null ? null : loja.cod_loja;
 
-                ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "5") && m.cod_loja == codLoja && m.trackCreationTime >= dateIni && m.trackCreationTime <= dateEnd).ToList();
+                ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "5") && m.cod_loja == codLoja && m.trackCreationTime >= dateStart && m.trackCreationTime <= dateEnd).ToList();
             }
             else
             {
-                ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "5") && m.trackCreationTime >= dateIni && m.trackCreationTime <= dateEnd).ToList();
+                if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
+                {
+                    var selectedLojas = (List<long>)Session["selectedLojas"];
+                    //e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.trackCreationTime >= dateStart && g.trackCreationTime <= dateEnd);
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "5") && selectedLojas.Contains(m.id_loja) && m.trackCreationTime >= dateStart && m.trackCreationTime <= dateEnd).ToList();
+                }
+                else if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
+                {
+                    var selectedLojas = (List<long>)Session["selectedLojas"];
+                    //e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.trackCreationTime >= dateStart);
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "5") && selectedLojas.Contains(m.id_loja) && m.trackCreationTime >= dateStart).ToList();
+                }
+                else if (Session["selectedLojas"] != null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
+                {
+                    var selectedLojas = (List<long>)Session["selectedLojas"];
+                    //e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.trackCreationTime <= dateEnd);
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "5") && selectedLojas.Contains(m.id_loja) && m.trackCreationTime <= dateEnd).ToList();
+                }
+                else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
+                {
+                    //e.QueryableSource = db.GetLockMessageViews.Where(g => g.trackCreationTime >= dateStart && g.trackCreationTime <= dateEnd);
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "5") && m.trackCreationTime >= dateStart && m.trackCreationTime <= dateEnd).ToList();
+                }
+                else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
+                {
+                    //e.QueryableSource = db.GetLockMessageViews.Where(g => g.trackCreationTime >= dateStart);
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "5") && m.trackCreationTime >= dateStart).ToList();
+                }
+                else if (Session["selectedLojas"] == null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
+                {
+                    //e.QueryableSource = db.GetLockMessageViews.Where(g => g.trackCreationTime <= dateEnd);
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "5") && m.trackCreationTime <= dateEnd).ToList();
+                }
+
+                //ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "5") && m.trackCreationTime >= dateIni && m.trackCreationTime <= dateEnd).ToList();
             }
 
             ASPxGridView1.DataSource = ds;

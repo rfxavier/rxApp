@@ -35,6 +35,7 @@ namespace rxApp.Domain.Entities
         public Nullable<long> data_currency_bill_rejected { get; set; }
         public Nullable<long> data_currency_envelope { get; set; }
         public Nullable<decimal> data_currency_envelope_total { get; set; }
+        public long id_loja { get; set; }
         public string cod_loja { get; set; }
         public string nome_loja { get; set; }
         public string razao_social_loja { get; set; }
@@ -50,6 +51,7 @@ namespace rxApp.Domain.Entities
         public string pessoa_contato_loja { get; set; }
         public string email_loja { get; set; }
         public string telefone_loja { get; set; }
+        public long id_cliente { get; set; }
         public string cod_cliente { get; set; }
         public string nome_cliente { get; set; }
         public string razao_social_cliente { get; set; }
@@ -65,6 +67,7 @@ namespace rxApp.Domain.Entities
         public string pessoa_contato_cliente { get; set; }
         public string email_cliente { get; set; }
         public string telefone_cliente { get; set; }
+        public long id_rede { get; set; }
         public string cod_rede { get; set; }
         public string nome_rede { get; set; }
         public Nullable<System.DateTime> trackLastWriteTime { get; set; }

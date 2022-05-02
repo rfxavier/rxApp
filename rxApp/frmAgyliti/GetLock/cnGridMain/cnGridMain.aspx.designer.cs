@@ -13,6 +13,24 @@ namespace rxApp.frmRx.Agyliti.GetLock.cnGridMain {
     public partial class cnGridMain {
         
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// updateDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updateDetails;
+        
+        /// <summary>
         /// ASPxGridView1 control.
         /// </summary>
         /// <remarks>
@@ -29,5 +47,17 @@ namespace rxApp.frmRx.Agyliti.GetLock.cnGridMain {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Data.Linq.EntityServerModeDataSource EntityServerModeDataSource1;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new rxApp.Main Master {
+            get {
+                return ((rxApp.Main)(base.Master));
+            }
+        }
     }
 }
