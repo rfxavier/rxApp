@@ -94,39 +94,39 @@ namespace rxApp.frmRx.Agyliti.GetLock.cnGridMain
                     var selectedLojas = (List<long>)Session["selectedLojas"];
                     var dateStart = (DateTime)Session["dateStart"];
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.trackCreationTime >= dateStart && g.trackCreationTime <= dateEnd);
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
                 }
                 else if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
                 {
                     var selectedLojas = (List<long>)Session["selectedLojas"];
                     var dateStart = (DateTime)Session["dateStart"];
-                    e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.trackCreationTime >= dateStart);
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime >= dateStart);
                 }
                 else if (Session["selectedLojas"] != null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
                 {
                     var selectedLojas = (List<long>)Session["selectedLojas"];
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.trackCreationTime <= dateEnd);
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime <= dateEnd);
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
                 {
                     var dateStart = (DateTime)Session["dateStart"];
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.trackCreationTime >= dateStart && g.trackCreationTime <= dateEnd);
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
                 {
                     var dateStart = (DateTime)Session["dateStart"];
-                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.trackCreationTime >= dateStart);
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.data_tmst_end_datetime >= dateStart);
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
                 {
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.trackCreationTime <= dateEnd);
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.data_tmst_end_datetime <= dateEnd);
                 }
                 else
                 {
-                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.trackCreationTime >= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0) && g.trackCreationTime <= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 23, 59, 59));
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.data_tmst_end_datetime >= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0) && g.data_tmst_end_datetime <= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 23, 59, 59));
                 }
             }
         }

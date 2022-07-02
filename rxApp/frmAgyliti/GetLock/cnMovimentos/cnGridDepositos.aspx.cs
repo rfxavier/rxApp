@@ -121,7 +121,7 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
 
             if (e.Column.FieldName == "TotalValue")
             {
-                e.Value = b2 * 2 + b5 * 5 + b10 * 20 + b20 * 20 + b50 * 50 + b100 * 100 + b200 * 200;
+                e.Value = b2 * 2 + b5 * 5 + b10 * 10 + b20 * 20 + b50 * 50 + b100 * 100 + b200 * 200;
             }
         }
 
