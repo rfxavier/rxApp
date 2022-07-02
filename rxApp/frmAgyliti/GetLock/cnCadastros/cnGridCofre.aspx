@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentPlaceHolderMain" runat="server">
     <div><h4>Cadastro Cofre</h4></div>
-    <dx:ASPxGridView ID="ASPxGridView1" runat="server" DataSourceID="EntityDataSource1" KeyFieldName="id" Width="100%" EnableRowsCache="False" AutoGenerateColumns="False">
+    <dx:ASPxGridView ID="ASPxGridView1" runat="server" KeyFieldName="id" Width="100%" EnableRowsCache="False" AutoGenerateColumns="False" OnDataBinding="ASPxGridView1_DataBinding" OnRowDeleting="ASPxGridView1_RowDeleting" OnRowInserting="ASPxGridView1_RowInserting" OnRowUpdating="ASPxGridView1_RowUpdating">
         <SettingsDataSecurity AllowInsert="true" />
         <EditFormLayoutProperties>
             <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="700" />
@@ -22,7 +22,9 @@
             <dx:GridViewDataColumn FieldName="marca" Caption="Marca" />
             <dx:GridViewDataColumn FieldName="modelo" Caption="Modelo" />
             <dx:GridViewDataColumn FieldName="tamanho_malote" Caption="Tamanho Malote" />
-            <dx:GridViewDataColumn FieldName="cod_loja" Caption="Código Loja" />
+            <dx:GridViewDataComboBoxColumn FieldName="cod_loja" Caption="Loja">
+                <PropertiesComboBox TextField="nome" IncrementalFilteringMode="Contains" ValueField="cod_loja"></PropertiesComboBox>
+            </dx:GridViewDataComboBoxColumn>
         </Columns>
         <SettingsPopup>
             <EditForm Width="600">
@@ -30,5 +32,4 @@
             </EditForm>
         </SettingsPopup>
     </dx:ASPxGridView>
-    <ef:EntityDataSource ID="EntityDataSource1" runat="server" ContextTypeName="rxApp.Models.ApplicationDbContext" EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntitySetName="GetLockCofres"></ef:EntityDataSource>
 </asp:Content>
