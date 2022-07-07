@@ -1,36 +1,27 @@
 ﻿using DevExpress.Web;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using rxApp.Models;
 using System;
 using System.Data;
 using System.Linq;
 using System.Web;
-using Microsoft.AspNet.Identity.EntityFramework;
 
-namespace rxApp.frmAgyliti.GetLock.cnUsuarios
+namespace rxApp.frmAgyliti.GetLock.cnUsuariosAdmin
 {
-    public partial class cnUsuarios : System.Web.UI.Page
+    public partial class cnUsuariosAdmin : System.Web.UI.Page
     {
         private ApplicationUserManager userManager;
         private ApplicationDbContext db;
 
-        public cnUsuarios()
+        public cnUsuariosAdmin()
         {
             userManager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
             db = new ApplicationDbContext();
-
-            var comboColumn = ((GridViewDataComboBoxColumn)GridUsers.Columns["GetLockLojaId"]);
-
-            var dsCombo = db.GetLockLojas.ToList();
-
-            comboColumn.PropertiesComboBox.DataSource = dsCombo;
-            comboColumn.PropertiesComboBox.TextField = "nome";
-            comboColumn.PropertiesComboBox.ValueField = "id";
-            comboColumn.PropertiesComboBox.ValueType = typeof(string);
 
             GridUsers.DataBind();
         }
@@ -39,10 +30,9 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuarios
         {
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(db));
 
-            //Get user role
-            var adminRole = roleManager.FindByName("User");
-
-
+            //Get admin role
+            var adminRole = roleManager.FindByName("AdmPortal");
+            
             GridUsers.DataSource = userManager.Users.Where(x => x.Roles.Any(role=> role.RoleId == adminRole.Id)).ToList();
         }
 
@@ -69,12 +59,12 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuarios
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
             var user = new ApplicationUser() { UserName = e.NewValues["UserName"].ToString(), Email = e.NewValues["UserName"].ToString() };
-            user.GetLockLojaId = Convert.ToInt64(e.NewValues["GetLockLojaId"]);
+
             IdentityResult result = manager.Create(user, e.NewValues["PasswordHash"].ToString());
             if (result.Succeeded)
             {
 
-                manager.AddToRole(user.Id, "User");
+                manager.AddToRole(user.Id, "AdmPortal");
 
                 e.Cancel = true;
                 gridView.CancelEdit();
@@ -96,7 +86,7 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuarios
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
             var user = manager.FindById(e.Keys[0].ToString());
-            user.GetLockLojaId = Convert.ToInt64(e.NewValues["GetLockLojaId"]);
+
             manager.Update(user);
 
             if (!((dt.Rows[0]["CurrPwd"].ToString() == "" && dt.Rows[0]["NewPwd"].ToString() == "")))

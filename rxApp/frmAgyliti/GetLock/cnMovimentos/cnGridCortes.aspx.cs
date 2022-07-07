@@ -61,45 +61,45 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
 
                 var codLoja = loja == null ? null : loja.cod_loja;
 
-                ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && m.cod_loja == codLoja && m.trackCreationTime >= dateStart && m.trackCreationTime <= dateEnd).ToList();
+                ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && m.cod_loja == codLoja && m.data_tmst_end_datetime >= dateStart && m.data_tmst_end_datetime <= dateEnd).ToList();
             }
             else
             {
                 if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
                 {
                     var selectedLojas = (List<long>)Session["selectedLojas"];
-                    //e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.trackCreationTime >= dateStart && g.trackCreationTime <= dateEnd);
-                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && selectedLojas.Contains(m.id_loja) && m.trackCreationTime >= dateStart && m.trackCreationTime <= dateEnd).ToList();
+                    //e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && selectedLojas.Contains(m.id_loja) && m.data_tmst_end_datetime >= dateStart && m.data_tmst_end_datetime <= dateEnd).ToList();
                 }
                 else if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
                 {
                     var selectedLojas = (List<long>)Session["selectedLojas"];
-                    //e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.trackCreationTime >= dateStart);
-                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && selectedLojas.Contains(m.id_loja) && m.trackCreationTime >= dateStart).ToList();
+                    //e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime >= dateStart);
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && selectedLojas.Contains(m.id_loja) && m.data_tmst_end_datetime >= dateStart).ToList();
                 }
                 else if (Session["selectedLojas"] != null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
                 {
                     var selectedLojas = (List<long>)Session["selectedLojas"];
-                    //e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.trackCreationTime <= dateEnd);
-                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && selectedLojas.Contains(m.id_loja) && m.trackCreationTime <= dateEnd).ToList();
+                    //e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime <= dateEnd);
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && selectedLojas.Contains(m.id_loja) && m.data_tmst_end_datetime <= dateEnd).ToList();
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
                 {
-                    //e.QueryableSource = db.GetLockMessageViews.Where(g => g.trackCreationTime >= dateStart && g.trackCreationTime <= dateEnd);
-                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && m.trackCreationTime >= dateStart && m.trackCreationTime <= dateEnd).ToList();
+                    //e.QueryableSource = db.GetLockMessageViews.Where(g => g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && m.data_tmst_end_datetime >= dateStart && m.data_tmst_end_datetime <= dateEnd).ToList();
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
                 {
-                    //e.QueryableSource = db.GetLockMessageViews.Where(g => g.trackCreationTime >= dateStart);
-                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && m.trackCreationTime >= dateStart).ToList();
+                    //e.QueryableSource = db.GetLockMessageViews.Where(g => g.data_tmst_end_datetime >= dateStart);
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && m.data_tmst_end_datetime >= dateStart).ToList();
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
                 {
-                    //e.QueryableSource = db.GetLockMessageViews.Where(g => g.trackCreationTime <= dateEnd);
-                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && m.trackCreationTime <= dateEnd).ToList();
+                    //e.QueryableSource = db.GetLockMessageViews.Where(g => g.data_tmst_end_datetime <= dateEnd);
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && m.data_tmst_end_datetime <= dateEnd).ToList();
                 }
 
-                //ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && m.trackCreationTime >= dateIni && m.trackCreationTime <= dateEnd).ToList();
+                //ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "6") && m.data_tmst_end_datetime >= dateIni && m.data_tmst_end_datetime <= dateEnd).ToList();
             }
 
             ASPxGridView1.DataSource = ds;

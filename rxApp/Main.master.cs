@@ -23,9 +23,17 @@ namespace rxApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ASPxTreeList1.DataBind();
-            ASPxTreeList1.ExpandAll();
-            ASPxTreeList1.SettingsSelection.Recursive = true;
+            if (Page.User.IsInRole("AdmMaster") || Page.User.IsInRole("AdmPortal"))
+            {
+                ASPxTreeList1.DataBind();
+                ASPxTreeList1.ExpandAll();
+                ASPxTreeList1.SettingsSelection.Recursive = true;
+
+            }
+            else
+            {
+                ASPxTreeList1.Visible = false;
+            }
 
             if (!Page.IsPostBack)
             {

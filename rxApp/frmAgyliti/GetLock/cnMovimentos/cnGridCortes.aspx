@@ -19,7 +19,7 @@
 
                             <SettingsPager PageSize="20"></SettingsPager>
                             <Columns>
-                                <dx:GridViewDataDateColumn FieldName="trackCreationTime" SortIndex="0" SortOrder="Descending" ShowInCustomizationForm="True" Caption="Data Movimento" VisibleIndex="0">
+                                <dx:GridViewDataDateColumn FieldName="data_tmst_end_datetime" SortIndex="0" SortOrder="Descending" ShowInCustomizationForm="True" Caption="Data Movimento" VisibleIndex="0">
                                     <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy HH:mm" EditFormatString="dd/MM/yyyy HH:mm"></PropertiesDateEdit>
 
                                     <CellStyle Wrap="False"></CellStyle>

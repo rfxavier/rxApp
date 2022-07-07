@@ -266,6 +266,7 @@
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridColetas.aspx" />
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridCortes.aspx" />
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridDepositos.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnUsuarios\cnUsuariosAdmin.aspx" />
     <Content Include="frmAgyliti\GetLock\cnUsuarios\cnUsuarios.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -335,6 +336,7 @@
     <Content Include="frmAgyliti\GetLock\cnCadastros\Web.config" />
     <Content Include="frmAgyliti\GetLock\cnGridMain\Web.config" />
     <Content Include="frmAgyliti\GetLock\cnMovimentos\Web.config" />
+    <Content Include="frmAgyliti\GetLock\cnUsuarios\Web.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <EntityDeploy Include="rxAppModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -660,6 +662,13 @@
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnMovimentos\cnGridDepositos.aspx.designer.cs">
       <DependentUpon>cnGridDepositos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnUsuarios\cnUsuariosAdmin.aspx.cs">
+      <DependentUpon>cnUsuariosAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnUsuarios\cnUsuariosAdmin.aspx.designer.cs">
+      <DependentUpon>cnUsuariosAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnUsuarios\cnUsuarios.aspx.cs">
       <DependentUpon>cnUsuarios.aspx</DependentUpon>

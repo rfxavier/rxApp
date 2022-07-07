@@ -83,7 +83,24 @@ namespace rxApp.frmRx.Agyliti.GetLock.cnGridMain
 
                 var idLoja = loja?.id;
 
-                e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_loja == idLoja);
+                if (Session["dateStart"] != null && (Session["dateEnd"] != null))
+                {
+                    var dateStart = (DateTime)Session["dateStart"];
+                    var dateEnd = (DateTime)Session["dateEnd"];
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_loja == idLoja && g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
+                }
+                else if (Session["dateStart"] != null && (Session["dateEnd"] == null))
+                {
+                    var dateStart = (DateTime)Session["dateStart"];
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_loja == idLoja && g.data_tmst_end_datetime >= dateStart);
+                }
+                else if (Session["dateStart"] == null && (Session["dateEnd"] != null))
+                {
+                    var dateEnd = (DateTime)Session["dateEnd"];
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_loja == idLoja && g.data_tmst_end_datetime <= dateEnd);
+                }
+
+                // e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_loja == idLoja);
             }
             else
             {
