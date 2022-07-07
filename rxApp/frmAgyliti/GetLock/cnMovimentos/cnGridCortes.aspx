@@ -20,7 +20,7 @@
                             <SettingsPager PageSize="20"></SettingsPager>
                             <Columns>
                                 <dx:GridViewDataDateColumn FieldName="data_tmst_end_datetime" SortIndex="0" SortOrder="Descending" ShowInCustomizationForm="True" Caption="Data Movimento" VisibleIndex="0">
-                                    <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy HH:mm" EditFormatString="dd/MM/yyyy HH:mm"></PropertiesDateEdit>
+                                    <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy HH:mm:ss" EditFormatString="dd/MM/yyyy HH:mm:ss"></PropertiesDateEdit>
 
                                     <CellStyle Wrap="False"></CellStyle>
                                 </dx:GridViewDataDateColumn>
