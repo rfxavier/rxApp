@@ -22,17 +22,5 @@ namespace rxApp.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=getlock;Persist Security Info=True;User ID=" +
-            "rx;Password=C102030c#;MultipleActiveResultSets=True;Application Name=EntityFrame" +
-            "work")]
-        public string getlockConnectionString {
-            get {
-                return ((string)(this["getlockConnectionString"]));
-            }
-        }
     }
 }

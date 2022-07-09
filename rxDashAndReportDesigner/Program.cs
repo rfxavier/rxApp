@@ -1,4 +1,5 @@
-﻿using System;
+﻿using rxApp.dataObjClasses;
+using System;
 using System.Windows.Forms;
 
 namespace rxDashAndReportDesigner
@@ -13,6 +14,8 @@ namespace rxDashAndReportDesigner
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            var dummy = new dsCofre();
             //Application.Run(new FormReportDesigner());
             Application.Run(new FormDashboardDesigner());
         }
