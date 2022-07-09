@@ -63,6 +63,15 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
 
                 ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "5") && m.cod_loja == codLoja && m.data_tmst_end_datetime >= dateStart && m.data_tmst_end_datetime <= dateEnd).ToList();
             }
+            else if (User.IsInRole("UserClient"))
+            {
+                var user = userManager.FindById(User.Identity.GetUserId());
+                var cliente = db.GetLockClientes.FirstOrDefault(l => l.id == user.GetLockClienteId);
+
+                var codCliente = cliente == null ? null : cliente.cod_cliente;
+
+                ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "5") && m.cod_cliente == codCliente && m.data_tmst_end_datetime >= dateStart && m.data_tmst_end_datetime <= dateEnd).ToList();
+            }
             else
             {
                 if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))

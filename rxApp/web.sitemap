@@ -8,15 +8,16 @@
     </siteMapNode>
     <siteMapNode url="" title="Admin" description="Admin" roles="AdmMaster,AdmPortal">
       <siteMapNode url="~/frmAgyliti/GetLock/cnUsuarios/cnUsuariosAdmin.aspx" title="Usuários Admin" description="AdminUsuariosAdmin" roles="AdmMaster,AdmPortal" />
-      <siteMapNode url="~/frmAgyliti/GetLock/cnUsuarios/cnUsuarios.aspx" title="Usuários" description="AdminUsuarios" roles="AdmMaster,AdmPortal" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnUsuarios/cnUsuarios.aspx" title="Usuários Loja" description="UsuariosLoja" roles="AdmMaster,AdmPortal" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnUsuarios/cnUsuariosCliente.aspx" title="Usuários Cliente" description="UsuariosCliente" roles="AdmMaster,AdmPortal" />
     </siteMapNode>
-    <siteMapNode url="" title="Operações" description="Operações" roles="AdmMaster,AdmPortal,User">
-      <siteMapNode url="~/frmAgyliti/GetLock/cnGridMain/cnGridMain.aspx" title="Ocorrências" description="Ocorrências" roles="AdmMaster,AdmPortal,User" />
+    <siteMapNode url="" title="Operações" description="Operações" roles="AdmMaster,AdmPortal,User,UserClient">
+      <siteMapNode url="~/frmAgyliti/GetLock/cnGridMain/cnGridMain.aspx" title="Ocorrências" description="Ocorrências" roles="AdmMaster,AdmPortal,UserClient" />
     </siteMapNode>
-    <siteMapNode url="" title="Movimentos" description="Operações" roles="AdmMaster,AdmPortal,User">
-      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridDepositos.aspx" title="Depósitos" description="Depósitos" roles="AdmMaster,AdmPortal,User" />
-      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridColetas.aspx" title="Coletas" description="Coletas" roles="AdmMaster,AdmPortal,User" />
-      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridCortes.aspx" title="Corte do dia" description="Corte do dia" roles="AdmMaster,AdmPortal,User" />
+    <siteMapNode url="" title="Movimentos" description="Operações" roles="AdmMaster,AdmPortal,User,UserClient">
+      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridDepositos.aspx" title="Depósitos" description="Depósitos" roles="AdmMaster,AdmPortal,User,UserClient" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridColetas.aspx" title="Coletas" description="Coletas" roles="AdmMaster,AdmPortal,Userv" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridCortes.aspx" title="Corte do dia" description="Corte do dia" roles="AdmMaster,AdmPortal,User,UserClient" />
     </siteMapNode>
     <siteMapNode url="" title="Cadastros" description="Cadastros" roles="AdmMaster,AdmPortal">
       <siteMapNode url="~/frmAgyliti/GetLock/cnCadastros/cnGridCofre.aspx" title="Cofre" description="Cadastro Cofre" roles="AdmMaster,AdmPortal" />

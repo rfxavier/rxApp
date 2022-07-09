@@ -266,6 +266,7 @@
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridColetas.aspx" />
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridCortes.aspx" />
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridDepositos.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnUsuarios\cnUsuariosCliente.aspx" />
     <Content Include="frmAgyliti\GetLock\cnUsuarios\cnUsuariosAdmin.aspx" />
     <Content Include="frmAgyliti\GetLock\cnUsuarios\cnUsuarios.aspx" />
     <Content Include="Global.asax" />
@@ -663,6 +664,13 @@
     <Compile Include="frmAgyliti\GetLock\cnMovimentos\cnGridDepositos.aspx.designer.cs">
       <DependentUpon>cnGridDepositos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnUsuarios\cnUsuariosCliente.aspx.cs">
+      <DependentUpon>cnUsuariosCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnUsuarios\cnUsuariosCliente.aspx.designer.cs">
+      <DependentUpon>cnUsuariosCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmAgyliti\GetLock\cnUsuarios\cnUsuariosAdmin.aspx.cs">
       <DependentUpon>cnUsuariosAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -760,6 +768,10 @@
     <Compile Include="Migrations\202204212002106_v10.cs" />
     <Compile Include="Migrations\202204212002106_v10.Designer.cs">
       <DependentUpon>202204212002106_v10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202207091325359_v11.cs" />
+    <Compile Include="Migrations\202207091325359_v11.Designer.cs">
+      <DependentUpon>202207091325359_v11.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -874,6 +886,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204212002106_v10.resx">
       <DependentUpon>202204212002106_v10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207091325359_v11.resx">
+      <DependentUpon>202207091325359_v11.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

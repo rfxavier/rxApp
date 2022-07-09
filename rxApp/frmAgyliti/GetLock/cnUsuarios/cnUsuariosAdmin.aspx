@@ -19,7 +19,6 @@
                 <EditItemTemplate>
                     <dx:ASPxTextBox ID="pswtextbox" runat="server" Text='<%# Bind("PasswordHash") %>'
                         Visible='<%# GridUsers.IsNewRowEditing %>' Password="True">
-                        <ClientSideEvents Validation="function(s,e){e.isValid = s.GetText()>5;}" />
                     </dx:ASPxTextBox>
                     <asp:LinkButton ID="LinkButton1" runat="server" OnClientClick="popup.ShowAtElement(this); return false;" Visible='<%#!GridUsers.IsNewRowEditing%>'>Editar senha</asp:LinkButton>
                 </EditItemTemplate>

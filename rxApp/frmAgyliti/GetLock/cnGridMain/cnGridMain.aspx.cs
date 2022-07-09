@@ -102,7 +102,33 @@ namespace rxApp.frmRx.Agyliti.GetLock.cnGridMain
 
                 // e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_loja == idLoja);
             }
-            else
+            else if (User.IsInRole("UserClient"))
+            {
+                var user = userManager.FindById(User.Identity.GetUserId());
+                var cliente = db.GetLockClientes.FirstOrDefault(l => l.id == user.GetLockClienteId);
+
+                var idCliente = cliente?.id;
+
+                if (Session["dateStart"] != null && (Session["dateEnd"] != null))
+                {
+                    var dateStart = (DateTime)Session["dateStart"];
+                    var dateEnd = (DateTime)Session["dateEnd"];
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_cliente == idCliente && g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
+                }
+                else if (Session["dateStart"] != null && (Session["dateEnd"] == null))
+                {
+                    var dateStart = (DateTime)Session["dateStart"];
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_cliente == idCliente && g.data_tmst_end_datetime >= dateStart);
+                }
+                else if (Session["dateStart"] == null && (Session["dateEnd"] != null))
+                {
+                    var dateEnd = (DateTime)Session["dateEnd"];
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_cliente == idCliente && g.data_tmst_end_datetime <= dateEnd);
+                }
+
+                // e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_cliente == idCliente);
+            }
+            else 
             {
                 // e.QueryableSource = db.GetLockMessageViews;
 

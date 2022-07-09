@@ -31,6 +31,8 @@ namespace rxApp.Models
 
         public long? GetLockLojaId { get; set; }
         public GetLockLoja GetLockLoja { get; set; }
+        public long? GetLockClienteId { get; set; }
+        public GetLockCliente GetLockCliente { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

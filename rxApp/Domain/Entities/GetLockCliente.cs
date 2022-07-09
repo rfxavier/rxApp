@@ -1,4 +1,6 @@
+using rxApp.Models;
 using System;
+using System.Collections.Generic;
 
 namespace rxApp.Domain.Entities
 {
@@ -23,5 +25,6 @@ namespace rxApp.Domain.Entities
         public string pessoa_contato { get; set; }
         public string email { get; set; }
         public string telefone { get; set; }
+        public ICollection<ApplicationUser> ApplicationUsers { get; set; }
     }
 }
