@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using rxApp.Models;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
@@ -42,8 +43,22 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuarios
             //Get user role
             var adminRole = roleManager.FindByName("User");
 
+            List<ApplicationUser> ds;
 
-            GridUsers.DataSource = userManager.Users.Where(x => x.Roles.Any(role=> role.RoleId == adminRole.Id)).ToList();
+            if (User.IsInRole("UserClient"))
+            {
+                var user = userManager.FindById(User.Identity.GetUserId());
+                var cliente = db.GetLockClientes.FirstOrDefault(l => l.id == user.GetLockClienteId);
+
+                ds = userManager.Users.Where(x => x.Roles.Any(role => role.RoleId == adminRole.Id) && x.GetLockLoja.cod_cliente == cliente.cod_cliente).ToList();
+            }
+            else
+            {
+                ds = userManager.Users.Where(x => x.Roles.Any(role => role.RoleId == adminRole.Id)).ToList();
+            }
+            
+
+            GridUsers.DataSource = ds;
         }
 
         protected void confirmButton_Click(object sender, EventArgs e)
@@ -153,6 +168,42 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuarios
                 dt = Session["data"] as DataTable;
                 dt.Rows[0]["CurrPwd"] = "";
                 dt.Rows[0]["NewPwd"] = "";
+            }
+        }
+
+        protected void GridUsers_RowValidating(object sender, DevExpress.Web.Data.ASPxDataValidationEventArgs e)
+        {
+            if (e.NewValues["UserName"] != null &&
+                !IsValidEmail(e.NewValues["UserName"].ToString()))
+            {
+                AddError(e.Errors, GridUsers.Columns["UserName"],
+                    "Usuário precisa ter formato de um email válido");
+            }
+            if (string.IsNullOrEmpty(e.RowError) && e.Errors.Count > 0)
+                e.RowError = "Corrija todos os erros";
+        }
+        void AddError(Dictionary<GridViewColumn, string> errors,
+            GridViewColumn column, string errorText)
+        {
+            if (errors.ContainsKey(column)) return;
+            errors[column] = errorText;
+        }
+        bool IsValidEmail(string email)
+        {
+            var trimmedEmail = email.Trim();
+
+            if (trimmedEmail.EndsWith("."))
+            {
+                return false; // suggested by @TK-421
+            }
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == trimmedEmail;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

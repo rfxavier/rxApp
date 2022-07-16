@@ -34,10 +34,21 @@ namespace rxApp.dataObjClasses
             using (var ctx = new ApplicationDbContext())
             {
                 var resultList = ctx.Database.SqlQuery<CofreDiffComm>(
-                    "select id_cofre, max(cofre_nome) cofre_nome, max(cofre_serie) cofre_serie, max(cofre_tipo) cofre_tipo, max(cofre_marca) cofre_marca, max(cofre_modelo) cofre_modelo, max(cofre_tamanho_malote) cofre_tamaho_malote, max(data_tmst_end_datetime) comm_date, DATEDIFF(second, max(data_tmst_end_datetime), GETDATE()) secDiff, max(id_cliente) id_cliente, max(cod_cliente) cod_cliente, max(nome_cliente) nome_cliente, max(razao_social_cliente) razao_social_cliente, max(id_loja) id_loja, max(cod_loja) cod_loja, max(nome_loja) nome_loja, max(razao_social_loja) razao_social_loja, '' commRemark from message_view group by id_cofre").ToList();
+                    "select id_cofre, max(cofre_nome) cofre_nome, max(cofre_serie) cofre_serie, max(cofre_tipo) cofre_tipo, max(cofre_marca) cofre_marca, max(cofre_modelo) cofre_modelo, max(cofre_tamanho_malote) cofre_tamaho_malote, max(data_tmst_end_datetime) comm_date, DATEDIFF(second, max(data_tmst_end_datetime), GETDATE()) secDiff, max(id_cliente) id_cliente, max(cod_cliente) cod_cliente, max(nome_cliente) nome_cliente, max(razao_social_cliente) razao_social_cliente, max(id_loja) id_loja, max(cod_loja) cod_loja, max(nome_loja) nome_loja, max(razao_social_loja) razao_social_loja, CAST(DATEDIFF(Minute, max(data_tmst_end_datetime), GETDATE())/60/24 as Varchar(50)) ++ 'd ' ++ CAST((DATEDIFF(Minute, max(data_tmst_end_datetime), GETDATE())/60)-((DATEDIFF(Minute, max(data_tmst_end_datetime), GETDATE())/60/24)*24) as Varchar(50)) ++ 'h ' ++ CAST((DATEDIFF(Minute, max(data_tmst_end_datetime), GETDATE())) - (DATEDIFF(HOUR, max(data_tmst_end_datetime), GETDATE())*60) as Varchar(50)) ++ 'm' commRemark from message_view group by id_cofre").ToList();
 
                 return resultList;
             }
         }
+        public static List<CofreDiffComm> GetCofreCommStatusPorCliente(long clienteId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var resultList = ctx.Database.SqlQuery<CofreDiffComm>(
+                    $"select id_cofre, max(cofre_nome) cofre_nome, max(cofre_serie) cofre_serie, max(cofre_tipo) cofre_tipo, max(cofre_marca) cofre_marca, max(cofre_modelo) cofre_modelo, max(cofre_tamanho_malote) cofre_tamaho_malote, max(data_tmst_end_datetime) comm_date, DATEDIFF(second, max(data_tmst_end_datetime), GETDATE()) secDiff, max(id_cliente) id_cliente, max(cod_cliente) cod_cliente, max(nome_cliente) nome_cliente, max(razao_social_cliente) razao_social_cliente, max(id_loja) id_loja, max(cod_loja) cod_loja, max(nome_loja) nome_loja, max(razao_social_loja) razao_social_loja, CAST(DATEDIFF(Minute, max(data_tmst_end_datetime), GETDATE())/60/24 as Varchar(50)) ++ 'd ' ++ CAST((DATEDIFF(Minute, max(data_tmst_end_datetime), GETDATE())/60)-((DATEDIFF(Minute, max(data_tmst_end_datetime), GETDATE())/60/24)*24) as Varchar(50)) ++ 'h ' ++ CAST((DATEDIFF(Minute, max(data_tmst_end_datetime), GETDATE())) - (DATEDIFF(HOUR, max(data_tmst_end_datetime), GETDATE())*60) as Varchar(50)) ++ 'm' commRemark from message_view where id_cliente = {clienteId.ToString()} group by id_cofre").ToList();
+
+                return resultList;
+            }
+        }
+
     }
 }

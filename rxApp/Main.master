@@ -36,17 +36,23 @@
                     <SettingsSelection Enabled="True" />
                 </dx:ASPxTreeList>
                 <strong>Data inicial</strong>
-                <dx:ASPxDateEdit ID="deStart" ClientInstanceName="deStart" runat="server">
+                <dx:ASPxDateEdit ID="deStart" ClientInstanceName="deStart" DisplayFormatString="dd/MM/yyyy HH:mm" EditFormatString="dd/MM/yyyy HH:mm" runat="server">
+                    <TimeSectionProperties Visible="true">
+                        <TimeEditProperties EditFormatString="HH:mm tt" />
+                    </TimeSectionProperties>
                     <CalendarProperties>
                         <FastNavProperties DisplayMode="Inline" />
                     </CalendarProperties>
                 </dx:ASPxDateEdit>
                 <strong>Data final</strong>
-                <dx:ASPxDateEdit ID="deEnd" ClientInstanceName="deEnd" runat="server">
+                <dx:ASPxDateEdit ID="deEnd" ClientInstanceName="deEnd" DisplayFormatString="dd/MM/yyyy HH:mm" EditFormatString="dd/MM/yyyy HH:mm" runat="server">
+                    <TimeSectionProperties Visible="true">
+                        <TimeEditProperties EditFormatString="HH:mm tt" />
+                    </TimeSectionProperties>
                     <CalendarProperties>
                         <FastNavProperties DisplayMode="Inline" />
                     </CalendarProperties>
-                    <DateRangeSettings StartDateEditID="deStart"></DateRangeSettings>
+                    <%--<DateRangeSettings StartDateEditID="deStart"></DateRangeSettings>--%>
                 </dx:ASPxDateEdit>
 
                 <dx:ASPxButton ID="ASPxButton1" runat="server" Text="Aplicar filtro" OnClick="ASPxButton1_Click"></dx:ASPxButton>

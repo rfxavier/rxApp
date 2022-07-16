@@ -137,7 +137,7 @@ namespace rxApp.frmRx.Agyliti.GetLock.cnGridMain
                     var selectedLojas = (List<long>)Session["selectedLojas"];
                     var dateStart = (DateTime)Session["dateStart"];
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime.Value >= dateStart && g.data_tmst_end_datetime.Value <= dateEnd);
                 }
                 else if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
                 {

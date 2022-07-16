@@ -1,4 +1,5 @@
 ﻿using DevExpress.Web.ASPxTreeList;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using rxApp.Domain.Entities;
 using rxApp.Models;
@@ -23,7 +24,7 @@ namespace rxApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Page.User.IsInRole("AdmMaster") || Page.User.IsInRole("AdmPortal"))
+            if (Page.User.IsInRole("AdmMaster") || Page.User.IsInRole("AdmPortal") || Page.User.IsInRole("UserClient"))
             {
                 ASPxTreeList1.DataBind();
                 ASPxTreeList1.ExpandAll();
@@ -63,12 +64,29 @@ namespace rxApp
 
             var dsLojaClienteRedeView = ds as List<GetLockLojaClienteRedeView>;
 
-            var dsRedeGroup = dsLojaClienteRedeView.GroupBy(x => new { idRede = "R" + x.id_rede.ToString(), nomeRede = x.nome_rede }).Select(y => new TreeListDataSource() { id = y.Key.idRede, parentId = "", nome = y.Key.nomeRede }).ToList();
+            List<TreeListDataSource> dsRedeGroup;
+            List<TreeListDataSource> dsClienteGroup;
+            List<TreeListDataSource> dsLojaGroup;
 
-            var dsClienteGroup = dsLojaClienteRedeView.GroupBy(x => new { idCliente = "C" + x.id_cliente.ToString(), nomeCliente = x.nome_cliente, idRede = x.id_rede }).Select(y => new TreeListDataSource() { id = y.Key.idCliente, parentId = "R" + y.Key.idRede.ToString(), nome = y.Key.nomeCliente }).ToList();
+            if (Page.User.IsInRole("UserClient"))
+            {
+                var user = userManager.FindById(Page.User.Identity.GetUserId());
 
-            var dsLojaGroup = dsLojaClienteRedeView.GroupBy(x => new { idLoja = "L" + x.id_loja.ToString(), nomeLoja = x.nome_loja, idCliente = x.id_cliente }).Select(y => new TreeListDataSource() { id = y.Key.idLoja, parentId = "C" + y.Key.idCliente.ToString(), nome = y.Key.nomeLoja }).ToList();
+                dsRedeGroup = dsLojaClienteRedeView.Where(p => p.id_cliente == user.GetLockClienteId).GroupBy(x => new { idRede = "R" + x.id_rede.ToString(), nomeRede = x.nome_rede }).Select(y => new TreeListDataSource() { id = y.Key.idRede, parentId = "", nome = y.Key.nomeRede }).ToList();
 
+                dsClienteGroup = dsLojaClienteRedeView.Where(p => p.id_cliente == user.GetLockClienteId).GroupBy(x => new { idCliente = "C" + x.id_cliente.ToString(), nomeCliente = x.nome_cliente, idRede = x.id_rede }).Select(y => new TreeListDataSource() { id = y.Key.idCliente, parentId = "R" + y.Key.idRede.ToString(), nome = y.Key.nomeCliente }).ToList();
+
+                dsLojaGroup = dsLojaClienteRedeView.Where(p => p.id_cliente == user.GetLockClienteId).GroupBy(x => new { idLoja = "L" + x.id_loja.ToString(), nomeLoja = x.nome_loja, idCliente = x.id_cliente }).Select(y => new TreeListDataSource() { id = y.Key.idLoja, parentId = "C" + y.Key.idCliente.ToString(), nome = y.Key.nomeLoja }).ToList();
+            }
+            else
+            {
+                dsRedeGroup = dsLojaClienteRedeView.GroupBy(x => new { idRede = "R" + x.id_rede.ToString(), nomeRede = x.nome_rede }).Select(y => new TreeListDataSource() { id = y.Key.idRede, parentId = "", nome = y.Key.nomeRede }).ToList();
+
+                dsClienteGroup = dsLojaClienteRedeView.GroupBy(x => new { idCliente = "C" + x.id_cliente.ToString(), nomeCliente = x.nome_cliente, idRede = x.id_rede }).Select(y => new TreeListDataSource() { id = y.Key.idCliente, parentId = "R" + y.Key.idRede.ToString(), nome = y.Key.nomeCliente }).ToList();
+
+                dsLojaGroup = dsLojaClienteRedeView.GroupBy(x => new { idLoja = "L" + x.id_loja.ToString(), nomeLoja = x.nome_loja, idCliente = x.id_cliente }).Select(y => new TreeListDataSource() { id = y.Key.idLoja, parentId = "C" + y.Key.idCliente.ToString(), nome = y.Key.nomeLoja }).ToList();
+            }
+            
             List<TreeListDataSource> dsTreeList = dsRedeGroup.Concat(dsClienteGroup).Concat(dsLojaGroup).ToList();
 
             ASPxTreeList1.DataSource = dsTreeList;
@@ -115,8 +133,8 @@ namespace rxApp
 
             Session["selectedLojas"] = selectedLojas;
 
-            var dateStart = new DateTime(deStart.Date.Year, deStart.Date.Month, deStart.Date.Day, 0, 0, 0);
-            var dateEnd = new DateTime(deEnd.Date.Year, deEnd.Date.Month, deEnd.Date.Day, 23, 59, 59);
+            var dateStart = new DateTime(deStart.Date.Year, deStart.Date.Month, deStart.Date.Day, deStart.Date.Hour, deStart.Date.Minute, deStart.Date.Second);
+            var dateEnd = new DateTime(deEnd.Date.Year, deEnd.Date.Month, deEnd.Date.Day, deEnd.Date.Hour, deEnd.Date.Minute, deEnd.Date.Second);
 
             Session["dateStart"] = dateStart;
             Session["dateEnd"] = dateEnd;
