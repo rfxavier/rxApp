@@ -105,14 +105,19 @@
                     <dx:GridViewToolbar>
                         <Items>
                             <dx:GridViewToolbarItem Command="ExportToXlsx" Text="Exportar para Excel"></dx:GridViewToolbarItem>
+                            <dx:GridViewToolbarItem Command="ExportToPdf" Text="Exportar para PDF"></dx:GridViewToolbarItem>
                             <dx:GridViewToolbarItem Command="ShowCustomizationWindow" />
                         </Items>
 
                         <SettingsAdaptivity Enabled="true" EnableCollapseRootItemsToIcons="true" />
                     </dx:GridViewToolbar>
                 </Toolbars>
-                <SettingsExport EnableClientSideExportAPI="true" ExcelExportMode="WYSIWYG" FileName="Agyliti-GetLock-Ocorrencias" />
+                <SettingsExport EnableClientSideExportAPI="true" ExcelExportMode="WYSIWYG" FileName="GetLock-Ocorrencias" Landscape="true" />
                 <SettingsBehavior EnableCustomizationWindow="true" />
+                <Styles>
+                    <AlternatingRow Enabled="True" BackColor="#D6EBFF">
+                    </AlternatingRow>
+                </Styles>
             </dx:ASPxGridView>
         </ContentTemplate>
     </asp:UpdatePanel>

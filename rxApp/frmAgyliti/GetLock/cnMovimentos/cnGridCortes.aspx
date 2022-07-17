@@ -45,7 +45,7 @@
                             <Styles>
                                 <Header Wrap="True">
                                 </Header>
-                                <AlternatingRow Enabled="True" BackColor="#4B7398">
+                                <AlternatingRow Enabled="True" BackColor="#D6EBFF">
                                 </AlternatingRow>
                                 <TitlePanel Font-Size="Medium">
                                 </TitlePanel>

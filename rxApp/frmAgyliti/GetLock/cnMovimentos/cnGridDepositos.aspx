@@ -45,7 +45,7 @@
                             <Styles>
                                 <Header Wrap="True">
                                 </Header>
-                                <AlternatingRow Enabled="True" BackColor="#4B7398">
+                                <AlternatingRow Enabled="True" BackColor="#D6EBFF">
                                 </AlternatingRow>
                                 <TitlePanel Font-Size="Medium">
                                 </TitlePanel>
@@ -66,6 +66,16 @@
                                     </dx:ASPxGridView>
                                 </DetailRow>
                             </Templates>
+                            <Toolbars>
+                                <dx:GridViewToolbar>
+                                    <Items>
+                                        <dx:GridViewToolbarItem Command="ExportToXlsx" Text="Exportar para Excel"></dx:GridViewToolbarItem>
+                                    </Items>
+
+                                    <SettingsAdaptivity Enabled="true" EnableCollapseRootItemsToIcons="true" />
+                                </dx:GridViewToolbar>
+                            </Toolbars>
+                            <SettingsExport EnableClientSideExportAPI="true" ExcelExportMode="WYSIWYG" FileName="GetLock-Depositos" />
                         </dx:ASPxGridView>
                     </dx:LayoutItemNestedControlContainer>
                 </LayoutItemNestedControlCollection>

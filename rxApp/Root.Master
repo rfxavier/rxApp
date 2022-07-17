@@ -62,13 +62,13 @@
             <dx:PanelContent runat="server" SupportsDisabledAttribute="True">
                 <div class="container-fluid">
                     <div class="row" id="toprow4T">
-                        <div class="col-xs-2">
+                        <div class="col-xs-4">
                             <img src="<%= Page.ResolveUrl("~/Content/Images/LogoMain.png")%>" />
                         </div>
-                        <div class="col-xs-10 text-right">
-                            <div class="col-xs-6" style="padding-top: 14px;"><h5><strong>VERSÃO EM DESENVOLVIMENTO</strong></h5></div>
-                            <dx:ASPxHyperLink runat="server" ID="hlLogo" NavigateUrl="~/Default.aspx" ImageUrl="~/Content/Images/LogoAux.png">
-                            </dx:ASPxHyperLink>
+                        <div class="col-xs-8 text-right">
+                            <div class="col-xs-6" style="padding-top: 14px;"><h5><strong>APLICAÇÃO DE MONITORAMENTO ONLINE - v1.0</strong></h5></div>
+                            <%--<dx:ASPxHyperLink runat="server" ID="hlLogo" NavigateUrl="~/Default.aspx" ImageUrl="~/Content/Images/LogoAux.png">
+                            </dx:ASPxHyperLink>--%>
                             <asp:LoginView runat="server" ViewStateMode="Disabled" ID="LoginView1">
                                 <LoggedInTemplate>
                                     <div class="logged-in-template">

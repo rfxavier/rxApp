@@ -28,46 +28,95 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.DashboardCommon.Measure measure1 = new DevExpress.DashboardCommon.Measure();
-            DevExpress.DashboardCommon.Card card1 = new DevExpress.DashboardCommon.Card();
-            DevExpress.DashboardCommon.CardStretchedLayoutTemplate cardStretchedLayoutTemplate1 = new DevExpress.DashboardCommon.CardStretchedLayoutTemplate();
             DevExpress.DashboardCommon.Dimension dimension1 = new DevExpress.DashboardCommon.Dimension();
+            DevExpress.DashboardCommon.Measure measure1 = new DevExpress.DashboardCommon.Measure();
+            DevExpress.DashboardCommon.CalculatedField calculatedField1 = new DevExpress.DashboardCommon.CalculatedField();
             DevExpress.DashboardCommon.Dimension dimension2 = new DevExpress.DashboardCommon.Dimension();
             DevExpress.DashboardCommon.Dimension dimension3 = new DevExpress.DashboardCommon.Dimension();
+            DevExpress.DashboardCommon.Measure measure2 = new DevExpress.DashboardCommon.Measure();
+            DevExpress.DashboardCommon.Card card1 = new DevExpress.DashboardCommon.Card();
+            DevExpress.DashboardCommon.CardStretchedLayoutTemplate cardStretchedLayoutTemplate1 = new DevExpress.DashboardCommon.CardStretchedLayoutTemplate();
             DevExpress.DashboardCommon.Dimension dimension4 = new DevExpress.DashboardCommon.Dimension();
             DevExpress.DashboardCommon.Dimension dimension5 = new DevExpress.DashboardCommon.Dimension();
             DevExpress.DashboardCommon.Dimension dimension6 = new DevExpress.DashboardCommon.Dimension();
             DevExpress.DashboardCommon.Dimension dimension7 = new DevExpress.DashboardCommon.Dimension();
-            DevExpress.DashboardCommon.Measure measure2 = new DevExpress.DashboardCommon.Measure();
-            DevExpress.DashboardCommon.CalculatedField calculatedField1 = new DevExpress.DashboardCommon.CalculatedField();
             DevExpress.DashboardCommon.DashboardLayoutGroup dashboardLayoutGroup1 = new DevExpress.DashboardCommon.DashboardLayoutGroup();
             DevExpress.DashboardCommon.DashboardLayoutGroup dashboardLayoutGroup2 = new DevExpress.DashboardCommon.DashboardLayoutGroup();
             DevExpress.DashboardCommon.DashboardLayoutItem dashboardLayoutItem1 = new DevExpress.DashboardCommon.DashboardLayoutItem();
             DevExpress.DashboardCommon.DashboardLayoutItem dashboardLayoutItem2 = new DevExpress.DashboardCommon.DashboardLayoutItem();
             DevExpress.DashboardCommon.DashboardLayoutItem dashboardLayoutItem3 = new DevExpress.DashboardCommon.DashboardLayoutItem();
-            this.cardDashboardItem1 = new DevExpress.DashboardCommon.CardDashboardItem();
-            this.treeViewDashboardItem1 = new DevExpress.DashboardCommon.TreeViewDashboardItem();
             this.comboBoxDashboardItem1 = new DevExpress.DashboardCommon.ComboBoxDashboardItem();
             this.dashboardObjectDataSource1 = new DevExpress.DashboardCommon.DashboardObjectDataSource();
-            ((System.ComponentModel.ISupportInitialize)(this.cardDashboardItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(measure1)).BeginInit();
+            this.treeViewDashboardItem1 = new DevExpress.DashboardCommon.TreeViewDashboardItem();
+            this.cardDashboardItem1 = new DevExpress.DashboardCommon.CardDashboardItem();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxDashboardItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(dimension1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(measure1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dashboardObjectDataSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeViewDashboardItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(dimension2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(dimension3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardDashboardItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(measure2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(dimension4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.treeViewDashboardItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(dimension5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(dimension6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxDashboardItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(dimension7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(measure2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dashboardObjectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            // 
+            // comboBoxDashboardItem1
+            // 
+            this.comboBoxDashboardItem1.ComponentName = "comboBoxDashboardItem1";
+            dimension1.DataMember = "commStatus";
+            dimension1.Name = "Status comunicação";
+            measure1.DataMember = "commStatusCode";
+            measure1.SummaryType = DevExpress.DashboardCommon.SummaryType.Min;
+            dimension1.SortByMeasure = measure1;
+            this.comboBoxDashboardItem1.DataItemRepository.Clear();
+            this.comboBoxDashboardItem1.DataItemRepository.Add(dimension1, "DataItem0");
+            this.comboBoxDashboardItem1.DataItemRepository.Add(measure1, "DataItem1");
+            this.comboBoxDashboardItem1.DataSource = this.dashboardObjectDataSource1;
+            this.comboBoxDashboardItem1.FilterDimensions.AddRange(new DevExpress.DashboardCommon.Dimension[] {
+            dimension1});
+            this.comboBoxDashboardItem1.HiddenMeasures.AddRange(new DevExpress.DashboardCommon.Measure[] {
+            measure1});
+            this.comboBoxDashboardItem1.InteractivityOptions.IgnoreMasterFilters = true;
+            this.comboBoxDashboardItem1.Name = "Sem Comunicação";
+            this.comboBoxDashboardItem1.ShowCaption = true;
+            // 
+            // dashboardObjectDataSource1
+            // 
+            calculatedField1.Expression = "Concat([id_cofre], \' - \', Iif([cofre_nome] Is Null, \'\', [cofre_nome]))";
+            calculatedField1.Name = "cofreDesc";
+            this.dashboardObjectDataSource1.CalculatedFields.AddRange(new DevExpress.DashboardCommon.CalculatedField[] {
+            calculatedField1});
+            this.dashboardObjectDataSource1.ComponentName = "dashboardObjectDataSource1";
+            this.dashboardObjectDataSource1.DataMember = "GetCofreCommStatus";
+            this.dashboardObjectDataSource1.DataSource = typeof(rxApp.dataObjClasses.dsCofre);
+            this.dashboardObjectDataSource1.Name = "Object Data Source 1";
+            // 
+            // treeViewDashboardItem1
+            // 
+            this.treeViewDashboardItem1.ComponentName = "treeViewDashboardItem1";
+            dimension2.DataMember = "nome_loja";
+            dimension2.Name = "Loja";
+            dimension3.DataMember = "nome_cliente";
+            dimension3.Name = "Cliente";
+            this.treeViewDashboardItem1.DataItemRepository.Clear();
+            this.treeViewDashboardItem1.DataItemRepository.Add(dimension2, "DataItem0");
+            this.treeViewDashboardItem1.DataItemRepository.Add(dimension3, "DataItem1");
+            this.treeViewDashboardItem1.DataSource = this.dashboardObjectDataSource1;
+            this.treeViewDashboardItem1.FilterDimensions.AddRange(new DevExpress.DashboardCommon.Dimension[] {
+            dimension3,
+            dimension2});
+            this.treeViewDashboardItem1.InteractivityOptions.IgnoreMasterFilters = true;
+            this.treeViewDashboardItem1.Name = "Cliente / Loja";
+            this.treeViewDashboardItem1.ShowCaption = true;
             // 
             // cardDashboardItem1
             // 
-            measure1.DataMember = "secDiff";
-            measure1.SummaryType = DevExpress.DashboardCommon.SummaryType.Count;
+            measure2.DataMember = "secDiff";
+            measure2.SummaryType = DevExpress.DashboardCommon.SummaryType.Count;
             cardStretchedLayoutTemplate1.BottomValue1.DimensionIndex = 0;
             cardStretchedLayoutTemplate1.BottomValue1.ValueType = DevExpress.DashboardCommon.CardRowDataElementType.PercentVariation;
             cardStretchedLayoutTemplate1.BottomValue1.Visible = false;
@@ -86,84 +135,35 @@
             cardStretchedLayoutTemplate1.TopValue.ValueType = DevExpress.DashboardCommon.CardRowDataElementType.ActualValue;
             cardStretchedLayoutTemplate1.TopValue.Visible = false;
             card1.LayoutTemplate = cardStretchedLayoutTemplate1;
-            card1.AddDataItem("ActualValue", measure1);
+            card1.AddDataItem("ActualValue", measure2);
             this.cardDashboardItem1.Cards.AddRange(new DevExpress.DashboardCommon.Card[] {
             card1});
             this.cardDashboardItem1.ComponentName = "cardDashboardItem1";
-            dimension1.DataMember = "nome_loja";
-            dimension2.DataMember = "cofreDesc";
-            dimension2.Name = "Cofre";
-            dimension3.DataMember = "commRemark";
-            dimension3.Name = "Tempo desde última comunicação";
-            dimension4.DataMember = "comm_date";
-            dimension4.DateTimeGroupInterval = DevExpress.DashboardCommon.DateTimeGroupInterval.DateHourMinuteSecond;
-            dimension4.Name = "Data última comunicação";
+            dimension4.DataMember = "nome_loja";
+            dimension5.DataMember = "cofreDesc";
+            dimension5.Name = "Cofre";
+            dimension6.DataMember = "commRemark";
+            dimension6.Name = "Tempo desde última comunicação";
+            dimension7.DataMember = "comm_date";
+            dimension7.DateTimeGroupInterval = DevExpress.DashboardCommon.DateTimeGroupInterval.DateHourMinuteSecond;
+            dimension7.Name = "Data última comunicação";
             this.cardDashboardItem1.DataItemRepository.Clear();
-            this.cardDashboardItem1.DataItemRepository.Add(dimension1, "DataItem0");
-            this.cardDashboardItem1.DataItemRepository.Add(dimension2, "DataItem1");
-            this.cardDashboardItem1.DataItemRepository.Add(dimension3, "DataItem2");
-            this.cardDashboardItem1.DataItemRepository.Add(dimension4, "DataItem3");
-            this.cardDashboardItem1.DataItemRepository.Add(measure1, "DataItem4");
+            this.cardDashboardItem1.DataItemRepository.Add(dimension4, "DataItem0");
+            this.cardDashboardItem1.DataItemRepository.Add(dimension5, "DataItem1");
+            this.cardDashboardItem1.DataItemRepository.Add(dimension6, "DataItem2");
+            this.cardDashboardItem1.DataItemRepository.Add(dimension7, "DataItem3");
+            this.cardDashboardItem1.DataItemRepository.Add(measure2, "DataItem4");
             this.cardDashboardItem1.DataSource = this.dashboardObjectDataSource1;
             this.cardDashboardItem1.HiddenDimensions.AddRange(new DevExpress.DashboardCommon.Dimension[] {
-            dimension1});
+            dimension4});
             this.cardDashboardItem1.InteractivityOptions.IgnoreMasterFilters = false;
             this.cardDashboardItem1.InteractivityOptions.IsDrillDownEnabled = true;
             this.cardDashboardItem1.Name = "Cofres";
             this.cardDashboardItem1.SeriesDimensions.AddRange(new DevExpress.DashboardCommon.Dimension[] {
-            dimension2,
-            dimension3,
-            dimension4});
-            this.cardDashboardItem1.ShowCaption = true;
-            // 
-            // treeViewDashboardItem1
-            // 
-            this.treeViewDashboardItem1.ComponentName = "treeViewDashboardItem1";
-            dimension5.DataMember = "nome_loja";
-            dimension5.Name = "Loja";
-            dimension6.DataMember = "nome_cliente";
-            dimension6.Name = "Cliente";
-            this.treeViewDashboardItem1.DataItemRepository.Clear();
-            this.treeViewDashboardItem1.DataItemRepository.Add(dimension5, "DataItem0");
-            this.treeViewDashboardItem1.DataItemRepository.Add(dimension6, "DataItem1");
-            this.treeViewDashboardItem1.DataSource = this.dashboardObjectDataSource1;
-            this.treeViewDashboardItem1.FilterDimensions.AddRange(new DevExpress.DashboardCommon.Dimension[] {
+            dimension5,
             dimension6,
-            dimension5});
-            this.treeViewDashboardItem1.InteractivityOptions.IgnoreMasterFilters = true;
-            this.treeViewDashboardItem1.Name = "Cliente / Loja";
-            this.treeViewDashboardItem1.ShowCaption = true;
-            // 
-            // comboBoxDashboardItem1
-            // 
-            this.comboBoxDashboardItem1.ComponentName = "comboBoxDashboardItem1";
-            dimension7.DataMember = "commStatus";
-            dimension7.Name = "Status comunicação";
-            measure2.DataMember = "commStatusCode";
-            measure2.SummaryType = DevExpress.DashboardCommon.SummaryType.Min;
-            dimension7.SortByMeasure = measure2;
-            this.comboBoxDashboardItem1.DataItemRepository.Clear();
-            this.comboBoxDashboardItem1.DataItemRepository.Add(dimension7, "DataItem0");
-            this.comboBoxDashboardItem1.DataItemRepository.Add(measure2, "DataItem1");
-            this.comboBoxDashboardItem1.DataSource = this.dashboardObjectDataSource1;
-            this.comboBoxDashboardItem1.FilterDimensions.AddRange(new DevExpress.DashboardCommon.Dimension[] {
             dimension7});
-            this.comboBoxDashboardItem1.HiddenMeasures.AddRange(new DevExpress.DashboardCommon.Measure[] {
-            measure2});
-            this.comboBoxDashboardItem1.InteractivityOptions.IgnoreMasterFilters = true;
-            this.comboBoxDashboardItem1.Name = "Status Comunicação";
-            this.comboBoxDashboardItem1.ShowCaption = true;
-            // 
-            // dashboardObjectDataSource1
-            // 
-            calculatedField1.Expression = "Concat([id_cofre], \' - \', Iif([cofre_nome] Is Null, \'\', [cofre_nome]))";
-            calculatedField1.Name = "cofreDesc";
-            this.dashboardObjectDataSource1.CalculatedFields.AddRange(new DevExpress.DashboardCommon.CalculatedField[] {
-            calculatedField1});
-            this.dashboardObjectDataSource1.ComponentName = "dashboardObjectDataSource1";
-            this.dashboardObjectDataSource1.DataMember = "GetCofreCommStatus";
-            this.dashboardObjectDataSource1.DataSource = typeof(rxApp.dataObjClasses.dsCofre);
-            this.dashboardObjectDataSource1.Name = "Object Data Source 1";
+            this.cardDashboardItem1.ShowCaption = true;
             // 
             // dashCnCofre
             // 
@@ -194,17 +194,17 @@
             this.Title.Text = "Cofres - Status Comunicação";
             ((System.ComponentModel.ISupportInitialize)(measure1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(dimension1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(dimension2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(dimension3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(dimension4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardDashboardItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(dimension5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(dimension6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.treeViewDashboardItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(measure2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(dimension7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxDashboardItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardObjectDataSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(dimension2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(dimension3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeViewDashboardItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(measure2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(dimension4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(dimension5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(dimension6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(dimension7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardDashboardItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
