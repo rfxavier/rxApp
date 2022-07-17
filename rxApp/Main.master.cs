@@ -31,9 +31,18 @@ namespace rxApp
                 ASPxTreeList1.SettingsSelection.Recursive = true;
 
             }
+            else if(Page.User.IsInRole("User"))
+            {
+                ASPxTreeList1.Visible = false;
+            }
             else
             {
                 ASPxTreeList1.Visible = false;
+                deStart.Visible = false;
+                deEnd.Visible = false;
+                ASPxButton1.Visible = false;
+                dateTextStart.Visible = false;
+                dateTextEnd.Visible = false;
             }
 
             if (!Page.IsPostBack)

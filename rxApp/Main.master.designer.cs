@@ -58,6 +58,15 @@ namespace rxApp {
         protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList1;
         
         /// <summary>
+        /// dateTextStart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label dateTextStart;
+        
+        /// <summary>
         /// deStart control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace rxApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxDateEdit deStart;
+        
+        /// <summary>
+        /// dateTextEnd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label dateTextEnd;
         
         /// <summary>
         /// deEnd control.

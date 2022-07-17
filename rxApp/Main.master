@@ -35,7 +35,7 @@
                     <SettingsBehavior ExpandCollapseAction="NodeDblClick" />
                     <SettingsSelection Enabled="True" />
                 </dx:ASPxTreeList>
-                <strong>Data inicial</strong>
+                <asp:Label ID="dateTextStart" runat="server"><strong>Data inicial</strong></asp:Label>
                 <dx:ASPxDateEdit ID="deStart" ClientInstanceName="deStart" DisplayFormatString="dd/MM/yyyy HH:mm" EditFormatString="dd/MM/yyyy HH:mm" runat="server">
                     <TimeSectionProperties Visible="true">
                         <TimeEditProperties EditFormatString="HH:mm tt" />
@@ -44,7 +44,7 @@
                         <FastNavProperties DisplayMode="Inline" />
                     </CalendarProperties>
                 </dx:ASPxDateEdit>
-                <strong>Data final</strong>
+                <asp:Label ID="dateTextEnd" runat="server"><strong>Data final</strong></asp:Label>
                 <dx:ASPxDateEdit ID="deEnd" ClientInstanceName="deEnd" DisplayFormatString="dd/MM/yyyy HH:mm" EditFormatString="dd/MM/yyyy HH:mm" runat="server">
                     <TimeSectionProperties Visible="true">
                         <TimeEditProperties EditFormatString="HH:mm tt" />
