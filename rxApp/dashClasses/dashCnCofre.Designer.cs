@@ -122,6 +122,7 @@
             dimension5.DataMember = "nome_loja";
             dimension5.Name = "Loja";
             dimension6.DataMember = "nome_cliente";
+            dimension6.Name = "Cliente";
             this.treeViewDashboardItem1.DataItemRepository.Clear();
             this.treeViewDashboardItem1.DataItemRepository.Add(dimension5, "DataItem0");
             this.treeViewDashboardItem1.DataItemRepository.Add(dimension6, "DataItem1");

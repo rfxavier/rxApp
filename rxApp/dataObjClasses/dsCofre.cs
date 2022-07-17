@@ -59,6 +59,9 @@ namespace rxApp.dataObjClasses
 
                 foreach (var cofreComm in cofreCommList)
                 {
+                    cofreComm.commStatus = "Sem dados";
+                    cofreComm.commStatusCode = "00";
+
                     if (cofreComm.secDiff != null)
                     {
                         cofreComm.commStatus = "Dentro de 24h";
@@ -118,6 +121,9 @@ namespace rxApp.dataObjClasses
 
                 foreach (var cofreComm in cofreCommList)
                 {
+                    cofreComm.commStatus = "Sem dados";
+                    cofreComm.commStatusCode = "00";
+
                     if (cofreComm.secDiff != null)
                     {
                         cofreComm.commStatus = "Dentro de 24h";
