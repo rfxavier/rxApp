@@ -31,24 +31,6 @@ namespace rxApp {
         protected global::DevExpress.Web.ASPxPanel LeftPane;
         
         /// <summary>
-        /// ASPxNavBar1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxNavBar ASPxNavBar1;
-        
-        /// <summary>
-        /// ASPxSiteMapDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxSiteMapDataSource ASPxSiteMapDataSource1;
-        
-        /// <summary>
         /// ASPxTreeList1 control.
         /// </summary>
         /// <remarks>
@@ -58,13 +40,22 @@ namespace rxApp {
         protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList1;
         
         /// <summary>
+        /// ASPxFormLayout1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxFormLayout ASPxFormLayout1;
+        
+        /// <summary>
         /// dateTextStart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label dateTextStart;
+        protected global::DevExpress.Web.ASPxLabel dateTextStart;
         
         /// <summary>
         /// deStart control.
@@ -76,13 +67,22 @@ namespace rxApp {
         protected global::DevExpress.Web.ASPxDateEdit deStart;
         
         /// <summary>
+        /// teStart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxTimeEdit teStart;
+        
+        /// <summary>
         /// dateTextEnd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label dateTextEnd;
+        protected global::DevExpress.Web.ASPxLabel dateTextEnd;
         
         /// <summary>
         /// deEnd control.
@@ -92,6 +92,15 @@ namespace rxApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxDateEdit deEnd;
+        
+        /// <summary>
+        /// teEnd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxTimeEdit teEnd;
         
         /// <summary>
         /// ASPxButton1 control.

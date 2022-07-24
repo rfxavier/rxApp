@@ -39,7 +39,9 @@ namespace rxApp
             {
                 ASPxTreeList1.Visible = false;
                 deStart.Visible = false;
+                teStart.Visible = false;
                 deEnd.Visible = false;
+                teEnd.Visible = false;
                 ASPxButton1.Visible = false;
                 dateTextStart.Visible = false;
                 dateTextEnd.Visible = false;
@@ -47,23 +49,11 @@ namespace rxApp
 
             if (!Page.IsPostBack)
             {
-                if (Session["dateStart"] != null)
-                {
-                    deStart.Value = Session["dateStart"];
-                }
-                else
-                {
-                    deStart.Value = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0);
-                }
+                deStart.Value = Session["dateStart"] ?? new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0);
+                teStart.Value = Session["dateStart"] ?? new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0);
 
-                if (Session["dateEnd"] != null)
-                {
-                    deEnd.Value = Session["dateEnd"];
-                }
-                else
-                {
-                    deEnd.Value = new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 23, 59, 59);
-                }
+                deEnd.Value = Session["dateEnd"] ?? new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 23, 59, 59);
+                teEnd.Value = Session["dateEnd"] ?? new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 23, 59, 59);
             }
         }
 
@@ -142,8 +132,8 @@ namespace rxApp
 
             Session["selectedLojas"] = selectedLojas;
 
-            var dateStart = new DateTime(deStart.Date.Year, deStart.Date.Month, deStart.Date.Day, deStart.Date.Hour, deStart.Date.Minute, deStart.Date.Second);
-            var dateEnd = new DateTime(deEnd.Date.Year, deEnd.Date.Month, deEnd.Date.Day, deEnd.Date.Hour, deEnd.Date.Minute, deEnd.Date.Second);
+            var dateStart = new DateTime(deStart.Date.Year, deStart.Date.Month, deStart.Date.Day, teStart.DateTime.Date.Hour, teStart.DateTime.Minute, teStart.DateTime.Second);
+            var dateEnd = new DateTime(deEnd.Date.Year, deEnd.Date.Month, deEnd.Date.Day, teEnd.DateTime.Hour, teEnd.DateTime.Minute, teEnd.DateTime.Second);
 
             Session["dateStart"] = dateStart;
             Session["dateEnd"] = dateEnd;

@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace rxApp
 {
-    public partial class Root : System.Web.UI.MasterPage
+    public partial class Root : MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ASPxMenu1.Visible = Page.User?.Identity.IsAuthenticated == true;
         }
     }
 }

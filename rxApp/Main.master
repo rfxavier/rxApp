@@ -8,7 +8,7 @@
     <asp:ContentPlaceHolder ID="HeadContentPlaceHolderMain" runat="server" />
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="MainContentPlaceHolderRoot" runat="server">
-    <dx:ASPxPanel ID="LeftPane" runat="server" FixedPosition="WindowLeft" ClientInstanceName="leftPane" Collapsible="True" ScrollBars="Auto" BackColor="White" Width="264px">
+    <dx:ASPxPanel ID="LeftPane" runat="server" FixedPosition="WindowLeft" fixedpositionoverlap="false" ClientInstanceName="leftPane" Collapsible="False" ScrollBars="Auto" BackColor="White" Width="264px">
         <Styles>
             <ExpandButton BackColor="#D2D2D2">
                 <Paddings Padding="15px" />
@@ -20,42 +20,87 @@
         <SettingsAdaptivity CollapseAtWindowInnerWidth="1921" />
         <PanelCollection>
             <dx:PanelContent runat="server" SupportsDisabledAttribute="true">
-                <div class="leftPanel">
-                    <dx:ASPxNavBar ID="ASPxNavBar1" runat="server" Width="240px" EnableAnimation="True" DataSourceID="ASPxSiteMapDataSource1" Theme="Default" AutoCollapse="True" AllowSelectItem="True" SaveStateToCookies="True" SaveStateToCookiesID="dxNav1">
-                        <ItemStyle Wrap="True" />
-                        <Border BorderWidth="0px" />
-                        <Paddings Padding="2px" />
-                    </dx:ASPxNavBar>
-                    <dx:ASPxSiteMapDataSource ID="ASPxSiteMapDataSource1" runat="server" SiteMapFileName="~/web.sitemap" EnableRoles="True" />
-                </div>
-                <dx:ASPxTreeList ID="ASPxTreeList1" runat="server" Visible="true" AutoGenerateColumns="false" KeyFieldName="id" ParentFieldName="parentId" OnDataBinding="ASPxTreeList1_DataBinding" OnDataBound="ASPxTreeList1_DataBound" Width="234px">
+                <dx:ASPxTreeList ID="ASPxTreeList1" runat="server" CssClass="centered"
+ Visible="true" AutoGenerateColumns="false" KeyFieldName="id" ParentFieldName="parentId" OnDataBinding="ASPxTreeList1_DataBinding" OnDataBound="ASPxTreeList1_DataBound" Width="234px">
                     <Columns>
                         <dx:TreeListDataColumn FieldName="nome" Caption="Loja" VisibleIndex="0" />
                     </Columns>
                     <SettingsBehavior ExpandCollapseAction="NodeDblClick" />
                     <SettingsSelection Enabled="True" />
                 </dx:ASPxTreeList>
-                <asp:Label ID="dateTextStart" runat="server"><strong>Data inicial</strong></asp:Label>
-                <dx:ASPxDateEdit ID="deStart" ClientInstanceName="deStart" DisplayFormatString="dd/MM/yyyy HH:mm" EditFormatString="dd/MM/yyyy HH:mm" runat="server">
-                    <TimeSectionProperties Visible="true">
-                        <TimeEditProperties EditFormatString="HH:mm tt" />
-                    </TimeSectionProperties>
-                    <CalendarProperties>
-                        <FastNavProperties DisplayMode="Inline" />
-                    </CalendarProperties>
-                </dx:ASPxDateEdit>
-                <asp:Label ID="dateTextEnd" runat="server"><strong>Data final</strong></asp:Label>
-                <dx:ASPxDateEdit ID="deEnd" ClientInstanceName="deEnd" DisplayFormatString="dd/MM/yyyy HH:mm" EditFormatString="dd/MM/yyyy HH:mm" runat="server">
-                    <TimeSectionProperties Visible="true">
-                        <TimeEditProperties EditFormatString="HH:mm tt" />
-                    </TimeSectionProperties>
-                    <CalendarProperties>
-                        <FastNavProperties DisplayMode="Inline" />
-                    </CalendarProperties>
-                    <%--<DateRangeSettings StartDateEditID="deStart"></DateRangeSettings>--%>
-                </dx:ASPxDateEdit>
+                <div class="centered">
+                    <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" ColCount="2" ColumnCount="2">
+                        <Items>
+                            <dx:LayoutItem ShowCaption="False" ColSpan="2" ColumnSpan="2">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server">
+                                        <dx:ASPxLabel runat="server" ID="dateTextStart" Text="Data inicial" CssClass="font-bold"></dx:ASPxLabel>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
 
-                <dx:ASPxButton ID="ASPxButton1" runat="server" Text="Aplicar filtro" OnClick="ASPxButton1_Click"></dx:ASPxButton>
+                            <dx:LayoutItem ShowCaption="False" ColSpan="1">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server">
+                                        <dx:ASPxDateEdit ID="deStart" ClientInstanceName="deStart" DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy" Width="90" runat="server">
+                                            <CalendarProperties>
+                                                <FastNavProperties DisplayMode="Inline" />
+                                            </CalendarProperties>
+                                        </dx:ASPxDateEdit>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+                            <dx:LayoutItem ShowCaption="False" ColSpan="1">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server">
+                                        <dx:ASPxTimeEdit ID="teStart" ClientInstanceName="teStart" Width="60" runat="server">
+                                            <ClearButton DisplayMode="OnHover"></ClearButton>
+                                            <ValidationSettings ErrorDisplayMode="None" />
+                                        </dx:ASPxTimeEdit>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+                            <dx:LayoutItem ShowCaption="False" ColSpan="2" ColumnSpan="2">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server">
+                                        <dx:ASPxLabel runat="server" ID="dateTextEnd" Text="Data final" CssClass="font-bold"></dx:ASPxLabel>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+                            <dx:LayoutItem ShowCaption="False" ColSpan="1">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server">
+                                        <dx:ASPxDateEdit ID="deEnd" ClientInstanceName="deEnd" DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy" Width="90" runat="server">
+                                            <CalendarProperties>
+                                                <FastNavProperties DisplayMode="Inline" />
+                                            </CalendarProperties>
+                                        </dx:ASPxDateEdit>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+                            <dx:LayoutItem ShowCaption="False" ColSpan="1">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server">
+                                        <dx:ASPxTimeEdit ID="teEnd" ClientInstanceName="teEnd" Width="60" runat="server">
+                                            <ClearButton DisplayMode="OnHover"></ClearButton>
+                                            <ValidationSettings ErrorDisplayMode="None" />
+                                        </dx:ASPxTimeEdit>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+                            <dx:LayoutItem ShowCaption="False" ColSpan="2" ColumnSpan="2" HorizontalAlign="Center">
+                                <LayoutItemNestedControlCollection>
+                                    <dx:LayoutItemNestedControlContainer runat="server">
+                                        <dx:ASPxButton ID="ASPxButton1" runat="server" Text="Aplicar filtro" OnClick="ASPxButton1_Click"></dx:ASPxButton>
+                                    </dx:LayoutItemNestedControlContainer>
+                                </LayoutItemNestedControlCollection>
+                            </dx:LayoutItem>
+                        </Items>
+                    </dx:ASPxFormLayout>
+                </div>
+                <div class="fixed-footer">
+                    <strong>APLICAÇÃO DE MONITORAMENTO ONLINE - v1.0</strong>
+                </div>
             </dx:PanelContent>
         </PanelCollection>
     </dx:ASPxPanel>
