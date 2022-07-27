@@ -76,7 +76,7 @@
                                             <span style="font-size: 12px;">USUÁRIO</span>
                                             <a runat="server" href="~/Account/ManagePassword.aspx" title="Configuração de sua conta"><%: Context.User.Identity.GetUserName()  %></a>
                                             <span style="font-size: 18px;">|</span>
-                                            <dx:ASPxHyperLink ID="ASPxHyperLink1" runat="server" Text="Sair" NavigateUrl="~/LoginRedirect.aspx?logout=S">
+                                            <dx:ASPxHyperLink ID="ASPxHyperLink1" runat="server" Text="Sair" CssClass="button" NavigateUrl="~/LoginRedirect.aspx?logout=S">
                                             </dx:ASPxHyperLink>
                                         </div>
 
@@ -89,7 +89,12 @@
                                 </asp:LoginView>
                             </div>
                             <div class="col-xs-12" style="border-top: black; border-width: thin">
-                                <dx:ASPxMenu ID="ASPxMenu1" runat="server" ItemAutoWidth="true" DataSourceID="ASPxSiteMapDataSource1"></dx:ASPxMenu>
+                                <dx:ASPxMenu ID="ASPxMenu1" runat="server" ItemAutoWidth="true" DataSourceID="ASPxSiteMapDataSource1" OnItemDataBound="ASPxMenu1_ItemDataBound">
+                                    <ItemStyle BackColor="#2A4E70">
+                                        <HoverStyle BackColor ="#2A4E70"></HoverStyle>
+                                    </ItemStyle>
+                                    <SubMenuStyle GutterWidth="0px" BackColor="#DEDFDA" />
+                                </dx:ASPxMenu>
                                 <dx:ASPxSiteMapDataSource runat="server" ID="ASPxSiteMapDataSource1"  SiteMapFileName="~/web.sitemap" EnableRoles="True" />
                             </div>
                         </div>

@@ -91,7 +91,7 @@
                             <dx:LayoutItem ShowCaption="False" ColSpan="2" ColumnSpan="2" HorizontalAlign="Center">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer runat="server">
-                                        <dx:ASPxButton ID="ASPxButton1" runat="server" Text="Aplicar filtro" OnClick="ASPxButton1_Click"></dx:ASPxButton>
+                                        <dx:ASPxButton ID="ASPxButton1" runat="server" Text="Aplicar filtro" OnClick="ASPxButton1_Click" BackColor="#2A4E70" CssClass="noImage" ForeColor="White"></dx:ASPxButton>
                                     </dx:LayoutItemNestedControlContainer>
                                 </LayoutItemNestedControlCollection>
                             </dx:LayoutItem>
