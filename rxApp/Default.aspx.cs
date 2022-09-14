@@ -44,14 +44,14 @@ namespace rxApp
                 }
             }
 
-            if (Page.User.IsInRole("AdmPortal"))
-            {
-                Response.Redirect("~/frmAgyliti/GetLock/cnCofre/cnCofre.aspx");
-            }
-            else if (Page.User.IsInRole("UserClient"))
-            {
-                Response.Redirect("~/frmAgyliti/GetLock/cnCofrePorCliente/cnCofrePorCliente.aspx");
-            }
+            //if (Page.User.IsInRole("AdmPortal"))
+            //{
+            //    Response.Redirect("~/frmAgyliti/GetLock/cnCofre/cnCofre.aspx");
+            //}
+            //else if (Page.User.IsInRole("UserClient"))
+            //{
+            //    Response.Redirect("~/frmAgyliti/GetLock/cnCofrePorCliente/cnCofrePorCliente.aspx");
+            //}
         }
     }
 }
