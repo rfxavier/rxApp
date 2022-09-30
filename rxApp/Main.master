@@ -8,7 +8,7 @@
     <asp:ContentPlaceHolder ID="HeadContentPlaceHolderMain" runat="server" />
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="MainContentPlaceHolderRoot" runat="server">
-    <dx:ASPxPanel ID="LeftPane" runat="server" FixedPosition="WindowLeft" fixedpositionoverlap="false" ClientInstanceName="leftPane" Collapsible="False" ScrollBars="Auto" BackColor="White" Width="264px">
+    <dx:ASPxPanel ID="LeftPane" runat="server" FixedPosition="WindowLeft" fixedpositionoverlap="false" ClientInstanceName="leftPane" Collapsible="False" ScrollBars="Auto" BackColor="White" Width="300px">
         <Styles>
             <ExpandButton BackColor="#D2D2D2">
                 <Paddings Padding="15px" />
@@ -20,8 +20,7 @@
         <SettingsAdaptivity CollapseAtWindowInnerWidth="1921" />
         <PanelCollection>
             <dx:PanelContent runat="server" SupportsDisabledAttribute="true">
-                <dx:ASPxTreeList ID="ASPxTreeList1" runat="server" CssClass="centered"
- Visible="true" AutoGenerateColumns="false" KeyFieldName="id" ParentFieldName="parentId" OnDataBinding="ASPxTreeList1_DataBinding" OnDataBound="ASPxTreeList1_DataBound" Width="234px">
+                <dx:ASPxTreeList ID="ASPxTreeList1" runat="server" CssClass="centered" Visible="true" AutoGenerateColumns="false" KeyFieldName="id" ParentFieldName="parentId" OnDataBinding="ASPxTreeList1_DataBinding" OnDataBound="ASPxTreeList1_DataBound" Width="234px">
                     <Columns>
                         <dx:TreeListDataColumn FieldName="nome" Caption="Loja" VisibleIndex="0" />
                     </Columns>
@@ -53,7 +52,7 @@
                             <dx:LayoutItem ShowCaption="False" ColSpan="1">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer runat="server">
-                                        <dx:ASPxTimeEdit ID="teStart" ClientInstanceName="teStart" Width="60" runat="server">
+                                        <dx:ASPxTimeEdit ID="teStart" ClientInstanceName="teStart" DisplayFormatString="HH:mm" Width="80" runat="server">
                                             <ClearButton DisplayMode="OnHover"></ClearButton>
                                             <ValidationSettings ErrorDisplayMode="None" />
                                         </dx:ASPxTimeEdit>
@@ -81,7 +80,7 @@
                             <dx:LayoutItem ShowCaption="False" ColSpan="1">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer runat="server">
-                                        <dx:ASPxTimeEdit ID="teEnd" ClientInstanceName="teEnd" Width="60" runat="server">
+                                        <dx:ASPxTimeEdit ID="teEnd" ClientInstanceName="teEnd" DisplayFormatString="HH:mm" Width="80" runat="server">
                                             <ClearButton DisplayMode="OnHover"></ClearButton>
                                             <ValidationSettings ErrorDisplayMode="None" />
                                         </dx:ASPxTimeEdit>

@@ -23,7 +23,7 @@ namespace rxApp.frmRx.Agyliti.GetLock.cnCadastros
 
             comboColumn.PropertiesComboBox.DataSource = dsCombo;
             comboColumn.PropertiesComboBox.TextField = "nome";
-            comboColumn.PropertiesComboBox.ValueField = "id";
+            comboColumn.PropertiesComboBox.ValueField = "cod_loja";
             comboColumn.PropertiesComboBox.ValueType = typeof(string);
 
             ASPxGridView1.DataBind();

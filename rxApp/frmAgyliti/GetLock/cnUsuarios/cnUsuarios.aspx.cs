@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using Microsoft.AspNet.Identity.EntityFramework;
+using rxApp.Domain.Entities;
 
 namespace rxApp.frmAgyliti.GetLock.cnUsuarios
 {
@@ -26,7 +27,21 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuarios
 
             var comboColumn = ((GridViewDataComboBoxColumn)GridUsers.Columns["GetLockLojaId"]);
 
-            var dsCombo = db.GetLockLojas.ToList();
+            List<GetLockLoja> dsCombo;
+
+            if (User.IsInRole("UserClient"))
+            {
+                var user = userManager.FindById(User.Identity.GetUserId());
+                var cliente = db.GetLockClientes.FirstOrDefault(l => l.id == user.GetLockClienteId);
+
+                var cod_cliente = cliente?.cod_cliente;
+
+                dsCombo = db.GetLockLojas.Where(l => l.cod_cliente == cod_cliente).ToList();
+            }
+            else
+            {
+                dsCombo = db.GetLockLojas.ToList();
+            }
 
             comboColumn.PropertiesComboBox.DataSource = dsCombo;
             comboColumn.PropertiesComboBox.TextField = "nome";
