@@ -109,24 +109,45 @@ namespace rxApp.frmRx.Agyliti.GetLock.cnGridMain
 
                 var idCliente = cliente?.id;
 
-                if (Session["dateStart"] != null && (Session["dateEnd"] != null))
+                if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
+                {
+                    var selectedLojas = (List<long>)Session["selectedLojas"];
+                    var dateStart = (DateTime)Session["dateStart"];
+                    var dateEnd = (DateTime)Session["dateEnd"];
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_cliente == idCliente && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime.Value >= dateStart && g.data_tmst_end_datetime.Value <= dateEnd);
+                }
+                else if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
+                {
+                    var selectedLojas = (List<long>)Session["selectedLojas"];
+                    var dateStart = (DateTime)Session["dateStart"];
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_cliente == idCliente && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime >= dateStart);
+                }
+                else if (Session["selectedLojas"] != null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
+                {
+                    var selectedLojas = (List<long>)Session["selectedLojas"];
+                    var dateEnd = (DateTime)Session["dateEnd"];
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_cliente == idCliente && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime <= dateEnd);
+                }
+                else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
                 {
                     var dateStart = (DateTime)Session["dateStart"];
                     var dateEnd = (DateTime)Session["dateEnd"];
                     e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_cliente == idCliente && g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
                 }
-                else if (Session["dateStart"] != null && (Session["dateEnd"] == null))
+                else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
                 {
                     var dateStart = (DateTime)Session["dateStart"];
                     e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_cliente == idCliente && g.data_tmst_end_datetime >= dateStart);
                 }
-                else if (Session["dateStart"] == null && (Session["dateEnd"] != null))
+                else if (Session["selectedLojas"] == null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
                 {
                     var dateEnd = (DateTime)Session["dateEnd"];
                     e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_cliente == idCliente && g.data_tmst_end_datetime <= dateEnd);
                 }
-
-                // e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_cliente == idCliente);
+                else
+                {
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_cliente == idCliente && g.data_tmst_end_datetime >= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0) && g.data_tmst_end_datetime <= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 23, 59, 59));
+                }
             }
             else 
             {

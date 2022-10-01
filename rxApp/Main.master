@@ -26,6 +26,7 @@
                     </Columns>
                     <SettingsBehavior ExpandCollapseAction="NodeDblClick" />
                     <SettingsSelection Enabled="True" />
+                    <SettingsSearchPanel Visible="true" />
                 </dx:ASPxTreeList>
                 <div class="centered">
                     <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" ColCount="2" ColumnCount="2">
