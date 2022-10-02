@@ -11,12 +11,17 @@
         <SettingsPager PageSize="20"></SettingsPager>
         <Columns>
             <dx:GridViewDataDateColumn FieldName="data_tmst_end_datetime" SortIndex="0" SortOrder="Descending" ShowInCustomizationForm="True" Caption="Data Movimento" VisibleIndex="0">
-                <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy HH:mm:ss" EditFormatString="dd/MM/yyyy HH:mm:ss"></PropertiesDateEdit>
+                <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy"></PropertiesDateEdit>
 
                 <CellStyle Wrap="False"></CellStyle>
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataTextColumn FieldName="id_cofre" ShowInCustomizationForm="True" Caption="ID Cofre" VisibleIndex="1"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="cofre_nome" ShowInCustomizationForm="True" Caption="Nome Cofre" VisibleIndex="2"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataDateColumn FieldName="data_tmst_end_datetime" SortIndex="1" SortOrder="Descending" ShowInCustomizationForm="True" Caption="Hora Movimento" VisibleIndex="1">
+                <PropertiesDateEdit DisplayFormatString="HH:mm:ss" EditFormatString="HH:mm:ss"></PropertiesDateEdit>
+
+                <CellStyle Wrap="False"></CellStyle>
+            </dx:GridViewDataDateColumn>
+            <dx:GridViewDataTextColumn FieldName="id_cofre" ShowInCustomizationForm="True" Caption="ID Cofre" VisibleIndex="2"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="cofre_nome" ShowInCustomizationForm="True" Caption="Nome Cofre" VisibleIndex="3"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="cod_loja" ShowInCustomizationForm="True" Caption="C&#243;d.Loja" VisibleIndex="8"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="razao_social_loja" ShowInCustomizationForm="True" Caption="Raz&#227;o Social Loja" VisibleIndex="10"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="data_user" ShowInCustomizationForm="True" Caption="Usu&#225;rio" VisibleIndex="47"></dx:GridViewDataTextColumn>
