@@ -132,7 +132,7 @@ namespace rxApp
 
             Session["selectedLojas"] = selectedLojas;
 
-            var dateStart = new DateTime(deStart.Date.Year, deStart.Date.Month, deStart.Date.Day, teStart.DateTime.Date.Hour, teStart.DateTime.Minute, teStart.DateTime.Second);
+            var dateStart = new DateTime(deStart.Date.Year, deStart.Date.Month, deStart.Date.Day, teStart.DateTime.Hour, teStart.DateTime.Minute, teStart.DateTime.Second);
             var dateEnd = new DateTime(deEnd.Date.Year, deEnd.Date.Month, deEnd.Date.Day, teEnd.DateTime.Hour, teEnd.DateTime.Minute, teEnd.DateTime.Second);
 
             Session["dateStart"] = dateStart;

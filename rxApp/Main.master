@@ -53,7 +53,7 @@
                             <dx:LayoutItem ShowCaption="False" ColSpan="1">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer runat="server">
-                                        <dx:ASPxTimeEdit ID="teStart" ClientInstanceName="teStart" DisplayFormatString="HH:mm" Width="80" runat="server">
+                                        <dx:ASPxTimeEdit ID="teStart" ClientInstanceName="teStart" DisplayFormatString="HH:mm" EditFormatString="HH:mm" Width="80" runat="server">
                                             <ClearButton DisplayMode="OnHover"></ClearButton>
                                             <ValidationSettings ErrorDisplayMode="None" />
                                         </dx:ASPxTimeEdit>
@@ -81,7 +81,7 @@
                             <dx:LayoutItem ShowCaption="False" ColSpan="1">
                                 <LayoutItemNestedControlCollection>
                                     <dx:LayoutItemNestedControlContainer runat="server">
-                                        <dx:ASPxTimeEdit ID="teEnd" ClientInstanceName="teEnd" DisplayFormatString="HH:mm" Width="80" runat="server">
+                                        <dx:ASPxTimeEdit ID="teEnd" ClientInstanceName="teEnd" DisplayFormatString="HH:mm" EditFormatString="HH:mm" Width="80" runat="server">
                                             <ClearButton DisplayMode="OnHover"></ClearButton>
                                             <ValidationSettings ErrorDisplayMode="None" />
                                         </dx:ASPxTimeEdit>
