@@ -69,45 +69,69 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
 
                 var codCliente = cliente == null ? null : cliente.cod_cliente;
 
-                ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4"  || m.data_type == "5") && m.cod_cliente == codCliente && m.data_tmst_end_datetime >= dateStart && m.data_tmst_end_datetime <= dateEnd).ToList();
+                if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
+                {
+                    var selectedLojas = (List<long>)Session["selectedLojas"];
+
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4" || m.data_type == "5") && m.cod_cliente == codCliente && selectedLojas.Contains(m.id_loja) && m.data_tmst_end_datetime >= dateStart && m.data_tmst_end_datetime <= dateEnd).ToList();
+                }
+                else if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
+                {
+                    var selectedLojas = (List<long>)Session["selectedLojas"];
+
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4" || m.data_type == "5") && m.cod_cliente == codCliente && selectedLojas.Contains(m.id_loja) && m.data_tmst_end_datetime >= dateStart).ToList();
+                }
+                else if (Session["selectedLojas"] != null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
+                {
+                    var selectedLojas = (List<long>)Session["selectedLojas"];
+
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4" || m.data_type == "5") && m.cod_cliente == codCliente && selectedLojas.Contains(m.id_loja) && m.data_tmst_end_datetime <= dateEnd).ToList();
+                }
+                else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
+                {
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4" || m.data_type == "5") && m.cod_cliente == codCliente && m.data_tmst_end_datetime >= dateStart && m.data_tmst_end_datetime <= dateEnd).ToList();
+                }
+                else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
+                {
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4" || m.data_type == "5") && m.cod_cliente == codCliente && m.data_tmst_end_datetime >= dateStart).ToList();
+                }
+                else if (Session["selectedLojas"] == null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
+                {
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4" || m.data_type == "5") && m.cod_cliente == codCliente && m.data_tmst_end_datetime <= dateEnd).ToList();
+                }
             }
             else
             {
                 if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
                 {
                     var selectedLojas = (List<long>)Session["selectedLojas"];
-                    //e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
+
                     ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4"  || m.data_type == "5") && selectedLojas.Contains(m.id_loja) && m.data_tmst_end_datetime >= dateStart && m.data_tmst_end_datetime <= dateEnd).ToList();
                 }
                 else if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
                 {
                     var selectedLojas = (List<long>)Session["selectedLojas"];
-                    //e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime >= dateStart);
+
                     ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4"  || m.data_type == "5") && selectedLojas.Contains(m.id_loja) && m.data_tmst_end_datetime >= dateStart).ToList();
                 }
                 else if (Session["selectedLojas"] != null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
                 {
                     var selectedLojas = (List<long>)Session["selectedLojas"];
-                    //e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime <= dateEnd);
+
                     ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4"  || m.data_type == "5") && selectedLojas.Contains(m.id_loja) && m.data_tmst_end_datetime <= dateEnd).ToList();
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
                 {
-                    //e.QueryableSource = db.GetLockMessageViews.Where(g => g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
                     ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4"  || m.data_type == "5") && m.data_tmst_end_datetime >= dateStart && m.data_tmst_end_datetime <= dateEnd).ToList();
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
                 {
-                    //e.QueryableSource = db.GetLockMessageViews.Where(g => g.data_tmst_end_datetime >= dateStart);
                     ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4"  || m.data_type == "5") && m.data_tmst_end_datetime >= dateStart).ToList();
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
                 {
-                    //e.QueryableSource = db.GetLockMessageViews.Where(g => g.data_tmst_end_datetime <= dateEnd);
                     ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4"  || m.data_type == "5") && m.data_tmst_end_datetime <= dateEnd).ToList();
                 }
-
-                //ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4"  || m.data_type == "5") && m.data_tmst_end_datetime >= dateIni && m.data_tmst_end_datetime <= dateEnd).ToList();
             }
 
             ASPxGridView1.DataSource = ds;

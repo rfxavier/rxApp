@@ -20,8 +20,9 @@
 
                 <CellStyle Wrap="False"></CellStyle>
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataTextColumn FieldName="id_cofre" ShowInCustomizationForm="True" Caption="ID Cofre" VisibleIndex="2"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="cofre_nome" ShowInCustomizationForm="True" Caption="Nome Cofre" VisibleIndex="3"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_hash" ShowInCustomizationForm="True" Caption="Hash" VisibleIndex="2"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="id_cofre" ShowInCustomizationForm="True" Caption="ID Cofre" VisibleIndex="3"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="cofre_nome" ShowInCustomizationForm="True" Caption="Nome Cofre" VisibleIndex="4"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="cod_loja" ShowInCustomizationForm="True" Caption="C&#243;d.Loja" VisibleIndex="8"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="razao_social_loja" ShowInCustomizationForm="True" Caption="Raz&#227;o Social Loja" VisibleIndex="10"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="data_user" ShowInCustomizationForm="True" Caption="Usu&#225;rio" VisibleIndex="47"></dx:GridViewDataTextColumn>
