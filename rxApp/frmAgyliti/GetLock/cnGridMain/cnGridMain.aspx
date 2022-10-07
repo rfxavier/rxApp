@@ -75,7 +75,7 @@
                     <dx:GridViewDataTextColumn FieldName="info_ip" Caption="IP" VisibleIndex="42"></dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="info_mac" Caption="Mac" VisibleIndex="43"></dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="info_json" Caption="Json" VisibleIndex="44"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_hash" Caption="Hash" VisibleIndex="45"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="data_hash" Caption="ID Operação" VisibleIndex="45"></dx:GridViewDataTextColumn>
                     <dx:GridViewDataDateColumn FieldName="data_tmst_begin_datetime" Caption="Timestamp Inicial" VisibleIndex="46">
                         <CellStyle Wrap="False"></CellStyle>
                         <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy HH:mm" EditFormatString="dd/MM/yyyy HH:mm">
@@ -86,25 +86,26 @@
                         <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy HH:mm" EditFormatString="dd/MM/yyyy HH:mm">
                         </PropertiesDateEdit>
                     </dx:GridViewDataDateColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_user" Caption="Usu&#225;rio" VisibleIndex="48"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="user_nome" Caption="Usu&#225;rio Nome" VisibleIndex="49"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_type" Caption="Movimento" VisibleIndex="50"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="movimento_nome" Caption="Movimento Nome" VisibleIndex="51"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="movimento_tipo" Caption="Movimento Tipo" VisibleIndex="52"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_currency_total" Caption="Valor Total" VisibleIndex="53"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_2" Caption="C&#233;dula R$ 2" VisibleIndex="54"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_5" Caption="C&#233;dula R$ 5" VisibleIndex="55"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_10" Caption="C&#233;dula R$ 10" VisibleIndex="56"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_20" Caption="C&#233;dula R$ 20" VisibleIndex="57"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_50" Caption="C&#233;dula R$ 50" VisibleIndex="58"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_100" Caption="C&#233;dula R$ 100" VisibleIndex="59"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_200" Caption="C&#233;dula R$ 200" VisibleIndex="60"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_rejected" Caption="C&#233;dula Rejeitada" VisibleIndex="61"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_currency_envelope" Caption="Envelope" VisibleIndex="62"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_currency_envelope_total" Caption="Envelope Valor Total" VisibleIndex="63"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_currency_bill" Caption="Quantidade de C&#233;dulas" VisibleIndex="64"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_total" Caption="Valor total de C&#233;dulas" VisibleIndex="65"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="data_sensor" Caption="Sensor" VisibleIndex="66"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="user_id" Caption="Usuário Id" VisibleIndex="50"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="user_name" Caption="Usuário Nome" VisibleIndex="51"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="user_lastname" Caption="Usuário Sobrenome" VisibleIndex="52"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="data_type" Caption="Movimento" VisibleIndex="53"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="movimento_nome" Caption="Movimento Nome" VisibleIndex="54"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="movimento_tipo" Caption="Movimento Tipo" VisibleIndex="55"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="data_currency_total" Caption="Valor Total" VisibleIndex="56"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_2" Caption="C&#233;dula R$ 2" VisibleIndex="57"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_5" Caption="C&#233;dula R$ 5" VisibleIndex="58"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_10" Caption="C&#233;dula R$ 10" VisibleIndex="59"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_20" Caption="C&#233;dula R$ 20" VisibleIndex="60"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_50" Caption="C&#233;dula R$ 50" VisibleIndex="61"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_100" Caption="C&#233;dula R$ 100" VisibleIndex="62"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_200" Caption="C&#233;dula R$ 200" VisibleIndex="63"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_rejected" Caption="C&#233;dula Rejeitada" VisibleIndex="64"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="data_currency_envelope" Caption="Envelope" VisibleIndex="65"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="data_currency_envelope_total" Caption="Envelope Valor Total" VisibleIndex="66"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="data_currency_bill" Caption="Quantidade de C&#233;dulas" VisibleIndex="67"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="data_currency_bill_total" Caption="Valor total de C&#233;dulas" VisibleIndex="68"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="data_sensor" Caption="Sensor" VisibleIndex="69"></dx:GridViewDataTextColumn>
                 </Columns>
                 <Toolbars>
                     <dx:GridViewToolbar>

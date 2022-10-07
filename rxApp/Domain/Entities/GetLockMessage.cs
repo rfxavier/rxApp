@@ -36,5 +36,8 @@ namespace rxApp.Domain.Entities
         public Nullable<long> data_currency_bill { get; set; }
         public Nullable<long> data_currency_bill_total { get; set; }
         public Nullable<decimal> data_sensor { get; set; }
+        public string user_id { get; set; }
+        public string user_name { get; set; }
+        public string user_lastname { get; set; }
     }
 }

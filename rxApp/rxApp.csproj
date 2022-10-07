@@ -845,6 +845,14 @@
     <Compile Include="Migrations\202209260010282_v12.Designer.cs">
       <DependentUpon>202209260010282_v12.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202210070143059_v13.cs" />
+    <Compile Include="Migrations\202210070143059_v13.Designer.cs">
+      <DependentUpon>202210070143059_v13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210072318198_v14.cs" />
+    <Compile Include="Migrations\202210072318198_v14.Designer.cs">
+      <DependentUpon>202210072318198_v14.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="movimento.cs">
@@ -970,6 +978,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209260010282_v12.resx">
       <DependentUpon>202209260010282_v12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210070143059_v13.resx">
+      <DependentUpon>202210070143059_v13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210072318198_v14.resx">
+      <DependentUpon>202210072318198_v14.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

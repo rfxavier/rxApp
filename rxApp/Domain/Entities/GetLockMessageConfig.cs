@@ -49,6 +49,15 @@ namespace rxApp.Domain.Entities
             this.Property(t => t.cod_rede)
                 .HasMaxLength(50);
 
+            this.Property(t => t.user_id)
+                .HasMaxLength(50);
+
+            this.Property(t => t.user_name)
+                .HasMaxLength(50);
+
+            this.Property(t => t.user_lastname)
+                .HasMaxLength(50);
+
             // Table & Column Mappings
             this.ToTable("message");
             this.Property(t => t.id).HasColumnName("id");
@@ -83,6 +92,9 @@ namespace rxApp.Domain.Entities
             this.Property(t => t.data_currency_bill).HasColumnName("data_currency_bill");
             this.Property(t => t.data_currency_bill_total).HasColumnName("data_currency_bill_total");
             this.Property(t => t.data_sensor).HasColumnName("data_sensor");
+            this.Property(t => t.user_id).HasColumnName("user_id");
+            this.Property(t => t.user_name).HasColumnName("user_name");
+            this.Property(t => t.user_lastname).HasColumnName("user_lastname");
         }
     }
 }

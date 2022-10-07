@@ -20,13 +20,16 @@
 
                 <CellStyle Wrap="False"></CellStyle>
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataTextColumn FieldName="data_hash" ShowInCustomizationForm="True" Caption="Hash" VisibleIndex="2"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_hash" ShowInCustomizationForm="True" Caption="ID Operação" VisibleIndex="2"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="id_cofre" ShowInCustomizationForm="True" Caption="ID Cofre" VisibleIndex="3"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="cofre_nome" ShowInCustomizationForm="True" Caption="Nome Cofre" VisibleIndex="4"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="cod_loja" ShowInCustomizationForm="True" Caption="C&#243;d.Loja" VisibleIndex="8"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="razao_social_loja" ShowInCustomizationForm="True" Caption="Raz&#227;o Social Loja" VisibleIndex="10"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="data_user" ShowInCustomizationForm="True" Caption="Usu&#225;rio" VisibleIndex="47"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="user_nome" ShowInCustomizationForm="True" Caption="Usu&#225;rio Nome" VisibleIndex="48"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_user" ShowInCustomizationForm="True" Caption="Usu&#225;rio" Visible="false" VisibleIndex="11"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="user_nome" ShowInCustomizationForm="True" Caption="Usu&#225;rio Nome" Visible="false" VisibleIndex="12"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="user_id" Caption="Usuário Id" Visible="false" VisibleIndex="13"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="user_name" Caption="Usuário Nome" Visible="false" VisibleIndex="14"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="user_lastname" Caption="Usuário Sobrenome" Visible="false" VisibleIndex="15"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="TotalCount" UnboundType="Decimal" Caption="Total Cédulas" VisibleIndex="60">
                 <PropertiesTextEdit DisplayFormatString="#,#0" />
             </dx:GridViewDataTextColumn>
