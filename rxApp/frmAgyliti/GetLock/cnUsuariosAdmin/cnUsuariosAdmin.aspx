@@ -24,6 +24,7 @@
                 </EditItemTemplate>
             </dx:GridViewDataTextColumn>
         </Columns>
+        <SettingsBehavior ConfirmDelete="True" />
     </dx:ASPxGridView>
     <dx:ASPxPopupControl ID="ASPxPopupControl1" runat="server" HeaderText="Editar senha" Width="307px" ClientInstanceName="popup">
         <ContentCollection>

@@ -33,6 +33,7 @@
             <dx:GridViewDataColumn FieldName="pessoa_contato" Caption="Pessoa Contato" />
             <dx:GridViewDataColumn FieldName="email" Caption="Email" />
         </Columns>
+        <SettingsBehavior ConfirmDelete="True" />
         <SettingsPopup>
             <EditForm Width="600">
                 <SettingsAdaptivity Mode="OnWindowInnerWidth" SwitchAtWindowInnerWidth="768" />

@@ -14,7 +14,8 @@
             <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="700" />
         </EditFormLayoutProperties>
         <Columns>
-            <dx:GridViewCommandColumn ShowEditButton="True" ShowInCustomizationForm="True" VisibleIndex="0" ShowNewButtonInHeader="True" ShowDeleteButton="True"></dx:GridViewCommandColumn>
+            <dx:GridViewCommandColumn ShowEditButton="True" ShowInCustomizationForm="True" VisibleIndex="0" ShowNewButtonInHeader="True" ShowDeleteButton="True">
+            </dx:GridViewCommandColumn>
             <dx:GridViewDataColumn FieldName="cod_loja" Caption="Código Loja" />
             <dx:GridViewDataColumn FieldName="nome" Caption="Nome Fantasia" />
             <dx:GridViewDataComboBoxColumn FieldName="cod_cliente" Caption="Cliente">
@@ -33,10 +34,12 @@
             <dx:GridViewDataColumn FieldName="pessoa_contato" Caption="Pessoa Contato" />
             <dx:GridViewDataColumn FieldName="email" Caption="Email" />
         </Columns>
+        <SettingsBehavior ConfirmDelete="True" />
         <SettingsPopup>
             <EditForm Width="600">
                 <SettingsAdaptivity Mode="OnWindowInnerWidth" SwitchAtWindowInnerWidth="768" />
             </EditForm>
+            <FilterControl AutoUpdatePosition="False"></FilterControl>
         </SettingsPopup>
     </dx:ASPxGridView>
 </asp:Content>

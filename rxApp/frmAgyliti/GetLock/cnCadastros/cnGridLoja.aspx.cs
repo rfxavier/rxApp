@@ -35,8 +35,10 @@ namespace rxApp.frmAgyliti.GetLock.cnCadastros
 
         protected void ASPxGridView1_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
         {
+
             var newLoja = new GetLockLoja();
-            newLoja.cod_loja = e.NewValues["cod_loja"]?.ToString();
+
+            newLoja.cod_loja = e.NewValues["cod_loja"] == null ? Guid.NewGuid().ToString() : e.NewValues["cod_loja"]?.ToString();
             newLoja.nome = e.NewValues["nome"]?.ToString();
             newLoja.cod_cliente = e.NewValues["cod_cliente"]?.ToString();
             newLoja.razao_social = e.NewValues["razao_social"]?.ToString();

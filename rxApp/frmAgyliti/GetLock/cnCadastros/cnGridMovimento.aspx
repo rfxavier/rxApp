@@ -19,6 +19,7 @@
             <dx:GridViewDataColumn FieldName="nome" Caption="Nome" />
             <dx:GridViewDataColumn FieldName="tipo" Caption="Tipo" />
         </Columns>
+        <SettingsBehavior ConfirmDelete="True" />
         <SettingsPopup>
             <EditForm Width="600">
                 <SettingsAdaptivity Mode="OnWindowInnerWidth" SwitchAtWindowInnerWidth="768" />

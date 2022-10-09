@@ -26,6 +26,7 @@
                 <PropertiesComboBox TextField="nome" IncrementalFilteringMode="Contains" ValueField="cod_loja"></PropertiesComboBox>
             </dx:GridViewDataComboBoxColumn>
         </Columns>
+        <SettingsBehavior ConfirmDelete="True" />
         <SettingsPopup>
             <EditForm Width="600">
                 <SettingsAdaptivity Mode="OnWindowInnerWidth" SwitchAtWindowInnerWidth="768" />

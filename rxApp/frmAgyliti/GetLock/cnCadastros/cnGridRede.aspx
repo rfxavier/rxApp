@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentPlaceHolderMain" runat="server">
     <div><h4>Cadastro Loja</h4></div>
-    <dx:ASPxGridView ID="ASPxGridView1" runat="server" DataSourceID="EntityDataSource1" KeyFieldName="id" Width="100%" EnableRowsCache="False" AutoGenerateColumns="False">
+    <dx:ASPxGridView ID="ASPxGridView1" runat="server" DataSourceID="EntityDataSource1" KeyFieldName="id" Width="100%" EnableRowsCache="False" AutoGenerateColumns="False" OnRowInserting="ASPxGridView1_RowInserting">
         <SettingsDataSecurity AllowInsert="true" />
         <EditFormLayoutProperties>
             <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="700" />
@@ -18,6 +18,7 @@
             <dx:GridViewDataColumn FieldName="cod_rede" Caption="Código Rede" />
             <dx:GridViewDataColumn FieldName="nome" Caption="Nome" />
         </Columns>
+        <SettingsBehavior ConfirmDelete="True" />
         <SettingsPopup>
             <EditForm Width="600">
                 <SettingsAdaptivity Mode="OnWindowInnerWidth" SwitchAtWindowInnerWidth="768" />
