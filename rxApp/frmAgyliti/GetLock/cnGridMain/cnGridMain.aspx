@@ -27,7 +27,7 @@
                         <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy">
                         </PropertiesDateEdit>
                     </dx:GridViewDataDateColumn>
-                    <dx:GridViewDataDateColumn FieldName="data_tmst_end_datetime" SortIndex="1" Caption="Hora Movimento" VisibleIndex="1" Settings-FilterMode="Value">
+                    <dx:GridViewDataDateColumn FieldName="data_tmst_end_datetime" SortIndex="1" Caption="Hora Movimento" VisibleIndex="1" Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False" Settings-ShowInFilterControl="False">
                         <CellStyle Wrap="False"></CellStyle>
                         <PropertiesDateEdit DisplayFormatString="HH:mm:ss" EditFormatString="HH:mm:ss">
                         </PropertiesDateEdit>

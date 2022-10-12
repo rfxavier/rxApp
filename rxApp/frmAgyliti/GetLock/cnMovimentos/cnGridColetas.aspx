@@ -9,13 +9,14 @@
         <SettingsDetail ShowDetailRow="True"></SettingsDetail>
 
         <SettingsPager PageSize="20"></SettingsPager>
+        <Settings ShowHeaderFilterButton="True" ShowFilterBar="Visible" ShowFilterRow="true" ShowFilterRowMenu="true"></Settings>
         <Columns>
             <dx:GridViewDataDateColumn FieldName="data_tmst_end_datetime" SortIndex="0" SortOrder="Descending" ShowInCustomizationForm="True" Caption="Data Movimento" VisibleIndex="0">
                 <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy"></PropertiesDateEdit>
 
                 <CellStyle Wrap="False"></CellStyle>
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataDateColumn FieldName="data_tmst_end_datetime" SortIndex="1" SortOrder="Descending" ShowInCustomizationForm="True" Caption="Hora Movimento" VisibleIndex="1">
+            <dx:GridViewDataDateColumn FieldName="data_tmst_end_datetime" SortIndex="1" SortOrder="Descending" ShowInCustomizationForm="True" Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False" Settings-ShowInFilterControl="False" Caption="Hora Movimento" VisibleIndex="1">
                 <PropertiesDateEdit DisplayFormatString="HH:mm:ss" EditFormatString="HH:mm:ss"></PropertiesDateEdit>
 
                 <CellStyle Wrap="False"></CellStyle>
