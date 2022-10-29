@@ -31,16 +31,6 @@
             <dx:PopupControlContentControl ID="Popupcontrolcontentcontrol1" runat="server">
                 <table>
                     <tr>
-                        <td>Senha atual:</td>
-                        <td>
-                            <dx:ASPxTextBox ID="cpsw" runat="server" Password="True" ClientInstanceName="cpsw">
-                                <ClientSideEvents Validation="function(s, e) {e.isValid = (s.GetText().length&gt;5)}" />
-                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ErrorText="The password length should be more that 6 symbols">
-                                </ValidationSettings>
-                            </dx:ASPxTextBox>
-                        </td>
-                    </tr>
-                    <tr>
                         <td>Nova senha:</td>
                         <td>
                             <dx:ASPxTextBox ID="npsw" runat="server" Password="True" ClientInstanceName="npsw">

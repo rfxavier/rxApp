@@ -40,15 +40,6 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuariosAdmin {
         protected global::DevExpress.Web.PopupControlContentControl Popupcontrolcontentcontrol1;
         
         /// <summary>
-        /// cpsw control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox cpsw;
-        
-        /// <summary>
         /// npsw control.
         /// </summary>
         /// <remarks>

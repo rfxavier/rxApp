@@ -78,15 +78,14 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuarios
 
         protected void confirmButton_Click(object sender, EventArgs e)
         {
-            UpdatePasswordField(cpsw.Text, npsw.Text);
+            UpdatePasswordField(npsw.Text);
             ASPxPopupControl1.ShowOnPageLoad = false;
         }
 
-        protected void UpdatePasswordField(string oldPassword, string newPassword)
+        protected void UpdatePasswordField(string newPassword)
         {
             int index = GridUsers.EditingRowVisibleIndex;
             DataTable dt = Session["data"] as DataTable;
-            dt.Rows[0]["CurrPwd"] = oldPassword;
             dt.Rows[0]["NewPwd"] = newPassword;
             Session["data"] = dt;
 
@@ -129,22 +128,17 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuarios
             user.GetLockLojaId = Convert.ToInt64(e.NewValues["GetLockLojaId"]);
             manager.Update(user);
 
-            if (!((dt.Rows[0]["CurrPwd"].ToString() == "" && dt.Rows[0]["NewPwd"].ToString() == "")))
-            {
-                IdentityResult result = manager.ChangePassword(e.Keys[0].ToString(), dt.Rows[0]["CurrPwd"].ToString(), dt.Rows[0]["NewPwd"].ToString());
-                if (result.Succeeded)
-                {
-                    e.Cancel = true;
-                    gridView.CancelEdit();
-                }
-                else
-                {
-                    //AddErrors(result);
-                }
-            } else
+            string token = manager.GeneratePasswordResetToken(user.Id);
+            IdentityResult result = userManager.ResetPassword(user.Id, token, dt.Rows[0]["NewPwd"].ToString());
+
+            if (result.Succeeded)
             {
                 e.Cancel = true;
                 gridView.CancelEdit();
+            }
+            else
+            {
+                //AddErrors(result);
             }
         }
 
@@ -172,16 +166,14 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuarios
 
             if (Session["data"] == null)
             {
-                dt.Columns.Add("CurrPwd", typeof(string));
                 dt.Columns.Add("NewPwd", typeof(string));
 
-                dt.Rows.Add(new object[] { "", "" });
+                dt.Rows.Add(new object[] { "" });
                 Session["data"] = dt;
             }
             else
             {
                 dt = Session["data"] as DataTable;
-                dt.Rows[0]["CurrPwd"] = "";
                 dt.Rows[0]["NewPwd"] = "";
             }
         }
