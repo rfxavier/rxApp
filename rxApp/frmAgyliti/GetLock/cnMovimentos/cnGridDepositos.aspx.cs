@@ -146,6 +146,8 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
             decimal b50 = Convert.ToInt64(e.GetListSourceFieldValue("data_currency_bill_50"));
             decimal b100 = Convert.ToInt64(e.GetListSourceFieldValue("data_currency_bill_100"));
             decimal b200 = Convert.ToInt64(e.GetListSourceFieldValue("data_currency_bill_200"));
+            string bdata_type = e.GetListSourceFieldValue("data_type").ToString();
+            decimal btotal = Convert.ToInt64(e.GetListSourceFieldValue("data_currency_total"));
 
             if (e.Column.FieldName == "TotalCount")
             {
@@ -154,7 +156,13 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
 
             if (e.Column.FieldName == "TotalValue")
             {
-                e.Value = b2 * 2 + b5 * 5 + b10 * 10 + b20 * 20 + b50 * 50 + b100 * 100 + b200 * 200;
+                if(bdata_type == "2")
+                {
+                    e.Value = btotal;
+                } else
+                {
+                    e.Value = b2 * 2 + b5 * 5 + b10 * 10 + b20 * 20 + b50 * 50 + b100 * 100 + b200 * 200;
+                }
             }
         }
 
