@@ -2,6 +2,7 @@
 using rxApp.Domain.Entities;
 using rxApp.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
 
@@ -87,6 +88,26 @@ namespace rxApp.frmRx.Agyliti.GetLock.cnCadastros
 
             e.Cancel = true;
             ASPxGridView1.CancelEdit();
+        }
+
+        protected void ASPxGridView1_RowValidating(object sender, DevExpress.Web.Data.ASPxDataValidationEventArgs e)
+        {
+            var cofreId = e.NewValues["id_cofre"].ToString();
+            bool foundIdCofre = db.GetLockCofres.Any(c => c.id_cofre == cofreId);
+
+            if (foundIdCofre)
+            {
+                AddError(e.Errors, ASPxGridView1.Columns["id_cofre"],
+                     "Cofre precisa ter um ID Cofre único");
+            }
+            if (string.IsNullOrEmpty(e.RowError) && e.Errors.Count > 0)
+                e.RowError = "Corrija todos os erros";
+        }
+        void AddError(Dictionary<GridViewColumn, string> errors,
+             GridViewColumn column, string errorText)
+        {
+            if (errors.ContainsKey(column)) return;
+            errors[column] = errorText;
         }
     }
 }
