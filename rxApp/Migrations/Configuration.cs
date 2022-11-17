@@ -10,7 +10,6 @@ namespace rxApp.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "rxApp.Models.ApplicationDbContext";
         }
 
         protected override void Seed(rxApp.Models.ApplicationDbContext context)
