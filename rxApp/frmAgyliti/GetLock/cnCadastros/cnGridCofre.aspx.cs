@@ -92,8 +92,18 @@ namespace rxApp.frmRx.Agyliti.GetLock.cnCadastros
 
         protected void ASPxGridView1_RowValidating(object sender, DevExpress.Web.Data.ASPxDataValidationEventArgs e)
         {
-            var cofreId = e.NewValues["id_cofre"].ToString();
-            bool foundIdCofre = db.GetLockCofres.Any(c => c.id_cofre == cofreId);
+            bool foundIdCofre = false;
+            string cofreId;
+
+            if (e.IsNewRow)
+            {
+                cofreId = e.NewValues["id_cofre"].ToString();
+                foundIdCofre = db.GetLockCofres.Any(c => c.id_cofre == cofreId);
+            } else if (e.NewValues["id_cofre"].ToString() != e.OldValues["id_cofre"].ToString())
+            {
+                cofreId = e.NewValues["id_cofre"].ToString();
+                foundIdCofre = db.GetLockCofres.Any(c => c.id_cofre == cofreId);
+            }
 
             if (foundIdCofre)
             {
