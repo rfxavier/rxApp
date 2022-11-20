@@ -1,6 +1,9 @@
-﻿using rxApp.Domain.Entities;
+﻿using DevExpress.Web;
+using rxApp.Domain.Entities;
 using rxApp.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace rxApp.frmAgyliti.GetLock.cnCadastros
 {
@@ -32,5 +35,35 @@ namespace rxApp.frmAgyliti.GetLock.cnCadastros
             ASPxGridView1.CancelEdit();
         }
 
+        protected void ASPxGridView1_RowValidating(object sender, DevExpress.Web.Data.ASPxDataValidationEventArgs e)
+        {
+            bool foundIdRede = false;
+            string redeId;
+
+            if (e.IsNewRow)
+            {
+                redeId = e.NewValues["cod_rede"].ToString();
+                foundIdRede = db.GetLockRedes.Any(c => c.cod_rede == redeId);
+            }
+            else if (e.NewValues["cod_rede"].ToString() != e.OldValues["cod_rede"].ToString())
+            {
+                redeId = e.NewValues["cod_rede"].ToString();
+                foundIdRede = db.GetLockRedes.Any(c => c.cod_rede == redeId);
+            }
+
+            if (foundIdRede)
+            {
+                AddError(e.Errors, ASPxGridView1.Columns["cod_rede"],
+                     "Rede precisa ter um Código Rede único");
+            }
+            if (string.IsNullOrEmpty(e.RowError) && e.Errors.Count > 0)
+                e.RowError = "Corrija todos os erros";
+        }
+        void AddError(Dictionary<GridViewColumn, string> errors,
+             GridViewColumn column, string errorText)
+        {
+            if (errors.ContainsKey(column)) return;
+            errors[column] = errorText;
+        }
     }
 }

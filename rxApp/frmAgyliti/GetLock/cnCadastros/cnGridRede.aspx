@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentPlaceHolderMain" runat="server">
     <div><h4>Cadastro Loja</h4></div>
-    <dx:ASPxGridView ID="ASPxGridView1" runat="server" DataSourceID="EntityDataSource1" KeyFieldName="id" Width="100%" EnableRowsCache="False" AutoGenerateColumns="False" OnRowInserting="ASPxGridView1_RowInserting">
+    <dx:ASPxGridView ID="ASPxGridView1" runat="server" DataSourceID="EntityDataSource1" KeyFieldName="id" Width="100%" EnableRowsCache="False" AutoGenerateColumns="False" OnRowInserting="ASPxGridView1_RowInserting" OnRowValidating="ASPxGridView1_RowValidating">
         <SettingsDataSecurity AllowInsert="true" />
         <EditFormLayoutProperties>
             <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="700" />

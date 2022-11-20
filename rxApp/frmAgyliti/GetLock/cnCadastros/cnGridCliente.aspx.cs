@@ -2,6 +2,8 @@
 using rxApp.Domain.Entities;
 using rxApp.Models;
 using System;
+using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 
 namespace rxApp.frmAgyliti.GetLock.cnCadastros
@@ -54,7 +56,15 @@ namespace rxApp.frmAgyliti.GetLock.cnCadastros
             newCliente.telefone = e.NewValues["telefone"]?.ToString();
 
             db.GetLockClientes.Add(newCliente);
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbEntityValidationException f)
+            {
+
+                throw;
+            }
 
             e.Cancel = true;
             ASPxGridView1.CancelEdit();
@@ -100,6 +110,43 @@ namespace rxApp.frmAgyliti.GetLock.cnCadastros
 
             e.Cancel = true;
             ASPxGridView1.CancelEdit();
+        }
+
+        protected void ASPxGridView1_RowValidating(object sender, DevExpress.Web.Data.ASPxDataValidationEventArgs e)
+        {
+            if (e.NewValues["cod_rede"] == null)
+            {
+                AddError(e.Errors, ASPxGridView1.Columns["cod_rede"],
+                     "Rede é obrigatório");
+            }
+
+            bool foundIdCliente = false;
+            string clienteId;
+
+            if (e.IsNewRow)
+            {
+                clienteId = e.NewValues["cod_cliente"].ToString();
+                foundIdCliente = db.GetLockClientes.Any(c => c.cod_cliente == clienteId);
+            }
+            else if (e.NewValues["cod_cliente"].ToString() != e.OldValues["cod_cliente"].ToString())
+            {
+                clienteId = e.NewValues["cod_cliente"].ToString();
+                foundIdCliente = db.GetLockClientes.Any(c => c.cod_cliente == clienteId);
+            }
+
+            if (foundIdCliente)
+            {
+                AddError(e.Errors, ASPxGridView1.Columns["cod_cliente"],
+                     "Cliente precisa ter um Código Cliente único");
+            }
+            if (string.IsNullOrEmpty(e.RowError) && e.Errors.Count > 0)
+                e.RowError = "Corrija todos os erros";
+        }
+        void AddError(Dictionary<GridViewColumn, string> errors,
+             GridViewColumn column, string errorText)
+        {
+            if (errors.ContainsKey(column)) return;
+            errors[column] = errorText;
         }
     }
 }
