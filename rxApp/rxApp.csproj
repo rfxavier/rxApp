@@ -287,7 +287,9 @@
     <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridMovimento.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridRede.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCofrePorCliente\cnCofrePorCliente.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnCofrePorCliente\cnCofreUsuarioDepositosPorCliente.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCofre\cnCofre.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnCofre\cnCofreUsuarioDepositos.aspx" />
     <Content Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx" />
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridColetas.aspx" />
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridCortes.aspx" />
@@ -599,6 +601,12 @@
     <Compile Include="dashClasses\dashCnCofrePorCliente.Designer.cs">
       <DependentUpon>dashCnCofrePorCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="dashClasses\dashCnCofreUsuarioDepositos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dashClasses\dashCnCofreUsuarioDepositos.Designer.cs">
+      <DependentUpon>dashCnCofreUsuarioDepositos.cs</DependentUpon>
+    </Compile>
     <Compile Include="dataObjClasses\dsCofre.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -690,12 +698,26 @@
     <Compile Include="frmAgyliti\GetLock\cnCofrePorCliente\cnCofrePorCliente.aspx.designer.cs">
       <DependentUpon>cnCofrePorCliente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCofrePorCliente\cnCofreUsuarioDepositosPorCliente.aspx.cs">
+      <DependentUpon>cnCofreUsuarioDepositosPorCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCofrePorCliente\cnCofreUsuarioDepositosPorCliente.aspx.designer.cs">
+      <DependentUpon>cnCofreUsuarioDepositosPorCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmAgyliti\GetLock\cnCofre\cnCofre.aspx.cs">
       <DependentUpon>cnCofre.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnCofre\cnCofre.aspx.designer.cs">
       <DependentUpon>cnCofre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCofre\cnCofreUsuarioDepositos.aspx.cs">
+      <DependentUpon>cnCofreUsuarioDepositos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCofre\cnCofreUsuarioDepositos.aspx.designer.cs">
+      <DependentUpon>cnCofreUsuarioDepositos.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx.cs">
       <DependentUpon>cnGridMain.aspx</DependentUpon>
@@ -883,6 +905,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="dashClasses\dashCnCofrePorCliente.resx">
       <DependentUpon>dashCnCofrePorCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dashClasses\dashCnCofreUsuarioDepositos.resx">
+      <DependentUpon>dashCnCofreUsuarioDepositos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202211171126303_v000-InitialCreate.resx">
       <DependentUpon>202211171126303_v000-InitialCreate.cs</DependentUpon>

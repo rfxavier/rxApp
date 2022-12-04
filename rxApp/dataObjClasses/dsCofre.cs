@@ -1,7 +1,8 @@
-﻿using System;
+﻿using rxApp.Domain.Entities;
+using rxApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using rxApp.Models;
 
 namespace rxApp.dataObjClasses
 {
@@ -177,5 +178,36 @@ namespace rxApp.dataObjClasses
             }
         }
 
+        public static List<GetLockMessageView> GetDepositosMessageViews()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var parDataIni = DateTime.Now.AddMonths(-6);
+                var parDataFim = DateTime.Now;
+
+                var parSelectedLojas = ctx.GetLockLojas.Select(l => l.id).ToList();
+
+                var messageList = ctx.GetLockMessageViews.AsNoTracking().Where(m => m.user_id != null && (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4") && parSelectedLojas.Contains(m.id_loja) && m.data_tmst_end_datetime >= parDataIni && m.data_tmst_end_datetime <= parDataFim).ToList();
+
+                return messageList;
+            }
+        }
+
+        public static List<GetLockMessageView> GetDepositosMessageViewsPorCliente(long clienteId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var parDataIni = DateTime.Now.AddMonths(-6);
+                var parDataFim = DateTime.Now;
+
+                var parCodCliente = ctx.GetLockClientes.FirstOrDefault(c => c.id == clienteId).cod_cliente;
+
+                var parSelectedLojas = ctx.GetLockLojas.Where(l => l.cod_cliente == parCodCliente).Select(l => l.id).ToList();
+
+                var messageList = ctx.GetLockMessageViews.AsNoTracking().Where(m => m.user_id != null && (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4") && parSelectedLojas.Contains(m.id_loja) && m.data_tmst_end_datetime >= parDataIni && m.data_tmst_end_datetime <= parDataFim).ToList();
+
+                return messageList;
+            }
+        }
     }
 }
