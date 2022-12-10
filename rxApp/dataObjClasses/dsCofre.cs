@@ -73,7 +73,7 @@ namespace rxApp.dataObjClasses
                             cofreComm.commStatus = "Entre 24 e 48h";
                             cofreComm.commStatusCode = "02";
                         }
-                        else
+                        else if (cofreComm.secDiff > 172800)
                         {
                             cofreComm.commStatus = "Acima de 48h";
                             cofreComm.commStatusCode = "03";
