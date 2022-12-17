@@ -34,8 +34,8 @@
                         <td>Nova senha:</td>
                         <td>
                             <dx:ASPxTextBox ID="npsw" runat="server" Password="True" ClientInstanceName="npsw">
-                                <ClientSideEvents Validation="function(s, e) {e.isValid = (s.GetText().length&gt;5)}" />
-                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ErrorText="The password length should be more that 6 symbols">
+                                <ClientSideEvents Validation="function(s, e) {e.isValid = (s.GetText().length&gt;0)}" />
+                                <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ErrorText="Senha deve ter pelo menos 1 caractere">
                                 </ValidationSettings>
                             </dx:ASPxTextBox>
                         </td>

@@ -89,17 +89,24 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuariosAdmin
 
             manager.Update(user);
 
-            string token = manager.GeneratePasswordResetToken(user.Id);
-            IdentityResult result = userManager.ResetPassword(user.Id, token, dt.Rows[0]["NewPwd"].ToString());
+            if (dt.Rows[0]["NewPwd"].ToString() != "")
+            {
+                string token = manager.GeneratePasswordResetToken(user.Id);
+                IdentityResult result = userManager.ResetPassword(user.Id, token, dt.Rows[0]["NewPwd"].ToString());
 
-            if (result.Succeeded)
+                if (result.Succeeded)
+                {
+                    e.Cancel = true;
+                    gridView.CancelEdit();
+                }
+                else
+                {
+                    //AddErrors(result);
+                }
+            } else
             {
                 e.Cancel = true;
                 gridView.CancelEdit();
-            }
-            else
-            {
-                //AddErrors(result);
             }
         }
 
@@ -141,12 +148,32 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuariosAdmin
 
         protected void GridUsers_RowValidating(object sender, DevExpress.Web.Data.ASPxDataValidationEventArgs e)
         {
-            if (e.NewValues["UserName"] != null &&
-                !IsValidEmail(e.NewValues["UserName"].ToString()))
+            if (e.NewValues["UserName"] == null)
             {
                 AddError(e.Errors, GridUsers.Columns["UserName"],
-                    "Usuário precisa ter formato de um email válido");
+                    "Usuário precisa ser preenchido");
             }
+
+            bool foundUserName = false;
+            string userName;
+
+            if (e.IsNewRow)
+            {
+                userName = e.NewValues["UserName"].ToString();
+                foundUserName = db.Users.Any(u => u.UserName == userName);
+            }
+            else if (e.NewValues["UserName"].ToString() != e.OldValues["UserName"].ToString())
+            {
+                AddError(e.Errors, GridUsers.Columns["UserName"],
+                     "Não é possível editar nome do usuário");
+            }
+
+            if (foundUserName)
+            {
+                AddError(e.Errors, GridUsers.Columns["UserName"],
+                     "Usuário precisa ter um nome único");
+            }
+
             if (string.IsNullOrEmpty(e.RowError) && e.Errors.Count > 0)
                 e.RowError = "Corrija todos os erros";
         }
