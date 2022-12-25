@@ -5,6 +5,7 @@ using rxApp.Domain.Entities;
 using rxApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -24,7 +25,7 @@ namespace rxApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Page.User.IsInRole("AdmMaster") || Page.User.IsInRole("AdmPortal") || Page.User.IsInRole("UserClient"))
+            if (Page.User.IsInRole("AdmMaster") || Page.User.IsInRole("AdmPortal") || Page.User.IsInRole("UserClient") || Page.User.IsInRole("UserCofre"))
             {
                 ASPxTreeList1.DataBind();
                 ASPxTreeList1.ExpandAll();
@@ -76,6 +77,20 @@ namespace rxApp
                 dsClienteGroup = dsLojaClienteRedeView.Where(p => p.id_cliente == user.GetLockClienteId).GroupBy(x => new { idCliente = "C" + x.id_cliente.ToString(), nomeCliente = x.nome_cliente, idRede = x.id_rede }).Select(y => new TreeListDataSource() { id = y.Key.idCliente, parentId = "R" + y.Key.idRede.ToString(), nome = y.Key.nomeCliente }).ToList();
 
                 dsLojaGroup = dsLojaClienteRedeView.Where(p => p.id_cliente == user.GetLockClienteId).GroupBy(x => new { idLoja = "L" + x.id_loja.ToString(), nomeLoja = x.nome_loja, idCliente = x.id_cliente }).Select(y => new TreeListDataSource() { id = y.Key.idLoja, parentId = "C" + y.Key.idCliente.ToString(), nome = y.Key.nomeLoja }).ToList();
+            }
+            else if (Page.User.IsInRole("UserCofre"))
+            {
+                var userId = Page.User.Identity.GetUserId();
+
+                var user = userManager.Users.Include(u => u.GetLockCofres).FirstOrDefault(ul => ul.Id == userId);
+
+                var lojaList = user.GetLockCofres.Select(c => c.cod_loja).ToList();
+
+                dsRedeGroup = dsLojaClienteRedeView.Where(p => lojaList.Contains(p.cod_loja)).GroupBy(x => new { idRede = "R" + x.id_rede.ToString(), nomeRede = x.nome_rede }).Select(y => new TreeListDataSource() { id = y.Key.idRede, parentId = "", nome = y.Key.nomeRede }).ToList();
+
+                dsClienteGroup = dsLojaClienteRedeView.Where(p => lojaList.Contains(p.cod_loja)).GroupBy(x => new { idCliente = "C" + x.id_cliente.ToString(), nomeCliente = x.nome_cliente, idRede = x.id_rede }).Select(y => new TreeListDataSource() { id = y.Key.idCliente, parentId = "R" + y.Key.idRede.ToString(), nome = y.Key.nomeCliente }).ToList();
+
+                dsLojaGroup = dsLojaClienteRedeView.Where(p => lojaList.Contains(p.cod_loja)).GroupBy(x => new { idLoja = "L" + x.id_loja.ToString(), nomeLoja = x.nome_loja, idCliente = x.id_cliente }).Select(y => new TreeListDataSource() { id = y.Key.idLoja, parentId = "C" + y.Key.idCliente.ToString(), nome = y.Key.nomeLoja }).ToList();
             }
             else
             {

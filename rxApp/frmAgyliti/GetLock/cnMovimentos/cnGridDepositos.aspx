@@ -6,7 +6,7 @@
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentPlaceHolderMain" runat="server">
     <strong>Depósitos</strong>
     <dx:ASPxGridView runat="server" Width="100%" AutoGenerateColumns="False" KeyFieldName="id" ID="ASPxGridView1" OnDataBinding="ASPxGridView1_DataBinding" OnCustomUnboundColumnData="ASPxGridView1_CustomUnboundColumnData">
-        <SettingsDetail ShowDetailRow="True"></SettingsDetail>
+        <SettingsDetail ShowDetailRow="False"></SettingsDetail>
 
         <SettingsPager PageSize="20"></SettingsPager>
         <Settings ShowHeaderFilterButton="True" ShowFilterBar="Visible" ShowFilterRow="true" ShowFilterRowMenu="true"></Settings>
@@ -35,14 +35,29 @@
             <dx:GridViewDataTextColumn FieldName="TotalCount" UnboundType="Decimal" Caption="Total Cédulas" VisibleIndex="60">
                 <PropertiesTextEdit DisplayFormatString="#,#0" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="TotalValue" UnboundType="Decimal" Caption="Total Valor" VisibleIndex="61">
+            <dx:GridViewDataTextColumn FieldName="TotalValueAuto" UnboundType="Decimal" Caption="Total Valor Automático" VisibleIndex="61">
                 <PropertiesTextEdit DisplayFormatString="#,#0" />
             </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="TotalValueManual" UnboundType="Decimal" Caption="Total Valor Manual" VisibleIndex="62">
+                <PropertiesTextEdit DisplayFormatString="#,#0" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="TotalValue" UnboundType="Decimal" Caption="Total Valor" VisibleIndex="62">
+                <PropertiesTextEdit DisplayFormatString="#,#0" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_2" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 2" VisibleIndex="63"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_5" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 5" VisibleIndex="64"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_10" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 10" VisibleIndex="65"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_20" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 20" VisibleIndex="66"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_50" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 50" VisibleIndex="67"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_100" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 100" VisibleIndex="68"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_200" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 200" VisibleIndex="69"></dx:GridViewDataTextColumn>
         </Columns>
         <Settings ShowFooter="true" />
         <TotalSummary>
             <dx:ASPxSummaryItem FieldName="TotalCount" SummaryType="Sum" DisplayFormat="{0:n0}" />
-            <dx:ASPxSummaryItem FieldName="TotalValue" SummaryType="Sum" DisplayFormat="{0:c}" />
+            <dx:ASPxSummaryItem FieldName="TotalValueAuto" SummaryType="Sum" DisplayFormat="{0:n2}" />
+            <dx:ASPxSummaryItem FieldName="TotalValueManual" SummaryType="Sum" DisplayFormat="{0:n2}" />
+            <dx:ASPxSummaryItem FieldName="TotalValue" SummaryType="Sum" DisplayFormat="{0:n2}" />
         </TotalSummary>
         <Styles>
             <Header Wrap="True">

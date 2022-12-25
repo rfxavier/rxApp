@@ -18,6 +18,14 @@ namespace rxApp.Domain.Entities
             HasOptional(u => u.GetLockCliente)
                 .WithMany(l => l.ApplicationUsers)
                 .HasForeignKey(u => u.GetLockClienteId);
+
+            HasMany<GetLockCofre>(u => u.GetLockCofres)
+                .WithMany(c => c.ApplicationUsers)
+                .Map(uc => {
+                    uc.MapLeftKey("UserId");
+                    uc.MapRightKey("CofreId");
+                    uc.ToTable("AspNetUserCofres");
+                });
         }
     }
 }

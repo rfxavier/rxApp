@@ -1,4 +1,6 @@
+using rxApp.Models;
 using System;
+using System.Collections.Generic;
 
 namespace rxApp.Domain.Entities
 {
@@ -15,5 +17,7 @@ namespace rxApp.Domain.Entities
         public Nullable<System.DateTime> trackLastWriteTime { get; set; }
         public Nullable<System.DateTime> trackCreationTime { get; set; }
         public string cod_loja { get; set; }
+        public ICollection<ApplicationUser> ApplicationUsers { get; set; }
+
     }
 }

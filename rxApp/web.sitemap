@@ -6,14 +6,15 @@
       <siteMapNode url="~/frmAdmMasterCadastro/frmAdmMaster/RoleAdmin.aspx" title="Permissões" description="Permissões" roles="AdmMaster" />
       <siteMapNode url="~/frmAdmMasterCadastro/frmAdmMaster/WebSiteMapAdmin.aspx" title="Site Map" description="Site Map" roles="AdmMaster" />
     </siteMapNode>
-    <siteMapNode url="" title="Operações" description="Operações" roles="AdmMaster,AdmPortal,User,UserClient">
-      <siteMapNode url="~/frmAgyliti/GetLock/cnGridMain/cnGridMain.aspx" title="Ocorrências" description="Ocorrências" roles="AdmMaster,AdmPortal,UserClient" />
+    <siteMapNode url="" title="Operações" description="Operações" roles="AdmMaster,AdmPortal,UserClient,UserCofre">
+      <siteMapNode url="~/frmAgyliti/GetLock/cnGridMain/cnGridMain.aspx" title="Ocorrências" description="Ocorrências" roles="AdmMaster,AdmPortal,UserClient,UserCofre" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnGridSemLoja/cnGridSemLoja.aspx" title="Ocorrências sem loja" description="Ocorrências sem loja" roles="AdmMaster,AdmPortal" />
     </siteMapNode>
-    <siteMapNode url="" title="Movimentos" description="Operações" roles="AdmMaster,AdmPortal,User,UserClient">
-      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridDepositos.aspx" title="Depósitos" description="Depósitos" roles="AdmMaster,AdmPortal,User,UserClient" />
-      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridColetas.aspx" title="Coletas" description="Coletas" roles="AdmMaster,AdmPortal,Userv" />
-      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridCortes.aspx" title="Corte do dia" description="Corte do dia" roles="AdmMaster,AdmPortal,User,UserClient" />
-      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridOperacoes.aspx" title="Operações" description="Operações" roles="AdmMaster,AdmPortal,User,UserClient" />
+    <siteMapNode url="" title="Movimentos" description="Operações" roles="AdmMaster,AdmPortal,User,UserClient,UserCofre">
+      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridDepositos.aspx" title="Depósitos" description="Depósitos" roles="AdmMaster,AdmPortal,User,UserClient,UserCofre" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridColetas.aspx" title="Coletas" description="Coletas" roles="AdmMaster,AdmPortal,User,UserClient,UserCofre" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridCortes.aspx" title="Corte do dia" description="Corte do dia" roles="AdmMaster,AdmPortal,User,UserClient,UserCofre" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridOperacoes.aspx" title="Operações" description="Operações" roles="AdmMaster,AdmPortal,User,UserClient,UserCofre" />
     </siteMapNode>
     <siteMapNode url="" title="Cadastros" description="Cadastros" roles="AdmMaster,AdmPortal,UserClient">
       <siteMapNode url="~/frmAgyliti/GetLock/cnCadastros/cnGridRede.aspx" title="Rede" description="Cadastro Rede" roles="AdmMaster,AdmPortal" />
@@ -23,9 +24,10 @@
       <siteMapNode url="~/frmAgyliti/GetLock/cnCadastros/cnGridCofreUser.aspx" title="Cofre Usuário" description="Cadastro Cofre Usuário" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnCadastros/cnGridMovimento.aspx" title="Movimento" description="Cadastro Movimento" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="" title="Login" description="Login" roles="AdmMaster,AdmPortal,UserClient">
-        <siteMapNode url="~/frmAgyliti/GetLock/cnUsuarios/cnUsuarios.aspx" title="Loja" description="UsuariosLoja" roles="AdmMaster,AdmPortal,UserClient" />
-        <siteMapNode url="~/frmAgyliti/GetLock/cnUsuariosAdmin/cnUsuariosCliente.aspx" title="Cliente" description="UsuariosCliente" roles="AdmMaster,AdmPortal" />
-        <siteMapNode url="~/frmAgyliti/GetLock/cnUsuariosAdmin/cnUsuariosAdmin.aspx" title="Admin" description="AdminUsuariosAdmin" roles="AdmMaster,AdmPortal" />
+        <siteMapNode url="~/frmAgyliti/GetLock/cnUsuarios/cnUsuarios.aspx" title="Loja" description="Loja" roles="AdmMaster,AdmPortal,UserClient" />
+        <siteMapNode url="~/frmAgyliti/GetLock/cnUsuariosAdmin/cnUsuariosCliente.aspx" title="Cliente" description="Cliente" roles="AdmMaster,AdmPortal" />
+        <siteMapNode url="~/frmAgyliti/GetLock/cnUsuariosAdmin/cnUsuariosAdmin.aspx" title="Admin" description="Admin" roles="AdmMaster,AdmPortal" />
+        <siteMapNode url="~/frmAgyliti/GetLock/cnUsuariosAdmin/cnUsuariosCofre.aspx" title="Transportadora" description="Transportadora" roles="AdmMaster,AdmPortal" />
       </siteMapNode>
     </siteMapNode>
     <siteMapNode url="" title="Dashboards" description="Dashboards" roles="AdmMaster,AdmPortal,UserClient">

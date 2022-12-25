@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity.Owin;
 using rxApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -100,6 +101,44 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
                     ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4") && m.cod_cliente == codCliente && m.data_tmst_end_datetime <= dateEnd).ToList();
                 }
             }
+            else if (User.IsInRole("UserCofre"))
+            {
+                var userId = Page.User.Identity.GetUserId();
+                var user = userManager.Users.Include(u => u.GetLockCofres).FirstOrDefault(ul => ul.Id == userId);
+
+                var cofreList = user.GetLockCofres.Select(c => c.id_cofre).ToList();
+
+                if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
+                {
+                    var selectedLojas = (List<long>)Session["selectedLojas"];
+
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4") && cofreList.Contains(m.id_cofre) && selectedLojas.Contains(m.id_loja) && m.data_tmst_end_datetime >= dateStart && m.data_tmst_end_datetime <= dateEnd).ToList();
+                }
+                else if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
+                {
+                    var selectedLojas = (List<long>)Session["selectedLojas"];
+
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4") && cofreList.Contains(m.id_cofre) && selectedLojas.Contains(m.id_loja) && m.data_tmst_end_datetime >= dateStart).ToList();
+                }
+                else if (Session["selectedLojas"] != null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
+                {
+                    var selectedLojas = (List<long>)Session["selectedLojas"];
+
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4") && cofreList.Contains(m.id_cofre) && selectedLojas.Contains(m.id_loja) && m.data_tmst_end_datetime <= dateEnd).ToList();
+                }
+                else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
+                {
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4") && cofreList.Contains(m.id_cofre) && m.data_tmst_end_datetime >= dateStart && m.data_tmst_end_datetime <= dateEnd).ToList();
+                }
+                else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
+                {
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4") && cofreList.Contains(m.id_cofre) && m.data_tmst_end_datetime >= dateStart).ToList();
+                }
+                else if (Session["selectedLojas"] == null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
+                {
+                    ds = db.GetLockMessageViews.AsNoTracking().Where(m => (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4") && cofreList.Contains(m.id_cofre) && m.data_tmst_end_datetime <= dateEnd).ToList();
+                }
+            }
             else
             {
                 if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
@@ -154,12 +193,37 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
                 e.Value = b2 + b5 + b10 + b20 + b50 + b100 + b200;
             }
 
-            if (e.Column.FieldName == "TotalValue")
+            if (e.Column.FieldName == "TotalValueAuto")
             {
-                if(bdata_type == "2")
+                if(bdata_type != "2")
+                {
+                    e.Value = b2 * 2 + b5 * 5 + b10 * 10 + b20 * 20 + b50 * 50 + b100 * 100 + b200 * 200;
+                }
+                else
+                {
+                    e.Value = 0;
+                }
+            }
+
+            if (e.Column.FieldName == "TotalValueManual")
+            {
+                if (bdata_type == "2")
                 {
                     e.Value = btotal;
-                } else
+                }
+                else
+                {
+                    e.Value = 0;
+                }
+            }
+
+            if (e.Column.FieldName == "TotalValue")
+            {
+                if (bdata_type == "2")
+                {
+                    e.Value = btotal;
+                }
+                else
                 {
                     e.Value = b2 * 2 + b5 * 5 + b10 * 10 + b20 * 20 + b50 * 50 + b100 * 100 + b200 * 200;
                 }

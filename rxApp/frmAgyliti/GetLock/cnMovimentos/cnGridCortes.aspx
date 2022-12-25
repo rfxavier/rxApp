@@ -6,7 +6,7 @@
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentPlaceHolderMain" runat="server">
     <strong>Corte do dia</strong>
     <dx:ASPxGridView runat="server" Width="100%" AutoGenerateColumns="False" KeyFieldName="id" ID="ASPxGridView1" OnDataBinding="ASPxGridView1_DataBinding" OnCustomUnboundColumnData="ASPxGridView1_CustomUnboundColumnData">
-        <SettingsDetail ShowDetailRow="True"></SettingsDetail>
+        <SettingsDetail ShowDetailRow="False"></SettingsDetail>
 
         <SettingsPager PageSize="20"></SettingsPager>
         <Settings ShowHeaderFilterButton="True" ShowFilterBar="Visible" ShowFilterRow="true" ShowFilterRowMenu="true"></Settings>
@@ -37,6 +37,13 @@
             <dx:GridViewDataTextColumn FieldName="TotalValue" UnboundType="Decimal" Caption="Total Valor" VisibleIndex="61">
                 <PropertiesTextEdit DisplayFormatString="#,#0" />
             </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_2" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 2" VisibleIndex="62"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_5" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 5" VisibleIndex="63"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_10" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 10" VisibleIndex="64"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_20" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 20" VisibleIndex="65"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_50" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 50" VisibleIndex="66"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_100" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 100" VisibleIndex="67"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_200" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 200" VisibleIndex="68"></dx:GridViewDataTextColumn>
         </Columns>
         <Settings ShowFooter="true" />
         <TotalSummary>

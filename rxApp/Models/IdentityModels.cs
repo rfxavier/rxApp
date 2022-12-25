@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using rxApp.Domain.Entities;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
@@ -33,6 +34,7 @@ namespace rxApp.Models
         public GetLockLoja GetLockLoja { get; set; }
         public long? GetLockClienteId { get; set; }
         public GetLockCliente GetLockCliente { get; set; }
+        public ICollection<GetLockCofre> GetLockCofres { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

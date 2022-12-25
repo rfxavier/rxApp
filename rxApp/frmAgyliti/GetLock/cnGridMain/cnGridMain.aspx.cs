@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity.Owin;
 using rxApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
@@ -149,7 +150,55 @@ namespace rxApp.frmRx.Agyliti.GetLock.cnGridMain
                     e.QueryableSource = db.GetLockMessageViews.Where(g => g.id_cliente == idCliente && g.data_tmst_end_datetime >= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0) && g.data_tmst_end_datetime <= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 23, 59, 59));
                 }
             }
-            else 
+            else if (User.IsInRole("UserCofre"))
+            {
+                var userId = Page.User.Identity.GetUserId();
+                var user = userManager.Users.Include(u => u.GetLockCofres).FirstOrDefault(ul => ul.Id == userId);
+
+                var cofreList = user.GetLockCofres.Select(c => c.id_cofre).ToList();
+
+                if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
+                {
+                    var selectedLojas = (List<long>)Session["selectedLojas"];
+                    var dateStart = (DateTime)Session["dateStart"];
+                    var dateEnd = (DateTime)Session["dateEnd"];
+                    //var dsDebug = db.GetLockMessageViews.Where(g => cofreList.Contains(g.id_cofre) && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime.Value >= dateStart && g.data_tmst_end_datetime.Value <= dateEnd).ToList();
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => cofreList.Contains(g.id_cofre) && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime.Value >= dateStart && g.data_tmst_end_datetime.Value <= dateEnd);
+                }
+                else if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
+                {
+                    var selectedLojas = (List<long>)Session["selectedLojas"];
+                    var dateStart = (DateTime)Session["dateStart"];
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => cofreList.Contains(g.id_cofre) && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime >= dateStart);
+                }
+                else if (Session["selectedLojas"] != null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
+                {
+                    var selectedLojas = (List<long>)Session["selectedLojas"];
+                    var dateEnd = (DateTime)Session["dateEnd"];
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => cofreList.Contains(g.id_cofre) && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime <= dateEnd);
+                }
+                else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
+                {
+                    var dateStart = (DateTime)Session["dateStart"];
+                    var dateEnd = (DateTime)Session["dateEnd"];
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => cofreList.Contains(g.id_cofre) && g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
+                }
+                else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
+                {
+                    var dateStart = (DateTime)Session["dateStart"];
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => cofreList.Contains(g.id_cofre) && g.data_tmst_end_datetime >= dateStart);
+                }
+                else if (Session["selectedLojas"] == null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
+                {
+                    var dateEnd = (DateTime)Session["dateEnd"];
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => cofreList.Contains(g.id_cofre) && g.data_tmst_end_datetime <= dateEnd);
+                }
+                else
+                {
+                    e.QueryableSource = db.GetLockMessageViews.Where(g => cofreList.Contains(g.id_cofre) && g.data_tmst_end_datetime >= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0) && g.data_tmst_end_datetime <= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 23, 59, 59));
+                }
+            }
+            else
             {
                 // e.QueryableSource = db.GetLockMessageViews;
 
@@ -158,6 +207,7 @@ namespace rxApp.frmRx.Agyliti.GetLock.cnGridMain
                     var selectedLojas = (List<long>)Session["selectedLojas"];
                     var dateStart = (DateTime)Session["dateStart"];
                     var dateEnd = (DateTime)Session["dateEnd"];
+                    //var dsDebug = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime.Value >= dateStart && g.data_tmst_end_datetime.Value <= dateEnd).ToList();
                     e.QueryableSource = db.GetLockMessageViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime.Value >= dateStart && g.data_tmst_end_datetime.Value <= dateEnd);
                 }
                 else if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
