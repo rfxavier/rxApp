@@ -32,6 +32,8 @@
                                          DisplayFormatString="Ir para cofres {0}"
                                          NavigateUrlFormatString="cnUsuariosCofreDetalhe{0}">
                 </PropertiesHyperLinkEdit>
+                <EditItemTemplate></EditItemTemplate>  
+                <EditFormSettings Visible="False"/>  
             </dx:GridViewDataHyperLinkColumn>
         </Columns>
         <SettingsBehavior ConfirmDelete="True" />

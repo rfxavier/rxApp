@@ -77,21 +77,30 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuariosAdmin
         {
             long cofreId = Convert.ToInt32(e.NewValues["CofreId"]);
 
-            var cofre = db.GetLockCofres.FirstOrDefault(c => c.id == cofreId );
+            //var cofre = db.GetLockCofres.FirstOrDefault(c => c.id == cofreId );
 
-            var user = userManager.FindById(Session["currentUserId"].ToString());
-            user.GetLockCofres.Add(cofre);
-            var result = userManager.Update(user);
+            //var user = userManager.FindById(Session["currentUserId"].ToString());
 
-            if (result.Succeeded)
+            using (var ctx = new ApplicationDbContext())
             {
-                e.Cancel = true;
-                ASPxGridView1.CancelEdit();
+                int noOfRowUpdated = ctx.Database.ExecuteSqlCommand($"INSERT INTO AspNetUserCofres ( UserId, CofreId ) VALUES ('{Session["currentUserId"].ToString()}', {cofreId})");
             }
-            else
-            {
-                //AddErrors(result);
-            }
+
+            e.Cancel = true;
+            ASPxGridView1.CancelEdit();
+
+            //user.GetLockCofres.Add(cofre);
+            //var result = userManager.Update(user);
+
+            //if (result.Succeeded)
+            //{
+            //    e.Cancel = true;
+            //    ASPxGridView1.CancelEdit();
+            //}
+            //else
+            //{
+            //    //AddErrors(result);
+            //}
         }
 
         protected void ASPxGridView1_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
