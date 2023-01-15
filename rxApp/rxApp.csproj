@@ -298,6 +298,7 @@
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridDepositos.aspx" />
     <Content Include="frmAgyliti\GetLock\cnRelatorios\cnGridCofreCadastro.aspx" />
     <Content Include="frmAgyliti\GetLock\cnRelatorios\cnGridDepositosAuditoria.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnRelatorios\cnGridDepositosUsuario.aspx" />
     <Content Include="frmAgyliti\GetLock\cnUsuariosAdmin\cnUsuariosCliente.aspx" />
     <Content Include="frmAgyliti\GetLock\cnUsuariosAdmin\cnUsuariosAdmin.aspx" />
     <Content Include="frmAgyliti\GetLock\cnUsuariosAdmin\cnUsuariosCofre.aspx" />
@@ -783,6 +784,13 @@
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnRelatorios\cnGridDepositosAuditoria.aspx.designer.cs">
       <DependentUpon>cnGridDepositosAuditoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnRelatorios\cnGridDepositosUsuario.aspx.cs">
+      <DependentUpon>cnGridDepositosUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnRelatorios\cnGridDepositosUsuario.aspx.designer.cs">
+      <DependentUpon>cnGridDepositosUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnUsuariosAdmin\cnUsuariosCliente.aspx.cs">
       <DependentUpon>cnUsuariosCliente.aspx</DependentUpon>
