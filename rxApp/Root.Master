@@ -6,7 +6,7 @@
 
 <html>
 <head runat="server">
-    <title>Agyliti Ltda.</title>
+    <title>GetLock</title>
 
     <asp:PlaceHolder runat="server">
         <link href="<%= Page.ResolveUrl("~/Content/bootstrap.min.css")%>?v=<%= DateTime.Now.Ticks %>" rel="stylesheet" />

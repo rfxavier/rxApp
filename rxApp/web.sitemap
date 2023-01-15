@@ -36,5 +36,9 @@
       <siteMapNode url="~/frmAgyliti/GetLock/cnCofrePorCliente/cnCofrePorCliente.aspx" title="Cofres sem comunicação" description="Cofres sem comunicação" roles="AdmMaster,UserClient" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnCofrePorCliente/cnCofreUsuarioDepositosPorCliente.aspx" title="Cofres x Depositantes" description="Cofres" roles="AdmMaster,UserClient" />
     </siteMapNode>
+    <siteMapNode url="" title="Relatórios" description="Relatórios" roles="AdmMaster,AdmPortal">
+      <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridCofreCadastro.aspx" title="Cofres" description="Cofres" roles="AdmMaster,AdmPortal" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridDepositosAuditoria.aspx" title="Auditoria Depósitos" description="Auditoria Depósitos" roles="AdmMaster,AdmPortal" />
+    </siteMapNode>
   </siteMapNode>
 </siteMap>
