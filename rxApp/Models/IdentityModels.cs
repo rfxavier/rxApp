@@ -35,6 +35,7 @@ namespace rxApp.Models
         public long? GetLockClienteId { get; set; }
         public GetLockCliente GetLockCliente { get; set; }
         public ICollection<GetLockCofre> GetLockCofres { get; set; }
+        public string BasicAuthKey { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -48,6 +49,7 @@ namespace rxApp.Models
         public DbSet<GetLockLoja> GetLockLojas { get; set; }
         public DbSet<GetLockRede> GetLockRedes { get; set; }
         public DbSet<GetLockMovimento> GetLockMovimentos { get; set; }
+        public DbSet<GetLockApiLog> GetLockApiLogs { get; set; }
         public DbSet<GetLockMessageView> GetLockMessageViews { get; set; }
         public DbSet<GetLockLojaClienteRedeView> GetLockLojaClienteRedeViews { get; set; }
         public DbSet<GetLockMessageAckGetStatus> GetLockMessageAckGetStatuses { get; set; }
@@ -91,6 +93,7 @@ namespace rxApp.Models
             modelBuilder.Configurations.Add(new GetLockLojaConfig());
             modelBuilder.Configurations.Add(new GetLockRedeConfig());
             modelBuilder.Configurations.Add(new GetLockMovimentoConfig());
+            modelBuilder.Configurations.Add(new GetLockApiLogConfig());
             modelBuilder.Configurations.Add(new GetLockMessageViewConfig());
             modelBuilder.Configurations.Add(new GetLockLojaClienteRedeViewConfig());
             modelBuilder.Configurations.Add(new GetLockMessageAckGetStatusConfig());
