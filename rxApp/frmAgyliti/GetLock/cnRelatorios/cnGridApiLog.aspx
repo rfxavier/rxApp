@@ -14,31 +14,41 @@
                 <SettingsCookies Enabled="true" />
         
                 <Columns>
-                    <dx:GridViewDataTextColumn FieldName="ApiName" Caption="Api" VisibleIndex="0"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="UserName" Caption="Usuário" VisibleIndex="1"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="CofreId" Caption="Cofre" VisibleIndex="2"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataDateColumn FieldName="DataInicio" SortIndex="0" SortOrder="Descending" Caption="Data Início" VisibleIndex="3" Settings-FilterMode="Value">
+                    <dx:GridViewDataDateColumn FieldName="TrackCreationTime" SortIndex="0" SortOrder="Descending" Caption="Data Requisição" VisibleIndex="0" Settings-FilterMode="Value">
                         <CellStyle Wrap="False"></CellStyle>
                         <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy">
                         </PropertiesDateEdit>
                     </dx:GridViewDataDateColumn>
-                    <dx:GridViewDataDateColumn FieldName="DataInicio" SortIndex="1" Caption="Hora Início" VisibleIndex="4" Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False" Settings-ShowInFilterControl="False">
+                    <dx:GridViewDataDateColumn FieldName="TrackCreationTime" SortIndex="1" Caption="Hora Requisição" VisibleIndex="1" Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False" Settings-ShowInFilterControl="False">
                         <CellStyle Wrap="False"></CellStyle>
                         <PropertiesDateEdit DisplayFormatString="HH:mm:ss" EditFormatString="HH:mm:ss">
                         </PropertiesDateEdit>
                     </dx:GridViewDataDateColumn>
-                    <dx:GridViewDataDateColumn FieldName="DataFim" SortIndex="0" SortOrder="Descending" Caption="Data Fim" VisibleIndex="5" Settings-FilterMode="Value">
+                    <dx:GridViewDataTextColumn FieldName="ApiName" Caption="Api" VisibleIndex="2"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="UserName" Caption="Usuário" VisibleIndex="3"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="CofreId" Caption="Cofre" VisibleIndex="4"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataDateColumn FieldName="DataInicio" SortIndex="0" SortOrder="Descending" Caption="Data Início" VisibleIndex="5" Settings-FilterMode="Value">
                         <CellStyle Wrap="False"></CellStyle>
                         <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy">
                         </PropertiesDateEdit>
                     </dx:GridViewDataDateColumn>
-                    <dx:GridViewDataDateColumn FieldName="DataFim" SortIndex="1" Caption="Hora Fim" VisibleIndex="6" Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False" Settings-ShowInFilterControl="False">
+                    <dx:GridViewDataDateColumn FieldName="DataInicio" SortIndex="1" Caption="Hora Início" VisibleIndex="6" Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False" Settings-ShowInFilterControl="False">
                         <CellStyle Wrap="False"></CellStyle>
                         <PropertiesDateEdit DisplayFormatString="HH:mm:ss" EditFormatString="HH:mm:ss">
                         </PropertiesDateEdit>
                     </dx:GridViewDataDateColumn>
-                    <dx:GridViewDataTextColumn FieldName="Error" Caption="Erro" VisibleIndex="7"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="Response" Caption="Retorno" VisibleIndex="8"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataDateColumn FieldName="DataFim" SortIndex="0" SortOrder="Descending" Caption="Data Fim" VisibleIndex="7" Settings-FilterMode="Value">
+                        <CellStyle Wrap="False"></CellStyle>
+                        <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy">
+                        </PropertiesDateEdit>
+                    </dx:GridViewDataDateColumn>
+                    <dx:GridViewDataDateColumn FieldName="DataFim" SortIndex="1" Caption="Hora Fim" VisibleIndex="8" Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False" Settings-ShowInFilterControl="False">
+                        <CellStyle Wrap="False"></CellStyle>
+                        <PropertiesDateEdit DisplayFormatString="HH:mm:ss" EditFormatString="HH:mm:ss">
+                        </PropertiesDateEdit>
+                    </dx:GridViewDataDateColumn>
+                    <dx:GridViewDataTextColumn FieldName="Error" Caption="Erro" VisibleIndex="9"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="Response" Caption="Retorno" VisibleIndex="10"></dx:GridViewDataTextColumn>
                 </Columns>
                 <Toolbars>
                     <dx:GridViewToolbar>

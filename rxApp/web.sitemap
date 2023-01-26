@@ -6,8 +6,8 @@
       <siteMapNode url="~/frmAdmMasterCadastro/frmAdmMaster/RoleAdmin.aspx" title="Permissões" description="Permissões" roles="AdmMaster" />
       <siteMapNode url="~/frmAdmMasterCadastro/frmAdmMaster/WebSiteMapAdmin.aspx" title="Site Map" description="Site Map" roles="AdmMaster" />
     </siteMapNode>
-    <siteMapNode url="" title="Operações" description="Operações" roles="AdmMaster,AdmPortal,UserClient,UserCofre">
-      <siteMapNode url="~/frmAgyliti/GetLock/cnGridMain/cnGridMain.aspx" title="Ocorrências" description="Ocorrências" roles="AdmMaster,AdmPortal,UserClient,UserCofre" />
+    <siteMapNode url="" title="Operações" description="Operações" roles="AdmMaster,AdmPortal">
+      <siteMapNode url="~/frmAgyliti/GetLock/cnGridMain/cnGridMain.aspx" title="Ocorrências" description="Ocorrências" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnGridSemLoja/cnGridSemLoja.aspx" title="Ocorrências sem loja" description="Ocorrências sem loja" roles="AdmMaster,AdmPortal" />
     </siteMapNode>
     <siteMapNode url="" title="Movimentos" description="Operações" roles="AdmMaster,AdmPortal,User,UserClient,UserCofre">

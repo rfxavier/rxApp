@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace rxApp {
-    
-    
-    public partial class Main {
-        
+namespace rxApp
+{
+
+
+    public partial class Main
+    {
+
         /// <summary>
         /// HeadContentPlaceHolderMain control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace rxApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContentPlaceHolderMain;
-        
+
         /// <summary>
         /// LeftPane control.
         /// </summary>
@@ -29,7 +31,16 @@ namespace rxApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxPanel LeftPane;
-        
+
+        /// <summary>
+        /// ASPxButton2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton ASPxButton2;
+
         /// <summary>
         /// ASPxTreeList1 control.
         /// </summary>
@@ -38,7 +49,7 @@ namespace rxApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTreeList.ASPxTreeList ASPxTreeList1;
-        
+
         /// <summary>
         /// ASPxFormLayout1 control.
         /// </summary>
@@ -47,7 +58,7 @@ namespace rxApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxFormLayout ASPxFormLayout1;
-        
+
         /// <summary>
         /// dateTextStart control.
         /// </summary>
@@ -56,7 +67,7 @@ namespace rxApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel dateTextStart;
-        
+
         /// <summary>
         /// deStart control.
         /// </summary>
@@ -65,7 +76,7 @@ namespace rxApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxDateEdit deStart;
-        
+
         /// <summary>
         /// teStart control.
         /// </summary>
@@ -74,7 +85,7 @@ namespace rxApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTimeEdit teStart;
-        
+
         /// <summary>
         /// dateTextEnd control.
         /// </summary>
@@ -83,7 +94,7 @@ namespace rxApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel dateTextEnd;
-        
+
         /// <summary>
         /// deEnd control.
         /// </summary>
@@ -92,7 +103,7 @@ namespace rxApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxDateEdit deEnd;
-        
+
         /// <summary>
         /// teEnd control.
         /// </summary>
@@ -101,7 +112,7 @@ namespace rxApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTimeEdit teEnd;
-        
+
         /// <summary>
         /// ASPxButton1 control.
         /// </summary>
@@ -110,7 +121,7 @@ namespace rxApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton ASPxButton1;
-        
+
         /// <summary>
         /// MainContentPlaceHolderMain control.
         /// </summary>

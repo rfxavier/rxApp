@@ -156,6 +156,21 @@ namespace rxApp
             //call the content page method to rebind the data and refresh the update panel.
             contentCallEvent?.Invoke(this, EventArgs.Empty);
         }
+
+        protected void ASPxButton2_Click(object sender, EventArgs e)
+        {
+            if (ASPxButton2.Text == "Selecionar tudo")
+            {
+                ASPxTreeList1.SelectAll();
+                ASPxButton2.Text = "Desmarcar tudo";
+            } 
+            else
+            {
+                ASPxTreeList1.UnselectAll();
+                ASPxButton2.Text = "Selecionar tudo";
+            }
+        }
+
         public event EventHandler contentCallEvent;
     }
 }

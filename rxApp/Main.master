@@ -20,14 +20,18 @@
         <SettingsAdaptivity CollapseAtWindowInnerWidth="1921" />
         <PanelCollection>
             <dx:PanelContent runat="server" SupportsDisabledAttribute="true">
-                <dx:ASPxTreeList ID="ASPxTreeList1" runat="server" CssClass="centered" Visible="true" AutoGenerateColumns="false" KeyFieldName="id" ParentFieldName="parentId" OnDataBinding="ASPxTreeList1_DataBinding" OnDataBound="ASPxTreeList1_DataBound" Width="234px">
-                    <Columns>
-                        <dx:TreeListDataColumn FieldName="nome" Caption="Loja" VisibleIndex="0" />
-                    </Columns>
-                    <SettingsBehavior ExpandCollapseAction="NodeDblClick" />
-                    <SettingsSelection Enabled="True" />
-                    <SettingsSearchPanel Visible="true" />
-                </dx:ASPxTreeList>
+                <div class="top">
+                    <div align="center"><dx:ASPxButton ID="ASPxButton2" runat="server" Text="Selecionar tudo" OnClick="ASPxButton2_Click" BackColor="#2A4E70"></dx:ASPxButton></div>
+
+                    <dx:ASPxTreeList ID="ASPxTreeList1" runat="server" CssClass="centered" Visible="true" AutoGenerateColumns="false" KeyFieldName="id" ParentFieldName="parentId" OnDataBinding="ASPxTreeList1_DataBinding" OnDataBound="ASPxTreeList1_DataBound" Width="234px">
+                        <Columns>
+                            <dx:TreeListDataColumn FieldName="nome" Caption="Loja" VisibleIndex="0" />
+                        </Columns>
+                        <SettingsBehavior ExpandCollapseAction="NodeDblClick" />
+                        <SettingsSelection Enabled="True" />
+                        <SettingsSearchPanel Visible="true" />
+                    </dx:ASPxTreeList>
+                </div>
                 <div class="centered">
                     <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" ColCount="2" ColumnCount="2">
                         <Items>
