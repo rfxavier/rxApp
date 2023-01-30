@@ -5,41 +5,41 @@ namespace rxApp.Domain.Entities
     public class GetLockMessageAckGetStatus
     {
         public long Id { get; set; }
-        public int TopicDeviceId { get; set; }
+        public string TopicDeviceId { get; set; }
         public int Destiny { get; set; }
-        public long DeviceSensors { get; set; }
-        public int DeviceSensorsBit0 { get; set; }
-        public int DeviceSensorsBit1 { get; set; }
-        public int DeviceSensorsBit2 { get; set; }
-        public int DeviceSensorsBit3 { get; set; }
-        public int DeviceSensorsBit4 { get; set; }
-        public int DeviceSensorsBit5 { get; set; }
-        public int DeviceSensorsBit6 { get; set; }
-        public int DeviceSensorsBit7 { get; set; }
-        public int DeviceSensorsBit8 { get; set; }
-        public int DeviceSensorsBit9 { get; set; }
-        public int DeviceSensorsBit10 { get; set; }
-        public int DeviceSensorsBit11 { get; set; }
-        public int DeviceSensorsBit12 { get; set; }
-        public int DeviceSensorsBit13 { get; set; }
-        public int DeviceSensorsBit14 { get; set; }
-        public int DeviceSensorsBit15 { get; set; }
-        public int DeviceSensorsBit16 { get; set; }
-        public int DeviceSensorsBit17 { get; set; }
-        public int DeviceSensorsBit18 { get; set; }
-        public int DeviceSensorsBit19 { get; set; }
-        public int DeviceSensorsBit20 { get; set; }
-        public int DeviceSensorsBit21 { get; set; }
-        public int DeviceSensorsBit22 { get; set; }
-        public int DeviceSensorsBit23 { get; set; }
-        public int DeviceSensorsBit24 { get; set; }
-        public int DeviceSensorsBit25 { get; set; }
-        public int DeviceSensorsBit26 { get; set; }
-        public int DeviceSensorsBit27 { get; set; }
-        public int DeviceSensorsBit28 { get; set; }
-        public int DeviceSensorsBit29 { get; set; }
-        public int DeviceSensorsBit30 { get; set; }
-        public int DeviceSensorsBit31 { get; set; }
+        public long DeviceStatus { get; set; }
+        public int DeviceStatusBit0 { get; set; }
+        public int DeviceStatusBit1 { get; set; }
+        public int DeviceStatusBit2 { get; set; }
+        public int DeviceStatusBit3 { get; set; }
+        public int DeviceStatusBit4 { get; set; }
+        public int DeviceStatusBit5 { get; set; }
+        public int DeviceStatusBit6 { get; set; }
+        public int DeviceStatusBit7 { get; set; }
+        public int DeviceStatusBit8 { get; set; }
+        public int DeviceStatusBit9 { get; set; }
+        public int DeviceStatusBit10 { get; set; }
+        public int DeviceStatusBit11 { get; set; }
+        public int DeviceStatusBit12 { get; set; }
+        public int DeviceStatusBit13 { get; set; }
+        public int DeviceStatusBit14 { get; set; }
+        public int DeviceStatusBit15 { get; set; }
+        public int DeviceStatusBit16 { get; set; }
+        public int DeviceStatusBit17 { get; set; }
+        public int DeviceStatusBit18 { get; set; }
+        public int DeviceStatusBit19 { get; set; }
+        public int DeviceStatusBit20 { get; set; }
+        public int DeviceStatusBit21 { get; set; }
+        public int DeviceStatusBit22 { get; set; }
+        public int DeviceStatusBit23 { get; set; }
+        public int DeviceStatusBit24 { get; set; }
+        public int DeviceStatusBit25 { get; set; }
+        public int DeviceStatusBit26 { get; set; }
+        public int DeviceStatusBit27 { get; set; }
+        public int DeviceStatusBit28 { get; set; }
+        public int DeviceStatusBit29 { get; set; }
+        public int DeviceStatusBit30 { get; set; }
+        public int DeviceStatusBit31 { get; set; }
         public long BillMachineStatus { get; set; }
         public int BillMachineStatusBit0 { get; set; }
         public int BillMachineStatusBit1 { get; set; }
@@ -109,6 +109,9 @@ namespace rxApp.Domain.Entities
 
         public long LevelSensor { get; set; }
         public long UptimeSec { get; set; }
+        public string Timestamp { get; set; }
+        public bool IsAck { get; set; }
+        public Nullable<System.DateTime> TimestampDatetime { get; set; }
         public Nullable<System.DateTime> trackLastWriteTime { get; set; }
         public Nullable<System.DateTime> trackCreationTime { get; set; }
     }

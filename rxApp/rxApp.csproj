@@ -917,6 +917,14 @@
     <Compile Include="Migrations\202301251212359_v005.Designer.cs">
       <DependentUpon>202301251212359_v005.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202301301250021_v006.cs" />
+    <Compile Include="Migrations\202301301250021_v006.Designer.cs">
+      <DependentUpon>202301301250021_v006.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202301301359245_v007.cs" />
+    <Compile Include="Migrations\202301301359245_v007.Designer.cs">
+      <DependentUpon>202301301359245_v007.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1025,6 +1033,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202301251212359_v005.resx">
       <DependentUpon>202301251212359_v005.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301301250021_v006.resx">
+      <DependentUpon>202301301250021_v006.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301301359245_v007.resx">
+      <DependentUpon>202301301359245_v007.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
