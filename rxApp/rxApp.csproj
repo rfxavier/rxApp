@@ -296,6 +296,7 @@
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridCortes.aspx" />
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridOperacoes.aspx" />
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridDepositos.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnRelatorios\cnGridDevLock.aspx" />
     <Content Include="frmAgyliti\GetLock\cnRelatorios\cnGridGetStatus.aspx" />
     <Content Include="frmAgyliti\GetLock\cnRelatorios\cnGridApiLog.aspx" />
     <Content Include="frmAgyliti\GetLock\cnRelatorios\cnGridCofreCadastro.aspx" />
@@ -639,6 +640,7 @@
     <Compile Include="Domain\Entities\Company.cs" />
     <Compile Include="Domain\Entities\GetLockMessage.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckDevLock.cs" />
+    <Compile Include="Domain\Entities\GetLockMessageAckDevLockConfig.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckGetInfo.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckGetStatus.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckGetStatusConfig.cs" />
@@ -776,6 +778,13 @@
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnMovimentos\cnGridDepositos.aspx.designer.cs">
       <DependentUpon>cnGridDepositos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnRelatorios\cnGridDevLock.aspx.cs">
+      <DependentUpon>cnGridDevLock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnRelatorios\cnGridDevLock.aspx.designer.cs">
+      <DependentUpon>cnGridDevLock.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnRelatorios\cnGridGetStatus.aspx.cs">
       <DependentUpon>cnGridGetStatus.aspx</DependentUpon>
@@ -933,6 +942,10 @@
     <Compile Include="Migrations\202301301359245_v007.Designer.cs">
       <DependentUpon>202301301359245_v007.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202301311209230_v008.cs" />
+    <Compile Include="Migrations\202301311209230_v008.Designer.cs">
+      <DependentUpon>202301311209230_v008.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1047,6 +1060,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202301301359245_v007.resx">
       <DependentUpon>202301301359245_v007.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301311209230_v008.resx">
+      <DependentUpon>202301311209230_v008.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
