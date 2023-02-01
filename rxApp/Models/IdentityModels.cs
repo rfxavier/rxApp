@@ -54,6 +54,7 @@ namespace rxApp.Models
         public DbSet<GetLockLojaClienteRedeView> GetLockLojaClienteRedeViews { get; set; }
         public DbSet<GetLockMessageAckGetStatus> GetLockMessageAckGetStatuses { get; set; }
         public DbSet<GetLockMessageAckDevLock> GetLockMessageAckDevLocks { get; set; }
+        public DbSet<GetLockMessageAckGetInfo> GetLockMessageAckGetInfos { get; set; }
         public DbSet<GetLockCofreCadastroView> GetLockCofreCadastroViews { get; set; }
 
 
@@ -99,8 +100,8 @@ namespace rxApp.Models
             modelBuilder.Configurations.Add(new GetLockLojaClienteRedeViewConfig());
             modelBuilder.Configurations.Add(new GetLockMessageAckGetStatusConfig());
             modelBuilder.Configurations.Add(new GetLockMessageAckDevLockConfig());
+            modelBuilder.Configurations.Add(new GetLockMessageAckGetInfoConfig());
             modelBuilder.Configurations.Add(new GetLockCofreCadastroViewConfig());
-
 
             base.OnModelCreating(modelBuilder);
         }

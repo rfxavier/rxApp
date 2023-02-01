@@ -44,6 +44,7 @@
       <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridApiLog.aspx" title="Log Api" description="Log Api" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridGetStatus.aspx" title="Status Cofres" description="Status Cofres" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridDevLock.aspx" title="Lock Cofres" description="LOck Cofres" roles="AdmMaster,AdmPortal" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridGetInfo.aspx" title="Info Cofres" description="Info Cofres" roles="AdmMaster,AdmPortal" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>
