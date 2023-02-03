@@ -1,14 +1,27 @@
 ﻿using DevExpress.Data.Filtering;
 using DevExpress.Data.Linq;
 using DevExpress.Web;
+using MQTTnet;
+using MQTTnet.Extensions.ManagedClient;
+using MQTTnet.Protocol;
 using rxApp.Models;
+using rxApp.mqttClient;
 using System;
 using System.Globalization;
+using System.Threading.Tasks;
 
 namespace rxApp.frmAgyliti.GetLock.cnRelatorios
 {
     public partial class cnGridDevLock : System.Web.UI.Page
     {
+        private MqttClientHandler mqttClient;
+
+        public cnGridDevLock()
+        {
+            this.mqttClient = new MqttClientHandler();
+            mqttClient.PublisherStart();
+
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             ASPxGridView1.DataBind();
@@ -60,5 +73,46 @@ namespace rxApp.frmAgyliti.GetLock.cnRelatorios
 
             e.QueryableSource = db.GetLockMessageAckDevLocks;
         }
+
+        protected void ASPxButton1_Click(object sender, EventArgs e)
+        {
+            var idCofre = "0";
+            if (ASPxTextBox1.Value != null)
+            {
+                idCofre = ASPxTextBox1.Value.ToString();
+            }
+            var topic = $"/{idCofre}/COMMAND";
+            var ackPayload = $@"{{ ""COMMAND"": {{ ""DESTINY"": {idCofre}, ""CMD"": ""DEV-LOCK"" }} }}";
+            var message = new MqttApplicationMessageBuilder().WithTopic(topic).WithPayload(ackPayload).WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce).WithRetainFlag(false).Build();
+
+            if (this.mqttClient.managedMqttClientPublisher != null)
+            {
+                Task.Run(async () => await mqttClient.managedMqttClientPublisher.PublishAsync(message));
+            }
+
+            //mqttClient.PublisherStop();
+        }
+
+        protected void ASPxButton2_Click(object sender, EventArgs e)
+        {
+            var idCofre = "0";
+            if (ASPxTextBox1.Value != null)
+            {
+                idCofre = ASPxTextBox1.Value.ToString();
+            }
+            var topic = $"/{idCofre}/COMMAND";
+            var ackPayload = $@"{{ ""COMMAND"": {{ ""DESTINY"": {idCofre}, ""CMD"": ""DEV-UNLOCK"" }} }}";
+            var message = new MqttApplicationMessageBuilder().WithTopic(topic).WithPayload(ackPayload).WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce).WithRetainFlag(false).Build();
+
+            if (this.mqttClient.managedMqttClientPublisher != null)
+            {
+                Task.Run(async () => await mqttClient.managedMqttClientPublisher.PublishAsync(message));
+            }
+
+            //mqttClient.PublisherStop();
+
+        }
+
+
     }
 }
