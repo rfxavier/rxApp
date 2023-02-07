@@ -35,8 +35,14 @@ namespace rxApp.frmAgyliti.GetLock.cnConfig
         protected void ASPxGridView1_DataBinding(object sender, EventArgs e)
         {
             var ds = db.GetLockGetStatusBitProfiles.AsNoTracking().ToList();
+            var dsDeviceSensors = ds.Where(d => d.StatusType == "DeviceSensors").OrderBy(f => f.Bit).ToList();
+            var dsBillMachineStatus = ds.Where(d => d.StatusType == "BillMachineStatus").OrderBy(f => f.Bit).ToList();
+            var dsBillMachineError = ds.Where(d => d.StatusType == "BillMachineError").OrderBy(f => f.Bit).ToList();
 
-            ASPxGridView1.DataSource = ds;
+            dsDeviceSensors.AddRange(dsBillMachineStatus);
+            dsDeviceSensors.AddRange(dsBillMachineError);
+
+            ASPxGridView1.DataSource = dsDeviceSensors;
         }
 
         protected void ASPxGridView1_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
