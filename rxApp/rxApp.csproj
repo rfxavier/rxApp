@@ -296,6 +296,7 @@
     <Content Include="frmAgyliti\GetLock\cnCofrePorCliente\cnCofreUsuarioDepositosPorCliente.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCofre\cnCofre.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCofre\cnCofreUsuarioDepositos.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnConfig\cnGridGetStatusBitProfile.aspx" />
     <Content Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx" />
     <Content Include="frmAgyliti\GetLock\cnGridSemLoja\cnGridSemLoja.aspx" />
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridColetas.aspx" />
@@ -389,6 +390,7 @@
     <Content Include="frmAgyliti\GetLock\cnCofrePorCliente\Web.config" />
     <Content Include="frmAgyliti\GetLock\cnGridSemLoja\Web.config" />
     <Content Include="frmAgyliti\GetLock\cnRelatorios\Web.config" />
+    <Content Include="frmAgyliti\GetLock\cnConfig\Web.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <EntityDeploy Include="rxAppModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -645,6 +647,8 @@
     <Compile Include="Domain\Entities\GetLockCofre.cs" />
     <Compile Include="Domain\Entities\GetLockCofreConfig.cs" />
     <Compile Include="Domain\Entities\Company.cs" />
+    <Compile Include="Domain\Entities\GetLockGetStatusBitProfile.cs" />
+    <Compile Include="Domain\Entities\GetLockGetStatusBitProfileConfig.cs" />
     <Compile Include="Domain\Entities\GetLockMessage.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckDevLock.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckDevLockConfig.cs" />
@@ -745,6 +749,13 @@
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnCofre\cnCofreUsuarioDepositos.aspx.designer.cs">
       <DependentUpon>cnCofreUsuarioDepositos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnConfig\cnGridGetStatusBitProfile.aspx.cs">
+      <DependentUpon>cnGridGetStatusBitProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnConfig\cnGridGetStatusBitProfile.aspx.designer.cs">
+      <DependentUpon>cnGridGetStatusBitProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx.cs">
       <DependentUpon>cnGridMain.aspx</DependentUpon>
@@ -982,6 +993,18 @@
     <Compile Include="Migrations\202302010019177_v013.Designer.cs">
       <DependentUpon>202302010019177_v013.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302042310493_v014.cs" />
+    <Compile Include="Migrations\202302042310493_v014.Designer.cs">
+      <DependentUpon>202302042310493_v014.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302042324143_v015.cs" />
+    <Compile Include="Migrations\202302042324143_v015.Designer.cs">
+      <DependentUpon>202302042324143_v015.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302042325438_v016.cs" />
+    <Compile Include="Migrations\202302042325438_v016.Designer.cs">
+      <DependentUpon>202302042325438_v016.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1115,6 +1138,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302010019177_v013.resx">
       <DependentUpon>202302010019177_v013.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302042310493_v014.resx">
+      <DependentUpon>202302042310493_v014.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302042324143_v015.resx">
+      <DependentUpon>202302042324143_v015.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302042325438_v016.resx">
+      <DependentUpon>202302042325438_v016.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

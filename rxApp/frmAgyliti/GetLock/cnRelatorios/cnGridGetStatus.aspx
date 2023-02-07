@@ -35,43 +35,9 @@
                         <PropertiesDateEdit DisplayFormatString="HH:mm:ss" EditFormatString="HH:mm:ss">
                         </PropertiesDateEdit>
                     </dx:GridViewDataDateColumn>
-                    <dx:GridViewDataTextColumn FieldName="DeviceStatusBit0" Caption="PouchNoPresent" VisibleIndex="5"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="DeviceStatusBit1" Caption="PouchIsFull" VisibleIndex="6"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="DeviceStatusBit2" Caption="DoorLock" VisibleIndex="7"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="DeviceStatusBit3" Caption="DoorOpen" VisibleIndex="8"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="DeviceStatusBit4" Caption="Tamper" VisibleIndex="9"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="DeviceStatusBit5" Caption="Printer disconnected" VisibleIndex="10"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="DeviceStatusBit6" Caption="Ethernet cable disconnected" VisibleIndex="11"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="DeviceStatusBit7" Caption="Pendrive is disconnected" VisibleIndex="12"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineStatusBit0" Caption="Front door is open" VisibleIndex="13"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineStatusBit1" Caption="Bottom door is open" VisibleIndex="14"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineStatusBit2" Caption="Cash in feeding pocket" VisibleIndex="15"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineStatusBit3" Caption="Cash in reject pocket" VisibleIndex="16"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineStatusBit4" Caption="Reject pocket is full" VisibleIndex="17"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineStatusBit5" Caption="Cash in escrow pocket" VisibleIndex="18"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineStatusBit6" Caption="Escrow pocket is full" VisibleIndex="19"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineStatusBit7" Caption="Flow deposit fail" VisibleIndex="20"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit0" Caption="OnFailure" VisibleIndex="21"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit1" Caption="IsDisconnect" VisibleIndex="22"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit2" Caption="MainMotorError" VisibleIndex="23"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit3" Caption="FeedingMotorError" VisibleIndex="24"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit4" Caption="JammingError" VisibleIndex="25"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit5" Caption="FeedingJammingError" VisibleIndex="26"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit6" Caption="DataCaptureJammingError" VisibleIndex="27"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit7" Caption="U_ChannelJammingError" VisibleIndex="28"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit8" Caption="ExitChannelJammingError" VisibleIndex="29"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit9" Caption="ElectromagnetSwitchError" VisibleIndex="30"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit10" Caption="ExitPocketJammingError" VisibleIndex="31"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit11" Caption="RejectionPocketJamming" VisibleIndex="32"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit12" Caption="UpperCoverLiftingError" VisibleIndex="33"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit13" Caption="CIS_ModuleError" VisibleIndex="34"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit14" Caption="MagnetReadingModuleError" VisibleIndex="35"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit15" Caption="ThicknessMeasurementModuleError" VisibleIndex="36"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit16" Caption="BottomShutterError" VisibleIndex="37"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit17" Caption="ShutterError" VisibleIndex="38"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="BillMachineErrorBit18" Caption="ShutterLockError" VisibleIndex="39"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="UptimeSec" Caption="Uptime" VisibleIndex="40"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="IsAck" Caption="É Ack" VisibleIndex="41"></dx:GridViewDataTextColumn>
+
+                    <dx:GridViewDataTextColumn FieldName="UptimeSec" Caption="Uptime" VisibleIndex="5"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="IsAck" Caption="É Ack" VisibleIndex="6"></dx:GridViewDataTextColumn>
                 </Columns>
                 <Toolbars>
                     <dx:GridViewToolbar>

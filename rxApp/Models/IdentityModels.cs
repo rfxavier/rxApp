@@ -52,11 +52,11 @@ namespace rxApp.Models
         public DbSet<GetLockApiLog> GetLockApiLogs { get; set; }
         public DbSet<GetLockMessageView> GetLockMessageViews { get; set; }
         public DbSet<GetLockLojaClienteRedeView> GetLockLojaClienteRedeViews { get; set; }
+        public DbSet<GetLockCofreCadastroView> GetLockCofreCadastroViews { get; set; }
         public DbSet<GetLockMessageAckGetStatus> GetLockMessageAckGetStatuses { get; set; }
         public DbSet<GetLockMessageAckDevLock> GetLockMessageAckDevLocks { get; set; }
         public DbSet<GetLockMessageAckGetInfo> GetLockMessageAckGetInfos { get; set; }
-        public DbSet<GetLockCofreCadastroView> GetLockCofreCadastroViews { get; set; }
-
+        public DbSet<GetLockGetStatusBitProfile> GetLockGetStatusBitProfiles { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -98,10 +98,11 @@ namespace rxApp.Models
             modelBuilder.Configurations.Add(new GetLockApiLogConfig());
             modelBuilder.Configurations.Add(new GetLockMessageViewConfig());
             modelBuilder.Configurations.Add(new GetLockLojaClienteRedeViewConfig());
+            modelBuilder.Configurations.Add(new GetLockCofreCadastroViewConfig());
             modelBuilder.Configurations.Add(new GetLockMessageAckGetStatusConfig());
             modelBuilder.Configurations.Add(new GetLockMessageAckDevLockConfig());
             modelBuilder.Configurations.Add(new GetLockMessageAckGetInfoConfig());
-            modelBuilder.Configurations.Add(new GetLockCofreCadastroViewConfig());
+            modelBuilder.Configurations.Add(new GetLockGetStatusBitProfileConfig());
 
             base.OnModelCreating(modelBuilder);
         }

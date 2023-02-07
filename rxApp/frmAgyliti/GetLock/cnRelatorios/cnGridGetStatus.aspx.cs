@@ -4,13 +4,60 @@ using DevExpress.Web;
 using rxApp.Models;
 using System;
 using System.Globalization;
+using System.Linq;
 
 namespace rxApp.frmAgyliti.GetLock.cnRelatorios
 {
     public partial class cnGridGetStatus : System.Web.UI.Page
     {
+        private ApplicationDbContext db;
+        public cnGridGetStatus()
+        {
+            db = new ApplicationDbContext();
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            ASPxGridView1.AutoGenerateColumns = false;
+
+            var ds = db.GetLockGetStatusBitProfiles.AsNoTracking().ToList();
+
+            var dsDeviceSensors = ds.Where(d => d.StatusType == "DeviceSensors");
+            var dsBillMachineStatus = ds.Where(d => d.StatusType == "BillMachineStatus");
+            var dsBillMachineError = ds.Where(d => d.StatusType == "BillMachineError");
+
+            var i = 0;
+            foreach (var itemDeviceSensor in dsDeviceSensors)
+            {
+                GridViewDataTextColumn c = new GridViewDataTextColumn();
+                c.FieldName = $"DeviceStatusBit{itemDeviceSensor.Bit}";
+                c.Caption = itemDeviceSensor.Caption;
+                c.VisibleIndex = i + 7;
+                ASPxGridView1.Columns.Add(c);
+                i++;
+            }
+
+            foreach (var itemBillMachineStatus in dsBillMachineStatus)
+            {
+                GridViewDataTextColumn c = new GridViewDataTextColumn();
+                c.FieldName = $"BillMachineStatusBit{itemBillMachineStatus.Bit}";
+                c.Caption = itemBillMachineStatus.Caption;
+                c.VisibleIndex = i + 7 + 32;
+                ASPxGridView1.Columns.Add(c);
+                i++;
+            }
+
+            foreach (var itemBillMachineError in dsBillMachineError)
+            {
+                GridViewDataTextColumn c = new GridViewDataTextColumn();
+                c.FieldName = $"DeviceStatusBit{itemBillMachineError.Bit}";
+                c.Caption = itemBillMachineError.Caption;
+                c.VisibleIndex = i + 7 + 32 + 32;
+                ASPxGridView1.Columns.Add(c);
+                i++;
+            }
+
+
             ASPxGridView1.DataBind();
         }
         protected void ASPxGridView1_DataBinding(object sender, EventArgs e)
