@@ -295,6 +295,7 @@
     <Content Include="frmAgyliti\GetLock\cnCofrePorCliente\cnCofrePorCliente.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCofrePorCliente\cnCofreUsuarioDepositosPorCliente.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCofre\cnCofre.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnCofre\cnCofreNivel.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCofre\cnCofreUsuarioDepositos.aspx" />
     <Content Include="frmAgyliti\GetLock\cnConfig\cnGridGetStatusBitProfile.aspx" />
     <Content Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx" />
@@ -618,6 +619,12 @@
     <Compile Include="dashClasses\dashCnCofre.Designer.cs">
       <DependentUpon>dashCnCofre.cs</DependentUpon>
     </Compile>
+    <Compile Include="dashClasses\dashCnCofreNivel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dashClasses\dashCnCofreNivel.Designer.cs">
+      <DependentUpon>dashCnCofreNivel.cs</DependentUpon>
+    </Compile>
     <Compile Include="dashClasses\dashCnCofrePorCliente.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -744,6 +751,13 @@
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnCofre\cnCofre.aspx.designer.cs">
       <DependentUpon>cnCofre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCofre\cnCofreNivel.aspx.cs">
+      <DependentUpon>cnCofreNivel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCofre\cnCofreNivel.aspx.designer.cs">
+      <DependentUpon>cnCofreNivel.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnCofre\cnCofreUsuarioDepositos.aspx.cs">
       <DependentUpon>cnCofreUsuarioDepositos.aspx</DependentUpon>
@@ -1107,6 +1121,9 @@
   <ItemGroup>
     <EmbeddedResource Include="dashClasses\dashCnCofre.resx">
       <DependentUpon>dashCnCofre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dashClasses\dashCnCofreNivel.resx">
+      <DependentUpon>dashCnCofreNivel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="dashClasses\dashCnCofrePorCliente.resx">
       <DependentUpon>dashCnCofrePorCliente.cs</DependentUpon>

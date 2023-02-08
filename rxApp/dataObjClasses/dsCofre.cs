@@ -49,6 +49,21 @@ namespace rxApp.dataObjClasses
 
         }
 
+        public class CofreNivel
+        {
+            public string id_cofre { get; set; }
+            public decimal data_sensor { get; set; }
+            public long id_loja { get; set; }
+            public string cod_loja { get; set; }
+            public string nome_loja { get; set; }
+            public long id_cliente { get; set; }
+            public string cod_cliente { get; set; }
+            public string nome_cliente { get; set; }
+            public long id_rede { get; set; }
+            public string cod_rede { get; set; }
+            public string nome_rede { get; set; }
+            public Nullable<System.DateTime> data_tmst_end_datetime { get; set; }
+        }
         public static List<CofreDiffComm> GetCofreCommStatus()
         {
             using (var ctx = new ApplicationDbContext())
@@ -207,6 +222,24 @@ namespace rxApp.dataObjClasses
                 var messageList = ctx.GetLockMessageViews.AsNoTracking().Where(m => m.user_id != null && (m.data_type == "1" || m.data_type == "2" || m.data_type == "3" || m.data_type == "4") && parSelectedLojas.Contains(m.id_loja) && m.data_tmst_end_datetime >= parDataIni && m.data_tmst_end_datetime <= parDataFim).ToList();
 
                 return messageList;
+            }
+        }
+        public static List<CofreNivel> GetCofreNivel()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var cofreList = ctx.Database.SqlQuery<CofreNivel>(
+                    "select distinct mv.id_cofre, COALESCE(mv.data_sensor, 0) data_sensor, mv.id_loja, mv.cod_loja, mv.nome_loja, mv.id_cliente, mv.cod_cliente, mv.nome_cliente, mv.id_rede, mv.cod_rede, mv.nome_rede, mv.data_tmst_end_datetime FROM message_view mv where mv.id_cofre <> '0' and mv.cod_loja is not null and id_loja <> 0 and mv.data_tmst_end_datetime = (select max(m.data_tmst_end_datetime) from message m where m.info_id = mv.info_id)").ToList();
+
+                var dummyCofre = new CofreNivel
+                {
+                    id_cofre = "------",
+                    data_sensor = 100
+                };
+
+                cofreList.Add(dummyCofre);
+
+                return cofreList;
             }
         }
     }
