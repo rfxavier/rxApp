@@ -127,7 +127,7 @@ namespace rxApp.dashClasses
             this.gridDashboardItem1.InteractivityOptions.IgnoreMasterFilters = false;
             this.gridDashboardItem1.Name = "Grid 1";
             this.gridDashboardItem1.ShowCaption = false;
-            this.gridDashboardItem1.VisibleDataFilterString = "[DataItem0] <> \'------\'";
+            this.gridDashboardItem1.VisibleDataFilterString = "[DataItem0] Not Like \'------%\'";
             // 
             // treeViewDashboardItem1
             // 
@@ -151,7 +151,7 @@ namespace rxApp.dashClasses
             this.treeViewDashboardItem1.InteractivityOptions.IgnoreMasterFilters = true;
             this.treeViewDashboardItem1.Name = "Rede - Cliente - Loja";
             this.treeViewDashboardItem1.ShowCaption = true;
-            this.treeViewDashboardItem1.VisibleDataFilterString = "[DataItem3] <> \'------\'";
+            this.treeViewDashboardItem1.VisibleDataFilterString = "[DataItem3] Not Like \'------%\'";
             // 
             // dashboardObjectDataSource1
             // 
