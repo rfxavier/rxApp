@@ -18,7 +18,7 @@
                 <PropertiesComboBox TextField="StatusType" IncrementalFilteringMode="Contains" ValueField="StatusType"></PropertiesComboBox>
             </dx:GridViewDataComboBoxColumn>
             <dx:GridViewDataColumn FieldName="Bit" Caption="Bit" />
-            <dx:GridViewDataColumn FieldName="Caption" Caption="Caption" />
+            <dx:GridViewDataColumn FieldName="Descrição" Caption="Caption" />
         </Columns>
         <SettingsBehavior ConfirmDelete="True" />
         <SettingsPopup>

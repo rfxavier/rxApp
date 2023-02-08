@@ -57,6 +57,8 @@ namespace rxApp.Models
         public DbSet<GetLockMessageAckDevLock> GetLockMessageAckDevLocks { get; set; }
         public DbSet<GetLockMessageAckGetInfo> GetLockMessageAckGetInfos { get; set; }
         public DbSet<GetLockGetStatusBitProfile> GetLockGetStatusBitProfiles { get; set; }
+        public DbSet<GetLockMessageAckUserList> GetLockMessageAckUserLists { get; set; }
+        
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -103,6 +105,7 @@ namespace rxApp.Models
             modelBuilder.Configurations.Add(new GetLockMessageAckDevLockConfig());
             modelBuilder.Configurations.Add(new GetLockMessageAckGetInfoConfig());
             modelBuilder.Configurations.Add(new GetLockGetStatusBitProfileConfig());
+            modelBuilder.Configurations.Add(new GetLockMessageAckUserListConfig());
 
             base.OnModelCreating(modelBuilder);
         }

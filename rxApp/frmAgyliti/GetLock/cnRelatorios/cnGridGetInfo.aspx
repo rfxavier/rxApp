@@ -55,7 +55,7 @@
                         <SettingsAdaptivity Enabled="true" EnableCollapseRootItemsToIcons="true" />
                     </dx:GridViewToolbar>
                 </Toolbars>
-                <SettingsExport EnableClientSideExportAPI="true" ExcelExportMode="WYSIWYG" FileName="GetLock-Ocorrencias" Landscape="true" />
+                <SettingsExport EnableClientSideExportAPI="true" ExcelExportMode="WYSIWYG" FileName="GetLock-GetInfo" Landscape="true" />
                 <SettingsBehavior EnableCustomizationWindow="true" />
                 <Styles>
                     <AlternatingRow Enabled="True" BackColor="#D6EBFF">
