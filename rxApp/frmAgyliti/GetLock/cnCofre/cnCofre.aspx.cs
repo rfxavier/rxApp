@@ -23,7 +23,7 @@ namespace rxApp.frmAgyliti.GetLock.cnCofre
 
         protected void ASPxDashboard1_ConfigureDataReloadingTimeout(object sender, ConfigureDataReloadingTimeoutWebEventArgs e)
         {
-            e.DataReloadingTimeout = TimeSpan.FromMinutes(60);
+            e.DataReloadingTimeout = TimeSpan.FromMinutes(0);
         }
     }
 }

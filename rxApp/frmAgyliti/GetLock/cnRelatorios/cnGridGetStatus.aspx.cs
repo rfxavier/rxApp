@@ -1,19 +1,29 @@
 ﻿using DevExpress.Data.Filtering;
 using DevExpress.Data.Linq;
 using DevExpress.Web;
+using MQTTnet;
+using MQTTnet.Extensions.ManagedClient;
+using MQTTnet.Protocol;
 using rxApp.Models;
+using rxApp.mqttClient;
 using System;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace rxApp.frmAgyliti.GetLock.cnRelatorios
 {
     public partial class cnGridGetStatus : System.Web.UI.Page
     {
+        private MqttClientHandler mqttClient;
+
         private ApplicationDbContext db;
         public cnGridGetStatus()
         {
             db = new ApplicationDbContext();
+
+            this.mqttClient = new MqttClientHandler();
+            mqttClient.PublisherStart();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -106,6 +116,23 @@ namespace rxApp.frmAgyliti.GetLock.cnRelatorios
             e.KeyExpression = "Id";
 
             e.QueryableSource = db.GetLockMessageAckGetStatuses;
+        }
+
+        protected void ASPxButton1_Click(object sender, EventArgs e)
+        {
+            var idCofre = "0";
+            if (ASPxTextBox1.Value != null)
+            {
+                idCofre = ASPxTextBox1.Value.ToString();
+            }
+            var topic = $"/{idCofre}/COMMAND";
+            var ackPayload = $@"{{ ""COMMAND"": {{ ""DESTINY"": {idCofre}, ""CMD"": ""GET-STATUS"" }} }}";
+            var message = new MqttApplicationMessageBuilder().WithTopic(topic).WithPayload(ackPayload).WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce).WithRetainFlag(false).Build();
+
+            if (this.mqttClient.managedMqttClientPublisher != null)
+            {
+                Task.Run(async () => await mqttClient.managedMqttClientPublisher.PublishAsync(message));
+            }
         }
     }
 }
