@@ -43,7 +43,7 @@
       <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridDepositosAuditoria.aspx" title="Auditoria Depósitos" description="Auditoria Depósitos" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridDepositosUsuario.aspx" title="Depósitos por Usuário" description="Depósitos por Usuário" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridApiLog.aspx" title="Log Api" description="Log Api" roles="AdmMaster,AdmPortal" />
-      <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridGetStatus.aspx" title="Status Cofres" description="Status Cofres" roles="AdmMaster,AdmPortal" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridGetStatus.aspx" title="Status de Dispositivos" description="Status de Dispositivos" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridDevLock.aspx" title="Lock Cofres" description="LOck Cofres" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridGetInfo.aspx" title="Info Cofres" description="Info Cofres" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridGetUserList.aspx" title="Lista Usuários" description="Lista Usuários" roles="AdmMaster,AdmPortal" />

@@ -8,7 +8,7 @@
     <asp:ContentPlaceHolder ID="HeadContentPlaceHolderMain" runat="server" />
 </asp:Content>
 <asp:Content ID="ContentMain" ContentPlaceHolderID="MainContentPlaceHolderRoot" runat="server">
-    <dx:ASPxPanel ID="LeftPane" runat="server" FixedPosition="WindowLeft" fixedpositionoverlap="false" ClientInstanceName="leftPane" Collapsible="False" ScrollBars="Auto" BackColor="White" Width="300px">
+    <dx:ASPxPanel ID="LeftPane" runat="server" FixedPosition="WindowLeft" fixedpositionoverlap="false" ClientInstanceName="leftPane" Collapsible="False" ScrollBars="Auto" BackColor="White" Width="330px">
         <Styles>
             <ExpandButton BackColor="#D2D2D2">
                 <Paddings Padding="15px" />
@@ -20,8 +20,8 @@
         <SettingsAdaptivity CollapseAtWindowInnerWidth="1921" />
         <PanelCollection>
             <dx:PanelContent runat="server" SupportsDisabledAttribute="true">
-                <div class="top">
-                    <div align="center"><dx:ASPxButton ID="ASPxButton2" runat="server" Text="Selecionar tudo" OnClick="ASPxButton2_Click" BackColor="#2A4E70"></dx:ASPxButton></div>
+                <div class="treelist-content">
+                    <%--<div align="center"><dx:ASPxButton ID="ASPxButton2" runat="server" Text="Selecionar tudo" OnClick="ASPxButton2_Click" BackColor="#2A4E70"></dx:ASPxButton></div>--%>
 
                     <dx:ASPxTreeList ID="ASPxTreeList1" runat="server" CssClass="centered" Visible="true" AutoGenerateColumns="false" KeyFieldName="id" ParentFieldName="parentId" OnDataBinding="ASPxTreeList1_DataBinding" OnDataBound="ASPxTreeList1_DataBound" Width="234px">
                         <Columns>
@@ -32,7 +32,7 @@
                         <SettingsSearchPanel Visible="true" />
                     </dx:ASPxTreeList>
                 </div>
-                <div class="centered">
+                <div class="centered fixed-footer2">
                     <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" ColCount="2" ColumnCount="2">
                         <Items>
                             <dx:LayoutItem ShowCaption="False" ColSpan="2" ColumnSpan="2">

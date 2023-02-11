@@ -54,11 +54,16 @@ namespace rxApp.Models
         public DbSet<GetLockLojaClienteRedeView> GetLockLojaClienteRedeViews { get; set; }
         public DbSet<GetLockCofreCadastroView> GetLockCofreCadastroViews { get; set; }
         public DbSet<GetLockMessageAckGetStatus> GetLockMessageAckGetStatuses { get; set; }
-        public DbSet<GetLockMessageAckDevLock> GetLockMessageAckDevLocks { get; set; }
-        public DbSet<GetLockMessageAckGetInfo> GetLockMessageAckGetInfos { get; set; }
         public DbSet<GetLockGetStatusBitProfile> GetLockGetStatusBitProfiles { get; set; }
+        public DbSet<GetLockMessageAckGetStatusView> GetLockMessageAckGetStatusViews { get; set; }
+        public DbSet<GetLockMessageAckDevLock> GetLockMessageAckDevLocks { get; set; }
+        public DbSet<GetLockMessageAckDevLockView> GetLockMessageAckDevLockViews { get; set; }
+        public DbSet<GetLockMessageAckGetInfo> GetLockMessageAckGetInfos { get; set; }
+        public DbSet<GetLockMessageAckGetInfoView> GetLockMessageAckGetInfoViews { get; set; }
         public DbSet<GetLockMessageAckUserList> GetLockMessageAckUserLists { get; set; }
-        
+        public DbSet<GetLockMessageAckUserListView> GetLockMessageAckUserListViews { get; set; }
+
+
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -102,11 +107,15 @@ namespace rxApp.Models
             modelBuilder.Configurations.Add(new GetLockLojaClienteRedeViewConfig());
             modelBuilder.Configurations.Add(new GetLockCofreCadastroViewConfig());
             modelBuilder.Configurations.Add(new GetLockMessageAckGetStatusConfig());
-            modelBuilder.Configurations.Add(new GetLockMessageAckDevLockConfig());
-            modelBuilder.Configurations.Add(new GetLockMessageAckGetInfoConfig());
             modelBuilder.Configurations.Add(new GetLockGetStatusBitProfileConfig());
+            modelBuilder.Configurations.Add(new GetLockMessageAckGetStatusViewConfig());
+            modelBuilder.Configurations.Add(new GetLockMessageAckDevLockConfig());
+            modelBuilder.Configurations.Add(new GetLockMessageAckDevLockViewConfig());
+            modelBuilder.Configurations.Add(new GetLockMessageAckGetInfoConfig());
+            modelBuilder.Configurations.Add(new GetLockMessageAckGetInfoViewConfig());
             modelBuilder.Configurations.Add(new GetLockMessageAckUserListConfig());
-
+            modelBuilder.Configurations.Add(new GetLockMessageAckUserListViewConfig());
+            
             base.OnModelCreating(modelBuilder);
         }
 

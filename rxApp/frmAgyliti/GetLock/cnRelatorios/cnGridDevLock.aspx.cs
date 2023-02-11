@@ -30,7 +30,7 @@ namespace rxApp.frmAgyliti.GetLock.cnRelatorios
         {
             //var ds = new EntityServerModeSource { QueryableSource = new ApplicationDbContext().GetLockMessageViews };
 
-            LinqServerModeDataSource lnsource = new LinqServerModeDataSource { ContextTypeName = "rxApp.Models.ApplicationDbContext", TableName = "GetLockMessageAckDevLocks" };
+            LinqServerModeDataSource lnsource = new LinqServerModeDataSource { ContextTypeName = "rxApp.Models.ApplicationDbContext", TableName = "GetLockMessageAckDevLockViews" };
             lnsource.Selecting += EntityServerModeDataSource1_Selecting;
 
             ASPxGridView1.DataSource = lnsource;
@@ -71,7 +71,7 @@ namespace rxApp.frmAgyliti.GetLock.cnRelatorios
 
             e.KeyExpression = "Id";
 
-            e.QueryableSource = db.GetLockMessageAckDevLocks;
+            e.QueryableSource = db.GetLockMessageAckDevLockViews;
         }
 
         protected void ASPxButton1_Click(object sender, EventArgs e)

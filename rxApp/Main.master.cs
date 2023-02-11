@@ -64,6 +64,7 @@ namespace rxApp
 
             var dsLojaClienteRedeView = ds as List<GetLockLojaClienteRedeView>;
 
+            List<TreeListDataSource> dsTodosGroup;
             List<TreeListDataSource> dsRedeGroup;
             List<TreeListDataSource> dsClienteGroup;
             List<TreeListDataSource> dsLojaGroup;
@@ -71,6 +72,8 @@ namespace rxApp
             if (Page.User.IsInRole("UserClient"))
             {
                 var user = userManager.FindById(Page.User.Identity.GetUserId());
+
+                dsTodosGroup = new List<TreeListDataSource> { new TreeListDataSource { id = "T0", nome = "Todos", parentId = "" } };
 
                 dsRedeGroup = dsLojaClienteRedeView.Where(p => p.id_cliente == user.GetLockClienteId).GroupBy(x => new { idRede = "R" + x.id_rede.ToString(), nomeRede = x.nome_rede }).Select(y => new TreeListDataSource() { id = y.Key.idRede, parentId = "", nome = y.Key.nomeRede }).ToList();
 
@@ -86,6 +89,8 @@ namespace rxApp
 
                 var lojaList = user.GetLockCofres.Select(c => c.cod_loja).ToList();
 
+                dsTodosGroup = new List<TreeListDataSource> { new TreeListDataSource { id = "T0", nome = "Todos", parentId = "" } };
+
                 dsRedeGroup = dsLojaClienteRedeView.Where(p => lojaList.Contains(p.cod_loja)).GroupBy(x => new { idRede = "R" + x.id_rede.ToString(), nomeRede = x.nome_rede }).Select(y => new TreeListDataSource() { id = y.Key.idRede, parentId = "", nome = y.Key.nomeRede }).ToList();
 
                 dsClienteGroup = dsLojaClienteRedeView.Where(p => lojaList.Contains(p.cod_loja)).GroupBy(x => new { idCliente = "C" + x.id_cliente.ToString(), nomeCliente = x.nome_cliente, idRede = x.id_rede }).Select(y => new TreeListDataSource() { id = y.Key.idCliente, parentId = "R" + y.Key.idRede.ToString(), nome = y.Key.nomeCliente }).ToList();
@@ -94,14 +99,16 @@ namespace rxApp
             }
             else
             {
-                dsRedeGroup = dsLojaClienteRedeView.GroupBy(x => new { idRede = "R" + x.id_rede.ToString(), nomeRede = x.nome_rede }).Select(y => new TreeListDataSource() { id = y.Key.idRede, parentId = "", nome = y.Key.nomeRede }).ToList();
+                dsTodosGroup = new List<TreeListDataSource> { new TreeListDataSource { id = "T0", nome = "Todos", parentId = "" } };
+
+                dsRedeGroup = dsLojaClienteRedeView.GroupBy(x => new { idRede = "R" + x.id_rede.ToString(), nomeRede = x.nome_rede }).Select(y => new TreeListDataSource() { id = y.Key.idRede, parentId = "T0", nome = y.Key.nomeRede }).ToList();
 
                 dsClienteGroup = dsLojaClienteRedeView.GroupBy(x => new { idCliente = "C" + x.id_cliente.ToString(), nomeCliente = x.nome_cliente, idRede = x.id_rede }).Select(y => new TreeListDataSource() { id = y.Key.idCliente, parentId = "R" + y.Key.idRede.ToString(), nome = y.Key.nomeCliente }).ToList();
 
                 dsLojaGroup = dsLojaClienteRedeView.GroupBy(x => new { idLoja = "L" + x.id_loja.ToString(), nomeLoja = x.nome_loja, idCliente = x.id_cliente }).Select(y => new TreeListDataSource() { id = y.Key.idLoja, parentId = "C" + y.Key.idCliente.ToString(), nome = y.Key.nomeLoja }).ToList();
             }
             
-            List<TreeListDataSource> dsTreeList = dsRedeGroup.Concat(dsClienteGroup).Concat(dsLojaGroup).ToList();
+            List<TreeListDataSource> dsTreeList = dsTodosGroup.Concat(dsRedeGroup).Concat(dsClienteGroup).Concat(dsLojaGroup).ToList();
 
             ASPxTreeList1.DataSource = dsTreeList;
         }
@@ -157,19 +164,19 @@ namespace rxApp
             contentCallEvent?.Invoke(this, EventArgs.Empty);
         }
 
-        protected void ASPxButton2_Click(object sender, EventArgs e)
-        {
-            if (ASPxButton2.Text == "Selecionar tudo")
-            {
-                ASPxTreeList1.SelectAll();
-                ASPxButton2.Text = "Desmarcar tudo";
-            } 
-            else
-            {
-                ASPxTreeList1.UnselectAll();
-                ASPxButton2.Text = "Selecionar tudo";
-            }
-        }
+        //protected void ASPxButton2_Click(object sender, EventArgs e)
+        //{
+        //    if (ASPxButton2.Text == "Selecionar tudo")
+        //    {
+        //        ASPxTreeList1.SelectAll();
+        //        ASPxButton2.Text = "Desmarcar tudo";
+        //    } 
+        //    else
+        //    {
+        //        ASPxTreeList1.UnselectAll();
+        //        ASPxButton2.Text = "Selecionar tudo";
+        //    }
+        //}
 
         public event EventHandler contentCallEvent;
     }

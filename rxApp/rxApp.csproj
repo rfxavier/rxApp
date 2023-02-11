@@ -649,6 +649,11 @@
     <Compile Include="Domain\Entities\GetLockCliente.cs" />
     <Compile Include="Domain\Entities\GetLockClienteConfig.cs" />
     <Compile Include="Domain\Entities\GetLockCofreCadastroView.cs" />
+    <Compile Include="Domain\Entities\GetLockMessageAckGetInfoViewConfig.cs" />
+    <Compile Include="Domain\Entities\GetLockMessageAckDevLockViewConfig.cs" />
+    <Compile Include="Domain\Entities\GetLockMessageAckDevLockView.cs" />
+    <Compile Include="Domain\Entities\GetLockMessageAckGetInfoView.cs" />
+    <Compile Include="Domain\Entities\GetLockMessageAckGetStatusViewConfig.cs" />
     <Compile Include="Domain\Entities\GetLockCofreCadastroViewConfig.cs" />
     <Compile Include="Domain\Entities\GetLockCofreUser.cs" />
     <Compile Include="Domain\Entities\GetLockCofreUserConfig.cs" />
@@ -662,8 +667,11 @@
     <Compile Include="Domain\Entities\GetLockMessageAckDevLockConfig.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckGetInfo.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckGetInfoConfig.cs" />
+    <Compile Include="Domain\Entities\GetLockMessageAckGetStatusView.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckGetStatus.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckGetStatusConfig.cs" />
+    <Compile Include="Domain\Entities\GetLockMessageAckUserListViewConfig.cs" />
+    <Compile Include="Domain\Entities\GetLockMessageAckUserListView.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckUserList.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckUserListConfig.cs" />
     <Compile Include="Domain\Entities\GetLockMessageConfig.cs" />
@@ -1036,6 +1044,10 @@
     <Compile Include="Migrations\202302081852200_v018.Designer.cs">
       <DependentUpon>202302081852200_v018.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302110010589_v019.cs" />
+    <Compile Include="Migrations\202302110010589_v019.Designer.cs">
+      <DependentUpon>202302110010589_v019.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1187,6 +1199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302081852200_v018.resx">
       <DependentUpon>202302081852200_v018.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302110010589_v019.resx">
+      <DependentUpon>202302110010589_v019.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

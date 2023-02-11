@@ -20,34 +20,35 @@
         
         <Columns>
             <dx:GridViewDataTextColumn FieldName="TopicDeviceId" Caption="Cofre Id" VisibleIndex="0"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataDateColumn FieldName="TimestampDatetime" SortIndex="0" SortOrder="Descending" Caption="Data Status" VisibleIndex="1" Settings-FilterMode="Value">
+            <dx:GridViewDataTextColumn FieldName="CofreNome" Caption="Cofre Nome" VisibleIndex="1"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataDateColumn FieldName="TimestampDatetime" SortIndex="0" SortOrder="Descending" Caption="Data Status" VisibleIndex="2" Settings-FilterMode="Value">
                 <CellStyle Wrap="False"></CellStyle>
                 <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy">
                 </PropertiesDateEdit>
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataDateColumn FieldName="TimestampDatetime" SortIndex="1" Caption="Hora Status" VisibleIndex="2" Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False" Settings-ShowInFilterControl="False">
+            <dx:GridViewDataDateColumn FieldName="TimestampDatetime" SortIndex="1" Caption="Hora Status" VisibleIndex="3" Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False" Settings-ShowInFilterControl="False">
                 <CellStyle Wrap="False"></CellStyle>
                 <PropertiesDateEdit DisplayFormatString="HH:mm:ss" EditFormatString="HH:mm:ss">
                 </PropertiesDateEdit>
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataDateColumn FieldName="trackCreationTime" SortIndex="2" SortOrder="Descending" Caption="Data Mensagem" VisibleIndex="3" Settings-FilterMode="Value">
+            <dx:GridViewDataDateColumn FieldName="trackCreationTime" SortIndex="2" SortOrder="Descending" Caption="Data Mensagem" VisibleIndex="4" Settings-FilterMode="Value">
                 <CellStyle Wrap="False"></CellStyle>
                 <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy">
                 </PropertiesDateEdit>
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataDateColumn FieldName="trackCreationTime" SortIndex="3" Caption="Hora Mensagem" VisibleIndex="4" Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False" Settings-ShowInFilterControl="False">
+            <dx:GridViewDataDateColumn FieldName="trackCreationTime" SortIndex="3" Caption="Hora Mensagem" VisibleIndex="5" Settings-AllowAutoFilter="False" Settings-AllowHeaderFilter="False" Settings-ShowInFilterControl="False">
                 <CellStyle Wrap="False"></CellStyle>
                 <PropertiesDateEdit DisplayFormatString="HH:mm:ss" EditFormatString="HH:mm:ss">
                 </PropertiesDateEdit>
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataTextColumn FieldName="CompanyName" Caption="Nome Empresa" VisibleIndex="5"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="CompanyCNPJ" Caption="CNPJ Empresa" VisibleIndex="6"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="DeviceSN" Caption="SN Device" VisibleIndex="7"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="DeviceFirmVersion" Caption="Versão Firmware Device" VisibleIndex="8"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="DeviceBlocked" Caption="Device Bloqueado" VisibleIndex="9"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="BillMachineType" Caption="Tipo Cofre" VisibleIndex="10"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="BillMachineSN" Caption="SN Cofre" VisibleIndex="11"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="IsAck" Caption="É Ack" VisibleIndex="12"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="CompanyName" Caption="Nome Empresa" VisibleIndex="6"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="CompanyCNPJ" Caption="CNPJ Empresa" VisibleIndex="7"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="DeviceSN" Caption="SN Device" VisibleIndex="8"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="DeviceFirmVersion" Caption="Versão Firmware Device" VisibleIndex="9"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="DeviceBlocked" Caption="Device Bloqueado" VisibleIndex="10"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="BillMachineType" Caption="Tipo Cofre" VisibleIndex="11"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="BillMachineSN" Caption="SN Cofre" VisibleIndex="12"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="IsAck" Caption="É Ack" VisibleIndex="13"></dx:GridViewDataTextColumn>
         </Columns>
         <Toolbars>
             <dx:GridViewToolbar>

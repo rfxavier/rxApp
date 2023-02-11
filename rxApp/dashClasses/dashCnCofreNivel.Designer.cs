@@ -31,18 +31,20 @@ namespace rxApp.dashClasses
         {
             DevExpress.DashboardCommon.Dimension dimension1 = new DevExpress.DashboardCommon.Dimension();
             DevExpress.DashboardCommon.GridDimensionColumn gridDimensionColumn1 = new DevExpress.DashboardCommon.GridDimensionColumn();
-            DevExpress.DashboardCommon.Measure measure1 = new DevExpress.DashboardCommon.Measure();
-            DevExpress.DashboardCommon.GridMeasureColumn gridMeasureColumn1 = new DevExpress.DashboardCommon.GridMeasureColumn();
             DevExpress.DashboardCommon.Dimension dimension2 = new DevExpress.DashboardCommon.Dimension();
             DevExpress.DashboardCommon.GridDimensionColumn gridDimensionColumn2 = new DevExpress.DashboardCommon.GridDimensionColumn();
+            DevExpress.DashboardCommon.Measure measure1 = new DevExpress.DashboardCommon.Measure();
+            DevExpress.DashboardCommon.GridMeasureColumn gridMeasureColumn1 = new DevExpress.DashboardCommon.GridMeasureColumn();
+            DevExpress.DashboardCommon.Dimension dimension3 = new DevExpress.DashboardCommon.Dimension();
+            DevExpress.DashboardCommon.GridDimensionColumn gridDimensionColumn3 = new DevExpress.DashboardCommon.GridDimensionColumn();
             DevExpress.DashboardCommon.GridItemFormatRule gridItemFormatRule1 = new DevExpress.DashboardCommon.GridItemFormatRule();
             DevExpress.DashboardCommon.FormatConditionBar formatConditionBar1 = new DevExpress.DashboardCommon.FormatConditionBar();
             DevExpress.DashboardCommon.GridItemFormatRule gridItemFormatRule2 = new DevExpress.DashboardCommon.GridItemFormatRule();
             DevExpress.DashboardCommon.FormatConditionBar formatConditionBar2 = new DevExpress.DashboardCommon.FormatConditionBar();
-            DevExpress.DashboardCommon.Dimension dimension3 = new DevExpress.DashboardCommon.Dimension();
             DevExpress.DashboardCommon.Dimension dimension4 = new DevExpress.DashboardCommon.Dimension();
             DevExpress.DashboardCommon.Dimension dimension5 = new DevExpress.DashboardCommon.Dimension();
             DevExpress.DashboardCommon.Dimension dimension6 = new DevExpress.DashboardCommon.Dimension();
+            DevExpress.DashboardCommon.Dimension dimension7 = new DevExpress.DashboardCommon.Dimension();
             DevExpress.DashboardCommon.CalculatedField calculatedField1 = new DevExpress.DashboardCommon.CalculatedField();
             DevExpress.DashboardCommon.CalculatedField calculatedField2 = new DevExpress.DashboardCommon.CalculatedField();
             DevExpress.DashboardCommon.DashboardLayoutGroup dashboardLayoutGroup1 = new DevExpress.DashboardCommon.DashboardLayoutGroup();
@@ -53,23 +55,29 @@ namespace rxApp.dashClasses
             this.dashboardObjectDataSource1 = new DevExpress.DashboardCommon.DashboardObjectDataSource();
             ((System.ComponentModel.ISupportInitialize)(this.gridDashboardItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(dimension1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(measure1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(dimension2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.treeViewDashboardItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(measure1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(dimension3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.treeViewDashboardItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(dimension4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(dimension5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(dimension6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(dimension7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardObjectDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // gridDashboardItem1
             // 
             dimension1.DataMember = "id_cofre";
-            dimension1.Name = "Cofre";
+            dimension1.Name = "Cofre Id";
             gridDimensionColumn1.Weight = 11.752852447526927D;
             gridDimensionColumn1.WidthType = DevExpress.DashboardCommon.GridColumnFixedWidthType.Weight;
             gridDimensionColumn1.AddDataItem("Dimension", dimension1);
+            dimension2.DataMember = "cofre_nome";
+            dimension2.Name = "Cofre Nome";
+            gridDimensionColumn2.Weight = 39.3938202407847D;
+            gridDimensionColumn2.WidthType = DevExpress.DashboardCommon.GridColumnFixedWidthType.Weight;
+            gridDimensionColumn2.AddDataItem("Dimension", dimension2);
             measure1.DataMember = "data_sensor_perc";
             measure1.Name = "Nível";
             measure1.NumericFormat.FormatType = DevExpress.DashboardCommon.DataItemNumericFormatType.Percent;
@@ -78,21 +86,23 @@ namespace rxApp.dashClasses
             gridMeasureColumn1.Weight = 84.098188624526D;
             gridMeasureColumn1.WidthType = DevExpress.DashboardCommon.GridColumnFixedWidthType.Weight;
             gridMeasureColumn1.AddDataItem("Measure", measure1);
-            dimension2.DataMember = "data_tmst_end_datetime";
-            dimension2.DateTimeGroupInterval = DevExpress.DashboardCommon.DateTimeGroupInterval.DateHourMinuteSecond;
-            dimension2.Name = "Data Informação";
-            gridDimensionColumn2.Weight = 22.33041965030116D;
-            gridDimensionColumn2.WidthType = DevExpress.DashboardCommon.GridColumnFixedWidthType.Weight;
-            gridDimensionColumn2.AddDataItem("Dimension", dimension2);
+            dimension3.DataMember = "data_tmst_end_datetime";
+            dimension3.DateTimeGroupInterval = DevExpress.DashboardCommon.DateTimeGroupInterval.DateHourMinuteSecond;
+            dimension3.Name = "Data Informação";
+            gridDimensionColumn3.Weight = 22.33041965030116D;
+            gridDimensionColumn3.WidthType = DevExpress.DashboardCommon.GridColumnFixedWidthType.Weight;
+            gridDimensionColumn3.AddDataItem("Dimension", dimension3);
             this.gridDashboardItem1.Columns.AddRange(new DevExpress.DashboardCommon.GridColumnBase[] {
             gridDimensionColumn1,
+            gridDimensionColumn2,
             gridMeasureColumn1,
-            gridDimensionColumn2});
+            gridDimensionColumn3});
             this.gridDashboardItem1.ComponentName = "gridDashboardItem1";
             this.gridDashboardItem1.DataItemRepository.Clear();
             this.gridDashboardItem1.DataItemRepository.Add(dimension1, "DataItem0");
-            this.gridDashboardItem1.DataItemRepository.Add(dimension2, "DataItem1");
+            this.gridDashboardItem1.DataItemRepository.Add(dimension3, "DataItem1");
             this.gridDashboardItem1.DataItemRepository.Add(measure1, "DataItem2");
+            this.gridDashboardItem1.DataItemRepository.Add(dimension2, "DataItem3");
             this.gridDashboardItem1.DataSource = this.dashboardObjectDataSource1;
             formatConditionBar1.BarOptions.AllowNegativeAxis = false;
             formatConditionBar1.BarOptions.ShowBarOnly = true;
@@ -132,22 +142,22 @@ namespace rxApp.dashClasses
             // treeViewDashboardItem1
             // 
             this.treeViewDashboardItem1.ComponentName = "treeViewDashboardItem1";
-            dimension3.DataMember = "nome_rede";
-            dimension4.DataMember = "nome_cliente";
-            dimension5.DataMember = "nome_loja";
-            dimension6.DataMember = "id_cofre";
+            dimension4.DataMember = "nome_rede";
+            dimension5.DataMember = "nome_cliente";
+            dimension6.DataMember = "nome_loja";
+            dimension7.DataMember = "id_cofre";
             this.treeViewDashboardItem1.DataItemRepository.Clear();
-            this.treeViewDashboardItem1.DataItemRepository.Add(dimension3, "DataItem0");
-            this.treeViewDashboardItem1.DataItemRepository.Add(dimension4, "DataItem1");
-            this.treeViewDashboardItem1.DataItemRepository.Add(dimension5, "DataItem2");
-            this.treeViewDashboardItem1.DataItemRepository.Add(dimension6, "DataItem3");
+            this.treeViewDashboardItem1.DataItemRepository.Add(dimension4, "DataItem0");
+            this.treeViewDashboardItem1.DataItemRepository.Add(dimension5, "DataItem1");
+            this.treeViewDashboardItem1.DataItemRepository.Add(dimension6, "DataItem2");
+            this.treeViewDashboardItem1.DataItemRepository.Add(dimension7, "DataItem3");
             this.treeViewDashboardItem1.DataSource = this.dashboardObjectDataSource1;
             this.treeViewDashboardItem1.FilterDimensions.AddRange(new DevExpress.DashboardCommon.Dimension[] {
-            dimension3,
             dimension4,
-            dimension5});
-            this.treeViewDashboardItem1.HiddenDimensions.AddRange(new DevExpress.DashboardCommon.Dimension[] {
+            dimension5,
             dimension6});
+            this.treeViewDashboardItem1.HiddenDimensions.AddRange(new DevExpress.DashboardCommon.Dimension[] {
+            dimension7});
             this.treeViewDashboardItem1.InteractivityOptions.IgnoreMasterFilters = true;
             this.treeViewDashboardItem1.Name = "Rede - Cliente - Loja";
             this.treeViewDashboardItem1.ShowCaption = true;
@@ -186,13 +196,14 @@ namespace rxApp.dashClasses
             this.LayoutRoot = dashboardLayoutGroup1;
             this.Title.Text = "Cofre Níveis";
             ((System.ComponentModel.ISupportInitialize)(dimension1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(measure1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(dimension2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridDashboardItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(measure1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(dimension3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDashboardItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(dimension4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(dimension5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(dimension6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(dimension7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeViewDashboardItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardObjectDataSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();

@@ -5,7 +5,7 @@
 <asp:Content ID="HeaderContent" ContentPlaceHolderID="HeadContentPlaceHolderMain" runat="server">
 </asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentPlaceHolderMain" runat="server">
-    <div><h4>Status Cofre</h4></div>
+    <div><h4>Status de Dispositivos</h4></div>
 
     <div style="display: flex">
         <dx:ASPxTextBox ID="ASPxTextBox1" runat="server" Width="170px" NullText="Cofre ID"></dx:ASPxTextBox>
@@ -27,32 +27,33 @@
         <SettingsExport FileName="GetLock-GetStatus" Landscape="True" EnableClientSideExportAPI="True" ExcelExportMode="WYSIWYG"></SettingsExport>
         <Columns>
             <dx:GridViewDataTextColumn FieldName="TopicDeviceId" ShowInCustomizationForm="True" Caption="Cofre Id" VisibleIndex="0"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataDateColumn FieldName="TimestampDatetime" SortIndex="0" SortOrder="Descending" ShowInCustomizationForm="True" Caption="Data Status" VisibleIndex="1">
+            <dx:GridViewDataTextColumn FieldName="CofreNome" Caption="Cofre Nome" VisibleIndex="1"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataDateColumn FieldName="TimestampDatetime" SortIndex="0" SortOrder="Descending" ShowInCustomizationForm="True" Caption="Data Status" VisibleIndex="2">
                 <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy"></PropertiesDateEdit>
 
                 <CellStyle Wrap="False"></CellStyle>
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataDateColumn FieldName="TimestampDatetime" SortIndex="1" ShowInCustomizationForm="True" Caption="Hora Status" VisibleIndex="2">
+            <dx:GridViewDataDateColumn FieldName="TimestampDatetime" SortIndex="1" ShowInCustomizationForm="True" Caption="Hora Status" VisibleIndex="3">
                 <PropertiesDateEdit DisplayFormatString="HH:mm:ss" EditFormatString="HH:mm:ss"></PropertiesDateEdit>
 
                 <Settings AllowAutoFilter="False" AllowHeaderFilter="False" ShowInFilterControl="False"></Settings>
 
                 <CellStyle Wrap="False"></CellStyle>
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataDateColumn FieldName="trackCreationTime" SortIndex="2" SortOrder="Descending" ShowInCustomizationForm="True" Caption="Data Mensagem" VisibleIndex="3">
+            <dx:GridViewDataDateColumn FieldName="trackCreationTime" SortIndex="2" SortOrder="Descending" ShowInCustomizationForm="True" Caption="Data Mensagem" VisibleIndex="4">
                 <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy" EditFormatString="dd/MM/yyyy"></PropertiesDateEdit>
 
                 <CellStyle Wrap="False"></CellStyle>
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataDateColumn FieldName="trackCreationTime" SortIndex="3" ShowInCustomizationForm="True" Caption="Hora Mensagem" VisibleIndex="4">
+            <dx:GridViewDataDateColumn FieldName="trackCreationTime" SortIndex="3" ShowInCustomizationForm="True" Caption="Hora Mensagem" VisibleIndex="5">
                 <PropertiesDateEdit DisplayFormatString="HH:mm:ss" EditFormatString="HH:mm:ss"></PropertiesDateEdit>
 
                 <Settings AllowAutoFilter="False" AllowHeaderFilter="False" ShowInFilterControl="False"></Settings>
 
                 <CellStyle Wrap="False"></CellStyle>
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataTextColumn FieldName="UptimeSec" ShowInCustomizationForm="True" Caption="Uptime" VisibleIndex="5"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="IsAck" ShowInCustomizationForm="True" Caption="&#201; Ack" VisibleIndex="6"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="UptimeSec" ShowInCustomizationForm="True" Caption="Uptime" VisibleIndex="6"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="IsAck" ShowInCustomizationForm="True" Caption="&#201; Ack" VisibleIndex="7"></dx:GridViewDataTextColumn>
         </Columns>
         <Toolbars>
             <dx:GridViewToolbar>

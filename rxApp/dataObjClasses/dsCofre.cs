@@ -52,6 +52,7 @@ namespace rxApp.dataObjClasses
         public class CofreNivel
         {
             public string id_cofre { get; set; }
+            public string cofre_nome { get; set; }
             public decimal data_sensor { get; set; }
             public long id_loja { get; set; }
             public string cod_loja { get; set; }
@@ -229,7 +230,7 @@ namespace rxApp.dataObjClasses
             using (var ctx = new ApplicationDbContext())
             {
                 var cofreList = ctx.Database.SqlQuery<CofreNivel>(
-                    "select distinct mv.id_cofre, COALESCE(mv.data_sensor, 0) data_sensor, mv.id_loja, TRIM(mv.cod_loja) cod_loja, TRIM(mv.nome_loja) nome_loja, mv.id_cliente, TRIM(mv.cod_cliente) cod_cliente, TRIM(mv.nome_cliente) nome_cliente, mv.id_rede, TRIM(mv.cod_rede) cod_rede, TRIM(mv.nome_rede) nome_rede, mv.data_tmst_end_datetime FROM message_view mv where mv.id_cofre <> '0' and mv.cod_loja is not null and id_loja <> 0 and mv.data_tmst_end_datetime = (select max(m.data_tmst_end_datetime) from message m where m.info_id = mv.info_id)").ToList();
+                    "select distinct mv.id_cofre, mv.cofre_nome, COALESCE(mv.data_sensor, 0) data_sensor, mv.id_loja, TRIM(mv.cod_loja) cod_loja, TRIM(mv.nome_loja) nome_loja, mv.id_cliente, TRIM(mv.cod_cliente) cod_cliente, TRIM(mv.nome_cliente) nome_cliente, mv.id_rede, TRIM(mv.cod_rede) cod_rede, TRIM(mv.nome_rede) nome_rede, mv.data_tmst_end_datetime FROM message_view mv where mv.id_cofre <> '0' and mv.cod_loja is not null and id_loja <> 0 and mv.data_tmst_end_datetime = (select max(m.data_tmst_end_datetime) from message m where m.info_id = mv.info_id)").ToList();
 
                 var lojasCofreList = cofreList.GroupBy(cl => new { cl.cod_loja, cl.nome_loja, cl.cod_cliente, cl.nome_cliente, cl.cod_rede, cl.nome_rede}, (key, group) => new {CodLoja = key.cod_loja, NomeLoja = key.nome_loja, CodCliente = key.cod_cliente, NomeCliente = key.nome_cliente, CodRede = key.cod_rede, NomeRede = key.nome_rede, Result = group.ToList()});
 

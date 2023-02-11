@@ -33,15 +33,6 @@ namespace rxApp
         protected global::DevExpress.Web.ASPxPanel LeftPane;
 
         /// <summary>
-        /// ASPxButton2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton ASPxButton2;
-
-        /// <summary>
         /// ASPxTreeList1 control.
         /// </summary>
         /// <remarks>
