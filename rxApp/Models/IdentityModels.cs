@@ -62,6 +62,8 @@ namespace rxApp.Models
         public DbSet<GetLockMessageAckGetInfoView> GetLockMessageAckGetInfoViews { get; set; }
         public DbSet<GetLockMessageAckUserList> GetLockMessageAckUserLists { get; set; }
         public DbSet<GetLockMessageAckUserListView> GetLockMessageAckUserListViews { get; set; }
+        public DbSet<GetLockMessageAckUpdateFirmware> GetLockMessageAckUpdateFirmwares { get; set; }
+        public DbSet<GetLockMessageAckUpdateFirmwareView> GetLockMessageAckUpdateFirmwareViews { get; set; }
 
 
 
@@ -115,6 +117,8 @@ namespace rxApp.Models
             modelBuilder.Configurations.Add(new GetLockMessageAckGetInfoViewConfig());
             modelBuilder.Configurations.Add(new GetLockMessageAckUserListConfig());
             modelBuilder.Configurations.Add(new GetLockMessageAckUserListViewConfig());
+            modelBuilder.Configurations.Add(new GetLockMessageAckUpdateFirmwareConfig());
+            modelBuilder.Configurations.Add(new GetLockMessageAckUpdateFirmwareViewConfig());
             
             base.OnModelCreating(modelBuilder);
         }

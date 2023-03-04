@@ -50,6 +50,7 @@
     </siteMapNode>
     <siteMapNode url="" title="Configurações" description="Configurações" roles="AdmMaster,AdmPortal">
       <siteMapNode url="~/frmAgyliti/GetLock/cnConfig/cnGridGetStatusBitProfile.aspx" title="Bits Get Status" description="Bits Get Status" roles="AdmMaster,AdmPortal" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnConfig/cnGridUpdateFirmware.aspx" title="Atualizar Firmware" description="Atualizar Firmware" roles="AdmMaster,AdmPortal" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>

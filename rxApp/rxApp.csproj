@@ -66,6 +66,7 @@
     <Reference Include="DevExpress.Sparkline.v21.1.Core, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.Desktop.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxGauges.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxThemes.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxGantt.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxTreeList.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -298,6 +299,7 @@
     <Content Include="frmAgyliti\GetLock\cnCofre\cnCofreNivel.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCofre\cnCofreUsuarioDepositos.aspx" />
     <Content Include="frmAgyliti\GetLock\cnConfig\cnGridGetStatusBitProfile.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnConfig\cnGridUpdateFirmware.aspx" />
     <Content Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx" />
     <Content Include="frmAgyliti\GetLock\cnGridSemLoja\cnGridSemLoja.aspx" />
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridColetas.aspx" />
@@ -670,6 +672,10 @@
     <Compile Include="Domain\Entities\GetLockMessageAckGetStatusView.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckGetStatus.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckGetStatusConfig.cs" />
+    <Compile Include="Domain\Entities\GetLockMessageAckUpdateFirmware.cs" />
+    <Compile Include="Domain\Entities\GetLockMessageAckUpdateFirmwareConfig.cs" />
+    <Compile Include="Domain\Entities\GetLockMessageAckUpdateFirmwareView.cs" />
+    <Compile Include="Domain\Entities\GetLockMessageAckUpdateFirmwareViewConfig.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckUserListViewConfig.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckUserListView.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckUserList.cs" />
@@ -780,6 +786,13 @@
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnConfig\cnGridGetStatusBitProfile.aspx.designer.cs">
       <DependentUpon>cnGridGetStatusBitProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnConfig\cnGridUpdateFirmware.aspx.cs">
+      <DependentUpon>cnGridUpdateFirmware.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnConfig\cnGridUpdateFirmware.aspx.designer.cs">
+      <DependentUpon>cnGridUpdateFirmware.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnGridMain\cnGridMain.aspx.cs">
       <DependentUpon>cnGridMain.aspx</DependentUpon>
@@ -1048,6 +1061,22 @@
     <Compile Include="Migrations\202302110010589_v019.Designer.cs">
       <DependentUpon>202302110010589_v019.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302181301025_v020.cs" />
+    <Compile Include="Migrations\202302181301025_v020.Designer.cs">
+      <DependentUpon>202302181301025_v020.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302181312152_v021.cs" />
+    <Compile Include="Migrations\202302181312152_v021.Designer.cs">
+      <DependentUpon>202302181312152_v021.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302251222431_v022.cs" />
+    <Compile Include="Migrations\202302251222431_v022.Designer.cs">
+      <DependentUpon>202302251222431_v022.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302251308199_v023.cs" />
+    <Compile Include="Migrations\202302251308199_v023.Designer.cs">
+      <DependentUpon>202302251308199_v023.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1202,6 +1231,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202302110010589_v019.resx">
       <DependentUpon>202302110010589_v019.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302181301025_v020.resx">
+      <DependentUpon>202302181301025_v020.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302181312152_v021.resx">
+      <DependentUpon>202302181312152_v021.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302251222431_v022.resx">
+      <DependentUpon>202302251222431_v022.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302251308199_v023.resx">
+      <DependentUpon>202302251308199_v023.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
