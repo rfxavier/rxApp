@@ -6,12 +6,12 @@
 </asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentPlaceHolderMain" runat="server">
     <div><h4>Atualizar Firmware</h4></div>
-    <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" ColCount="5" ColumnCount="5">
+    <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" ColCount="3" ColumnCount="3">
         <Items>
-            <dx:LayoutItem ColSpan="1" HorizontalAlign="Left" Width="15%" Caption="Cofre Id">
+            <dx:LayoutItem ColSpan="1" HorizontalAlign="Left" Caption="Cofre">
                 <LayoutItemNestedControlCollection>
                     <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox ID="ASPxTextBoxCofreID" runat="server" Width="170px" NullText="Cofre ID"></dx:ASPxTextBox>
+                        <dx:ASPxComboBox ID="ASPxComboCofreID" runat="server" ValueType="System.String" OnDataBinding="ASPxComboCofreID_DataBinding"  Width="300px"></dx:ASPxComboBox>
                     </dx:LayoutItemNestedControlContainer>
                 </LayoutItemNestedControlCollection>
                 <CaptionSettings VerticalAlign="Middle"></CaptionSettings>
@@ -19,36 +19,37 @@
             <dx:LayoutItem ColSpan="1" Caption="Nome arquivo">
                 <LayoutItemNestedControlCollection>
                     <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox runat="server" ID="ASPxTextBoxFilename"></dx:ASPxTextBox>
+                        <dx:ASPxComboBox runat="server" ID="ASPxFileName" Width="350px"></dx:ASPxComboBox>
 
+
+
+                    </dx:LayoutItemNestedControlContainer>
+                </LayoutItemNestedControlCollection>
+            </dx:LayoutItem>
+            <dx:LayoutItem ColSpan="1" HorizontalAlign="Left" ShowCaption="False">
+                <LayoutItemNestedControlCollection>
+                    <dx:LayoutItemNestedControlContainer runat="server">
+                        <dx:ASPxButton runat="server" Text="Atualizar Firmware" BackColor="#2A4E70" CssClass="noImage" ForeColor="White" ID="ASPxButton1" OnClick="ASPxButton1_Click"></dx:ASPxButton>
+                    </dx:LayoutItemNestedControlContainer>
+                </LayoutItemNestedControlCollection>
+            </dx:LayoutItem>
+            <dx:LayoutItem ColSpan="3" ShowCaption="False" Caption="" ColumnSpan="3" HorizontalAlign="Right">
+                <LayoutItemNestedControlCollection>
+                    <dx:LayoutItemNestedControlContainer runat="server">
+                        <dx:ASPxUploadControl runat="server" AutoStartUpload="True" ShowProgressPanel="True" ShowUploadButton="True" AddUploadButtonsHorizontalPosition="InputRightSide" Width="280px" ID="ASPxUploadControl1" OnFileUploadComplete="ASPxUploadControl1_FileUploadComplete">
+                            <ValidationSettings AllowedFileExtensions=".srec" MaxFileSize="41943040000"></ValidationSettings>
+
+                            <ClientSideEvents FileUploadComplete="function(s, e) {  
+                                window.location.reload();  
+                            }"></ClientSideEvents>
+
+                            <BrowseButton Text="Fazer upload de um arquivo de firmware..."></BrowseButton>
+                        </dx:ASPxUploadControl>
                     </dx:LayoutItemNestedControlContainer>
                 </LayoutItemNestedControlCollection>
                 <CaptionSettings VerticalAlign="Middle"></CaptionSettings>
             </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" Caption="Vers&#227;o">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox runat="server" ID="ASPxTextBoxVersion"></dx:ASPxTextBox>
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" Caption="Hash">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxTextBox runat="server" ID="ASPxTextBoxHash"></dx:ASPxTextBox>
-
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ShowCaption="False" ColSpan="1" Width="10%" HorizontalAlign="Center">
-                <LayoutItemNestedControlCollection>
-                    <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxButton runat="server" Text="Atualizar Firmware" BackColor="#2A4E70" CssClass="noImage" ForeColor="White" ID="ASPxButton1" OnClick="ASPxButton1_Click"></dx:ASPxButton>
-
-                    </dx:LayoutItemNestedControlContainer>
-                </LayoutItemNestedControlCollection>
-            </dx:LayoutItem>
-            <dx:LayoutItem ShowCaption="False" ColSpan="5" ColumnSpan="5">
+            <dx:LayoutItem ShowCaption="False" ColSpan="3" ColumnSpan="3">
                 <LayoutItemNestedControlCollection>
                     <dx:LayoutItemNestedControlContainer runat="server">
                         <dx:ASPxGridView runat="server" AutoGenerateColumns="False" KeyFieldName="id" ID="ASPxGridView1" OnDataBinding="ASPxGridView1_DataBinding" OnAutoFilterCellEditorInitialize="ASPxGridView1_AutoFilterCellEditorInitialize" OnProcessColumnAutoFilter="ASPxGridView1_ProcessColumnAutoFilter">
@@ -111,6 +112,9 @@
                                 <AlternatingRow Enabled="True" BackColor="#D6EBFF"></AlternatingRow>
                             </Styles>
                         </dx:ASPxGridView>
+
+
+
 
                     </dx:LayoutItemNestedControlContainer>
                 </LayoutItemNestedControlCollection>

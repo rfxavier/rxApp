@@ -24,40 +24,22 @@ namespace rxApp.frmAgyliti.GetLock.cnConfig
         protected global::DevExpress.Web.ASPxFormLayout ASPxFormLayout1;
 
         /// <summary>
-        /// ASPxTextBoxCofreID control.
+        /// ASPxComboCofreID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox ASPxTextBoxCofreID;
+        protected global::DevExpress.Web.ASPxComboBox ASPxComboCofreID;
 
         /// <summary>
-        /// ASPxTextBoxFilename control.
+        /// ASPxFileName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox ASPxTextBoxFilename;
-
-        /// <summary>
-        /// ASPxTextBoxVersion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox ASPxTextBoxVersion;
-
-        /// <summary>
-        /// ASPxTextBoxHash control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox ASPxTextBoxHash;
+        protected global::DevExpress.Web.ASPxComboBox ASPxFileName;
 
         /// <summary>
         /// ASPxButton1 control.
@@ -67,6 +49,15 @@ namespace rxApp.frmAgyliti.GetLock.cnConfig
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton ASPxButton1;
+
+        /// <summary>
+        /// ASPxUploadControl1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxUploadControl ASPxUploadControl1;
 
         /// <summary>
         /// ASPxGridView1 control.

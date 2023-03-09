@@ -7,7 +7,10 @@ using MQTTnet.Protocol;
 using rxApp.Models;
 using rxApp.mqttClient;
 using System;
+using System.Configuration;
 using System.Globalization;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace rxApp.frmAgyliti.GetLock.cnConfig
@@ -15,15 +18,34 @@ namespace rxApp.frmAgyliti.GetLock.cnConfig
     public partial class cnGridUpdateFirmware : System.Web.UI.Page
     {
         private MqttClientHandler mqttClient;
+        private ApplicationDbContext db;
 
         public cnGridUpdateFirmware()
         {
             this.mqttClient = new MqttClientHandler();
             mqttClient.PublisherStart();
 
+            db = new ApplicationDbContext();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            ASPxUploadControl1.FileSystemSettings.UploadFolder = ConfigurationManager.AppSettings["uploadFirmwarePath"];
+
+            var files = Directory.GetFiles(ConfigurationManager.AppSettings["uploadFirmwarePath"]);
+
+            //var files = Directory.GetFiles(Server.MapPath("~\\"));
+            //var files = Directory.GetFiles(Server.MapPath(ConfigurationManager.AppSettings["uploadFirmwarePath"]));
+            for (int i = 0; i < files.Length; i++)
+            {
+                var item = Path.GetFileName(files[i]);
+                ASPxFileName.Items.Add(item, item);
+            }
+
+            ASPxComboCofreID.TextField = "nome";
+            ASPxComboCofreID.ValueField = "id_cofre";
+
+            ASPxComboCofreID.DataBind();
+
             ASPxGridView1.DataBind();
         }
         protected void ASPxGridView1_DataBinding(object sender, EventArgs e)
@@ -77,24 +99,40 @@ namespace rxApp.frmAgyliti.GetLock.cnConfig
         protected void ASPxButton1_Click(object sender, EventArgs e)
         {
             var idCofre = "0";
-            if (ASPxTextBoxCofreID.Value != null)
+            if (ASPxComboCofreID.Value != null)
             {
-                idCofre = ASPxTextBoxCofreID.Value.ToString();
+                idCofre = ASPxComboCofreID.Value.ToString();
             }
             var topic = $"/{idCofre}/COMMAND";
             //var ackPayload = $@"{{ ""COMMAND"": {{ ""DESTINY"": {idCofre}, ""CMD"": ""UPDATE-FIRMWARE"": {{ ""FILE"": ""safe_fw_v2.3.0.srec"", ""VERSION"": ""v2.3.0"", ""HASH"": ""1ed0c85d5f78fe9950cdffa9947df80ea2b7f4b638b4370e320f70e820984554"" }} }} }}";
-            var ackPayload = $@"{{ ""COMMAND"": {{ ""DESTINY"": {idCofre}, ""CMD"": {{ ""UPDATE-FIRMWARE"": {{ ""FILE"": ""{ASPxTextBoxFilename.Value}"", ""VERSION"": ""{ASPxTextBoxVersion.Value}"", ""HASH"": ""{ASPxTextBoxHash.Value}"" }} }} }} }}";
+            //var ackPayload = $@"{{ ""COMMAND"": {{ ""DESTINY"": {idCofre}, ""CMD"": {{ ""UPDATE-FIRMWARE"": {{ ""FILE"": ""{ASPxTextBoxFilename.Value}"", ""VERSION"": ""{ASPxTextBoxVersion.Value}"", ""HASH"": ""{ASPxTextBoxHash.Value}"" }} }} }} }}";
+            var ackPayload = $@"{{ ""COMMAND"": {{ ""DESTINY"": {idCofre}, ""CMD"": {{ ""UPDATE-FIRMWARE"": {{ ""FILE"": ""{ASPxFileName.Value}"", ""VERSION"": """", ""HASH"": """" }} }} }} }}";
             var message = new MqttApplicationMessageBuilder().WithTopic(topic).WithPayload(ackPayload).WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce).WithRetainFlag(false).Build();
 
             if (this.mqttClient.managedMqttClientPublisher != null)
             {
                 Task.Run(async () => await mqttClient.managedMqttClientPublisher.PublishAsync(message));
             }
-            ASPxTextBoxCofreID.Value = "";
-            ASPxTextBoxFilename.Value = "";
-            ASPxTextBoxVersion.Value = "";
-            ASPxTextBoxHash.Value = "";
+            ASPxComboCofreID.Value = "";
+
             //mqttClient.PublisherStop();
         }
+
+        protected void ASPxComboCofreID_DataBinding(object sender, EventArgs e)
+        {
+            var cofreList = db.GetLockCofres.OrderBy(c => c.nome).ToList();
+
+            ASPxComboCofreID.DataSource = cofreList;
+        }
+
+        protected void ASPxUploadControl1_FileUploadComplete(object sender, FileUploadCompleteEventArgs e)
+        {
+            //string filePath = String.Format($"{ConfigurationManager.AppSettings["uploadFirmwarePath"]}/{{0}}", e.UploadedFile.FileName);
+            //e.UploadedFile.SaveAs(Server.MapPath(filePath));
+
+            e.UploadedFile.SaveAs($"{ConfigurationManager.AppSettings["uploadFirmwarePath"]}/{e.UploadedFile.FileName}");
+        }
+
     }
+
 }
