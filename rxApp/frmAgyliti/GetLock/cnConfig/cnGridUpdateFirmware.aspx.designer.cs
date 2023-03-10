@@ -51,6 +51,15 @@ namespace rxApp.frmAgyliti.GetLock.cnConfig
         protected global::DevExpress.Web.ASPxButton ASPxButton1;
 
         /// <summary>
+        /// ASPxDeleteDir control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton ASPxDeleteDir;
+
+        /// <summary>
         /// ASPxUploadControl1 control.
         /// </summary>
         /// <remarks>

@@ -20,24 +20,29 @@
                 <LayoutItemNestedControlCollection>
                     <dx:LayoutItemNestedControlContainer runat="server">
                         <dx:ASPxComboBox runat="server" ID="ASPxFileName" Width="350px"></dx:ASPxComboBox>
-
-
-
                     </dx:LayoutItemNestedControlContainer>
                 </LayoutItemNestedControlCollection>
             </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="1" HorizontalAlign="Left" ShowCaption="False">
+            <dx:LayoutItem ColSpan="1" HorizontalAlign="Right" ShowCaption="False">
                 <LayoutItemNestedControlCollection>
                     <dx:LayoutItemNestedControlContainer runat="server">
                         <dx:ASPxButton runat="server" Text="Atualizar Firmware" BackColor="#2A4E70" CssClass="noImage" ForeColor="White" ID="ASPxButton1" OnClick="ASPxButton1_Click"></dx:ASPxButton>
                     </dx:LayoutItemNestedControlContainer>
                 </LayoutItemNestedControlCollection>
             </dx:LayoutItem>
-            <dx:LayoutItem ColSpan="3" ShowCaption="False" Caption="" ColumnSpan="3" HorizontalAlign="Right">
+            <dx:EmptyLayoutItem ColSpan="1"></dx:EmptyLayoutItem>
+            <dx:LayoutItem ColSpan="1" ShowCaption="False" HorizontalAlign="Center">
+                <LayoutItemNestedControlCollection>
+                    <dx:LayoutItemNestedControlContainer runat="server">
+                        <dx:ASPxButton runat="server" ID="ASPxDeleteDir" Text="Deletar arquivos" OnClick="ASPxDeleteDir_Click"></dx:ASPxButton>
+                    </dx:LayoutItemNestedControlContainer>
+                </LayoutItemNestedControlCollection>
+            </dx:LayoutItem>
+            <dx:LayoutItem ColSpan="1" ShowCaption="False" Caption="" HorizontalAlign="Right">
                 <LayoutItemNestedControlCollection>
                     <dx:LayoutItemNestedControlContainer runat="server">
                         <dx:ASPxUploadControl runat="server" AutoStartUpload="True" ShowProgressPanel="True" ShowUploadButton="True" AddUploadButtonsHorizontalPosition="InputRightSide" Width="280px" ID="ASPxUploadControl1" OnFileUploadComplete="ASPxUploadControl1_FileUploadComplete">
-                            <ValidationSettings AllowedFileExtensions=".srec" MaxFileSize="41943040000"></ValidationSettings>
+                            <ValidationSettings AllowedFileExtensions=".srec" MaxFileSize="409600000"></ValidationSettings>
 
                             <ClientSideEvents FileUploadComplete="function(s, e) {  
                                 window.location.reload();  

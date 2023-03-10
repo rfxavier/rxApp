@@ -118,6 +118,19 @@ namespace rxApp.frmAgyliti.GetLock.cnConfig
             //mqttClient.PublisherStop();
         }
 
+        //
+        protected void ASPxDeleteDir_Click(object sender, EventArgs e)
+        {
+            DirectoryInfo di = new DirectoryInfo(ConfigurationManager.AppSettings["uploadFirmwarePath"]);
+
+            foreach (FileInfo file in di.GetFiles())
+            {
+                file.Delete();
+            }
+
+            ASPxFileName.Items.Clear();
+        }
+
         protected void ASPxComboCofreID_DataBinding(object sender, EventArgs e)
         {
             var cofreList = db.GetLockCofres.OrderBy(c => c.nome).ToList();
@@ -130,7 +143,14 @@ namespace rxApp.frmAgyliti.GetLock.cnConfig
             //string filePath = String.Format($"{ConfigurationManager.AppSettings["uploadFirmwarePath"]}/{{0}}", e.UploadedFile.FileName);
             //e.UploadedFile.SaveAs(Server.MapPath(filePath));
 
-            e.UploadedFile.SaveAs($"{ConfigurationManager.AppSettings["uploadFirmwarePath"]}/{e.UploadedFile.FileName}");
+            var fileName = e.UploadedFile.FileName;
+
+            if (File.Exists($"{ConfigurationManager.AppSettings["uploadFirmwarePath"]}/{fileName}"))
+            {
+                fileName = $"{fileName}_{DateTime.Now.ToString("yyyyMMddHHmmss")}";
+            }
+
+            e.UploadedFile.SaveAs($"{ConfigurationManager.AppSettings["uploadFirmwarePath"]}/{fileName}");
         }
 
     }
