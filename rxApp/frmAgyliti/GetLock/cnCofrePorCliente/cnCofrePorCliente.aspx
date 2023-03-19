@@ -20,7 +20,7 @@
     </style>  
 </asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentPlaceHolderMain" runat="server">
-    <div style="position: absolute; left:290px; right:0; top:70px; bottom:0;">
+    <div style="position: absolute; left:320px; right:0; top:70px; bottom:0;">
         <dx:ASPxDashboard ID="ASPxDashboard1" runat="server" WorkingMode="ViewerOnly" Width="100%" Height="100%" OnDataLoading="ASPxDashboard1_DataLoading" OnConfigureDataReloadingTimeout="ASPxDashboard1_ConfigureDataReloadingTimeout">
 
         </dx:ASPxDashboard>

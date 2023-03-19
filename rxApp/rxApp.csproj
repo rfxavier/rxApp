@@ -295,6 +295,7 @@
     <Content Include="frmAgyliti\GetLock\cnCadastros\cnGridRede.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCofrePorCliente\cnCofrePorCliente.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCofrePorCliente\cnCofreUsuarioDepositosPorCliente.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnCofrePorListaCofres\cnCofrePorListaCofres.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCofre\cnCofre.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCofre\cnCofreNivel.aspx" />
     <Content Include="frmAgyliti\GetLock\cnCofre\cnCofreUsuarioDepositos.aspx" />
@@ -395,6 +396,7 @@
     <Content Include="frmAgyliti\GetLock\cnGridSemLoja\Web.config" />
     <Content Include="frmAgyliti\GetLock\cnRelatorios\Web.config" />
     <Content Include="frmAgyliti\GetLock\cnConfig\Web.config" />
+    <Content Include="frmAgyliti\GetLock\cnCofrePorListaCofres\Web.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <EntityDeploy Include="rxAppModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -758,6 +760,13 @@
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnCofrePorCliente\cnCofreUsuarioDepositosPorCliente.aspx.designer.cs">
       <DependentUpon>cnCofreUsuarioDepositosPorCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCofrePorListaCofres\cnCofrePorListaCofres.aspx.cs">
+      <DependentUpon>cnCofrePorListaCofres.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnCofrePorListaCofres\cnCofrePorListaCofres.aspx.designer.cs">
+      <DependentUpon>cnCofrePorListaCofres.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnCofre\cnCofre.aspx.cs">
       <DependentUpon>cnCofre.aspx</DependentUpon>

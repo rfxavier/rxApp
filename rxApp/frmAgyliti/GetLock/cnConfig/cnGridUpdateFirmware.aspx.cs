@@ -7,10 +7,12 @@ using MQTTnet.Protocol;
 using rxApp.Models;
 using rxApp.mqttClient;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace rxApp.frmAgyliti.GetLock.cnConfig
@@ -33,18 +35,16 @@ namespace rxApp.frmAgyliti.GetLock.cnConfig
 
             var files = Directory.GetFiles(ConfigurationManager.AppSettings["uploadFirmwarePath"]);
 
-            //var files = Directory.GetFiles(Server.MapPath("~\\"));
-            //var files = Directory.GetFiles(Server.MapPath(ConfigurationManager.AppSettings["uploadFirmwarePath"]));
             for (int i = 0; i < files.Length; i++)
             {
                 var item = Path.GetFileName(files[i]);
                 ASPxFileName.Items.Add(item, item);
             }
 
-            ASPxComboCofreID.TextField = "nome";
-            ASPxComboCofreID.ValueField = "id_cofre";
+            //ASPxComboCofreID.TextField = "nome";
+            //ASPxComboCofreID.ValueField = "id_cofre";
 
-            ASPxComboCofreID.DataBind();
+            //ASPxComboCofreID.DataBind();
 
             ASPxGridView1.DataBind();
         }
@@ -98,27 +98,57 @@ namespace rxApp.frmAgyliti.GetLock.cnConfig
 
         protected void ASPxButton1_Click(object sender, EventArgs e)
         {
-            var idCofre = "0";
-            if (ASPxComboCofreID.Value != null)
+            if (ASPxFileName.Value != null)
             {
-                idCofre = ASPxComboCofreID.Value.ToString();
-            }
-            var topic = $"/{idCofre}/COMMAND";
-            //var ackPayload = $@"{{ ""COMMAND"": {{ ""DESTINY"": {idCofre}, ""CMD"": ""UPDATE-FIRMWARE"": {{ ""FILE"": ""safe_fw_v2.3.0.srec"", ""VERSION"": ""v2.3.0"", ""HASH"": ""1ed0c85d5f78fe9950cdffa9947df80ea2b7f4b638b4370e320f70e820984554"" }} }} }}";
-            //var ackPayload = $@"{{ ""COMMAND"": {{ ""DESTINY"": {idCofre}, ""CMD"": {{ ""UPDATE-FIRMWARE"": {{ ""FILE"": ""{ASPxTextBoxFilename.Value}"", ""VERSION"": ""{ASPxTextBoxVersion.Value}"", ""HASH"": ""{ASPxTextBoxHash.Value}"" }} }} }} }}";
-            var ackPayload = $@"{{ ""COMMAND"": {{ ""DESTINY"": {idCofre}, ""CMD"": {{ ""UPDATE-FIRMWARE"": {{ ""FILE"": ""{ASPxFileName.Value}"", ""VERSION"": """", ""HASH"": """" }} }} }} }}";
-            var message = new MqttApplicationMessageBuilder().WithTopic(topic).WithPayload(ackPayload).WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce).WithRetainFlag(false).Build();
+                var version = "";
+                var hash = "";
+                var filenameParse = ASPxFileName.Value.ToString().Split('_');
 
-            if (this.mqttClient.managedMqttClientPublisher != null)
-            {
-                Task.Run(async () => await mqttClient.managedMqttClientPublisher.PublishAsync(message));
-            }
-            ASPxComboCofreID.Value = "";
+                if (filenameParse.Count() > 1)
+                {
+                    var lastItem = filenameParse[filenameParse.Count() - 1];
 
-            //mqttClient.PublisherStop();
+                    if (ASPxFileName.Value.ToString().Substring(Math.Max(0, ASPxFileName.Value.ToString().Length - 5)) == ".srec")
+                    {
+                        version = lastItem.Substring(1, lastItem.Length - 6);
+                        hash = SHA256CheckSum($"{ConfigurationManager.AppSettings["uploadFirmwarePath"]}/{ASPxFileName.Value.ToString()}");
+                    }
+                }
+
+                List<string> selectedCofres = ASPxDropDownEdit1.Text.Split(',').ToList();
+
+                if (selectedCofres.Count > 0 && selectedCofres[0] != "")
+                {
+                    var selectedCofreIds = selectedCofres.Select(x => x.Split('-')[1]);
+
+                    foreach (var selectedCofreId in selectedCofreIds)
+                    {
+                        //var idCofre = "0";
+                        //if (selectedCofreId != null)
+                        //{
+                        //    idCofre = ASPxComboCofreID.Value.ToString();
+                        //}
+                        var topic = $"/{selectedCofreId}/COMMAND";
+                        //var ackPayload = $@"{{ ""COMMAND"": {{ ""DESTINY"": {idCofre}, ""CMD"": ""UPDATE-FIRMWARE"": {{ ""FILE"": ""safe_fw_v2.3.0.srec"", ""VERSION"": ""v2.3.0"", ""HASH"": ""1ed0c85d5f78fe9950cdffa9947df80ea2b7f4b638b4370e320f70e820984554"" }} }} }}";
+
+                        var ackPayload = $@"{{ ""COMMAND"": {{ ""DESTINY"": {selectedCofreId}, ""CMD"": {{ ""UPDATE-FIRMWARE"": {{ ""FILE"": ""{ASPxFileName.Value}"", ""VERSION"": ""{version}"", ""HASH"": ""{hash}"" }} }} }} }}";
+                        var message = new MqttApplicationMessageBuilder().WithTopic(topic).WithPayload(ackPayload).WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce).WithRetainFlag(false).Build();
+
+                        if (this.mqttClient.managedMqttClientPublisher != null)
+                        {
+                            Task.Run(async () => await mqttClient.managedMqttClientPublisher.PublishAsync(message));
+                        }
+                    }
+
+                    ASPxDropDownEdit1.Text = "";
+
+                    //ASPxComboCofreID.Value = "";
+                }
+
+                //mqttClient.PublisherStop();
+            }
         }
 
-        //
         protected void ASPxDeleteDir_Click(object sender, EventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(ConfigurationManager.AppSettings["uploadFirmwarePath"]);
@@ -131,12 +161,12 @@ namespace rxApp.frmAgyliti.GetLock.cnConfig
             ASPxFileName.Items.Clear();
         }
 
-        protected void ASPxComboCofreID_DataBinding(object sender, EventArgs e)
-        {
-            var cofreList = db.GetLockCofres.OrderBy(c => c.nome).ToList();
+        //protected void ASPxComboCofreID_DataBinding(object sender, EventArgs e)
+        //{
+        //    var cofreList = db.GetLockCofres.OrderBy(c => c.nome).ToList();
 
-            ASPxComboCofreID.DataSource = cofreList;
-        }
+        //    ASPxComboCofreID.DataSource = cofreList;
+        //}
 
         protected void ASPxUploadControl1_FileUploadComplete(object sender, FileUploadCompleteEventArgs e)
         {
@@ -149,10 +179,29 @@ namespace rxApp.frmAgyliti.GetLock.cnConfig
             {
                 fileName = $"{fileName}_{DateTime.Now.ToString("yyyyMMddHHmmss")}";
             }
-
+            
             e.UploadedFile.SaveAs($"{ConfigurationManager.AppSettings["uploadFirmwarePath"]}/{fileName}");
         }
 
-    }
+        protected void ASPxListBoxCofre_Init(object sender, EventArgs e)
+        {
+            ASPxListBox lb = sender as ASPxListBox;
 
+            var cofreList = db.GetLockCofres.OrderBy(c => c.nome).ToList();
+
+            foreach (var cofre in cofreList)
+            {
+                lb.Items.Add($"{cofre.nome.Trim()}-{cofre.id_cofre}", cofre.id_cofre);
+            }
+        }
+
+        public string SHA256CheckSum(string filePath)
+        {
+            using (SHA256 SHA256 = SHA256Managed.Create())
+            {
+                using (FileStream fileStream = File.OpenRead(filePath))
+                    return Convert.ToBase64String(SHA256.ComputeHash(fileStream));
+            }
+        }
+    }
 }

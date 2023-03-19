@@ -3,6 +3,36 @@
 <%@ Register Assembly="DevExpress.Web.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
 
 <asp:Content ID="HeaderContent" ContentPlaceHolderID="HeadContentPlaceHolderMain" runat="server">
+    <script type="text/javascript">
+        var textSeparator = ",";
+        function updateText() {
+            var selectedItems = checkListBox.GetSelectedItems();
+            checkComboBox.SetText(getSelectedItemsText(selectedItems));
+        }
+        function synchronizeListBoxValues(dropDown, args) {
+            checkListBox.UnselectAll();
+            var texts = dropDown.GetText().split(textSeparator);
+            var values = getValuesByTexts(texts);
+            checkListBox.SelectValues(values);
+            updateText(); // for remove non-existing texts
+        }
+        function getSelectedItemsText(items) {
+            var texts = [];
+            for (var i = 0; i < items.length; i++)
+                    texts.push(items[i].text);
+            return texts.join(textSeparator);
+        }
+        function getValuesByTexts(texts) {
+            var actualValues = [];
+            var item;
+            for(var i = 0; i < texts.length; i++) {
+                item = checkListBox.FindItemByText(texts[i]);
+                if(item != null)
+                    actualValues.push(item.value);
+            }
+            return actualValues;
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentPlaceHolderMain" runat="server">
     <div><h4>Atualizar Firmware</h4></div>
@@ -11,7 +41,31 @@
             <dx:LayoutItem ColSpan="1" HorizontalAlign="Left" Caption="Cofre">
                 <LayoutItemNestedControlCollection>
                     <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxComboBox ID="ASPxComboCofreID" runat="server" ValueType="System.String" OnDataBinding="ASPxComboCofreID_DataBinding"  Width="300px"></dx:ASPxComboBox>
+                        <%--<dx:ASPxComboBox ID="ASPxComboCofreID" runat="server" ValueType="System.String" OnDataBinding="ASPxComboCofreID_DataBinding"  Width="300px"></dx:ASPxComboBox>--%>
+
+                    <dx:ASPxDropDownEdit ClientInstanceName="checkComboBox" ID="ASPxDropDownEdit1" Width="285px" runat="server" AnimationType="None">
+                        <DropDownWindowStyle CssClass="dropDownWindow" />
+                        <DropDownWindowTemplate>
+                            <dx:ASPxListBox Width="100%" ID="ASPxListBoxCofre" ClientInstanceName="checkListBox" SelectionMode="CheckColumn" CssClass="listBox" runat="server" Height="200" EnableSelectAll="true" OnInit="ASPxListBoxCofre_Init">
+                                <FilteringSettings ShowSearchUI="true"/>
+                                <Border BorderStyle="None" />
+                                <BorderBottom BorderStyle="Solid" BorderWidth="1px" />
+                                <Items>
+                                </Items>
+                                <ClientSideEvents SelectedIndexChanged="updateText" Init="updateText" />
+                            </dx:ASPxListBox>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td style="padding: 4px">
+                                        <dx:ASPxButton ID="ASPxButton1" AutoPostBack="False" runat="server" Text="Close" style="float: right">
+                                            <ClientSideEvents Click="function(s, e){ checkComboBox.HideDropDown(); }" />
+                                        </dx:ASPxButton>
+                                    </td>
+                                </tr>
+                            </table>
+                        </DropDownWindowTemplate>
+                        <ClientSideEvents TextChanged="synchronizeListBoxValues" DropDown="synchronizeListBoxValues" />
+                    </dx:ASPxDropDownEdit>
                     </dx:LayoutItemNestedControlContainer>
                 </LayoutItemNestedControlCollection>
                 <CaptionSettings VerticalAlign="Middle"></CaptionSettings>
@@ -26,7 +80,9 @@
             <dx:LayoutItem ColSpan="1" HorizontalAlign="Right" ShowCaption="False">
                 <LayoutItemNestedControlCollection>
                     <dx:LayoutItemNestedControlContainer runat="server">
-                        <dx:ASPxButton runat="server" Text="Atualizar Firmware" BackColor="#2A4E70" CssClass="noImage" ForeColor="White" ID="ASPxButton1" OnClick="ASPxButton1_Click"></dx:ASPxButton>
+                        <dx:ASPxButton runat="server" Text="Atualizar Firmware" BackColor="#2A4E70" CssClass="noImage" ForeColor="White" ID="ASPxButton1" OnClick="ASPxButton1_Click">
+                            <ClientSideEvents Click="function(s, e){ checkListBox.UnselectAll(); }" />
+                        </dx:ASPxButton>
                     </dx:LayoutItemNestedControlContainer>
                 </LayoutItemNestedControlCollection>
             </dx:LayoutItem>

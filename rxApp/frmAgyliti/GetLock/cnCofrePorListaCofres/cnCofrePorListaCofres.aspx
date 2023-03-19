@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeBehind="cnCofre.aspx.cs" Inherits="rxApp.frmAgyliti.GetLock.cnCofre.cnCofre" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeBehind="cnCofrePorListaCofres.aspx.cs" Inherits="rxApp.frmAgyliti.GetLock.cnCofrePorListaCofres.cnCofrePorListaCofres" %>
 
 <%@ Register Assembly="DevExpress.Dashboard.v21.1.Web.WebForms, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.DashboardWeb" TagPrefix="dx" %>
 

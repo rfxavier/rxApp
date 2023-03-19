@@ -5,16 +5,18 @@ using rxApp.dashClasses;
 using rxApp.dataObjClasses;
 using rxApp.Models;
 using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace rxApp.frmAgyliti.GetLock.cnCofrePorCliente
+namespace rxApp.frmAgyliti.GetLock.cnCofrePorListaCofres
 {
-    public partial class cnCofrePorCliente : System.Web.UI.Page
+    public partial class cnCofrePorListaCofres : System.Web.UI.Page
     {
         private ApplicationUserManager userManager;
 
-        public cnCofrePorCliente()
+        public cnCofrePorListaCofres()
         {
             userManager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
         }
@@ -25,14 +27,16 @@ namespace rxApp.frmAgyliti.GetLock.cnCofrePorCliente
 
         protected void ASPxDashboard1_DataLoading(object sender, DataLoadingWebEventArgs e)
         {
-            if (User.IsInRole("UserClient"))
+            if (User.IsInRole("UserCofre"))
             {
                 var db = new ApplicationDbContext();
 
-                var user = userManager.FindById(User.Identity.GetUserId());
-                var cliente = db.GetLockClientes.FirstOrDefault(l => l.id == user.GetLockLojaId);
+                var userId = Page.User.Identity.GetUserId();
+                var user = userManager.Users.Include(u => u.GetLockCofres).FirstOrDefault(ul => ul.Id == userId);
 
-                if (user.GetLockClienteId != null) e.Data = dsCofre.GetCofreCommStatusPorCliente((long) user.GetLockClienteId);
+                var cofreList = user.GetLockCofres.Select(c => c.id_cofre).ToList();
+
+                e.Data = dsCofre.GetDepositosMessageViewsPorListaCofres((List<string>) cofreList);
             }
         }
 
