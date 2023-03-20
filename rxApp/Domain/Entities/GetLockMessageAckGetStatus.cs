@@ -108,7 +108,7 @@ namespace rxApp.Domain.Entities
         public int BillMachineErrorBit31 { get; set; }
 
         public long LevelSensor { get; set; }
-        public long UptimeSec { get; set; }
+        public long? UptimeSec { get; set; }
         public string Timestamp { get; set; }
         public bool IsAck { get; set; }
         public Nullable<System.DateTime> TimestampDatetime { get; set; }

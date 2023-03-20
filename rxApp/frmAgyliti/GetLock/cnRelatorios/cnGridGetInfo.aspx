@@ -56,7 +56,7 @@
             <dx:GridViewDataTextColumn FieldName="BillMachineType" Caption="Tipo Cofre" VisibleIndex="11"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="BillMachineSN" Caption="SN Validador" VisibleIndex="12"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="IsAck" Caption="É Ack" VisibleIndex="13"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Level" Caption="Level" VisibleIndex="14">
+<%--            <dx:GridViewDataTextColumn FieldName="Level" Caption="Level" VisibleIndex="14" Visible="false">
                 <Settings AllowDragDrop="False" AllowAutoFilterTextInputTimer="False" AllowAutoFilter="False" ShowFilterRowMenu="False" ShowFilterRowMenuLikeItem="False" AllowHeaderFilter="False" ShowInFilterControl="False" AllowSort="False" AllowGroup="False" AllowFilterBySearchPanel="False"></Settings>
                 <DataItemTemplate>
                     <dx:ASPxGaugeControl runat="server" Height="40px" Width="260px" BackColor="White" Value="20" LayoutInterval="6">
@@ -83,7 +83,7 @@
                         <LayoutPadding All="6" Bottom="6" Left="6" Right="6" Top="6" />
                     </dx:ASPxGaugeControl>
                 </DataItemTemplate>
-            </dx:GridViewDataTextColumn>
+            </dx:GridViewDataTextColumn>--%>
         </Columns>
         <Toolbars>
             <dx:GridViewToolbar>
