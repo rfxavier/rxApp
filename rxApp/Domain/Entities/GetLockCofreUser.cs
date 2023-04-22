@@ -10,5 +10,9 @@ namespace rxApp.Domain.Entities
         public string nome { get; set; }
         public Nullable<System.DateTime> trackLastWriteTime { get; set; }
         public Nullable<System.DateTime> trackCreationTime { get; set; }
+        public string sobrenome { get; set; }
+        public string passwd { get; set; }
+        public bool enable { get; set; }
+        public string access_level { get; set; }
     }
 }

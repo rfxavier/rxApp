@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace rxApp.frmAgyliti.GetLock.cnCadastros {
-    
-    
-    public partial class cnGridCofreUser {
-        
+namespace rxApp.frmAgyliti.GetLock.cnCadastros
+{
+
+
+    public partial class cnGridCofreUser
+    {
+
         /// <summary>
         /// ASPxGridView1 control.
         /// </summary>
@@ -20,14 +22,5 @@ namespace rxApp.frmAgyliti.GetLock.cnCadastros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridView ASPxGridView1;
-        
-        /// <summary>
-        /// EntityDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Microsoft.AspNet.EntityDataSource.EntityDataSource EntityDataSource1;
     }
 }

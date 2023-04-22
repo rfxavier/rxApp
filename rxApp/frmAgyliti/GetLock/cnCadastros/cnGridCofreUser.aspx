@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentPlaceHolderMain" runat="server">
     <div><h4>Cadastro Cofre Usuário</h4></div>
-    <dx:ASPxGridView ID="ASPxGridView1" runat="server" DataSourceID="EntityDataSource1" KeyFieldName="id" Width="100%" EnableRowsCache="False" AutoGenerateColumns="False">
+    <dx:ASPxGridView ID="ASPxGridView1" runat="server" KeyFieldName="id" Width="100%" EnableRowsCache="False" AutoGenerateColumns="False" OnDataBinding="ASPxGridView1_DataBinding" OnRowDeleting="ASPxGridView1_RowDeleting" OnRowInserting="ASPxGridView1_RowInserting" OnRowUpdating="ASPxGridView1_RowUpdating" OnRowValidating="ASPxGridView1_RowValidating">
         <SettingsDataSecurity AllowInsert="true" />
         <EditFormLayoutProperties>
             <SettingsAdaptivity AdaptivityMode="SingleColumnWindowLimit" SwitchToSingleColumnAtWindowInnerWidth="700" />
@@ -18,6 +18,10 @@
             <dx:GridViewDataColumn FieldName="id_cofre" Caption="ID Cofre" />
             <dx:GridViewDataColumn FieldName="data_user" Caption="ID Usuário" />
             <dx:GridViewDataColumn FieldName="nome" Caption="Nome" />
+            <dx:GridViewDataColumn FieldName="sobrenome" Caption="Sobrenome" />
+            <dx:GridViewDataColumn FieldName="enable" Caption="Habilitado" />
+            <dx:GridViewDataColumn FieldName="access_level" Caption="Access Level" />
+            <dx:GridViewDataColumn FieldName="passwd" Caption="Senha" />
         </Columns>
         <SettingsBehavior ConfirmDelete="True" />
         <SettingsPopup>
@@ -26,6 +30,4 @@
             </EditForm>
         </SettingsPopup>
     </dx:ASPxGridView>
-
-    <ef:EntityDataSource ID="EntityDataSource1" runat="server" ContextTypeName="rxApp.Models.ApplicationDbContext" EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntitySetName="GetLockCofreUsers"></ef:EntityDataSource>
 </asp:Content>
