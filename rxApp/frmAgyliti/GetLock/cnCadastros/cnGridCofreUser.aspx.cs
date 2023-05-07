@@ -29,6 +29,7 @@ namespace rxApp.frmAgyliti.GetLock.cnCadastros
         protected void Page_Load(object sender, EventArgs e)
         {
             ASPxGridView1.DataBind();
+            ASPxGridView2.DataBind();
         }
 
         protected void ASPxGridView1_DataBinding(object sender, EventArgs e)
@@ -60,7 +61,7 @@ namespace rxApp.frmAgyliti.GetLock.cnCadastros
 
             try
             {
-                db.SaveChanges();
+                //db.SaveChanges();
             }
             catch (DbEntityValidationException f)
             {
@@ -95,7 +96,7 @@ namespace rxApp.frmAgyliti.GetLock.cnCadastros
                     Task.Run(async () => await mqttClient.managedMqttClientPublisher.PublishAsync(message));
                 }
 
-                db.SaveChanges();
+                //db.SaveChanges();
             }
 
             e.Cancel = true;
@@ -119,7 +120,7 @@ namespace rxApp.frmAgyliti.GetLock.cnCadastros
                 Task.Run(async () => await mqttClient.managedMqttClientPublisher.PublishAsync(message));
             }
 
-            db.SaveChanges();
+            //db.SaveChanges();
 
             e.Cancel = true;
             ASPxGridView1.CancelEdit();
@@ -129,6 +130,11 @@ namespace rxApp.frmAgyliti.GetLock.cnCadastros
         {
 
         }
+        protected void ASPxGridView2_DataBinding(object sender, EventArgs e)
+        {
+            ASPxGridView2.DataSource = db.GetLockMessageAckUserAddEditRemoves.ToList();
+        }
+
 
         void AddError(Dictionary<GridViewColumn, string> errors,
              GridViewColumn column, string errorText)

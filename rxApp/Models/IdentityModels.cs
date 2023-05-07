@@ -64,8 +64,7 @@ namespace rxApp.Models
         public DbSet<GetLockMessageAckUserListView> GetLockMessageAckUserListViews { get; set; }
         public DbSet<GetLockMessageAckUpdateFirmware> GetLockMessageAckUpdateFirmwares { get; set; }
         public DbSet<GetLockMessageAckUpdateFirmwareView> GetLockMessageAckUpdateFirmwareViews { get; set; }
-
-
+        public DbSet<GetLockMessageAckUserAddEditRemove> GetLockMessageAckUserAddEditRemoves { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -119,7 +118,8 @@ namespace rxApp.Models
             modelBuilder.Configurations.Add(new GetLockMessageAckUserListViewConfig());
             modelBuilder.Configurations.Add(new GetLockMessageAckUpdateFirmwareConfig());
             modelBuilder.Configurations.Add(new GetLockMessageAckUpdateFirmwareViewConfig());
-            
+            modelBuilder.Configurations.Add(new GetLockMessageAckUserAddEditRemoveConfig());
+
             base.OnModelCreating(modelBuilder);
         }
 

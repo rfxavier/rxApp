@@ -678,6 +678,8 @@
     <Compile Include="Domain\Entities\GetLockMessageAckUpdateFirmwareConfig.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckUpdateFirmwareView.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckUpdateFirmwareViewConfig.cs" />
+    <Compile Include="Domain\Entities\GetLockMessageAckUserAddEditRemove.cs" />
+    <Compile Include="Domain\Entities\GetLockMessageAckUserAddEditRemoveConfig.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckUserListViewConfig.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckUserListView.cs" />
     <Compile Include="Domain\Entities\GetLockMessageAckUserList.cs" />
@@ -1094,6 +1096,10 @@
     <Compile Include="Migrations\202304221310440_v025.Designer.cs">
       <DependentUpon>202304221310440_v025.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304301317557_v026.cs" />
+    <Compile Include="Migrations\202304301317557_v026.Designer.cs">
+      <DependentUpon>202304301317557_v026.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1266,6 +1272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304221310440_v025.resx">
       <DependentUpon>202304221310440_v025.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304301317557_v026.resx">
+      <DependentUpon>202304301317557_v026.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
