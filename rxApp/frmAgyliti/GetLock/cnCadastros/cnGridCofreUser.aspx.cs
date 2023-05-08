@@ -28,6 +28,7 @@ namespace rxApp.frmAgyliti.GetLock.cnCadastros
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            Access_Level.DataBind();
             ASPxGridView1.DataBind();
             ASPxGridView2.DataBind();
         }
@@ -141,6 +142,86 @@ namespace rxApp.frmAgyliti.GetLock.cnCadastros
         {
             if (errors.ContainsKey(column)) return;
             errors[column] = errorText;
+        }
+
+        protected void ASPxListBoxCofre_Init(object sender, EventArgs e)
+        {
+            ASPxListBox lb = sender as ASPxListBox;
+
+            var cofreList = db.GetLockCofres.OrderBy(c => c.nome).ToList();
+
+            foreach (var cofre in cofreList)
+            {
+                lb.Items.Add($"{cofre.nome.Trim()}-{cofre.id_cofre}", cofre.id_cofre);
+            }
+        }
+
+        protected void ASPxButton1_Click(object sender, EventArgs e)
+        {
+            List<string> selectedCofres = ASPxDropDownEdit1.Text.Split(',').ToList();
+
+            if (selectedCofres.Count > 0 && selectedCofres[0] != "")
+            {
+                var selectedCofreIds = selectedCofres.Select(x => x.Split('-')[1]);
+
+                foreach (var selectedCofreId in selectedCofreIds)
+                {
+                    var newCofreUser = new GetLockCofreUser();
+                    newCofreUser.id_cofre = selectedCofreId;
+                    newCofreUser.nome = Nome.Text;
+                    newCofreUser.data_user = ID_Usuario.Text;
+                    newCofreUser.sobrenome = Sobrenome.Text;
+                    newCofreUser.enable = Convert.ToBoolean(Habilitado.Value);
+                    newCofreUser.access_level = Access_Level.Text;
+                    newCofreUser.passwd = Senha.Text;
+
+                    db.GetLockCofreUsers.Add(newCofreUser);
+
+                    var topic = $"/{newCofreUser.id_cofre}/COMMAND";
+                    var ackPayload = $@"{{ ""COMMAND"": {{ ""DESTINY"": {newCofreUser.id_cofre}, ""CMD"": {{ ""USER-ADD"": {{ ""ID"": {newCofreUser.data_user}, ""ACCESSLEVEL"": ""{newCofreUser.access_level}"", ""NAME"": ""{newCofreUser.nome}"", ""LASTNAME"": ""{newCofreUser.sobrenome}"", ""PASSWD"": {newCofreUser.passwd} }} }} }} }}";
+                    var message = new MqttApplicationMessageBuilder().WithTopic(topic).WithPayload(ackPayload).WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce).WithRetainFlag(false).Build();
+
+                    if (this.mqttClient.managedMqttClientPublisher != null)
+                    {
+                        Task.Run(async () => await mqttClient.managedMqttClientPublisher.PublishAsync(message));
+                    }
+
+                    try
+                    {
+                        //db.SaveChanges();
+                    }
+                    catch (DbEntityValidationException f)
+                    {
+
+                        throw;
+                    }
+
+                }
+
+                ASPxDropDownEdit1.Text = "";
+
+                //ASPxComboCofreID.Value = "";
+            }
+
+            //mqttClient.PublisherStop();
+        }
+
+        protected void Access_Level_DataBinding(object sender, EventArgs e)
+        {
+            var dsCombo = new[]
+            {
+                new { txt_access_level = "Basic", access_level = "Basic" },
+                new { txt_access_level = "SubManager", access_level = "SubManager" },
+                new { txt_access_level = "Manager", access_level = "Manager" },
+                new { txt_access_level = "Admin", access_level = "Admin" },
+                new { txt_access_level = "Engineer", access_level = "Engineer" }
+            }.ToList();
+
+            Access_Level.DataSource = dsCombo;
+            Access_Level.TextField = "access_level";
+            Access_Level.ValueField = "txt_access_level";
+            Access_Level.ValueType = typeof(string);
+
         }
     }
 }
