@@ -29,6 +29,24 @@ namespace rxApp.frmAgyliti.GetLock.cnCadastros
         protected void Page_Load(object sender, EventArgs e)
         {
             Access_Level.DataBind();
+
+            var comboColumn = ((GridViewDataComboBoxColumn)ASPxGridView1.Columns["access_level"]);
+
+            var dsCombo = new[]
+            {
+                new { txt_access_level = "Basic", access_level = "Basic" },
+                new { txt_access_level = "SubManager", access_level = "SubManager" },
+                new { txt_access_level = "Manager", access_level = "Manager" },
+                new { txt_access_level = "Admin", access_level = "Admin" },
+                new { txt_access_level = "Engineer", access_level = "Engineer" }
+            }.ToList();
+
+            comboColumn.PropertiesComboBox.DataSource = dsCombo;
+            comboColumn.PropertiesComboBox.TextField = "access_level";
+            comboColumn.PropertiesComboBox.ValueField = "txt_access_level";
+            comboColumn.PropertiesComboBox.ValueType = typeof(string);
+
+
             ASPxGridView1.DataBind();
             ASPxGridView2.DataBind();
         }
