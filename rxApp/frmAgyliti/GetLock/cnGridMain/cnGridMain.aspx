@@ -106,6 +106,9 @@
                     <dx:GridViewDataTextColumn FieldName="data_currency_bill" Caption="Quantidade de C&#233;dulas" VisibleIndex="67"></dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="data_currency_bill_total" Caption="Valor total de C&#233;dulas" VisibleIndex="68"></dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="data_sensor" Caption="Sensor" VisibleIndex="69"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="balance" Caption="Saldo Cofre" VisibleIndex="70"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="limit_deposit_enabled" Caption="Limite Depósito Habilitado" VisibleIndex="71"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="limit_deposit_value" Caption="Valor Limite Depósito" VisibleIndex="72"></dx:GridViewDataTextColumn>
                 </Columns>
                 <Toolbars>
                     <dx:GridViewToolbar>
