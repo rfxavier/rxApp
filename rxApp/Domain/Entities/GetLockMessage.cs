@@ -42,5 +42,6 @@ namespace rxApp.Domain.Entities
         public Nullable<decimal> balance { get; set; }
         public bool limit_deposit_enabled { get; set; }
         public Nullable<decimal> limit_deposit_value { get; set; }
+        public string balance_id { get; set; }
     }
 }
