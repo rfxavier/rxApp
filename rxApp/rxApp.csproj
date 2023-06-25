@@ -1112,6 +1112,10 @@
     <Compile Include="Migrations\202306241651231_v029.Designer.cs">
       <DependentUpon>202306241651231_v029.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202306241704568_v030.cs" />
+    <Compile Include="Migrations\202306241704568_v030.Designer.cs">
+      <DependentUpon>202306241704568_v030.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1296,6 +1300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202306241651231_v029.resx">
       <DependentUpon>202306241651231_v029.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306241704568_v030.resx">
+      <DependentUpon>202306241704568_v030.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

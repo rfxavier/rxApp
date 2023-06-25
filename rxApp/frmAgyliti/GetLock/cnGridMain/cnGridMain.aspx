@@ -109,6 +109,7 @@
                     <dx:GridViewDataTextColumn FieldName="balance" Caption="Saldo Cofre" VisibleIndex="70"></dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="limit_deposit_enabled" Caption="Limite Depósito Habilitado" VisibleIndex="71"></dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="limit_deposit_value" Caption="Valor Limite Depósito" VisibleIndex="72"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="balance_id" Caption="ID Saldo Cofre" VisibleIndex="73"></dx:GridViewDataTextColumn>
                 </Columns>
                 <Toolbars>
                     <dx:GridViewToolbar>
