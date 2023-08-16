@@ -15,6 +15,7 @@
       <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridColetas.aspx" title="Coletas" description="Coletas" roles="AdmMaster,AdmPortal,User,UserClient,UserCofre" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridCortes.aspx" title="Corte do dia" description="Corte do dia" roles="AdmMaster,AdmPortal,User,UserClient,UserCofre" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridOperacoes.aspx" title="Operações" description="Operações" roles="AdmMaster,AdmPortal,User,UserClient,UserCofre" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnMovimentos/cnGridSaldoCofre.aspx" title="Saldo do Cofre" description="Saldo do Cofre" roles="AdmMaster,AdmPortal,User,UserClient,UserCofre" />
     </siteMapNode>
     <siteMapNode url="" title="Cadastros" description="Cadastros" roles="AdmMaster,AdmPortal,UserClient">
       <siteMapNode url="~/frmAgyliti/GetLock/cnCadastros/cnGridRede.aspx" title="Rede" description="Cadastro Rede" roles="AdmMaster,AdmPortal" />

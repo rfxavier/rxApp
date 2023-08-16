@@ -39,10 +39,10 @@
                 <PropertiesTextEdit DisplayFormatString="#,#0" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="TotalValueManual" UnboundType="Decimal" Caption="Total Valor Manual" VisibleIndex="62">
-                <PropertiesTextEdit DisplayFormatString="#,#0" />
+                <PropertiesTextEdit DisplayFormatString="#,#0.00" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="TotalValue" UnboundType="Decimal" Caption="Total Valor" VisibleIndex="62">
-                <PropertiesTextEdit DisplayFormatString="#,#0" />
+                <PropertiesTextEdit DisplayFormatString="#,#0.00" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="data_currency_bill_2" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 2" VisibleIndex="63"></dx:GridViewDataTextColumn>
             <dx:GridViewDataTextColumn FieldName="data_currency_bill_5" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 5" VisibleIndex="64"></dx:GridViewDataTextColumn>

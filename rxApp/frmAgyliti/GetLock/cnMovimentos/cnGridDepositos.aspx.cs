@@ -186,7 +186,7 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
             decimal b100 = Convert.ToInt64(e.GetListSourceFieldValue("data_currency_bill_100"));
             decimal b200 = Convert.ToInt64(e.GetListSourceFieldValue("data_currency_bill_200"));
             string bdata_type = e.GetListSourceFieldValue("data_type").ToString();
-            decimal btotal = Convert.ToInt64(e.GetListSourceFieldValue("data_currency_total"));
+            decimal btotal = Convert.ToDecimal(e.GetListSourceFieldValue("data_currency_total"));
 
             if (e.Column.FieldName == "TotalCount")
             {
