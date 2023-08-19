@@ -37,18 +37,26 @@
             <dx:GridViewDataTextColumn FieldName="TotalValue" UnboundType="Decimal" Caption="Total Valor" VisibleIndex="61">
                 <PropertiesTextEdit DisplayFormatString="#,#0.00" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="data_currency_bill_2" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 2" VisibleIndex="62"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="data_currency_bill_5" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 5" VisibleIndex="63"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="data_currency_bill_10" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 10" VisibleIndex="64"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="data_currency_bill_20" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 20" VisibleIndex="65"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="data_currency_bill_50" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 50" VisibleIndex="66"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="data_currency_bill_100" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 100" VisibleIndex="67"></dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="data_currency_bill_200" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 200" VisibleIndex="68"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="TotalEnv" UnboundType="Decimal" Caption="Total Manual" VisibleIndex="62">
+                <PropertiesTextEdit DisplayFormatString="#,#0.00" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="TotalTBill" UnboundType="Decimal" Caption="Total Automático" VisibleIndex="63">
+                <PropertiesTextEdit DisplayFormatString="#,#0.00" />
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_2" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 2" VisibleIndex="64"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_5" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 5" VisibleIndex="65"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_10" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 10" VisibleIndex="66"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_20" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 20" VisibleIndex="67"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_50" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 50" VisibleIndex="68"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_100" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 100" VisibleIndex="69"></dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="data_currency_bill_200" ShowInCustomizationForm="True" Caption="C&#233;dula R$ 200" VisibleIndex="70"></dx:GridViewDataTextColumn>
         </Columns>
         <Settings ShowFooter="true" />
         <TotalSummary>
             <dx:ASPxSummaryItem FieldName="TotalCount" SummaryType="Sum" DisplayFormat="{0:n0}" />
             <dx:ASPxSummaryItem FieldName="TotalValue" SummaryType="Sum" DisplayFormat="{0:c}" />
+            <dx:ASPxSummaryItem FieldName="TotalEnv" SummaryType="Sum" DisplayFormat="{0:c}" />
+            <dx:ASPxSummaryItem FieldName="TotalTBill" SummaryType="Sum" DisplayFormat="{0:c}" />
         </TotalSummary>
         <Styles>
             <Header Wrap="True">

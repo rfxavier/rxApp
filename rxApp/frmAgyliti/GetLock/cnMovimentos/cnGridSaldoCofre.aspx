@@ -34,7 +34,9 @@
                     <dx:GridViewDataTextColumn FieldName="id_cofre" Caption="ID Cofre" VisibleIndex="2"></dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="cofre_nome" Caption="Nome Cofre" VisibleIndex="3"></dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="info_id" Caption="ID &#218;nico Cofre" VisibleIndex="4"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="balance" Caption="Saldo Cofre" VisibleIndex="5"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="balance" Caption="Saldo Cofre" VisibleIndex="5">
+                        <PropertiesTextEdit DisplayFormatString="#,#0" />
+                    </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn FieldName="balance_id" Caption="ID Saldo Cofre" VisibleIndex="6"></dx:GridViewDataTextColumn>
                 </Columns>
                 <Toolbars>

@@ -201,6 +201,16 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
                 //e.Value = btotal;
                 //e.Value = b2 * 2 + b5 * 5 + b10 * 10 + b20 * 20 + b50 * 50 + b100 * 100 + b200 * 200;
             }
+
+            if (e.Column.FieldName == "TotalEnv")
+            {
+                e.Value = benv;
+            }
+
+            if (e.Column.FieldName == "TotalTBill")
+            {
+                e.Value = btbill;
+            }
         }
 
         protected void ASPxGridView2_BeforePerformDataSelect(object sender, EventArgs e)
