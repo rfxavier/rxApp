@@ -36,23 +36,23 @@
       <siteMapNode url="~/frmAgyliti/GetLock/cnCofre/cnCofre.aspx" title="Cofres sem comunicação" description="Cofres sem comunicação" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnCofre/cnCofreUsuarioDepositos.aspx" title="Cofres x Depositantes" description="Cofres x Depositantes" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnCofrePorCliente/cnCofrePorCliente.aspx" title="Cofres sem comunicação" description="Cofres sem comunicação" roles="AdmMaster,UserClient" />
-      <siteMapNode url="~/frmAgyliti/GetLock/cnCofrePorCliente/cnCofreUsuarioDepositosPorCliente.aspx" title="Cofres x Depositantes" description="Cofres" roles="AdmMaster,UserClient" />
+      <!--<siteMapNode url="~/frmAgyliti/GetLock/cnCofrePorCliente/cnCofreUsuarioDepositosPorCliente.aspx" title="Cofres x Depositantes" description="Cofres" roles="AdmMaster,UserClient" />-->
       <siteMapNode url="~/frmAgyliti/GetLock/cnCofrePorListaCofres/cnCofrePorListaCofres.aspx" title="Cofres sem comunicação" description="Cofres sem comunicação" roles="AdmMaster,UserCofre" />
-      <siteMapNode url="~/frmAgyliti/GetLock/cnCofre/cnCofreNivel.aspx" title="Cofres Níveis" description="Cofre Níveis" roles="AdmMaster,AdmPortal" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnCofre/cnCofreNivel.aspx" title="Nível do Malote Cofre" description="Nível do Malote Cofre" roles="AdmMaster,AdmPortal" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridGetStatus.aspx" title="Status de Dispositivos" description="Status de Dispositivos" roles="AdmMaster,AdmPortal" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridGetInfo.aspx" title="Info Cofres" description="Info Cofres" roles="AdmMaster,AdmPortal" />
     </siteMapNode>
     <siteMapNode url="" title="Relatórios" description="Relatórios" roles="AdmMaster,AdmPortal">
       <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridCofreCadastro.aspx" title="Cofres" description="Cofres" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridDepositosAuditoria.aspx" title="Auditoria Depósitos" description="Auditoria Depósitos" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridDepositosUsuario.aspx" title="Depósitos por Usuário" description="Depósitos por Usuário" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridApiLog.aspx" title="Log Api" description="Log Api" roles="AdmMaster,AdmPortal" />
-      <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridGetStatus.aspx" title="Status de Dispositivos" description="Status de Dispositivos" roles="AdmMaster,AdmPortal" />
-      <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridDevLock.aspx" title="Lock Cofres" description="LOck Cofres" roles="AdmMaster,AdmPortal" />
-      <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridGetInfo.aspx" title="Info Cofres" description="Info Cofres" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridGetUserList.aspx" title="Lista Usuários" description="Lista Usuários" roles="AdmMaster,AdmPortal" />
     </siteMapNode>
     <siteMapNode url="" title="Configurações" description="Configurações" roles="AdmMaster,AdmPortal">
       <siteMapNode url="~/frmAgyliti/GetLock/cnConfig/cnGridGetStatusBitProfile.aspx" title="Bits Get Status" description="Bits Get Status" roles="AdmMaster,AdmPortal" />
       <siteMapNode url="~/frmAgyliti/GetLock/cnConfig/cnGridUpdateFirmware.aspx" title="Atualizar Firmware" description="Atualizar Firmware" roles="AdmMaster,AdmPortal" />
+      <siteMapNode url="~/frmAgyliti/GetLock/cnRelatorios/cnGridDevLock.aspx" title="Lock Cofres" description="Lock Cofres" roles="AdmMaster,AdmPortal" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>
