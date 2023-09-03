@@ -7,6 +7,7 @@ using MQTTnet.Protocol;
 using rxApp.Models;
 using rxApp.mqttClient;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,10 +18,14 @@ namespace rxApp.frmAgyliti.GetLock.cnRelatorios
     {
         private MqttClientHandler mqttClient;
 
+        private ApplicationDbContext db;
+
         public cnGridGetInfo()
         {
             this.mqttClient = new MqttClientHandler();
             mqttClient.PublisherStart();
+
+            db = new ApplicationDbContext();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -75,18 +80,50 @@ namespace rxApp.frmAgyliti.GetLock.cnRelatorios
         }
         protected void ASPxButton1_Click(object sender, EventArgs e)
         {
-            var idCofre = "0";
-            if (ASPxTextBox1.Value != null)
-            {
-                idCofre = ASPxTextBox1.Value.ToString();
-            }
-            var topic = $"/{idCofre}/COMMAND";
-            var ackPayload = $@"{{ ""COMMAND"": {{ ""DESTINY"": {idCofre}, ""CMD"": ""GET-INFO"" }} }}";
-            var message = new MqttApplicationMessageBuilder().WithTopic(topic).WithPayload(ackPayload).WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce).WithRetainFlag(false).Build();
+            //var idCofre = "0";
+            //if (ASPxTextBox1.Value != null)
+            //{
+            //    idCofre = ASPxTextBox1.Value.ToString();
+            //}
 
-            if (this.mqttClient.managedMqttClientPublisher != null)
+            List<string> selectedCofres = ASPxDropDownEdit1.Text.Split(',').ToList();
+
+            if (selectedCofres.Count > 0 && selectedCofres[0] != "")
             {
-                Task.Run(async () => await mqttClient.managedMqttClientPublisher.PublishAsync(message));
+                var selectedCofreIds = selectedCofres.Select(x => x.Split('-')[1]);
+
+                foreach (var selectedCofreId in selectedCofreIds)
+                {
+                    //var idCofre = "0";
+                    //if (selectedCofreId != null)
+                    //{
+                    //    idCofre = ASPxComboCofreID.Value.ToString();
+                    //}
+                    var topic = $"/{selectedCofreId}/COMMAND";
+                    var ackPayload = $@"{{ ""COMMAND"": {{ ""DESTINY"": {selectedCofreId}, ""CMD"": ""GET-INFO"" }} }}";
+                    var message = new MqttApplicationMessageBuilder().WithTopic(topic).WithPayload(ackPayload).WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce).WithRetainFlag(false).Build();
+
+                    if (this.mqttClient.managedMqttClientPublisher != null)
+                    {
+                        Task.Run(async () => await mqttClient.managedMqttClientPublisher.PublishAsync(message));
+                    }
+                }
+
+                ASPxDropDownEdit1.Text = "";
+
+                //ASPxComboCofreID.Value = "";
+            }
+        }
+
+        protected void ASPxListBoxCofre_Init(object sender, EventArgs e)
+        {
+            ASPxListBox lb = sender as ASPxListBox;
+
+            var cofreList = db.GetLockCofres.OrderBy(c => c.nome).ToList();
+
+            foreach (var cofre in cofreList)
+            {
+                lb.Items.Add($"{cofre.nome.Trim()}-{cofre.id_cofre}", cofre.id_cofre);
             }
         }
 

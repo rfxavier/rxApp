@@ -32,5 +32,6 @@
                 <SettingsAdaptivity Mode="OnWindowInnerWidth" SwitchAtWindowInnerWidth="768" />
             </EditForm>
         </SettingsPopup>
+        <SettingsSearchPanel Visible="true"  />
     </dx:ASPxGridView>
 </asp:Content>

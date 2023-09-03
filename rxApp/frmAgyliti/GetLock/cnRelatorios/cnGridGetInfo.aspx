@@ -10,11 +10,65 @@
 <%@ Register TagPrefix="dx" Namespace="DevExpress.Web.ASPxGauges.Gauges.State" Assembly="DevExpress.Web.ASPxGauges.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
 <%@ Register TagPrefix="dx" Namespace="DevExpress.Web.ASPxGauges.Gauges.Digital" Assembly="DevExpress.Web.ASPxGauges.v21.1, Version=21.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
 <asp:Content ID="HeaderContent" ContentPlaceHolderID="HeadContentPlaceHolderMain" runat="server">
+    <script type="text/javascript">
+        var textSeparator = ",";
+        function updateText() {
+            var selectedItems = checkListBox.GetSelectedItems();
+            checkComboBox.SetText(getSelectedItemsText(selectedItems));
+        }
+        function synchronizeListBoxValues(dropDown, args) {
+            checkListBox.UnselectAll();
+            var texts = dropDown.GetText().split(textSeparator);
+            var values = getValuesByTexts(texts);
+            checkListBox.SelectValues(values);
+            updateText(); // for remove non-existing texts
+        }
+        function getSelectedItemsText(items) {
+            var texts = [];
+            for (var i = 0; i < items.length; i++)
+                    texts.push(items[i].text);
+            return texts.join(textSeparator);
+        }
+        function getValuesByTexts(texts) {
+            var actualValues = [];
+            var item;
+            for(var i = 0; i < texts.length; i++) {
+                item = checkListBox.FindItemByText(texts[i]);
+                if(item != null)
+                    actualValues.push(item.value);
+            }
+            return actualValues;
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="MainContent" ContentPlaceHolderID="MainContentPlaceHolderMain" runat="server">
     <div><h4>Informações Cofre</h4></div>
     <div style="display: flex">
-        <dx:ASPxTextBox ID="ASPxTextBox1" runat="server" Width="170px" NullText="Cofre ID"></dx:ASPxTextBox>
+        <dx:ASPxDropDownEdit ClientInstanceName="checkComboBox" ID="ASPxDropDownEdit1" Width="285px" runat="server" AnimationType="None">
+            <DropDownWindowStyle CssClass="dropDownWindow" />
+            <DropDownWindowTemplate>
+                <dx:ASPxListBox Width="100%" ID="ASPxListBoxCofre" ClientInstanceName="checkListBox" SelectionMode="CheckColumn" CssClass="listBox" runat="server" Height="200" EnableSelectAll="true" OnInit="ASPxListBoxCofre_Init">
+                    <FilteringSettings ShowSearchUI="true"/>
+                    <Border BorderStyle="None" />
+                    <BorderBottom BorderStyle="Solid" BorderWidth="1px" />
+                    <Items>
+                    </Items>
+                    <ClientSideEvents SelectedIndexChanged="updateText" Init="updateText" />
+                </dx:ASPxListBox>
+                <table style="width: 100%">
+                    <tr>
+                        <td style="padding: 4px">
+                            <dx:ASPxButton ID="ASPxButton1" AutoPostBack="False" runat="server" Text="Close" style="float: right">
+                                <ClientSideEvents Click="function(s, e){ checkComboBox.HideDropDown(); }" />
+                            </dx:ASPxButton>
+                        </td>
+                    </tr>
+                </table>
+            </DropDownWindowTemplate>
+            <ClientSideEvents TextChanged="synchronizeListBoxValues" DropDown="synchronizeListBoxValues" />
+        </dx:ASPxDropDownEdit>
+
+        <%--<dx:ASPxTextBox ID="ASPxTextBox1" runat="server" Width="170px" NullText="Cofre ID"></dx:ASPxTextBox>--%>
         <dx:ASPxButton ID="ASPxButton1" runat="server" Text="Solicitar informações" OnClick="ASPxButton1_Click" BackColor="#2A4E70" CssClass="noImage" ForeColor="White"></dx:ASPxButton>
     </div>
 
