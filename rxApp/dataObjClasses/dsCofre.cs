@@ -334,5 +334,41 @@ namespace rxApp.dataObjClasses
                 return cofreList;
             }
         }
+
+        public static List<CofreNivel> GetCofreNivelPorCliente(long clienteId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var parCodCliente = ctx.GetLockClientes.FirstOrDefault(c => c.id == clienteId).cod_cliente;
+
+                var parSelectedLojas = ctx.GetLockLojas.Where(l => l.cod_cliente == parCodCliente).Select(l => l.id).ToList();
+
+                var parSelectedLojasList = string.Join(",", parSelectedLojas);
+
+                var cofreList = ctx.Database.SqlQuery<CofreNivel>(
+                    $"select distinct mv.id_cofre, mv.cofre_nome, COALESCE(mv.data_sensor, 0) data_sensor, mv.id_loja, TRIM(mv.cod_loja) cod_loja, TRIM(mv.nome_loja) nome_loja, mv.id_cliente, TRIM(mv.cod_cliente) cod_cliente, TRIM(mv.nome_cliente) nome_cliente, mv.id_rede, TRIM(mv.cod_rede) cod_rede, TRIM(mv.nome_rede) nome_rede, mv.data_tmst_end_datetime FROM message_view mv where mv.id_cofre <> '0' and mv.cod_loja is not null and id_loja <> 0 and id_loja in ({parSelectedLojasList}) and mv.data_tmst_end_datetime = (select max(m.data_tmst_end_datetime) from message m where m.info_id = mv.info_id)").ToList();
+
+                var lojasCofreList = cofreList.GroupBy(cl => new { cl.cod_loja, cl.nome_loja, cl.cod_cliente, cl.nome_cliente, cl.cod_rede, cl.nome_rede }, (key, group) => new { CodLoja = key.cod_loja, NomeLoja = key.nome_loja, CodCliente = key.cod_cliente, NomeCliente = key.nome_cliente, CodRede = key.cod_rede, NomeRede = key.nome_rede, Result = group.ToList() });
+
+                foreach (var lojaCofre in lojasCofreList)
+                {
+                    var dummyCofre = new CofreNivel
+                    {
+                        id_cofre = $"------{lojaCofre.CodLoja.PadLeft(4, '0')}{lojaCofre.NomeLoja}{lojaCofre.CodCliente.PadLeft(4, '0')}{lojaCofre.NomeCliente}{lojaCofre.CodRede.PadLeft(4, '0')}{lojaCofre.NomeRede}",
+                        data_sensor = 100,
+                        cod_loja = lojaCofre.CodLoja,
+                        nome_loja = lojaCofre.NomeLoja,
+                        cod_cliente = lojaCofre.CodCliente,
+                        nome_cliente = lojaCofre.NomeCliente,
+                        cod_rede = lojaCofre.CodRede,
+                        nome_rede = lojaCofre.NomeRede
+                    };
+
+                    cofreList.Add(dummyCofre);
+                }
+
+                return cofreList;
+            }
+        }
     }
 }
