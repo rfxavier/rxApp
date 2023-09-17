@@ -106,13 +106,6 @@
                 <LayoutItemNestedControlCollection>
                     <dx:LayoutItemNestedControlContainer runat="server">
                         <dx:ASPxComboBox ID="Access_Level" runat="server" ValueType="System.String" ValueField="ID" TextFormatString="{0}" DropDownStyle="DropDown" OnDataBinding="Access_Level_DataBinding">
-<%--                            <Columns>
-                                <dx:ListBoxColumn FieldName="Basic" />
-                                <dx:ListBoxColumn FieldName="SubManager" />
-                                <dx:ListBoxColumn FieldName="Manager" />
-                                <dx:ListBoxColumn FieldName="Admin" />
-                                <dx:ListBoxColumn FieldName="Engineer" />
-                            </Columns>--%>
                         </dx:ASPxComboBox>
                     </dx:LayoutItemNestedControlContainer>
                 </LayoutItemNestedControlCollection>
@@ -160,6 +153,9 @@
                 <SettingsAdaptivity Mode="OnWindowInnerWidth" SwitchAtWindowInnerWidth="768" />
             </EditForm>
         </SettingsPopup>
+        <Styles>
+            <Cell Wrap="False"></Cell>
+        </Styles>
     </dx:ASPxGridView>
 
     <div><h4>Operações Usuário</h4></div>
@@ -180,6 +176,9 @@
             <dx:GridViewDataColumn FieldName="UserId" Caption="User ID" />
             <dx:GridViewDataColumn FieldName="Response" Caption="Resp" />
         </Columns>
+        <Styles>
+            <Cell Wrap="False"></Cell>
+        </Styles>
     </dx:ASPxGridView>
 
 </asp:Content>

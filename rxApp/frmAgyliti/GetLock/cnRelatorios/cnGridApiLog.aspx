@@ -66,6 +66,7 @@
                 <Styles>
                     <AlternatingRow Enabled="True" BackColor="#D6EBFF">
                     </AlternatingRow>
+                    <Cell Wrap="False"></Cell>
                 </Styles>
             </dx:ASPxGridView>
 </asp:Content>

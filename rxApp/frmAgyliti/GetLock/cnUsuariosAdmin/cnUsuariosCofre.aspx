@@ -37,6 +37,9 @@
             </dx:GridViewDataHyperLinkColumn>
         </Columns>
         <SettingsBehavior ConfirmDelete="True" />
+        <Styles>
+            <Cell Wrap="False"></Cell>
+        </Styles>
     </dx:ASPxGridView>
     <dx:ASPxPopupControl ID="ASPxPopupControl1" runat="server" HeaderText="Editar senha" Width="307px" ClientInstanceName="popup">
         <ContentCollection>

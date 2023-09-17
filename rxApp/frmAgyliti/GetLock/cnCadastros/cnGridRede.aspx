@@ -24,6 +24,9 @@
                 <SettingsAdaptivity Mode="OnWindowInnerWidth" SwitchAtWindowInnerWidth="768" />
             </EditForm>
         </SettingsPopup>
+        <Styles>
+            <Cell Wrap="False"></Cell>
+        </Styles>
     </dx:ASPxGridView>
     <ef:EntityDataSource ID="EntityDataSource1" runat="server" ContextTypeName="rxApp.Models.ApplicationDbContext" EnableDelete="True" EnableInsert="True" EnableUpdate="True" EntitySetName="GetLockRedes"></ef:EntityDataSource>
 </asp:Content>

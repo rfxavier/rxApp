@@ -57,6 +57,7 @@
             </AlternatingRow>
             <TitlePanel Font-Size="Medium">
             </TitlePanel>
+            <Cell Wrap="False"></Cell>
         </Styles>
         <Templates>
             <DetailRow>

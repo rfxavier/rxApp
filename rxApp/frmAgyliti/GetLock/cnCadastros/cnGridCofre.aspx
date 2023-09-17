@@ -33,5 +33,8 @@
             </EditForm>
         </SettingsPopup>
         <SettingsSearchPanel Visible="true"  />
+        <Styles>
+            <Cell Wrap="False"></Cell>
+        </Styles>
     </dx:ASPxGridView>
 </asp:Content>

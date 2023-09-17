@@ -27,6 +27,9 @@
             </EditForm>
             <FilterControl AutoUpdatePosition="False"></FilterControl>
         </SettingsPopup>
+        <Styles>
+            <Cell Wrap="False"></Cell>
+        </Styles>
     </dx:ASPxGridView>
 
 </asp:Content>

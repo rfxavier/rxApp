@@ -81,6 +81,7 @@
             </AlternatingRow>
             <TitlePanel Font-Size="Medium">
             </TitlePanel>
+            <Cell Wrap="False"></Cell>
         </Styles>
         <Toolbars>
             <dx:GridViewToolbar>
