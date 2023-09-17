@@ -23,11 +23,11 @@
                     <asp:LinkButton ID="LinkButton1" runat="server" OnClientClick="popup.ShowAtElement(this); return false;" Visible='<%#!GridUsers.IsNewRowEditing%>'>Editar senha</asp:LinkButton>
                 </EditItemTemplate>
             </dx:GridViewDataTextColumn>
-            <Styles>
-                <Cell Wrap="False"></Cell>
-            </Styles>
         </Columns>
         <SettingsBehavior ConfirmDelete="True" />
+        <Styles>
+            <Cell Wrap="False"></Cell>
+        </Styles>
     </dx:ASPxGridView>
     <dx:ASPxPopupControl ID="ASPxPopupControl1" runat="server" HeaderText="Editar senha" Width="307px" ClientInstanceName="popup">
         <ContentCollection>
