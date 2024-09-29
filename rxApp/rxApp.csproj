@@ -305,6 +305,7 @@
     <Content Include="frmAgyliti\GetLock\cnGridSemLoja\cnGridSemLoja.aspx" />
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridColetas.aspx" />
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridCortes.aspx" />
+    <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridTotalDepositos.aspx" />
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridOperacoes.aspx" />
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridDepositos.aspx" />
     <Content Include="frmAgyliti\GetLock\cnMovimentos\cnGridSaldoCofreMovimentos.aspx" />
@@ -836,6 +837,13 @@
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnMovimentos\cnGridCortes.aspx.designer.cs">
       <DependentUpon>cnGridCortes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnMovimentos\cnGridTotalDepositos.aspx.cs">
+      <DependentUpon>cnGridTotalDepositos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmAgyliti\GetLock\cnMovimentos\cnGridTotalDepositos.aspx.designer.cs">
+      <DependentUpon>cnGridTotalDepositos.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmAgyliti\GetLock\cnMovimentos\cnGridOperacoes.aspx.cs">
       <DependentUpon>cnGridOperacoes.aspx</DependentUpon>
