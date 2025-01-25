@@ -1158,6 +1158,14 @@
     <Compile Include="Migrations\202308142353443_v034.Designer.cs">
       <DependentUpon>202308142353443_v034.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202412302340142_v035.cs" />
+    <Compile Include="Migrations\202412302340142_v035.Designer.cs">
+      <DependentUpon>202412302340142_v035.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202501011921099_v036.cs" />
+    <Compile Include="Migrations\202501011921099_v036.Designer.cs">
+      <DependentUpon>202501011921099_v036.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1357,6 +1365,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202308142353443_v034.resx">
       <DependentUpon>202308142353443_v034.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202412302340142_v035.resx">
+      <DependentUpon>202412302340142_v035.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202501011921099_v036.resx">
+      <DependentUpon>202501011921099_v036.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

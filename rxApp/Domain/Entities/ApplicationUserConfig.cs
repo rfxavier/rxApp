@@ -23,7 +23,7 @@ namespace rxApp.Domain.Entities
                 .WithMany(c => c.ApplicationUsers)
                 .Map(uc => {
                     uc.MapLeftKey("UserId");
-                    uc.MapRightKey("CofreId");
+                    uc.MapRightKey("id_cofre");
                     uc.ToTable("AspNetUserCofres");
                 });
         }

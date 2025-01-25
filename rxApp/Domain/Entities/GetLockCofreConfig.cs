@@ -49,6 +49,16 @@ namespace rxApp.Domain.Entities
             this.Property(t => t.trackLastWriteTime).HasColumnName("trackLastWriteTime");
             this.Property(t => t.trackCreationTime).HasColumnName("trackCreationTime");
             this.Property(t => t.cod_loja).HasColumnName("cod_loja");
+
+            // Relationships
+            //this.HasMany<Models.ApplicationUser>(t => t.ApplicationUsers)
+            //    .WithMany(u => u.GetLockCofres)
+            //    .Map(m =>
+            //    {
+            //        m.MapLeftKey("id_cofre"); // Link to id_cofre
+            //        m.MapRightKey("UserId"); // ApplicationUser Id
+            //        m.ToTable("AspNetUserCofres");
+            //    });
         }
     }
 }
