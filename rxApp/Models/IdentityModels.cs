@@ -66,6 +66,7 @@ namespace rxApp.Models
         public DbSet<GetLockMessageAckUpdateFirmwareView> GetLockMessageAckUpdateFirmwareViews { get; set; }
         public DbSet<GetLockMessageAckUserAddEditRemove> GetLockMessageAckUserAddEditRemoves { get; set; }
         public DbSet<GetLockSaldoCofreView> GetLockSaldoCofreViews { get; set; }
+        public DbSet<GetLockSaldoCofre> GetLockSaldoCofres { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -121,6 +122,7 @@ namespace rxApp.Models
             modelBuilder.Configurations.Add(new GetLockMessageAckUpdateFirmwareViewConfig());
             modelBuilder.Configurations.Add(new GetLockMessageAckUserAddEditRemoveConfig());
             modelBuilder.Configurations.Add(new GetLockSaldoCofreViewConfig());
+            modelBuilder.Configurations.Add(new GetLockSaldoCofreConfig());
 
 
             base.OnModelCreating(modelBuilder);

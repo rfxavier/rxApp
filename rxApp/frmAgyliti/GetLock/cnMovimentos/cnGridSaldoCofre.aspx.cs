@@ -36,7 +36,7 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
         {
             //var ds = new EntityServerModeSource { QueryableSource = new ApplicationDbContext().GetLockMessageViews };
 
-            LinqServerModeDataSource lnsource = new LinqServerModeDataSource { ContextTypeName = "rxApp.Models.ApplicationDbContext", TableName = "GetLockSaldoCofreViews" };
+            LinqServerModeDataSource lnsource = new LinqServerModeDataSource { ContextTypeName = "rxApp.Models.ApplicationDbContext", TableName = "GetLockSaldoCofres" };
             lnsource.Selecting += EntityServerModeDataSource1_Selecting;
 
             ASPxGridView1.DataSource = lnsource;
@@ -78,7 +78,7 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
 
             e.KeyExpression = "id";
 
-            //var dsDebug = db.GetLockSaldoCofreViews.ToList();
+            //var dsDebug = db.GetLockSaldoCofres.ToList();
 
             if (User.IsInRole("User"))
             {
@@ -91,20 +91,20 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
                 {
                     var dateStart = (DateTime)Session["dateStart"];
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => g.id_loja == idLoja && g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => g.id_loja == idLoja && g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
                 }
                 else if (Session["dateStart"] != null && (Session["dateEnd"] == null))
                 {
                     var dateStart = (DateTime)Session["dateStart"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => g.id_loja == idLoja && g.data_tmst_end_datetime >= dateStart);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => g.id_loja == idLoja && g.data_tmst_end_datetime >= dateStart);
                 }
                 else if (Session["dateStart"] == null && (Session["dateEnd"] != null))
                 {
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => g.id_loja == idLoja && g.data_tmst_end_datetime <= dateEnd);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => g.id_loja == idLoja && g.data_tmst_end_datetime <= dateEnd);
                 }
 
-                // e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => g.id_loja == idLoja);
+                // e.QueryableSource = db.GetLockSaldoCofres.Where(g => g.id_loja == idLoja);
             }
             else if (User.IsInRole("UserClient"))
             {
@@ -118,39 +118,39 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
                     var selectedLojas = (List<long>)Session["selectedLojas"];
                     var dateStart = (DateTime)Session["dateStart"];
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => g.id_cliente == idCliente && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime.Value >= dateStart && g.data_tmst_end_datetime.Value <= dateEnd);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => g.id_cliente == idCliente && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime.Value >= dateStart && g.data_tmst_end_datetime.Value <= dateEnd);
                 }
                 else if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
                 {
                     var selectedLojas = (List<long>)Session["selectedLojas"];
                     var dateStart = (DateTime)Session["dateStart"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => g.id_cliente == idCliente && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime >= dateStart);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => g.id_cliente == idCliente && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime >= dateStart);
                 }
                 else if (Session["selectedLojas"] != null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
                 {
                     var selectedLojas = (List<long>)Session["selectedLojas"];
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => g.id_cliente == idCliente && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime <= dateEnd);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => g.id_cliente == idCliente && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime <= dateEnd);
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
                 {
                     var dateStart = (DateTime)Session["dateStart"];
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => g.id_cliente == idCliente && g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => g.id_cliente == idCliente && g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
                 {
                     var dateStart = (DateTime)Session["dateStart"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => g.id_cliente == idCliente && g.data_tmst_end_datetime >= dateStart);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => g.id_cliente == idCliente && g.data_tmst_end_datetime >= dateStart);
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
                 {
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => g.id_cliente == idCliente && g.data_tmst_end_datetime <= dateEnd);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => g.id_cliente == idCliente && g.data_tmst_end_datetime <= dateEnd);
                 }
                 else
                 {
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => g.id_cliente == idCliente && g.data_tmst_end_datetime >= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0) && g.data_tmst_end_datetime <= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 23, 59, 59));
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => g.id_cliente == idCliente && g.data_tmst_end_datetime >= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0) && g.data_tmst_end_datetime <= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 23, 59, 59));
                 }
             }
             else if (User.IsInRole("UserCofre"))
@@ -177,89 +177,89 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
                     var selectedLojas = (List<long>)Session["selectedLojas"];
                     var dateStart = (DateTime)Session["dateStart"];
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    //var dsDebug = db.GetLockSaldoCofreViews.Where(g => cofreList.Contains(g.id_cofre) && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime.Value >= dateStart && g.data_tmst_end_datetime.Value <= dateEnd).ToList();
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => cofreList.Contains(g.id_cofre) && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime.Value >= dateStart && g.data_tmst_end_datetime.Value <= dateEnd);
+                    //var dsDebug = db.GetLockSaldoCofres.Where(g => cofreList.Contains(g.id_cofre) && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime.Value >= dateStart && g.data_tmst_end_datetime.Value <= dateEnd).ToList();
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => cofreList.Contains(g.id_cofre) && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime.Value >= dateStart && g.data_tmst_end_datetime.Value <= dateEnd);
                 }
                 else if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
                 {
                     var selectedLojas = (List<long>)Session["selectedLojas"];
                     var dateStart = (DateTime)Session["dateStart"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => cofreList.Contains(g.id_cofre) && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime >= dateStart);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => cofreList.Contains(g.id_cofre) && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime >= dateStart);
                 }
                 else if (Session["selectedLojas"] != null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
                 {
                     var selectedLojas = (List<long>)Session["selectedLojas"];
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => cofreList.Contains(g.id_cofre) && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime <= dateEnd);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => cofreList.Contains(g.id_cofre) && selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime <= dateEnd);
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
                 {
                     var dateStart = (DateTime)Session["dateStart"];
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => cofreList.Contains(g.id_cofre) && g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => cofreList.Contains(g.id_cofre) && g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
                 {
                     var dateStart = (DateTime)Session["dateStart"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => cofreList.Contains(g.id_cofre) && g.data_tmst_end_datetime >= dateStart);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => cofreList.Contains(g.id_cofre) && g.data_tmst_end_datetime >= dateStart);
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
                 {
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => cofreList.Contains(g.id_cofre) && g.data_tmst_end_datetime <= dateEnd);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => cofreList.Contains(g.id_cofre) && g.data_tmst_end_datetime <= dateEnd);
                 }
                 else
                 {
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => cofreList.Contains(g.id_cofre) && g.data_tmst_end_datetime >= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0) && g.data_tmst_end_datetime <= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 23, 59, 59));
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => cofreList.Contains(g.id_cofre) && g.data_tmst_end_datetime >= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0) && g.data_tmst_end_datetime <= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 23, 59, 59));
                 }
             }
             else
             {
-                // e.QueryableSource = db.GetLockSaldoCofreViews;
+                // e.QueryableSource = db.GetLockSaldoCofres;
 
                 if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
                 {
                     var selectedLojas = (List<long>)Session["selectedLojas"];
                     var dateStart = (DateTime)Session["dateStart"];
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    //var dsDebug = db.GetLockSaldoCofreViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime.Value >= dateStart && g.data_tmst_end_datetime.Value <= dateEnd).ToList();
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime.Value >= dateStart && g.data_tmst_end_datetime.Value <= dateEnd);
+                    //var dsDebug = db.GetLockSaldoCofres.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime.Value >= dateStart && g.data_tmst_end_datetime.Value <= dateEnd).ToList();
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime.Value >= dateStart && g.data_tmst_end_datetime.Value <= dateEnd);
                 }
                 else if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
                 {
                     var selectedLojas = (List<long>)Session["selectedLojas"];
                     var dateStart = (DateTime)Session["dateStart"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime >= dateStart);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime >= dateStart);
                 }
                 else if (Session["selectedLojas"] != null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
                 {
                     var selectedLojas = (List<long>)Session["selectedLojas"];
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime <= dateEnd);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => selectedLojas.Contains(g.id_loja) && g.data_tmst_end_datetime <= dateEnd);
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
                 {
                     var dateStart = (DateTime)Session["dateStart"];
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => g.data_tmst_end_datetime >= dateStart && g.data_tmst_end_datetime <= dateEnd);
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] != null) && (Session["dateEnd"] == null))
                 {
                     var dateStart = (DateTime)Session["dateStart"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => g.data_tmst_end_datetime >= dateStart);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => g.data_tmst_end_datetime >= dateStart);
                 }
                 else if (Session["selectedLojas"] == null && (Session["dateStart"] == null) && (Session["dateEnd"] != null))
                 {
                     var dateEnd = (DateTime)Session["dateEnd"];
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => g.data_tmst_end_datetime <= dateEnd);
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => g.data_tmst_end_datetime <= dateEnd);
                 }
                 else
                 {
-                    e.QueryableSource = db.GetLockSaldoCofreViews.Where(g => g.data_tmst_end_datetime >= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0) && g.data_tmst_end_datetime <= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 23, 59, 59));
+                    e.QueryableSource = db.GetLockSaldoCofres.Where(g => g.data_tmst_end_datetime >= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 0, 0, 0) && g.data_tmst_end_datetime <= new DateTime(DateTime.Now.Date.Year, DateTime.Now.Date.Month, DateTime.Now.Date.Day, 23, 59, 59));
                 }
             }
 
-            // e.QueryableSource = db.GetLockSaldoCofreViews;
+            // e.QueryableSource = db.GetLockSaldoCofres;
         }
         protected void UpdatePanel(object sender, EventArgs e)
         {

@@ -691,6 +691,7 @@
     <Compile Include="Domain\Entities\GetLockLoja.cs" />
     <Compile Include="Domain\Entities\GetLockLojaConfig.cs" />
     <Compile Include="Domain\Entities\GetLockLojaClienteRedeView.cs" />
+    <Compile Include="Domain\Entities\GetLockSaldoCofre.cs" />
     <Compile Include="Domain\Entities\GetLockSaldoCofreView.cs" />
     <Compile Include="Domain\Entities\GetLockMessageView.cs" />
     <Compile Include="Domain\Entities\GetLockLojaClienteRedeViewConfig.cs" />
@@ -701,6 +702,7 @@
     <Compile Include="Domain\Entities\GetLockApiLogConfig.cs" />
     <Compile Include="Domain\Entities\GetLockRede.cs" />
     <Compile Include="Domain\Entities\GetLockRedeConfig.cs" />
+    <Compile Include="Domain\Entities\GetLockSaldoCofreConfig.cs" />
     <Compile Include="Domain\Entities\GetLockSaldoCofreViewConfig.cs" />
     <Compile Include="Domain\Entities\RsData.cs" />
     <Compile Include="Domain\Entities\RsDataConfig.cs" />
@@ -1166,6 +1168,10 @@
     <Compile Include="Migrations\202501011921099_v036.Designer.cs">
       <DependentUpon>202501011921099_v036.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202504191316394_v037.cs" />
+    <Compile Include="Migrations\202504191316394_v037.Designer.cs">
+      <DependentUpon>202504191316394_v037.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BasicAuthenticationAttribute.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -1371,6 +1377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202501011921099_v036.resx">
       <DependentUpon>202501011921099_v036.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202504191316394_v037.resx">
+      <DependentUpon>202504191316394_v037.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
