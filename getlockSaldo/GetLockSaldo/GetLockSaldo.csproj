@@ -102,5 +102,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SaldoCofre.Processor\SaldoCofre.Processor.csproj">
+      <Project>{90490127-326a-40e1-9987-781839bb17e7}</Project>
+      <Name>SaldoCofre.Processor</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,6 +13,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.UI;
+using SaldoCofre.Processor;
 
 namespace rxApp.frmAgyliti.GetLock.cnMovimentos
 {
@@ -215,6 +216,11 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
             }
             else
             {
+                if (Session["selectedLojas"] != null)
+                {
+                    var processor = new SaldoProcessor();
+                    processor.ProcessCofres();
+                }
                 // e.QueryableSource = db.GetLockSaldoCofres;
 
                 if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))

@@ -1,85 +1,82 @@
 ﻿using NLog;
-using SaldoCofre.Processor;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace GetLockSaldo
+namespace SaldoCofre.Processor
 {
-    class Program
+    public class SaldoProcessor
     {
         private static readonly Logger Log = LogManager.GetCurrentClassLogger();
-        static void Main(string[] args)
+
+        public void ProcessCofres()
         {
-            var processor = new SaldoProcessor();
-            processor.ProcessCofres();
+            try
+            {
+                Log.Info("Run started at " + DateTime.Now);
 
-            //try
-            //{
-            //    Log.Info("Run started at " + DateTime.Now);
+                string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-            //    string connectionString = ConfigurationManager.ConnectionStrings["MyDbConnection"].ConnectionString;
+                using (var connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
 
-            //    using (var connection = new SqlConnection(connectionString))
-            //    {
-            //        connection.Open();
+                    var cofres = GetCofreList(connection);
+                    var allSnapshots = GetAllSnapshots(connection);
+                    var snapshotByCofreId = allSnapshots
+                        .GroupBy(s => s.IdCofre)
+                        .ToDictionary(g => g.Key, g => g.OrderByDescending(s => s.DataTmstEndDatetime).First());
 
-            //        var cofres = GetCofreList(connection);
-            //        var allSnapshots = GetAllSnapshots(connection);
-            //        var snapshotByCofreId = allSnapshots
-            //            .GroupBy(s => s.IdCofre)
-            //            .ToDictionary(g => g.Key, g => g.OrderByDescending(s => s.DataTmstEndDatetime).First());
+                    foreach (var cofre in cofres)
+                    {
+                        snapshotByCofreId.TryGetValue(cofre.IdCofre, out var snapshot);
 
-            //        foreach (var cofre in cofres)
-            //        {
-            //            snapshotByCofreId.TryGetValue(cofre.IdCofre, out var snapshot);
+                        var message = snapshot != null
+                            ? GetLatestMessageAfter(connection, cofre.IdCofre, snapshot.DataTmstEndDatetime)
+                            : GetLatestMessageOverall(connection, cofre.IdCofre);
 
-            //            var message = snapshot != null
-            //                ? GetLatestMessageAfter(connection, cofre.IdCofre, snapshot.DataTmstEndDatetime)
-            //                : GetLatestMessageOverall(connection, cofre.IdCofre);
+                        Log.Info($"Cofre: {cofre.CofreId}, Nome: {cofre.CofreNome}, Balance: {message?.Balance}, InfoID: {message?.InfoId}, Time: {message?.DataTmstEndDatetime}");
 
-            //            Log.Info($"Cofre: {cofre.CofreId}, Nome: {cofre.CofreNome}, Balance: {message?.Balance}, InfoID: {message?.InfoId}, Time: {message?.DataTmstEndDatetime}");
+                        if (message != null)
+                        {
+                            Log.Info($"Resolved message for cofre {cofre.IdCofre}: {message.Balance}");
 
-            //            if (message != null)
-            //            {
-            //                Log.Info($"Resolved message for cofre {cofre.IdCofre}: {message.Balance}");
+                            // ✅ Convert CofreInfo → CofreData
+                            var cofreData = new CofreData
+                            {
+                                IdCofre = cofre.IdCofre,
+                                CofreNome = cofre.CofreNome,
+                                CodLoja = cofre.CodLoja,
+                                IdLoja = cofre.LojaId,
+                                CodCliente = cofre.CodCliente,
+                                IdCliente = cofre.ClienteId
+                            };
 
-            //                // ✅ Convert CofreInfo → CofreData
-            //                var cofreData = new CofreData
-            //                {
-            //                    IdCofre = cofre.IdCofre,
-            //                    CofreNome = cofre.CofreNome,
-            //                    CodLoja = cofre.CodLoja,
-            //                    IdLoja = cofre.LojaId,
-            //                    CodCliente = cofre.CodCliente,
-            //                    IdCliente = cofre.ClienteId
-            //                };
+                            // ✅ Convert MessageInfo → MessageData
+                            var messageData = new MessageData
+                            {
+                                IdCofre = message.IdCofre,
+                                DataTmstEndDatetime = message.DataTmstEndDatetime,
+                                InfoId = message.InfoId,
+                                Balance = message.Balance,
+                                BalanceId = message.BalanceId
+                            };
 
-            //                // ✅ Convert MessageInfo → MessageData
-            //                var messageData = new MessageData
-            //                {
-            //                    IdCofre = message.IdCofre,
-            //                    DataTmstEndDatetime = message.DataTmstEndDatetime,
-            //                    InfoId = message.InfoId,
-            //                    Balance = message.Balance,
-            //                    BalanceId = message.BalanceId
-            //                };
+                            UpsertSaldoCofreSnapshot(connection, cofreData, messageData);
+                        }
+                    }
+                }
 
-            //                UpsertSaldoCofreSnapshot(connection, cofreData, messageData);
-            //            }
-            //        }
-            //    }
-
-            //    Log.Info("Run completed successfully at " + DateTime.Now);
-            //    Environment.ExitCode = 0; // Success
-            //}
-            //catch (Exception ex)
-            //{
-            //    Log.Error("Run failed: " + ex.ToString());
-            //    Environment.ExitCode = 1; // Failure
-            //}
+                Log.Info("Run completed successfully at " + DateTime.Now);
+                Environment.ExitCode = 0; // Success
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Run failed: " + ex.ToString());
+                Environment.ExitCode = 1; // Failure
+            }
         }
 
         static List<CofreInfo> GetCofreList(SqlConnection connection)
