@@ -87,6 +87,12 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
                 var loja = db.GetLockLojas.FirstOrDefault(l => l.id == user.GetLockLojaId);
 
                 var idLoja = loja?.id;
+                if (idLoja != null)
+                {
+                    var processor = new SaldoProcessor();
+                    processor.ProcessCofres(null, new List<long> { idLoja ?? 0 }, null);
+                }
+
 
                 if (Session["dateStart"] != null && (Session["dateEnd"] != null))
                 {
@@ -113,6 +119,12 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
                 var cliente = db.GetLockClientes.FirstOrDefault(l => l.id == user.GetLockClienteId);
 
                 var idCliente = cliente?.id;
+
+                if (idCliente != null && Session["selectedLojas"] != null)
+                {
+                    var processor = new SaldoProcessor();
+                    processor.ProcessCofres(null, null, idCliente);
+                }
 
                 if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
                 {
@@ -173,6 +185,12 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
 
                 var cofreList = user.GetLockCofres.Select(c => c.id_cofre).ToList();
 
+                if (cofreList.Any() && Session["selectedLojas"] != null)
+                {
+                    var processor = new SaldoProcessor();
+                    processor.ProcessCofres(cofreList, null, null);
+                }
+
                 if (Session["selectedLojas"] != null && (Session["dateStart"] != null) && (Session["dateEnd"] != null))
                 {
                     var selectedLojas = (List<long>)Session["selectedLojas"];
@@ -218,8 +236,10 @@ namespace rxApp.frmAgyliti.GetLock.cnMovimentos
             {
                 if (Session["selectedLojas"] != null)
                 {
+                    var selectedLojas = (List<long>)Session["selectedLojas"];
+
                     var processor = new SaldoProcessor();
-                    processor.ProcessCofres();
+                    processor.ProcessCofres(null, selectedLojas, null);
                 }
                 // e.QueryableSource = db.GetLockSaldoCofres;
 

@@ -11,7 +11,10 @@ namespace SaldoCofre.Processor
     {
         private static readonly Logger Log = LogManager.GetCurrentClassLogger();
 
-        public void ProcessCofres()
+        public void ProcessCofres(
+            List<string> idCofreList = null,
+            List<long> idLojaList = null,
+            long? idCliente = null)
         {
             try
             {
@@ -23,7 +26,7 @@ namespace SaldoCofre.Processor
                 {
                     connection.Open();
 
-                    var cofres = GetCofreList(connection);
+                    var cofres = GetCofreList(connection, idCofreList, idLojaList, idCliente);
                     var allSnapshots = GetAllSnapshots(connection);
                     var snapshotByCofreId = allSnapshots
                         .GroupBy(s => s.IdCofre)
@@ -79,32 +82,71 @@ namespace SaldoCofre.Processor
             }
         }
 
-        static List<CofreInfo> GetCofreList(SqlConnection connection)
+        static List<CofreInfo> GetCofreList(
+            SqlConnection connection,
+            List<string> idCofreList = null,
+            List<long> idLojaList = null,
+            long? idCliente = null)
         {
             var result = new List<CofreInfo>();
 
             string sql = @"
-            SELECT c.id AS CofreId, c.id_cofre, c.nome AS CofreNome, c.cod_loja,
-                    l.id AS LojaId, l.cod_cliente, cli.id AS ClienteId
-            FROM dbo.cofre c
-            JOIN dbo.loja l ON c.cod_loja = l.cod_loja
-            JOIN dbo.cliente cli ON l.cod_cliente = cli.cod_cliente";
+                SELECT c.id AS CofreId, c.id_cofre, c.nome AS CofreNome, c.cod_loja,
+                        l.id AS LojaId, l.cod_cliente, cli.id AS ClienteId
+                FROM dbo.cofre c
+                JOIN dbo.loja l ON c.cod_loja = l.cod_loja
+                JOIN dbo.cliente cli ON l.cod_cliente = cli.cod_cliente
+                WHERE 1=1";
+
+            var parameters = new List<SqlParameter>();
+
+            if (idCofreList != null && idCofreList.Any())
+            {
+                var cofreParams = idCofreList
+                    .Select((id, index) => {
+                        var param = new SqlParameter($"@idCofre{index}", id);
+                        parameters.Add(param);
+                        return param.ParameterName;
+                    });
+                sql += $" AND c.id_cofre IN ({string.Join(", ", cofreParams)})";
+            }
+
+            if (idLojaList != null && idLojaList.Any())
+            {
+                var lojaParams = idLojaList
+                    .Select((id, index) => {
+                        var param = new SqlParameter($"@idLoja{index}", id);
+                        parameters.Add(param);
+                        return param.ParameterName;
+                    });
+                sql += $" AND l.id IN ({string.Join(", ", lojaParams)})";
+            }
+
+            if (idCliente.HasValue)
+            {
+                sql += " AND cli.id = @idCliente";
+                parameters.Add(new SqlParameter("@idCliente", idCliente.Value));
+            }
 
             using (var cmd = new SqlCommand(sql, connection))
-            using (var reader = cmd.ExecuteReader())
             {
-                while (reader.Read())
+                cmd.Parameters.AddRange(parameters.ToArray());
+
+                using (var reader = cmd.ExecuteReader())
                 {
-                    result.Add(new CofreInfo
+                    while (reader.Read())
                     {
-                        CofreId = (long)reader["CofreId"],
-                        IdCofre = reader["id_cofre"].ToString(),
-                        CofreNome = reader["CofreNome"].ToString(),
-                        CodLoja = reader["cod_loja"].ToString(),
-                        LojaId = (long)reader["LojaId"],
-                        CodCliente = reader["cod_cliente"].ToString(),
-                        ClienteId = (long)reader["ClienteId"]
-                    });
+                        result.Add(new CofreInfo
+                        {
+                            CofreId = (long)reader["CofreId"],
+                            IdCofre = reader["id_cofre"].ToString(),
+                            CofreNome = reader["CofreNome"].ToString(),
+                            CodLoja = reader["cod_loja"].ToString(),
+                            LojaId = (long)reader["LojaId"],
+                            CodCliente = reader["cod_cliente"].ToString(),
+                            ClienteId = (long)reader["ClienteId"]
+                        });
+                    }
                 }
             }
 
