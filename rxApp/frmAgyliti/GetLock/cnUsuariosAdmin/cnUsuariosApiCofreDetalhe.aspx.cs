@@ -53,8 +53,8 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuariosAdmin
 
                 comboColumn.PropertiesComboBox.DataSource = dsCombo;
                 comboColumn.PropertiesComboBox.TextField = "DisplayText";
-                comboColumn.PropertiesComboBox.ValueField = "CofreId";
-                comboColumn.PropertiesComboBox.ValueType = typeof(long);
+                comboColumn.PropertiesComboBox.ValueField = "Id_cofre";
+                comboColumn.PropertiesComboBox.ValueType = typeof(string);
 
                 ASPxGridView1.DataBind();
             }
@@ -92,7 +92,7 @@ namespace rxApp.frmAgyliti.GetLock.cnUsuariosAdmin
 
         protected void ASPxGridView1_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
         {
-            long cofreId = Convert.ToInt32(e.NewValues["CofreId"]);
+            string cofreId = (string)e.NewValues["CofreId"];
 
             //var cofre = db.GetLockCofres.FirstOrDefault(c => c.id == cofreId );
 
